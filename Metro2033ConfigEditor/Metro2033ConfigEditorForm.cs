@@ -1,0 +1,423 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms;
+
+namespace Metro2033ConfigEditor
+{
+    public partial class Metro2033ConfigEditorForm : Form
+    {
+        public string _STEAM_INSTALL_PATH;   // C:\Program Files (x86)\Steam
+        public string _LOCAL_CONFIG_PATH;    // C:\Users\username\AppData\Local\4A Games\Metro 2033\user.cfg
+        public string _REMOTE_CONFIG_PATH;   // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
+        public string _GAME_INSTALL_PATH;    // D:\Games\SteamLibrary\steamapps\common\Metro 2033
+        public string _GAME_EXECUTABLE_PATH; // D:\Games\SteamLibrary\steamapps\common\Metro 2033\metro2033.exe
+        public bool _skipIntroInitialState;
+        
+        public Dictionary<string, string> _dictionary;
+        public Dictionary<string, string> _dictionaryUponClosure;
+        
+        public Metro2033ConfigEditorForm()
+        {
+            InitializeComponent();
+            
+            _STEAM_INSTALL_PATH   = Helper.getSteamInstallPath();
+            _LOCAL_CONFIG_PATH    = Helper.getLocalCfgPath();
+            _REMOTE_CONFIG_PATH   = Helper.getRemoteCfgPath();
+            _GAME_INSTALL_PATH    = Helper.getGameInstallPath();
+            _GAME_EXECUTABLE_PATH = Helper.getGameExecutablePath();
+            _skipIntroInitialState = false;
+            
+            _dictionary = new Dictionary<string, string>();
+        }
+        
+        private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxSteamInstallPath.Text   = _STEAM_INSTALL_PATH;
+                textBoxLocalConfigPath.Text    = _LOCAL_CONFIG_PATH;
+                textBoxRemoteConfigPath.Text   = _REMOTE_CONFIG_PATH;
+                textBoxGameExecutablePath.Text = _GAME_EXECUTABLE_PATH;
+                
+                // Disable buttons
+                buttonReload.Enabled           = _REMOTE_CONFIG_PATH != null;
+                buttonSave.Enabled             = buttonReload.Enabled;
+                buttonStartGameNoSteam.Enabled = _GAME_INSTALL_PATH != null;
+                buttonStartGameSteam.Enabled   = _STEAM_INSTALL_PATH != null;
+                
+                readConfigFile();
+                
+                // Initialize comboBoxResolution to "Custom resolution"
+                comboBoxResolution.SelectedIndex = comboBoxResolution.Items.Count - 1;
+                readSettings();
+            }
+            catch
+            {
+                DialogResult result = MessageBox.Show("It appears we were not able to locate your remote config file for Metro2033, please run the game at least once to generate it.\n\nYou can also point to its location by using the corresponding Browse button (it should be located in your Steam userdata directory).\n\nDo you want to run the game now?", "Config not found", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.Yes)
+                    buttonStartGameSteam.PerformClick();
+            }
+        }
+        
+        private void Metro2033ConfigEditorForm_Closing(object sender, FormClosingEventArgs e)
+        {
+            if (haveSettingsChanged())
+            {
+                DialogResult result = MessageBox.Show("You have unsaved changes, do you want to keep them?", "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.Yes)
+                    buttonSave.PerformClick();
+                
+                // Do not close the form if the user pressed Cancel
+                e.Cancel = result == DialogResult.Cancel;
+            }
+        }
+        
+        private void readConfigFile()
+        {
+            string[] fileLines = File.ReadAllLines(_REMOTE_CONFIG_PATH);
+            
+            // Parse the content of the remote config and store every line in a dictionary
+            foreach (string fileLine in fileLines)
+            {
+                // Split the line using SPACE as a delimiter
+                string[] splitLines = fileLine.Split(' ');
+                // If we have 0 or 2+ SPACE characters, use the whole line as a key
+                if (splitLines.Length == 1 || splitLines.Length > 2)
+                    _dictionary[fileLine] = "";
+                // If we have 1 SPACE character, use the 1st part as a key and the 2nd part as a value
+                else if (splitLines.Length == 2)
+                    _dictionary[splitLines[0]] = splitLines[1];
+            }
+        }
+        
+        private void readSettings()
+        {
+            // Checkboxes
+            checkBoxSubtitles.Checked          = _dictionary["_show_subtitles"]      == "1";
+            checkBoxFastWeaponChange.Checked   = _dictionary["fast_wpn_change"]      == "1";
+            checkBoxLaserCrosshair.Checked     = _dictionary["g_laser"]              == "1";
+            checkBoxHints.Checked              = _dictionary["g_quick_hints"]        == "1";
+            checkBoxCrosshair.Checked          = _dictionary["g_show_crosshair"]     == "on";
+            checkBoxScreenshotMode.Checked     = _dictionary["r_hud_weapon"]         == "off";
+            checkBoxShowStats.Checked          = _dictionary["stats"]                == "on";
+            checkBoxSkipIntro.Checked          = File.Exists(_GAME_INSTALL_PATH + @"\content.upk9");
+            checkBoxAdvancedPhysX.Checked      = _dictionary["ph_advanced_physX"]    == "1";
+            checkBoxDepthOfField.Checked       = _dictionary["r_dx11_dof"]           == "1";
+            checkBoxTessellation.Checked       = _dictionary["r_dx11_tess"]          == "1";
+            checkBoxFullscreen.Checked         = _dictionary["r_fullscreen"]         == "on";
+            checkBoxGlobalIllumination.Checked = _dictionary["r_gi"]                 == "1";
+            checkBoxVsync.Checked              = _dictionary["r_vsync"]              == "on";
+            
+            // Comboboxes
+            comboBoxDifficulty.Text            = Helper.convertNumberToDifficulty(_dictionary["g_game_difficulty"]);
+            comboBoxVoiceLanguage.Text         = Helper.convertCodeToLanguage(_dictionary["lang_sound"]);
+            comboBoxTextLanguage.Text          = Helper.convertCodeToLanguage(_dictionary["lang_text"]);
+            comboBoxTextureFiltering.Text      = _dictionary["r_af_level"] == "0" ? "AF 4X" : "AF 16X";
+            comboBoxDirectX.Text               = Helper.convertNumberToDirectX(_dictionary["r_api"]);
+            comboBoxAntialiasing.Text          = _dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
+            comboBoxQuality.Text               = Helper.convertNumberToQualityLevel(_dictionary["r_quality_level"]);
+            comboBoxResolution.Text            = _dictionary["r_res_hor"] + " x " + _dictionary["r_res_vert"];
+            
+            // Spinners
+            spinnerMouseSensitivity.Value      = Decimal.Parse(_dictionary["mouse_sens"]);
+            spinnerMouseAimSensitivity.Value   = Decimal.Parse(_dictionary["mouse_aim_sens"]);
+            spinnerMasterVolume.Value          = Decimal.Parse(_dictionary["s_master_volume"]);
+            spinnerMusicVolume.Value           = Decimal.Parse(_dictionary["s_music_volume"]);
+            spinnerGamma.Value                 = Decimal.Parse(_dictionary["r_gamma"]);
+            spinnerFov.Value                   = Decimal.Parse(_dictionary["sick_fov"]);
+            
+            _skipIntroInitialState             = checkBoxSkipIntro.Checked;
+        }
+        
+        private void writeSettings(Dictionary<string, string> dictionary)
+        {
+            // Checkboxes
+            dictionary["_show_subtitles"]   = checkBoxSubtitles.Checked ? "1" : "0";
+            dictionary["fast_wpn_change"]   = checkBoxFastWeaponChange.Checked ? "1" : "0";
+            dictionary["g_laser"]           = checkBoxLaserCrosshair.Checked ? "1" : "0";
+            dictionary["g_quick_hints"]     = checkBoxHints.Checked ? "1" : "0";
+            dictionary["g_show_crosshair"]  = checkBoxCrosshair.Checked ? "on" : "off";
+            dictionary["r_hud_weapon"]      = checkBoxScreenshotMode.Checked ? "off" : "on";
+            dictionary["stats"]             = checkBoxShowStats.Checked ? "on" : "off";
+            dictionary["ph_advanced_physX"] = checkBoxAdvancedPhysX.Checked ? "1" : "0";
+            dictionary["r_dx11_dof"]        = checkBoxDepthOfField.Checked ? "1" : "0";
+            dictionary["r_dx11_tess"]       = checkBoxTessellation.Checked ? "1" : "0";
+            dictionary["r_fullscreen"]      = checkBoxFullscreen.Checked ? "on" : "off";
+            dictionary["r_gi"]              = checkBoxGlobalIllumination.Checked ? "1" : "0";
+            dictionary["r_vsync"]           = checkBoxVsync.Checked ? "on" : "off";
+            
+            // Comboboxes
+            dictionary["g_game_difficulty"] = Helper.convertDifficultyToNumber(comboBoxDifficulty.Text);
+            dictionary["lang_sound"]        = Helper.convertLanguageToCode(comboBoxVoiceLanguage.Text);
+            dictionary["lang_text"]         = Helper.convertLanguageToCode(comboBoxTextLanguage.Text);
+            dictionary["r_af_level"]        = comboBoxTextureFiltering.Text == "AF 4X" ? "0" : "1";
+            dictionary["r_api"]             = Helper.convertDirectXToNumber(comboBoxDirectX.Text);
+            dictionary["r_msaa_level"]      = comboBoxAntialiasing.Text == "AAA" ? "0" : "1";
+            dictionary["r_quality_level"]   = Helper.convertQualityLevelToNumber(comboBoxQuality.Text);
+            
+            // Spinners
+            dictionary["mouse_sens"]        = spinnerMouseSensitivity.Value.ToString();
+            dictionary["mouse_aim_sens"]    = spinnerMouseAimSensitivity.Value.ToString();
+            dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString();
+            dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString();
+            dictionary["r_gamma"]           = spinnerGamma.Value.ToString();
+            dictionary["sick_fov"]          = spinnerFov.Value.ToString() + ".";
+            
+            // Textboxes
+            dictionary["r_res_hor"]         = textBoxWidth.Text;
+            dictionary["r_res_vert"]        = textBoxHeight.Text;
+        }
+        
+        private bool writeConfigFile()
+        {
+            try
+            {
+                string fileLines = "";
+                
+                // Parse the content of the dictionary to reconstruct the lines
+                foreach (string key in _dictionary.Keys)
+                {
+                    if (_dictionary[key] == "")
+                        fileLines += key + "\r\n";
+                    else
+                        fileLines += key + " " + _dictionary[key] + "\r\n";
+                }
+                
+                // Write everything back to the config
+                File.WriteAllText(_REMOTE_CONFIG_PATH, fileLines);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        
+        private bool haveSettingsChanged()
+        {
+            _dictionaryUponClosure = new Dictionary<string, string>(_dictionary);
+            writeSettings(_dictionaryUponClosure);
+            
+            // Check if the state of the SkipIntro checkbox has changed
+            if (_skipIntroInitialState != checkBoxSkipIntro.Checked)
+                return true;
+            
+            // Compare the content of dictionaries
+            foreach(string key in _dictionary.Keys)
+            {
+                if (_dictionary[key] != _dictionaryUponClosure[key])
+                    return true;
+            }
+            
+            return false;
+        }
+        
+        // EVENT HANDLERS
+        private void buttonSteamInstallPath_Click(object sender, EventArgs e)
+        {
+            // Show the dialog and get result.
+            var FD = new FolderBrowserDialog();
+            
+            if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                _STEAM_INSTALL_PATH = FD.SelectedPath.ToLower();
+                buttonStartGameSteam.Enabled = File.Exists(_STEAM_INSTALL_PATH + @"\Steam.exe");
+                textBoxSteamInstallPath.Text = _STEAM_INSTALL_PATH;
+            }
+        }
+        
+        private void buttonBrowseLocalConfig_Click(object sender, EventArgs e)
+        {
+            // Show the dialog and get result.
+            var FD = new OpenFileDialog
+            {
+                Filter = "Metro 2033 config file|user.cfg",
+                InitialDirectory = Helper.getLocalCfgDirectory()
+            };
+            
+            if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                _LOCAL_CONFIG_PATH = FD.FileName.ToLower();
+                textBoxLocalConfigPath.Text = _LOCAL_CONFIG_PATH;
+            }
+        }
+        
+        private void buttonBrowseRemoteConfig_Click(object sender, EventArgs e)
+        {
+            // Show the dialog and get result.
+            var FD = new OpenFileDialog
+            {
+                Filter = "Metro 2033 config file|user.cfg",
+                InitialDirectory = _STEAM_INSTALL_PATH + @"\userdata"
+            };
+            
+            if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                _REMOTE_CONFIG_PATH = FD.FileName.ToLower();
+                textBoxRemoteConfigPath.Text = _REMOTE_CONFIG_PATH;
+                buttonReload.Enabled = true;
+                buttonSave.Enabled = true;
+            }
+        }
+        
+        private void buttonBrowseGameExecutable_Click(object sender, EventArgs e)
+        {
+            // Show the dialog and get result.
+            var FD = new OpenFileDialog
+            {
+                Filter = "Metro 2033 executable|*.exe",
+                InitialDirectory = _GAME_INSTALL_PATH
+            };
+            
+            if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                _GAME_INSTALL_PATH = FD.FileName.Replace(FD.SafeFileName, "").ToLower();
+                _GAME_EXECUTABLE_PATH = FD.FileName.ToLower();
+                textBoxGameExecutablePath.Text = _GAME_EXECUTABLE_PATH;
+                buttonStartGameNoSteam.Enabled = true;
+            }
+        }
+        
+        private void comboBoxResolution_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Change the content of the width/height textboxes according to selected resolution
+            if (comboBoxResolution.Text == "Custom resolution")
+            {
+                textBoxWidth.Text  = _dictionary["r_res_hor"];
+                textBoxHeight.Text = _dictionary["r_res_vert"];
+            }
+            else
+            {
+                textBoxWidth.Text  = comboBoxResolution.Text.Split('x')[0].Trim();
+                textBoxHeight.Text = comboBoxResolution.Text.Split('x')[1].Trim();
+            }
+            
+            // Show the width/height textboxes only when selecting "Custom resolution"
+            labelWidth.Visible    = comboBoxResolution.Text == "Custom resolution";
+            textBoxWidth.Visible  = comboBoxResolution.Text == "Custom resolution";
+            labelHeight.Visible   = comboBoxResolution.Text == "Custom resolution";
+            textBoxHeight.Visible = comboBoxResolution.Text == "Custom resolution";
+        }
+        
+        private void comboBoxQuality_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxQuality.SelectedIndex == 0)
+            {
+                labelMotionBlurValue.Text                   = "Disabled";
+                labelSkinShadingValue.Text                  = "Disabled";
+                labelBumpMappingValue.Text                  = "Coarse";
+                labelSoftParticlesValue.Text                = "Disabled";
+                labelShadowResolutionValue.Text             = "2.35 Mpix";
+                labelLightMaterialInteractionValue.Text     = "Normal";
+                labelGeometricDetailValue.Text              = "Low";
+                labelDetailTexturingValue.Text              = "Disabled";
+                labelAmbientOcclusionValue.Text             = "Approximate";
+                labelImagePostProcessingValue.Text          = "Normal";
+                labelParallaxMappingValue.Text              = "Disabled";
+                labelShadowFilteringValue.Text              = "Fast";
+                labelAnalyticalAntiAliasingValue.Text       = "Disabled";
+                labelVolumetricTexturingValue.Text          = "Disabled";
+            }
+            else if (comboBoxQuality.SelectedIndex == 1)
+            {
+                labelMotionBlurValue.Text                   = "Disabled";
+                labelSkinShadingValue.Text                  = "Disabled";
+                labelBumpMappingValue.Text                  = "Coarse";
+                labelSoftParticlesValue.Text                = "Disabled";
+                labelShadowResolutionValue.Text             = "4.19 Mpix";
+                labelLightMaterialInteractionValue.Text     = "Normal";
+                labelGeometricDetailValue.Text              = "Normal";
+                labelDetailTexturingValue.Text              = "Enabled";
+                labelAmbientOcclusionValue.Text             = "Approximate";
+                labelImagePostProcessingValue.Text          = "Normal";
+                labelParallaxMappingValue.Text              = "Disabled";
+                labelShadowFilteringValue.Text              = "Normal";
+                labelAnalyticalAntiAliasingValue.Text       = "Disabled";
+                labelVolumetricTexturingValue.Text          = "Disabled";
+            }
+            else if (comboBoxQuality.SelectedIndex == 2)
+            {
+                labelMotionBlurValue.Text                   = "Camera";
+                labelSkinShadingValue.Text                  = "Simple";
+                labelBumpMappingValue.Text                  = "Precise";
+                labelSoftParticlesValue.Text                = "Enabled";
+                labelShadowResolutionValue.Text             = "6.55 Mpix";
+                labelLightMaterialInteractionValue.Text     = "Normal";
+                labelGeometricDetailValue.Text              = "High";
+                labelDetailTexturingValue.Text              = "Enabled";
+                labelAmbientOcclusionValue.Text             = "Precomputed + SSAO";
+                labelImagePostProcessingValue.Text          = "Full";
+                labelParallaxMappingValue.Text              = "Enabled";
+                labelShadowFilteringValue.Text              = "Hi-quality";
+                labelAnalyticalAntiAliasingValue.Text       = "Disabled";
+                labelVolumetricTexturingValue.Text          = "Low-precision, disabled for sun";
+            }
+            else
+            {
+                labelMotionBlurValue.Text                   = "Camera + objects (DX10+)";
+                labelSkinShadingValue.Text                  = "Sub-scattering";
+                labelBumpMappingValue.Text                  = "Precise";
+                labelSoftParticlesValue.Text                = "Enabled";
+                labelShadowResolutionValue.Text             = "9.43 Mpix";
+                labelLightMaterialInteractionValue.Text     = "Full";
+                labelGeometricDetailValue.Text              = "Very high";
+                labelDetailTexturingValue.Text              = "Enabled";
+                labelAmbientOcclusionValue.Text             = "Precomputed + SSAO";
+                labelImagePostProcessingValue.Text          = "Full";
+                labelParallaxMappingValue.Text              = "Enabled with occlusion";
+                labelShadowFilteringValue.Text              = "Hi-quality";
+                labelAnalyticalAntiAliasingValue.Text       = "Enabled";
+                labelVolumetricTexturingValue.Text          = "Full quality, including sun";
+            }
+        }
+        
+        private void comboBoxDirectX_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Disable antialiasing in DX9
+            comboBoxAntialiasing.Enabled = comboBoxDirectX.Text != "DirectX 9";
+            
+            // Disable DX11 features in DX9/10
+            groupBoxDirectX11.Enabled = comboBoxDirectX.Text == "DirectX 11";
+        }
+        
+        private void linkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabelAuthor.LinkVisited = true;
+            Process.Start("https://github.com/GenesisFR");
+        }
+        
+        private void buttonReload_Click(object sender, EventArgs e)
+        {
+            readConfigFile();
+            readSettings();
+        }
+        
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            writeSettings(_dictionary);
+            
+            if (writeConfigFile() &&
+                Helper.copyCfgFile(_REMOTE_CONFIG_PATH, _LOCAL_CONFIG_PATH) &&
+                Helper.copyNoIntroFix(checkBoxSkipIntro.Checked))
+            {
+                MessageBox.Show("Your config file has been successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        
+        private void buttonStartGameNoSteam_Click(object sender, EventArgs e)
+        {
+            Process proc = new Process();
+            proc.StartInfo.WorkingDirectory = _GAME_INSTALL_PATH;
+            proc.StartInfo.FileName = _GAME_EXECUTABLE_PATH;
+            proc.Start();
+            proc.Close();
+        }
+        
+        private void buttonStartGameSteam_Click(object sender, EventArgs e)
+        {
+            Process.Start("steam://run/43110");
+        }
+    }
+}
