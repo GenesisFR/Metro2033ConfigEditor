@@ -15,6 +15,7 @@ namespace Metro2033ConfigEditor
         public string _GAME_EXECUTABLE_PATH; // D:\Games\SteamLibrary\steamapps\common\Metro 2033\metro2033.exe
         public bool _skipIntroInitialState;
         
+        public ToolTip _toolTip;
         public Dictionary<string, string> _dictionary;
         public Dictionary<string, string> _dictionaryUponClosure;
         
@@ -22,13 +23,16 @@ namespace Metro2033ConfigEditor
         {
             InitializeComponent();
             
+            _toolTip = new ToolTip();
+            _toolTip.AutoPopDelay = 30000; // Display tooltips for longer
+            addTooltips();
+            
             _STEAM_INSTALL_PATH   = Helper.getSteamInstallPath();
             _LOCAL_CONFIG_PATH    = Helper.getLocalCfgPath();
             _REMOTE_CONFIG_PATH   = Helper.getRemoteCfgPath();
             _GAME_INSTALL_PATH    = Helper.getGameInstallPath();
             _GAME_EXECUTABLE_PATH = Helper.getGameExecutablePath();
             _skipIntroInitialState = false;
-            
             _dictionary = new Dictionary<string, string>();
         }
         
@@ -72,6 +76,17 @@ namespace Metro2033ConfigEditor
                 // Do not close the form if the user pressed Cancel
                 e.Cancel = result == DialogResult.Cancel;
             }
+        }
+        
+        private void addTooltips()
+        {
+            _toolTip.SetToolTip(checkBoxSkipIntro,          "Skips intro logos and intro cutscene.");
+            _toolTip.SetToolTip(checkBoxScreenshotMode,     "Completely hides your weapon. You can combine it with the Ranger Hardcore difficulty to completely hide your HUD.");
+            _toolTip.SetToolTip(checkBoxShowStats,          "Displays debug information such as framerate, draw count, etc.");
+            _toolTip.SetToolTip(spinnerFov,                 "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
+            _toolTip.SetToolTip(checkBoxFullscreen,         "Uncheck to play the game in windowed mode. To play borderless fullscreen, change your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so the taskbar will still be visible.");
+            _toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might actually be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different system that works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
+            _toolTip.SetToolTip(checkBoxVsync,              "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact performance.\nFor some reason, enabling Vsync will disable stereoscopy, thus boosting your framerate.");
         }
         
         private void readConfigFile()
@@ -224,7 +239,7 @@ namespace Metro2033ConfigEditor
             {
                 _STEAM_INSTALL_PATH = FD.SelectedPath.ToLower();
                 buttonStartGameSteam.Enabled = File.Exists(_STEAM_INSTALL_PATH + @"\Steam.exe");
-                textBoxSteamInstallPath.Text = _STEAM_INSTALL_PATH;
+                textBoxSteamInstallPath.Text = buttonStartGameSteam.Enabled ? _STEAM_INSTALL_PATH : "Steam executable not found";
             }
         }
         

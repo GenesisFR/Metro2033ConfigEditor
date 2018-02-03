@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Metro2033ConfigEditorForm));
             this.buttonReload = new System.Windows.Forms.Button();
             this.labelLocalConfigPath = new System.Windows.Forms.Label();
             this.textBoxLocalConfigPath = new System.Windows.Forms.TextBox();
@@ -868,7 +869,7 @@
             this.groupBoxDescription.Size = new System.Drawing.Size(400, 217);
             this.groupBoxDescription.TabIndex = 89;
             this.groupBoxDescription.TabStop = false;
-            this.groupBoxDescription.Text = "Description";
+            this.groupBoxDescription.Text = "Quality settings";
             // 
             // labelVolumetricTexturingValue
             // 
@@ -1309,13 +1310,13 @@
             // 
             this.linkLabelAuthor.AllowDrop = true;
             this.linkLabelAuthor.AutoSize = true;
-            this.linkLabelAuthor.LinkArea = new System.Windows.Forms.LinkArea(8, 7);
+            this.linkLabelAuthor.LinkArea = new System.Windows.Forms.LinkArea(15, 7);
             this.linkLabelAuthor.Location = new System.Drawing.Point(10, 485);
             this.linkLabelAuthor.Name = "linkLabelAuthor";
-            this.linkLabelAuthor.Size = new System.Drawing.Size(92, 17);
+            this.linkLabelAuthor.Size = new System.Drawing.Size(123, 17);
             this.linkLabelAuthor.TabIndex = 94;
             this.linkLabelAuthor.TabStop = true;
-            this.linkLabelAuthor.Text = "Made by Genesis";
+            this.linkLabelAuthor.Text = "v1.0 - Made by Genesis";
             this.linkLabelAuthor.UseCompatibleTextRendering = true;
             this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAuthor_LinkClicked);
             // 
@@ -1347,10 +1348,11 @@
             this.Controls.Add(this.labelLocalConfigPath);
             this.Controls.Add(this.buttonReload);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Metro2033ConfigEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Metro 2033 config editor v1.0 beta";
+            this.Text = "Metro 2033 Config Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Metro2033ConfigEditorForm_Closing);
             this.Shown += new System.EventHandler(this.Metro2033ConfigEditorForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).EndInit();

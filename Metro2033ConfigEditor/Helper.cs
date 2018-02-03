@@ -18,13 +18,38 @@ namespace Metro2033ConfigEditor
         public static string getSteamInstallPath()
         {
             #if DEBUG
-                return null;
+                 return null;
             #endif
             
+            // Look for Steam in the registry
             object key = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null);
             
             if (key != null)
                 return key.ToString().Replace('/', '\\').ToLower();
+            
+            // Look for Steam in both Program Files directories
+            string programFilesSteam = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Steam";
+            string programFilesSteamX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam";
+            
+            // Steam is a 32-bit program so it should install in Program Files (x86) by default
+            if (File.Exists(programFilesSteamX86 + @"\Steam.exe"))
+                return programFilesSteamX86;
+            
+            if (File.Exists(programFilesSteam + @"\Steam.exe"))
+                return programFilesSteam;
+            
+            // Look for Steam in the current path
+            string currentDirectory = Directory.GetCurrentDirectory();
+            
+            if (currentDirectory.Contains(@"Steam\steamapps"))
+            {
+                // Get
+                string[] steamDirectorySplit = currentDirectory.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
+                string steamDirectory = steamDirectorySplit[0] + @"\Steam";
+                
+                if (File.Exists(steamDirectory + @"\Steam.exe"))
+                    return steamDirectory;
+            }
             
             return null;
         }
@@ -38,14 +63,19 @@ namespace Metro2033ConfigEditor
             // Accessing HKLM is different than HKCU
             RegistryKey localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32);
             RegistryKey installKey = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110");
-            object installLocation;
             
             if (installKey != null)
             {
-                installLocation = installKey.GetValue("InstallLocation");
+                object installLocation = installKey.GetValue("InstallLocation");
                 if (installLocation != null)
                     return installLocation.ToString().Replace('/', '\\').ToLower();
             }
+            
+            // Look for the game in the current directory
+            string currentDirectory = Directory.GetCurrentDirectory();
+            
+            if (File.Exists(currentDirectory + @"\metro2033.exe"))
+                return currentDirectory;
             
             return null;
         }
@@ -100,7 +130,7 @@ namespace Metro2033ConfigEditor
             
             string[] userDirectories = System.IO.Directory.GetDirectories(getSteamInstallPath() + @"\userdata");
             
-            // Parse through the user directories in search of the remote config
+            // Parse through the user directories in search of the remote config and return the first one found
             foreach (string userDirectory in userDirectories)
             {
                 if (File.Exists(userDirectory + @"\43110\remote\user.cfg"))
