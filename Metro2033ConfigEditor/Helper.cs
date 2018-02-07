@@ -18,7 +18,7 @@ namespace Metro2033ConfigEditor
         public static string getSteamInstallPath()
         {
             #if DEBUG
-                 return null;
+                return null;
             #endif
             
             // Look for Steam in the registry

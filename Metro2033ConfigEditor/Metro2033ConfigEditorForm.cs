@@ -24,16 +24,15 @@ namespace Metro2033ConfigEditor
             InitializeComponent();
             
             _toolTip = new ToolTip();
-            _toolTip.AutoPopDelay = 30000; // Display tooltips for longer
             addTooltips();
             
-            _STEAM_INSTALL_PATH   = Helper.getSteamInstallPath();
-            _LOCAL_CONFIG_PATH    = Helper.getLocalCfgPath();
-            _REMOTE_CONFIG_PATH   = Helper.getRemoteCfgPath();
-            _GAME_INSTALL_PATH    = Helper.getGameInstallPath();
-            _GAME_EXECUTABLE_PATH = Helper.getGameExecutablePath();
+            _STEAM_INSTALL_PATH    = Helper.getSteamInstallPath();
+            _LOCAL_CONFIG_PATH     = Helper.getLocalCfgPath();
+            _REMOTE_CONFIG_PATH    = Helper.getRemoteCfgPath();
+            _GAME_INSTALL_PATH     = Helper.getGameInstallPath();
+            _GAME_EXECUTABLE_PATH  = Helper.getGameExecutablePath();
             _skipIntroInitialState = false;
-            _dictionary = new Dictionary<string, string>();
+            _dictionary            = new Dictionary<string, string>();
         }
         
         private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
@@ -78,11 +77,59 @@ namespace Metro2033ConfigEditor
             }
         }
         
+        private void addKeyIfMissing(string key, string value)
+        {
+            if (!_dictionary.ContainsKey(key))
+                _dictionary[key] = value;
+        }
+        
+        private void addKeysIfMissing()
+        {
+            addKeyIfMissing("_show_subtitles",   "0");
+            addKeyIfMissing("fast_wpn_change",   "0");
+            addKeyIfMissing("g_game_difficulty", "1");
+            addKeyIfMissing("g_god",             "0");
+            addKeyIfMissing("g_laser",           "1");
+            addKeyIfMissing("g_quick_hints",     "1");
+            addKeyIfMissing("g_show_crosshair",  "on");
+            addKeyIfMissing("g_unlimitedammo",   "0");
+            addKeyIfMissing("lang_sound",        "us");
+            addKeyIfMissing("lang_text",         "us");
+            addKeyIfMissing("mouse_aim_sens",    "0.208");
+            addKeyIfMissing("mouse_sens",        "0.4");
+            addKeyIfMissing("ph_advanced_physX", "0");
+            addKeyIfMissing("r_af_level",        "0");
+            addKeyIfMissing("r_api",             "0");
+            addKeyIfMissing("r_dx11_dof",        "1");
+            addKeyIfMissing("r_dx11_tess",       "1");
+            addKeyIfMissing("r_fullscreen",      "on");
+            addKeyIfMissing("r_gi",              "0");
+            addKeyIfMissing("r_hud_weapon",      "on");
+            addKeyIfMissing("r_msaa_level",      "0");
+            addKeyIfMissing("r_gamma",           "1.");
+            addKeyIfMissing("r_quality_level",   "2");
+            addKeyIfMissing("r_res_hor",         "1024");
+            addKeyIfMissing("r_res_vert",        "768");
+            addKeyIfMissing("r_vsync",           "off");
+            addKeyIfMissing("s_master_volume",   "0.50");
+            addKeyIfMissing("s_music_volume",    "0.50");
+            addKeyIfMissing("sick_fov",          "45.");
+            addKeyIfMissing("stats",             "off");
+        }
+        
         private void addTooltips()
         {
+            // Show tooltips longer and faster
+            _toolTip.AutoPopDelay = 30000;
+            _toolTip.InitialDelay = 1;
+            
             _toolTip.SetToolTip(checkBoxSkipIntro,          "Skips intro logos and intro cutscene.");
             _toolTip.SetToolTip(checkBoxScreenshotMode,     "Completely hides your weapon. You can combine it with the Ranger Hardcore difficulty to completely hide your HUD.");
             _toolTip.SetToolTip(checkBoxShowStats,          "Displays debug information such as framerate, draw count, etc.");
+            _toolTip.SetToolTip(checkBoxUnlimitedAmmo,      "Gives unlimited ammo for all types of ammo, including military-grade ammo. Military-grade ammo will deplete when buying items.");
+            _toolTip.SetToolTip(checkBoxGodMode,            "Makes you invulnerable but you will need to wear a gas mask when required.");
+            _toolTip.SetToolTip(textBoxWidth,               "Game doesn't support resolutions below 800x600.");
+            _toolTip.SetToolTip(textBoxHeight,              "Game doesn't support resolutions below 800x600.");
             _toolTip.SetToolTip(spinnerFov,                 "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
             _toolTip.SetToolTip(checkBoxFullscreen,         "Uncheck to play the game in windowed mode. To play borderless fullscreen, change your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so the taskbar will still be visible.");
             _toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might actually be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different system that works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
@@ -109,6 +156,8 @@ namespace Metro2033ConfigEditor
         
         private void readSettings()
         {
+            addKeysIfMissing();
+            
             // Checkboxes
             checkBoxSubtitles.Checked          = _dictionary["_show_subtitles"]      == "1";
             checkBoxFastWeaponChange.Checked   = _dictionary["fast_wpn_change"]      == "1";
@@ -118,6 +167,8 @@ namespace Metro2033ConfigEditor
             checkBoxScreenshotMode.Checked     = _dictionary["r_hud_weapon"]         == "off";
             checkBoxShowStats.Checked          = _dictionary["stats"]                == "on";
             checkBoxSkipIntro.Checked          = File.Exists(_GAME_INSTALL_PATH + @"\content.upk9");
+            checkBoxUnlimitedAmmo.Checked      = _dictionary["g_unlimitedammo"]      == "1";
+            checkBoxGodMode.Checked            = _dictionary["g_god"]                == "1";
             checkBoxAdvancedPhysX.Checked      = _dictionary["ph_advanced_physX"]    == "1";
             checkBoxDepthOfField.Checked       = _dictionary["r_dx11_dof"]           == "1";
             checkBoxTessellation.Checked       = _dictionary["r_dx11_tess"]          == "1";
@@ -156,6 +207,8 @@ namespace Metro2033ConfigEditor
             dictionary["g_show_crosshair"]  = checkBoxCrosshair.Checked ? "on" : "off";
             dictionary["r_hud_weapon"]      = checkBoxScreenshotMode.Checked ? "off" : "on";
             dictionary["stats"]             = checkBoxShowStats.Checked ? "on" : "off";
+            dictionary["g_unlimitedammo"]   = checkBoxUnlimitedAmmo.Checked ? "1" : "0";
+            dictionary["g_god"]             = checkBoxGodMode.Checked ? "1" : "0";
             dictionary["ph_advanced_physX"] = checkBoxAdvancedPhysX.Checked ? "1" : "0";
             dictionary["r_dx11_dof"]        = checkBoxDepthOfField.Checked ? "1" : "0";
             dictionary["r_dx11_tess"]       = checkBoxTessellation.Checked ? "1" : "0";
@@ -171,13 +224,13 @@ namespace Metro2033ConfigEditor
             dictionary["r_api"]             = Helper.convertDirectXToNumber(comboBoxDirectX.Text);
             dictionary["r_msaa_level"]      = comboBoxAntialiasing.Text == "AAA" ? "0" : "1";
             dictionary["r_quality_level"]   = Helper.convertQualityLevelToNumber(comboBoxQuality.Text);
-            
+
             // Spinners
-            dictionary["mouse_sens"]        = spinnerMouseSensitivity.Value.ToString();
+            dictionary["mouse_sens"]        = spinnerMouseSensitivity.Value.Equals(1) ? "1." : spinnerMouseSensitivity.Value.ToString();
             dictionary["mouse_aim_sens"]    = spinnerMouseAimSensitivity.Value.ToString();
             dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString();
             dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString();
-            dictionary["r_gamma"]           = spinnerGamma.Value.ToString();
+            dictionary["r_gamma"]           = spinnerGamma.Value.Equals(1) ? "1." : spinnerGamma.Value.ToString();
             dictionary["sick_fov"]          = spinnerFov.Value.ToString() + ".";
             
             // Textboxes
@@ -232,12 +285,16 @@ namespace Metro2033ConfigEditor
         // EVENT HANDLERS
         private void buttonSteamInstallPath_Click(object sender, EventArgs e)
         {
+            var FD = new FolderBrowserDialog
+            {
+                Description         = "Locate your Steam installation directory",
+                ShowNewFolderButton = false
+            };
+
             // Show the dialog and get result.
-            var FD = new FolderBrowserDialog();
-            
             if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _STEAM_INSTALL_PATH = FD.SelectedPath.ToLower();
+                _STEAM_INSTALL_PATH          = FD.SelectedPath.ToLower();
                 buttonStartGameSteam.Enabled = File.Exists(_STEAM_INSTALL_PATH + @"\Steam.exe");
                 textBoxSteamInstallPath.Text = buttonStartGameSteam.Enabled ? _STEAM_INSTALL_PATH : "Steam executable not found";
             }
@@ -245,51 +302,51 @@ namespace Metro2033ConfigEditor
         
         private void buttonBrowseLocalConfig_Click(object sender, EventArgs e)
         {
-            // Show the dialog and get result.
             var FD = new OpenFileDialog
             {
-                Filter = "Metro 2033 config file|user.cfg",
+                Filter           = "Metro 2033 config file|user.cfg",
                 InitialDirectory = Helper.getLocalCfgDirectory()
             };
             
+            // Show the dialog and get result.
             if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _LOCAL_CONFIG_PATH = FD.FileName.ToLower();
+                _LOCAL_CONFIG_PATH          = FD.FileName.ToLower();
                 textBoxLocalConfigPath.Text = _LOCAL_CONFIG_PATH;
             }
         }
         
         private void buttonBrowseRemoteConfig_Click(object sender, EventArgs e)
         {
-            // Show the dialog and get result.
             var FD = new OpenFileDialog
             {
-                Filter = "Metro 2033 config file|user.cfg",
+                Filter           = "Metro 2033 config file|user.cfg",
                 InitialDirectory = _STEAM_INSTALL_PATH + @"\userdata"
             };
             
+            // Show the dialog and get result.
             if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _REMOTE_CONFIG_PATH = FD.FileName.ToLower();
+                _REMOTE_CONFIG_PATH          = FD.FileName.ToLower();
                 textBoxRemoteConfigPath.Text = _REMOTE_CONFIG_PATH;
-                buttonReload.Enabled = true;
-                buttonSave.Enabled = true;
+                buttonReload.Enabled         = true;
+                buttonSave.Enabled           = true;
             }
         }
         
         private void buttonBrowseGameExecutable_Click(object sender, EventArgs e)
         {
-            // Show the dialog and get result.
             var FD = new OpenFileDialog
             {
-                Filter = "Metro 2033 executable|*.exe",
+                Filter           = "Metro 2033 executable|metro2033.exe",
                 InitialDirectory = _GAME_INSTALL_PATH
             };
             
+            // Show the dialog and get result.
             if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _GAME_INSTALL_PATH = FD.FileName.Replace(FD.SafeFileName, "").ToLower();
-                _GAME_EXECUTABLE_PATH = FD.FileName.ToLower();
+                _GAME_INSTALL_PATH             = FD.FileName.Replace(FD.SafeFileName, "").ToLower();
+                _GAME_EXECUTABLE_PATH          = FD.FileName.ToLower();
                 textBoxGameExecutablePath.Text = _GAME_EXECUTABLE_PATH;
                 buttonStartGameNoSteam.Enabled = true;
             }
@@ -310,10 +367,10 @@ namespace Metro2033ConfigEditor
             }
             
             // Show the width/height textboxes only when selecting "Custom resolution"
-            labelWidth.Visible    = comboBoxResolution.Text == "Custom resolution";
-            textBoxWidth.Visible  = comboBoxResolution.Text == "Custom resolution";
-            labelHeight.Visible   = comboBoxResolution.Text == "Custom resolution";
-            textBoxHeight.Visible = comboBoxResolution.Text == "Custom resolution";
+            labelWidth.Visible     = comboBoxResolution.Text == "Custom resolution";
+            textBoxWidth.Visible   = comboBoxResolution.Text == "Custom resolution";
+            labelHeight.Visible    = comboBoxResolution.Text == "Custom resolution";
+            textBoxHeight.Visible  = comboBoxResolution.Text == "Custom resolution";
         }
         
         private void comboBoxQuality_SelectedIndexChanged(object sender, EventArgs e)
@@ -412,16 +469,15 @@ namespace Metro2033ConfigEditor
         private void buttonSave_Click(object sender, EventArgs e)
         {
             writeSettings(_dictionary);
+            _skipIntroInitialState = checkBoxSkipIntro.Checked;
             
-            if (writeConfigFile() &&
-                Helper.copyCfgFile(_REMOTE_CONFIG_PATH, _LOCAL_CONFIG_PATH) &&
-                Helper.copyNoIntroFix(checkBoxSkipIntro.Checked))
-            {
+            if (writeConfigFile() && Helper.copyCfgFile(_REMOTE_CONFIG_PATH, _LOCAL_CONFIG_PATH) && Helper.copyNoIntroFix(checkBoxSkipIntro.Checked))
                 MessageBox.Show("Your config file has been successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-        
-        private void buttonStartGameNoSteam_Click(object sender, EventArgs e)
+            else
+                MessageBox.Show("Unable to save the config file. Make sure it's not read-only!", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+
+    private void buttonStartGameNoSteam_Click(object sender, EventArgs e)
         {
             Process proc = new Process();
             proc.StartInfo.WorkingDirectory = _GAME_INSTALL_PATH;
