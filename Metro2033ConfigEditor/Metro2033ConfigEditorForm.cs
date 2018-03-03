@@ -128,8 +128,6 @@ namespace Metro2033ConfigEditor
             _toolTip.SetToolTip(checkBoxShowStats,          "Displays debug information such as framerate, draw count, etc.");
             _toolTip.SetToolTip(checkBoxUnlimitedAmmo,      "Gives unlimited ammo for all types of ammo, including military-grade ammo. Military-grade ammo will deplete when buying items.");
             _toolTip.SetToolTip(checkBoxGodMode,            "Makes you invulnerable but you will need to wear a gas mask when required.");
-            _toolTip.SetToolTip(textBoxWidth,               "Game doesn't support resolutions below 800x600.");
-            _toolTip.SetToolTip(textBoxHeight,              "Game doesn't support resolutions below 800x600.");
             _toolTip.SetToolTip(spinnerFov,                 "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
             _toolTip.SetToolTip(checkBoxFullscreen,         "Uncheck to play the game in windowed mode. To play borderless fullscreen, change your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so the taskbar will still be visible.");
             _toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might actually be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different system that works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
@@ -355,22 +353,16 @@ namespace Metro2033ConfigEditor
         private void comboBoxResolution_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Change the content of the width/height textboxes according to selected resolution
-            if (comboBoxResolution.Text == "Custom resolution")
+            if (comboBoxResolution.Text != "Custom resolution")
             {
-                textBoxWidth.Text  = _dictionary["r_res_hor"];
-                textBoxHeight.Text = _dictionary["r_res_vert"];
-            }
-            else
-            {
-                textBoxWidth.Text  = comboBoxResolution.Text.Split('x')[0].Trim();
-                textBoxHeight.Text = comboBoxResolution.Text.Split('x')[1].Trim();
+                string[] splitResolution = comboBoxResolution.Text.Split(new string[] { " x " }, StringSplitOptions.None);
+                textBoxWidth.Text  = splitResolution[0];
+                textBoxHeight.Text = splitResolution[1];
             }
             
-            // Show the width/height textboxes only when selecting "Custom resolution"
-            labelWidth.Visible     = comboBoxResolution.Text == "Custom resolution";
-            textBoxWidth.Visible   = comboBoxResolution.Text == "Custom resolution";
-            labelHeight.Visible    = comboBoxResolution.Text == "Custom resolution";
-            textBoxHeight.Visible  = comboBoxResolution.Text == "Custom resolution";
+            // Enable the width/height textboxes only when selecting "Custom resolution"
+            textBoxWidth.Enabled   = comboBoxResolution.Text == "Custom resolution";
+            textBoxHeight.Enabled  = comboBoxResolution.Text == "Custom resolution";
         }
         
         private void comboBoxQuality_SelectedIndexChanged(object sender, EventArgs e)

@@ -21,31 +21,30 @@ namespace Metro2033ConfigEditor
                 return null;
             #endif
             
-            // Look for Steam in the registry
+            // Look for Steam from the registry
             object key = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null);
             
             if (key != null)
                 return key.ToString().Replace('/', '\\').ToLower();
             
-            // Look for Steam in both Program Files directories
+            // Look for Steam in Program Files
             string programFilesSteam = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Steam";
             string programFilesSteamX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam";
             
             // Steam is a 32-bit program so it should install in Program Files (x86) by default
             if (File.Exists(programFilesSteamX86 + @"\Steam.exe"))
                 return programFilesSteamX86;
-            
-            if (File.Exists(programFilesSteam + @"\Steam.exe"))
+            else if (File.Exists(programFilesSteam + @"\Steam.exe"))
                 return programFilesSteam;
             
-            // Look for Steam in the current path
+            // Finally, look for Steam in the current path
             string currentDirectory = Directory.GetCurrentDirectory();
             
             if (currentDirectory.Contains(@"Steam\steamapps"))
             {
-                // Get
-                string[] steamDirectorySplit = currentDirectory.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
-                string steamDirectory = steamDirectorySplit[0] + @"\Steam";
+                // Get the Steam root directory
+                string[] splitSteamDirectory = currentDirectory.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
+                string steamDirectory = splitSteamDirectory[0] + @"\Steam";
                 
                 if (File.Exists(steamDirectory + @"\Steam.exe"))
                     return steamDirectory;
@@ -161,6 +160,7 @@ namespace Metro2033ConfigEditor
             {
                 string noIntroFile = getGameInstallPath() + @"\content.upk9";
                 
+                // Copy the intro fix to the game directory
                 if (noIntro)
                     File.WriteAllBytes(noIntroFile, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
                 else

@@ -51,106 +51,107 @@
             this.labelSteamInstallPath = new System.Windows.Forms.Label();
             this.linkLabelAuthor = new System.Windows.Forms.LinkLabel();
             this.tabVideo = new System.Windows.Forms.TabPage();
+            this.labelResolutionNote = new System.Windows.Forms.Label();
+            this.checkBoxGlobalIllumination = new System.Windows.Forms.CheckBox();
+            this.groupBoxDescription = new System.Windows.Forms.GroupBox();
+            this.labelVolumetricTexturingValue = new System.Windows.Forms.Label();
+            this.labelAnalyticalAntiAliasingValue = new System.Windows.Forms.Label();
+            this.labelShadowFilteringValue = new System.Windows.Forms.Label();
+            this.labelMotionBlur = new System.Windows.Forms.Label();
+            this.labelSkinShading = new System.Windows.Forms.Label();
+            this.labelParallaxMappingValue = new System.Windows.Forms.Label();
+            this.labelBumpMapping = new System.Windows.Forms.Label();
+            this.labelSoftParticles = new System.Windows.Forms.Label();
+            this.labelImagePostProcessingValue = new System.Windows.Forms.Label();
+            this.labelAmbientOcclusionValue = new System.Windows.Forms.Label();
+            this.labelShadowResolution = new System.Windows.Forms.Label();
+            this.labelMotionBlurValue = new System.Windows.Forms.Label();
+            this.labelSoftParticlesValue = new System.Windows.Forms.Label();
+            this.labelShadowResolutionValue = new System.Windows.Forms.Label();
+            this.labelDetailTexturingValue = new System.Windows.Forms.Label();
+            this.labelVolumetricTexturing = new System.Windows.Forms.Label();
+            this.labelBumpMappingValue = new System.Windows.Forms.Label();
+            this.labelSkinShadingValue = new System.Windows.Forms.Label();
+            this.labelAnalyticalAntiAliasing = new System.Windows.Forms.Label();
+            this.labelLightMaterialInteraction = new System.Windows.Forms.Label();
+            this.labelShadowFiltering = new System.Windows.Forms.Label();
+            this.labelLightMaterialInteractionValue = new System.Windows.Forms.Label();
+            this.labelParallaxMapping = new System.Windows.Forms.Label();
+            this.labelGeometricDetail = new System.Windows.Forms.Label();
+            this.labelImagePostProcessing = new System.Windows.Forms.Label();
+            this.labelGeometricDetailValue = new System.Windows.Forms.Label();
+            this.labelAmbientOcclusion = new System.Windows.Forms.Label();
+            this.labelDetailTexturing = new System.Windows.Forms.Label();
+            this.labelTextureFiltering = new System.Windows.Forms.Label();
+            this.comboBoxTextureFiltering = new System.Windows.Forms.ComboBox();
+            this.comboBoxResolution = new System.Windows.Forms.ComboBox();
+            this.groupBoxDirectX11 = new System.Windows.Forms.GroupBox();
+            this.checkBoxDepthOfField = new System.Windows.Forms.CheckBox();
+            this.checkBoxTessellation = new System.Windows.Forms.CheckBox();
+            this.labelResolution = new System.Windows.Forms.Label();
+            this.labelDirectX = new System.Windows.Forms.Label();
+            this.comboBoxDirectX = new System.Windows.Forms.ComboBox();
+            this.comboBoxAntialiasing = new System.Windows.Forms.ComboBox();
+            this.spinnerFov = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxQuality = new System.Windows.Forms.ComboBox();
+            this.spinnerGamma = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxFullscreen = new System.Windows.Forms.CheckBox();
+            this.labelGamma = new System.Windows.Forms.Label();
+            this.checkBoxVsync = new System.Windows.Forms.CheckBox();
+            this.labelAntialiasing = new System.Windows.Forms.Label();
+            this.labelQuality = new System.Windows.Forms.Label();
+            this.labelFov = new System.Windows.Forms.Label();
+            this.labelWidth = new System.Windows.Forms.Label();
+            this.textBoxWidth = new System.Windows.Forms.TextBox();
             this.textBoxHeight = new System.Windows.Forms.TextBox();
             this.labelHeight = new System.Windows.Forms.Label();
-            this.textBoxWidth = new System.Windows.Forms.TextBox();
-            this.labelWidth = new System.Windows.Forms.Label();
-            this.labelFov = new System.Windows.Forms.Label();
-            this.labelQuality = new System.Windows.Forms.Label();
-            this.labelAntialiasing = new System.Windows.Forms.Label();
-            this.checkBoxVsync = new System.Windows.Forms.CheckBox();
-            this.labelGamma = new System.Windows.Forms.Label();
-            this.checkBoxFullscreen = new System.Windows.Forms.CheckBox();
-            this.spinnerGamma = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxQuality = new System.Windows.Forms.ComboBox();
-            this.spinnerFov = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxAntialiasing = new System.Windows.Forms.ComboBox();
-            this.comboBoxDirectX = new System.Windows.Forms.ComboBox();
-            this.labelDirectX = new System.Windows.Forms.Label();
-            this.labelResolution = new System.Windows.Forms.Label();
-            this.groupBoxDirectX11 = new System.Windows.Forms.GroupBox();
-            this.checkBoxTessellation = new System.Windows.Forms.CheckBox();
-            this.checkBoxDepthOfField = new System.Windows.Forms.CheckBox();
-            this.comboBoxResolution = new System.Windows.Forms.ComboBox();
-            this.comboBoxTextureFiltering = new System.Windows.Forms.ComboBox();
-            this.labelTextureFiltering = new System.Windows.Forms.Label();
-            this.groupBoxDescription = new System.Windows.Forms.GroupBox();
-            this.labelDetailTexturing = new System.Windows.Forms.Label();
-            this.labelAmbientOcclusion = new System.Windows.Forms.Label();
-            this.labelGeometricDetailValue = new System.Windows.Forms.Label();
-            this.labelImagePostProcessing = new System.Windows.Forms.Label();
-            this.labelGeometricDetail = new System.Windows.Forms.Label();
-            this.labelParallaxMapping = new System.Windows.Forms.Label();
-            this.labelLightMaterialInteractionValue = new System.Windows.Forms.Label();
-            this.labelShadowFiltering = new System.Windows.Forms.Label();
-            this.labelLightMaterialInteraction = new System.Windows.Forms.Label();
-            this.labelAnalyticalAntiAliasing = new System.Windows.Forms.Label();
-            this.labelSkinShadingValue = new System.Windows.Forms.Label();
-            this.labelBumpMappingValue = new System.Windows.Forms.Label();
-            this.labelVolumetricTexturing = new System.Windows.Forms.Label();
-            this.labelDetailTexturingValue = new System.Windows.Forms.Label();
-            this.labelShadowResolutionValue = new System.Windows.Forms.Label();
-            this.labelSoftParticlesValue = new System.Windows.Forms.Label();
-            this.labelMotionBlurValue = new System.Windows.Forms.Label();
-            this.labelShadowResolution = new System.Windows.Forms.Label();
-            this.labelAmbientOcclusionValue = new System.Windows.Forms.Label();
-            this.labelImagePostProcessingValue = new System.Windows.Forms.Label();
-            this.labelSoftParticles = new System.Windows.Forms.Label();
-            this.labelBumpMapping = new System.Windows.Forms.Label();
-            this.labelParallaxMappingValue = new System.Windows.Forms.Label();
-            this.labelSkinShading = new System.Windows.Forms.Label();
-            this.labelMotionBlur = new System.Windows.Forms.Label();
-            this.labelShadowFilteringValue = new System.Windows.Forms.Label();
-            this.labelAnalyticalAntiAliasingValue = new System.Windows.Forms.Label();
-            this.labelVolumetricTexturingValue = new System.Windows.Forms.Label();
-            this.checkBoxGlobalIllumination = new System.Windows.Forms.CheckBox();
             this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.labelCheatsNote = new System.Windows.Forms.Label();
+            this.groupBoxGameOptions = new System.Windows.Forms.GroupBox();
+            this.checkBoxCrosshair = new System.Windows.Forms.CheckBox();
             this.checkBoxShowStats = new System.Windows.Forms.CheckBox();
             this.checkBoxScreenshotMode = new System.Windows.Forms.CheckBox();
-            this.checkBoxCrosshair = new System.Windows.Forms.CheckBox();
             this.checkBoxHints = new System.Windows.Forms.CheckBox();
+            this.checkBoxSubtitles = new System.Windows.Forms.CheckBox();
             this.comboBoxDifficulty = new System.Windows.Forms.ComboBox();
+            this.checkBoxSkipIntro = new System.Windows.Forms.CheckBox();
             this.checkBoxFastWeaponChange = new System.Windows.Forms.CheckBox();
+            this.checkBoxAdvancedPhysX = new System.Windows.Forms.CheckBox();
             this.comboBoxVoiceLanguage = new System.Windows.Forms.ComboBox();
+            this.labelDifficulty = new System.Windows.Forms.Label();
             this.comboBoxTextLanguage = new System.Windows.Forms.ComboBox();
+            this.labelVoiceLanguage = new System.Windows.Forms.Label();
             this.labelTextLanguage = new System.Windows.Forms.Label();
             this.checkBoxLaserCrosshair = new System.Windows.Forms.CheckBox();
-            this.labelVoiceLanguage = new System.Windows.Forms.Label();
-            this.labelDifficulty = new System.Windows.Forms.Label();
-            this.checkBoxAdvancedPhysX = new System.Windows.Forms.CheckBox();
-            this.checkBoxSkipIntro = new System.Windows.Forms.CheckBox();
-            this.checkBoxSubtitles = new System.Windows.Forms.CheckBox();
-            this.groupBoxCheats = new System.Windows.Forms.GroupBox();
-            this.checkBoxGodMode = new System.Windows.Forms.CheckBox();
-            this.checkBoxUnlimitedAmmo = new System.Windows.Forms.CheckBox();
-            this.groupBoxSound = new System.Windows.Forms.GroupBox();
-            this.labelMusicVolume = new System.Windows.Forms.Label();
-            this.spinnerMasterVolume = new System.Windows.Forms.NumericUpDown();
-            this.spinnerMusicVolume = new System.Windows.Forms.NumericUpDown();
-            this.labelMasterVolume = new System.Windows.Forms.Label();
-            this.tabControl = new System.Windows.Forms.TabControl();
             this.groupBoxControls = new System.Windows.Forms.GroupBox();
             this.labelMouseAimSensitivity = new System.Windows.Forms.Label();
             this.spinnerMouseSensitivity = new System.Windows.Forms.NumericUpDown();
             this.labelMouseSensitivity = new System.Windows.Forms.Label();
             this.spinnerMouseAimSensitivity = new System.Windows.Forms.NumericUpDown();
-            this.groupBoxGameOptions = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBoxSound = new System.Windows.Forms.GroupBox();
+            this.labelMasterVolume = new System.Windows.Forms.Label();
+            this.spinnerMusicVolume = new System.Windows.Forms.NumericUpDown();
+            this.spinnerMasterVolume = new System.Windows.Forms.NumericUpDown();
+            this.labelMusicVolume = new System.Windows.Forms.Label();
+            this.groupBoxCheats = new System.Windows.Forms.GroupBox();
+            this.checkBoxUnlimitedAmmo = new System.Windows.Forms.CheckBox();
+            this.checkBoxGodMode = new System.Windows.Forms.CheckBox();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabVideo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerFov)).BeginInit();
-            this.groupBoxDirectX11.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
+            this.groupBoxDirectX11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerFov)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).BeginInit();
             this.tabGeneral.SuspendLayout();
-            this.groupBoxCheats.SuspendLayout();
-            this.groupBoxSound.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerMasterVolume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerMusicVolume)).BeginInit();
-            this.tabControl.SuspendLayout();
+            this.groupBoxGameOptions.SuspendLayout();
             this.groupBoxControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMouseSensitivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMouseAimSensitivity)).BeginInit();
-            this.groupBoxGameOptions.SuspendLayout();
+            this.groupBoxSound.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerMusicVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerMasterVolume)).BeginInit();
+            this.groupBoxCheats.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonReload
@@ -337,18 +338,19 @@
             // 
             this.linkLabelAuthor.AllowDrop = true;
             this.linkLabelAuthor.AutoSize = true;
-            this.linkLabelAuthor.LinkArea = new System.Windows.Forms.LinkArea(15, 7);
+            this.linkLabelAuthor.LinkArea = new System.Windows.Forms.LinkArea(16, 7);
             this.linkLabelAuthor.Location = new System.Drawing.Point(10, 485);
             this.linkLabelAuthor.Name = "linkLabelAuthor";
-            this.linkLabelAuthor.Size = new System.Drawing.Size(123, 17);
+            this.linkLabelAuthor.Size = new System.Drawing.Size(130, 17);
             this.linkLabelAuthor.TabIndex = 94;
             this.linkLabelAuthor.TabStop = true;
-            this.linkLabelAuthor.Text = "v1.1 - Made by Genesis";
+            this.linkLabelAuthor.Text = "v1.11 - Made by Genesis";
             this.linkLabelAuthor.UseCompatibleTextRendering = true;
             this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAuthor_LinkClicked);
             // 
             // tabVideo
             // 
+            this.tabVideo.Controls.Add(this.labelResolutionNote);
             this.tabVideo.Controls.Add(this.checkBoxGlobalIllumination);
             this.tabVideo.Controls.Add(this.groupBoxDescription);
             this.tabVideo.Controls.Add(this.labelTextureFiltering);
@@ -380,233 +382,334 @@
             this.tabVideo.Text = "Video";
             this.tabVideo.UseVisualStyleBackColor = true;
             // 
-            // textBoxHeight
+            // labelResolutionNote
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(463, 7);
-            this.textBoxHeight.Name = "textBoxHeight";
-            this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
-            this.textBoxHeight.TabIndex = 11;
+            this.labelResolutionNote.AutoSize = true;
+            this.labelResolutionNote.Location = new System.Drawing.Point(250, 32);
+            this.labelResolutionNote.Name = "labelResolutionNote";
+            this.labelResolutionNote.Size = new System.Drawing.Size(268, 13);
+            this.labelResolutionNote.TabIndex = 96;
+            this.labelResolutionNote.Text = "Note: game doesn\'t support resolutions below 800x600.";
             // 
-            // labelHeight
+            // checkBoxGlobalIllumination
             // 
-            this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(415, 10);
-            this.labelHeight.Name = "labelHeight";
-            this.labelHeight.Size = new System.Drawing.Size(38, 13);
-            this.labelHeight.TabIndex = 9;
-            this.labelHeight.Text = "Height";
+            this.checkBoxGlobalIllumination.AutoSize = true;
+            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(10, 234);
+            this.checkBoxGlobalIllumination.Name = "checkBoxGlobalIllumination";
+            this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(110, 17);
+            this.checkBoxGlobalIllumination.TabIndex = 90;
+            this.checkBoxGlobalIllumination.Text = "Global illumination";
+            this.checkBoxGlobalIllumination.UseVisualStyleBackColor = true;
             // 
-            // textBoxWidth
+            // groupBoxDescription
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(295, 7);
-            this.textBoxWidth.Name = "textBoxWidth";
-            this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
-            this.textBoxWidth.TabIndex = 10;
+            this.groupBoxDescription.Controls.Add(this.labelVolumetricTexturingValue);
+            this.groupBoxDescription.Controls.Add(this.labelAnalyticalAntiAliasingValue);
+            this.groupBoxDescription.Controls.Add(this.labelShadowFilteringValue);
+            this.groupBoxDescription.Controls.Add(this.labelMotionBlur);
+            this.groupBoxDescription.Controls.Add(this.labelSkinShading);
+            this.groupBoxDescription.Controls.Add(this.labelParallaxMappingValue);
+            this.groupBoxDescription.Controls.Add(this.labelBumpMapping);
+            this.groupBoxDescription.Controls.Add(this.labelSoftParticles);
+            this.groupBoxDescription.Controls.Add(this.labelImagePostProcessingValue);
+            this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusionValue);
+            this.groupBoxDescription.Controls.Add(this.labelShadowResolution);
+            this.groupBoxDescription.Controls.Add(this.labelMotionBlurValue);
+            this.groupBoxDescription.Controls.Add(this.labelSoftParticlesValue);
+            this.groupBoxDescription.Controls.Add(this.labelShadowResolutionValue);
+            this.groupBoxDescription.Controls.Add(this.labelDetailTexturingValue);
+            this.groupBoxDescription.Controls.Add(this.labelVolumetricTexturing);
+            this.groupBoxDescription.Controls.Add(this.labelBumpMappingValue);
+            this.groupBoxDescription.Controls.Add(this.labelSkinShadingValue);
+            this.groupBoxDescription.Controls.Add(this.labelAnalyticalAntiAliasing);
+            this.groupBoxDescription.Controls.Add(this.labelLightMaterialInteraction);
+            this.groupBoxDescription.Controls.Add(this.labelShadowFiltering);
+            this.groupBoxDescription.Controls.Add(this.labelLightMaterialInteractionValue);
+            this.groupBoxDescription.Controls.Add(this.labelParallaxMapping);
+            this.groupBoxDescription.Controls.Add(this.labelGeometricDetail);
+            this.groupBoxDescription.Controls.Add(this.labelImagePostProcessing);
+            this.groupBoxDescription.Controls.Add(this.labelGeometricDetailValue);
+            this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusion);
+            this.groupBoxDescription.Controls.Add(this.labelDetailTexturing);
+            this.groupBoxDescription.Location = new System.Drawing.Point(368, 58);
+            this.groupBoxDescription.Name = "groupBoxDescription";
+            this.groupBoxDescription.Size = new System.Drawing.Size(400, 217);
+            this.groupBoxDescription.TabIndex = 89;
+            this.groupBoxDescription.TabStop = false;
+            this.groupBoxDescription.Text = "Quality settings";
             // 
-            // labelWidth
+            // labelVolumetricTexturingValue
             // 
-            this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(250, 10);
-            this.labelWidth.Name = "labelWidth";
-            this.labelWidth.Size = new System.Drawing.Size(35, 13);
-            this.labelWidth.TabIndex = 8;
-            this.labelWidth.Text = "Width";
+            this.labelVolumetricTexturingValue.AutoSize = true;
+            this.labelVolumetricTexturingValue.Location = new System.Drawing.Point(180, 189);
+            this.labelVolumetricTexturingValue.Name = "labelVolumetricTexturingValue";
+            this.labelVolumetricTexturingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelVolumetricTexturingValue.TabIndex = 118;
+            this.labelVolumetricTexturingValue.Text = "Disabled";
             // 
-            // labelFov
+            // labelAnalyticalAntiAliasingValue
             // 
-            this.labelFov.AutoSize = true;
-            this.labelFov.Location = new System.Drawing.Point(7, 160);
-            this.labelFov.Name = "labelFov";
-            this.labelFov.Size = new System.Drawing.Size(28, 13);
-            this.labelFov.TabIndex = 39;
-            this.labelFov.Text = "FOV";
+            this.labelAnalyticalAntiAliasingValue.AutoSize = true;
+            this.labelAnalyticalAntiAliasingValue.Location = new System.Drawing.Point(180, 176);
+            this.labelAnalyticalAntiAliasingValue.Name = "labelAnalyticalAntiAliasingValue";
+            this.labelAnalyticalAntiAliasingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelAnalyticalAntiAliasingValue.TabIndex = 116;
+            this.labelAnalyticalAntiAliasingValue.Text = "Disabled";
             // 
-            // labelQuality
+            // labelShadowFilteringValue
             // 
-            this.labelQuality.AutoSize = true;
-            this.labelQuality.Location = new System.Drawing.Point(7, 35);
-            this.labelQuality.Name = "labelQuality";
-            this.labelQuality.Size = new System.Drawing.Size(39, 13);
-            this.labelQuality.TabIndex = 35;
-            this.labelQuality.Text = "Quality";
+            this.labelShadowFilteringValue.AutoSize = true;
+            this.labelShadowFilteringValue.Location = new System.Drawing.Point(180, 163);
+            this.labelShadowFilteringValue.Name = "labelShadowFilteringValue";
+            this.labelShadowFilteringValue.Size = new System.Drawing.Size(27, 13);
+            this.labelShadowFilteringValue.TabIndex = 117;
+            this.labelShadowFilteringValue.Text = "Fast";
             // 
-            // labelAntialiasing
+            // labelMotionBlur
             // 
-            this.labelAntialiasing.AutoSize = true;
-            this.labelAntialiasing.Location = new System.Drawing.Point(7, 85);
-            this.labelAntialiasing.Name = "labelAntialiasing";
-            this.labelAntialiasing.Size = new System.Drawing.Size(60, 13);
-            this.labelAntialiasing.TabIndex = 34;
-            this.labelAntialiasing.Text = "Antialiasing";
+            this.labelMotionBlur.AutoSize = true;
+            this.labelMotionBlur.Location = new System.Drawing.Point(10, 20);
+            this.labelMotionBlur.Name = "labelMotionBlur";
+            this.labelMotionBlur.Size = new System.Drawing.Size(59, 13);
+            this.labelMotionBlur.TabIndex = 90;
+            this.labelMotionBlur.Text = "Motion blur";
             // 
-            // checkBoxVsync
+            // labelSkinShading
             // 
-            this.checkBoxVsync.AutoSize = true;
-            this.checkBoxVsync.Location = new System.Drawing.Point(10, 225);
-            this.checkBoxVsync.Name = "checkBoxVsync";
-            this.checkBoxVsync.Size = new System.Drawing.Size(55, 17);
-            this.checkBoxVsync.TabIndex = 56;
-            this.checkBoxVsync.Text = "Vsync";
-            this.checkBoxVsync.UseVisualStyleBackColor = true;
+            this.labelSkinShading.AutoSize = true;
+            this.labelSkinShading.Location = new System.Drawing.Point(10, 33);
+            this.labelSkinShading.Name = "labelSkinShading";
+            this.labelSkinShading.Size = new System.Drawing.Size(68, 13);
+            this.labelSkinShading.TabIndex = 91;
+            this.labelSkinShading.Text = "Skin shading";
             // 
-            // labelGamma
+            // labelParallaxMappingValue
             // 
-            this.labelGamma.AutoSize = true;
-            this.labelGamma.Location = new System.Drawing.Point(7, 135);
-            this.labelGamma.Name = "labelGamma";
-            this.labelGamma.Size = new System.Drawing.Size(43, 13);
-            this.labelGamma.TabIndex = 33;
-            this.labelGamma.Text = "Gamma";
+            this.labelParallaxMappingValue.AutoSize = true;
+            this.labelParallaxMappingValue.Location = new System.Drawing.Point(180, 150);
+            this.labelParallaxMappingValue.Name = "labelParallaxMappingValue";
+            this.labelParallaxMappingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelParallaxMappingValue.TabIndex = 115;
+            this.labelParallaxMappingValue.Text = "Disabled";
             // 
-            // checkBoxFullscreen
+            // labelBumpMapping
             // 
-            this.checkBoxFullscreen.AutoSize = true;
-            this.checkBoxFullscreen.Location = new System.Drawing.Point(10, 185);
-            this.checkBoxFullscreen.Name = "checkBoxFullscreen";
-            this.checkBoxFullscreen.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxFullscreen.TabIndex = 55;
-            this.checkBoxFullscreen.Text = "Fullscreen";
-            this.checkBoxFullscreen.UseVisualStyleBackColor = true;
+            this.labelBumpMapping.AutoSize = true;
+            this.labelBumpMapping.Location = new System.Drawing.Point(10, 46);
+            this.labelBumpMapping.Name = "labelBumpMapping";
+            this.labelBumpMapping.Size = new System.Drawing.Size(77, 13);
+            this.labelBumpMapping.TabIndex = 92;
+            this.labelBumpMapping.Text = "Bump mapping";
             // 
-            // spinnerGamma
+            // labelSoftParticles
             // 
-            this.spinnerGamma.DecimalPlaces = 2;
-            this.spinnerGamma.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.spinnerGamma.Location = new System.Drawing.Point(109, 131);
-            this.spinnerGamma.Maximum = new decimal(new int[] {
-            145,
-            0,
-            0,
-            131072});
-            this.spinnerGamma.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.spinnerGamma.Name = "spinnerGamma";
-            this.spinnerGamma.Size = new System.Drawing.Size(120, 20);
-            this.spinnerGamma.TabIndex = 77;
-            this.spinnerGamma.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
+            this.labelSoftParticles.AutoSize = true;
+            this.labelSoftParticles.Location = new System.Drawing.Point(10, 59);
+            this.labelSoftParticles.Name = "labelSoftParticles";
+            this.labelSoftParticles.Size = new System.Drawing.Size(68, 13);
+            this.labelSoftParticles.TabIndex = 93;
+            this.labelSoftParticles.Text = "Soft particles";
             // 
-            // comboBoxQuality
+            // labelImagePostProcessingValue
             // 
-            this.comboBoxQuality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxQuality.FormattingEnabled = true;
-            this.comboBoxQuality.Items.AddRange(new object[] {
-            "Low",
-            "Medium",
-            "High",
-            "Very high"});
-            this.comboBoxQuality.Location = new System.Drawing.Point(109, 31);
-            this.comboBoxQuality.Name = "comboBoxQuality";
-            this.comboBoxQuality.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxQuality.TabIndex = 79;
-            this.comboBoxQuality.SelectedIndexChanged += new System.EventHandler(this.comboBoxQuality_SelectedIndexChanged);
+            this.labelImagePostProcessingValue.AutoSize = true;
+            this.labelImagePostProcessingValue.Location = new System.Drawing.Point(180, 137);
+            this.labelImagePostProcessingValue.Name = "labelImagePostProcessingValue";
+            this.labelImagePostProcessingValue.Size = new System.Drawing.Size(40, 13);
+            this.labelImagePostProcessingValue.TabIndex = 111;
+            this.labelImagePostProcessingValue.Text = "Normal";
             // 
-            // spinnerFov
+            // labelAmbientOcclusionValue
             // 
-            this.spinnerFov.Location = new System.Drawing.Point(109, 156);
-            this.spinnerFov.Maximum = new decimal(new int[] {
-            90,
-            0,
-            0,
-            0});
-            this.spinnerFov.Minimum = new decimal(new int[] {
-            45,
-            0,
-            0,
-            0});
-            this.spinnerFov.Name = "spinnerFov";
-            this.spinnerFov.Size = new System.Drawing.Size(120, 20);
-            this.spinnerFov.TabIndex = 80;
-            this.spinnerFov.Value = new decimal(new int[] {
-            45,
-            0,
-            0,
-            0});
+            this.labelAmbientOcclusionValue.AutoSize = true;
+            this.labelAmbientOcclusionValue.Location = new System.Drawing.Point(180, 124);
+            this.labelAmbientOcclusionValue.Name = "labelAmbientOcclusionValue";
+            this.labelAmbientOcclusionValue.Size = new System.Drawing.Size(65, 13);
+            this.labelAmbientOcclusionValue.TabIndex = 113;
+            this.labelAmbientOcclusionValue.Text = "Approximate";
             // 
-            // comboBoxAntialiasing
+            // labelShadowResolution
             // 
-            this.comboBoxAntialiasing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAntialiasing.FormattingEnabled = true;
-            this.comboBoxAntialiasing.Items.AddRange(new object[] {
-            "AAA",
-            "MSAA 4X"});
-            this.comboBoxAntialiasing.Location = new System.Drawing.Point(109, 81);
-            this.comboBoxAntialiasing.Name = "comboBoxAntialiasing";
-            this.comboBoxAntialiasing.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxAntialiasing.TabIndex = 84;
+            this.labelShadowResolution.AutoSize = true;
+            this.labelShadowResolution.Location = new System.Drawing.Point(10, 72);
+            this.labelShadowResolution.Name = "labelShadowResolution";
+            this.labelShadowResolution.Size = new System.Drawing.Size(94, 13);
+            this.labelShadowResolution.TabIndex = 94;
+            this.labelShadowResolution.Text = "Shadow resolution";
             // 
-            // comboBoxDirectX
+            // labelMotionBlurValue
             // 
-            this.comboBoxDirectX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDirectX.FormattingEnabled = true;
-            this.comboBoxDirectX.Items.AddRange(new object[] {
-            "DirectX 9",
-            "DirectX 10",
-            "DirectX 11"});
-            this.comboBoxDirectX.Location = new System.Drawing.Point(109, 56);
-            this.comboBoxDirectX.Name = "comboBoxDirectX";
-            this.comboBoxDirectX.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxDirectX.TabIndex = 67;
-            this.comboBoxDirectX.SelectedIndexChanged += new System.EventHandler(this.comboBoxDirectX_SelectedIndexChanged);
+            this.labelMotionBlurValue.AutoSize = true;
+            this.labelMotionBlurValue.Location = new System.Drawing.Point(180, 20);
+            this.labelMotionBlurValue.Name = "labelMotionBlurValue";
+            this.labelMotionBlurValue.Size = new System.Drawing.Size(48, 13);
+            this.labelMotionBlurValue.TabIndex = 112;
+            this.labelMotionBlurValue.Text = "Disabled";
             // 
-            // labelDirectX
+            // labelSoftParticlesValue
             // 
-            this.labelDirectX.AutoSize = true;
-            this.labelDirectX.Location = new System.Drawing.Point(7, 60);
-            this.labelDirectX.Name = "labelDirectX";
-            this.labelDirectX.Size = new System.Drawing.Size(42, 13);
-            this.labelDirectX.TabIndex = 27;
-            this.labelDirectX.Text = "DirectX";
+            this.labelSoftParticlesValue.AutoSize = true;
+            this.labelSoftParticlesValue.Location = new System.Drawing.Point(180, 59);
+            this.labelSoftParticlesValue.Name = "labelSoftParticlesValue";
+            this.labelSoftParticlesValue.Size = new System.Drawing.Size(48, 13);
+            this.labelSoftParticlesValue.TabIndex = 95;
+            this.labelSoftParticlesValue.Text = "Disabled";
             // 
-            // labelResolution
+            // labelShadowResolutionValue
             // 
-            this.labelResolution.AutoSize = true;
-            this.labelResolution.Location = new System.Drawing.Point(7, 10);
-            this.labelResolution.Name = "labelResolution";
-            this.labelResolution.Size = new System.Drawing.Size(57, 13);
-            this.labelResolution.TabIndex = 86;
-            this.labelResolution.Text = "Resolution";
+            this.labelShadowResolutionValue.AutoSize = true;
+            this.labelShadowResolutionValue.Location = new System.Drawing.Point(180, 72);
+            this.labelShadowResolutionValue.Name = "labelShadowResolutionValue";
+            this.labelShadowResolutionValue.Size = new System.Drawing.Size(53, 13);
+            this.labelShadowResolutionValue.TabIndex = 97;
+            this.labelShadowResolutionValue.Text = "2.35 Mpix";
             // 
-            // groupBoxDirectX11
+            // labelDetailTexturingValue
             // 
-            this.groupBoxDirectX11.Controls.Add(this.checkBoxDepthOfField);
-            this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
-            this.groupBoxDirectX11.Location = new System.Drawing.Point(250, 50);
-            this.groupBoxDirectX11.Name = "groupBoxDirectX11";
-            this.groupBoxDirectX11.Size = new System.Drawing.Size(99, 65);
-            this.groupBoxDirectX11.TabIndex = 88;
-            this.groupBoxDirectX11.TabStop = false;
-            this.groupBoxDirectX11.Text = "DirectX 11";
+            this.labelDetailTexturingValue.AutoSize = true;
+            this.labelDetailTexturingValue.Location = new System.Drawing.Point(180, 111);
+            this.labelDetailTexturingValue.Name = "labelDetailTexturingValue";
+            this.labelDetailTexturingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelDetailTexturingValue.TabIndex = 109;
+            this.labelDetailTexturingValue.Text = "Disabled";
             // 
-            // checkBoxTessellation
+            // labelVolumetricTexturing
             // 
-            this.checkBoxTessellation.AutoSize = true;
-            this.checkBoxTessellation.Location = new System.Drawing.Point(5, 40);
-            this.checkBoxTessellation.Name = "checkBoxTessellation";
-            this.checkBoxTessellation.Size = new System.Drawing.Size(82, 17);
-            this.checkBoxTessellation.TabIndex = 54;
-            this.checkBoxTessellation.Text = "Tessellation";
-            this.checkBoxTessellation.UseVisualStyleBackColor = true;
+            this.labelVolumetricTexturing.AutoSize = true;
+            this.labelVolumetricTexturing.Location = new System.Drawing.Point(10, 189);
+            this.labelVolumetricTexturing.Name = "labelVolumetricTexturing";
+            this.labelVolumetricTexturing.Size = new System.Drawing.Size(99, 13);
+            this.labelVolumetricTexturing.TabIndex = 110;
+            this.labelVolumetricTexturing.Text = "Volumetric texturing";
             // 
-            // checkBoxDepthOfField
+            // labelBumpMappingValue
             // 
-            this.checkBoxDepthOfField.AutoSize = true;
-            this.checkBoxDepthOfField.Location = new System.Drawing.Point(5, 20);
-            this.checkBoxDepthOfField.Name = "checkBoxDepthOfField";
-            this.checkBoxDepthOfField.Size = new System.Drawing.Size(89, 17);
-            this.checkBoxDepthOfField.TabIndex = 53;
-            this.checkBoxDepthOfField.Text = "Depth of field";
-            this.checkBoxDepthOfField.UseVisualStyleBackColor = true;
+            this.labelBumpMappingValue.AutoSize = true;
+            this.labelBumpMappingValue.Location = new System.Drawing.Point(180, 46);
+            this.labelBumpMappingValue.Name = "labelBumpMappingValue";
+            this.labelBumpMappingValue.Size = new System.Drawing.Size(40, 13);
+            this.labelBumpMappingValue.TabIndex = 98;
+            this.labelBumpMappingValue.Text = "Coarse";
+            // 
+            // labelSkinShadingValue
+            // 
+            this.labelSkinShadingValue.AutoSize = true;
+            this.labelSkinShadingValue.Location = new System.Drawing.Point(180, 33);
+            this.labelSkinShadingValue.Name = "labelSkinShadingValue";
+            this.labelSkinShadingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelSkinShadingValue.TabIndex = 96;
+            this.labelSkinShadingValue.Text = "Disabled";
+            // 
+            // labelAnalyticalAntiAliasing
+            // 
+            this.labelAnalyticalAntiAliasing.AutoSize = true;
+            this.labelAnalyticalAntiAliasing.Location = new System.Drawing.Point(10, 176);
+            this.labelAnalyticalAntiAliasing.Name = "labelAnalyticalAntiAliasing";
+            this.labelAnalyticalAntiAliasing.Size = new System.Drawing.Size(110, 13);
+            this.labelAnalyticalAntiAliasing.TabIndex = 108;
+            this.labelAnalyticalAntiAliasing.Text = "Analytical anti-aliasing";
+            // 
+            // labelLightMaterialInteraction
+            // 
+            this.labelLightMaterialInteraction.AutoSize = true;
+            this.labelLightMaterialInteraction.Location = new System.Drawing.Point(10, 85);
+            this.labelLightMaterialInteraction.Name = "labelLightMaterialInteraction";
+            this.labelLightMaterialInteraction.Size = new System.Drawing.Size(121, 13);
+            this.labelLightMaterialInteraction.TabIndex = 99;
+            this.labelLightMaterialInteraction.Text = "Light-material interaction";
+            // 
+            // labelShadowFiltering
+            // 
+            this.labelShadowFiltering.AutoSize = true;
+            this.labelShadowFiltering.Location = new System.Drawing.Point(10, 163);
+            this.labelShadowFiltering.Name = "labelShadowFiltering";
+            this.labelShadowFiltering.Size = new System.Drawing.Size(82, 13);
+            this.labelShadowFiltering.TabIndex = 107;
+            this.labelShadowFiltering.Text = "Shadow filtering";
+            // 
+            // labelLightMaterialInteractionValue
+            // 
+            this.labelLightMaterialInteractionValue.AutoSize = true;
+            this.labelLightMaterialInteractionValue.Location = new System.Drawing.Point(180, 85);
+            this.labelLightMaterialInteractionValue.Name = "labelLightMaterialInteractionValue";
+            this.labelLightMaterialInteractionValue.Size = new System.Drawing.Size(40, 13);
+            this.labelLightMaterialInteractionValue.TabIndex = 100;
+            this.labelLightMaterialInteractionValue.Text = "Normal";
+            // 
+            // labelParallaxMapping
+            // 
+            this.labelParallaxMapping.AutoSize = true;
+            this.labelParallaxMapping.Location = new System.Drawing.Point(10, 150);
+            this.labelParallaxMapping.Name = "labelParallaxMapping";
+            this.labelParallaxMapping.Size = new System.Drawing.Size(87, 13);
+            this.labelParallaxMapping.TabIndex = 106;
+            this.labelParallaxMapping.Text = "Parallax mapping";
+            // 
+            // labelGeometricDetail
+            // 
+            this.labelGeometricDetail.AutoSize = true;
+            this.labelGeometricDetail.Location = new System.Drawing.Point(10, 98);
+            this.labelGeometricDetail.Name = "labelGeometricDetail";
+            this.labelGeometricDetail.Size = new System.Drawing.Size(83, 13);
+            this.labelGeometricDetail.TabIndex = 101;
+            this.labelGeometricDetail.Text = "Geometric detail";
+            // 
+            // labelImagePostProcessing
+            // 
+            this.labelImagePostProcessing.AutoSize = true;
+            this.labelImagePostProcessing.Location = new System.Drawing.Point(10, 137);
+            this.labelImagePostProcessing.Name = "labelImagePostProcessing";
+            this.labelImagePostProcessing.Size = new System.Drawing.Size(113, 13);
+            this.labelImagePostProcessing.TabIndex = 105;
+            this.labelImagePostProcessing.Text = "Image post-processing";
+            // 
+            // labelGeometricDetailValue
+            // 
+            this.labelGeometricDetailValue.AutoSize = true;
+            this.labelGeometricDetailValue.Location = new System.Drawing.Point(180, 98);
+            this.labelGeometricDetailValue.Name = "labelGeometricDetailValue";
+            this.labelGeometricDetailValue.Size = new System.Drawing.Size(27, 13);
+            this.labelGeometricDetailValue.TabIndex = 102;
+            this.labelGeometricDetailValue.Text = "Low";
+            // 
+            // labelAmbientOcclusion
+            // 
+            this.labelAmbientOcclusion.AutoSize = true;
+            this.labelAmbientOcclusion.Location = new System.Drawing.Point(10, 124);
+            this.labelAmbientOcclusion.Name = "labelAmbientOcclusion";
+            this.labelAmbientOcclusion.Size = new System.Drawing.Size(93, 13);
+            this.labelAmbientOcclusion.TabIndex = 103;
+            this.labelAmbientOcclusion.Text = "Ambient occlusion";
+            // 
+            // labelDetailTexturing
+            // 
+            this.labelDetailTexturing.AutoSize = true;
+            this.labelDetailTexturing.Location = new System.Drawing.Point(10, 111);
+            this.labelDetailTexturing.Name = "labelDetailTexturing";
+            this.labelDetailTexturing.Size = new System.Drawing.Size(77, 13);
+            this.labelDetailTexturing.TabIndex = 104;
+            this.labelDetailTexturing.Text = "Detail texturing";
+            // 
+            // labelTextureFiltering
+            // 
+            this.labelTextureFiltering.AutoSize = true;
+            this.labelTextureFiltering.Location = new System.Drawing.Point(7, 126);
+            this.labelTextureFiltering.Name = "labelTextureFiltering";
+            this.labelTextureFiltering.Size = new System.Drawing.Size(79, 13);
+            this.labelTextureFiltering.TabIndex = 26;
+            this.labelTextureFiltering.Text = "Texture filtering";
+            // 
+            // comboBoxTextureFiltering
+            // 
+            this.comboBoxTextureFiltering.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTextureFiltering.FormattingEnabled = true;
+            this.comboBoxTextureFiltering.Items.AddRange(new object[] {
+            "AF 4X",
+            "AF 16X"});
+            this.comboBoxTextureFiltering.Location = new System.Drawing.Point(109, 122);
+            this.comboBoxTextureFiltering.Name = "comboBoxTextureFiltering";
+            this.comboBoxTextureFiltering.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTextureFiltering.TabIndex = 83;
             // 
             // comboBoxResolution
             // 
@@ -647,330 +750,238 @@
             this.comboBoxResolution.TabIndex = 87;
             this.comboBoxResolution.SelectedIndexChanged += new System.EventHandler(this.comboBoxResolution_SelectedIndexChanged);
             // 
-            // comboBoxTextureFiltering
+            // groupBoxDirectX11
             // 
-            this.comboBoxTextureFiltering.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTextureFiltering.FormattingEnabled = true;
-            this.comboBoxTextureFiltering.Items.AddRange(new object[] {
-            "AF 4X",
-            "AF 16X"});
-            this.comboBoxTextureFiltering.Location = new System.Drawing.Point(109, 106);
-            this.comboBoxTextureFiltering.Name = "comboBoxTextureFiltering";
-            this.comboBoxTextureFiltering.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxTextureFiltering.TabIndex = 83;
+            this.groupBoxDirectX11.Controls.Add(this.checkBoxDepthOfField);
+            this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
+            this.groupBoxDirectX11.Location = new System.Drawing.Point(250, 58);
+            this.groupBoxDirectX11.Name = "groupBoxDirectX11";
+            this.groupBoxDirectX11.Size = new System.Drawing.Size(99, 65);
+            this.groupBoxDirectX11.TabIndex = 88;
+            this.groupBoxDirectX11.TabStop = false;
+            this.groupBoxDirectX11.Text = "DirectX 11";
             // 
-            // labelTextureFiltering
+            // checkBoxDepthOfField
             // 
-            this.labelTextureFiltering.AutoSize = true;
-            this.labelTextureFiltering.Location = new System.Drawing.Point(7, 110);
-            this.labelTextureFiltering.Name = "labelTextureFiltering";
-            this.labelTextureFiltering.Size = new System.Drawing.Size(79, 13);
-            this.labelTextureFiltering.TabIndex = 26;
-            this.labelTextureFiltering.Text = "Texture filtering";
+            this.checkBoxDepthOfField.AutoSize = true;
+            this.checkBoxDepthOfField.Location = new System.Drawing.Point(5, 20);
+            this.checkBoxDepthOfField.Name = "checkBoxDepthOfField";
+            this.checkBoxDepthOfField.Size = new System.Drawing.Size(89, 17);
+            this.checkBoxDepthOfField.TabIndex = 53;
+            this.checkBoxDepthOfField.Text = "Depth of field";
+            this.checkBoxDepthOfField.UseVisualStyleBackColor = true;
             // 
-            // groupBoxDescription
+            // checkBoxTessellation
             // 
-            this.groupBoxDescription.Controls.Add(this.labelVolumetricTexturingValue);
-            this.groupBoxDescription.Controls.Add(this.labelAnalyticalAntiAliasingValue);
-            this.groupBoxDescription.Controls.Add(this.labelShadowFilteringValue);
-            this.groupBoxDescription.Controls.Add(this.labelMotionBlur);
-            this.groupBoxDescription.Controls.Add(this.labelSkinShading);
-            this.groupBoxDescription.Controls.Add(this.labelParallaxMappingValue);
-            this.groupBoxDescription.Controls.Add(this.labelBumpMapping);
-            this.groupBoxDescription.Controls.Add(this.labelSoftParticles);
-            this.groupBoxDescription.Controls.Add(this.labelImagePostProcessingValue);
-            this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusionValue);
-            this.groupBoxDescription.Controls.Add(this.labelShadowResolution);
-            this.groupBoxDescription.Controls.Add(this.labelMotionBlurValue);
-            this.groupBoxDescription.Controls.Add(this.labelSoftParticlesValue);
-            this.groupBoxDescription.Controls.Add(this.labelShadowResolutionValue);
-            this.groupBoxDescription.Controls.Add(this.labelDetailTexturingValue);
-            this.groupBoxDescription.Controls.Add(this.labelVolumetricTexturing);
-            this.groupBoxDescription.Controls.Add(this.labelBumpMappingValue);
-            this.groupBoxDescription.Controls.Add(this.labelSkinShadingValue);
-            this.groupBoxDescription.Controls.Add(this.labelAnalyticalAntiAliasing);
-            this.groupBoxDescription.Controls.Add(this.labelLightMaterialInteraction);
-            this.groupBoxDescription.Controls.Add(this.labelShadowFiltering);
-            this.groupBoxDescription.Controls.Add(this.labelLightMaterialInteractionValue);
-            this.groupBoxDescription.Controls.Add(this.labelParallaxMapping);
-            this.groupBoxDescription.Controls.Add(this.labelGeometricDetail);
-            this.groupBoxDescription.Controls.Add(this.labelImagePostProcessing);
-            this.groupBoxDescription.Controls.Add(this.labelGeometricDetailValue);
-            this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusion);
-            this.groupBoxDescription.Controls.Add(this.labelDetailTexturing);
-            this.groupBoxDescription.Location = new System.Drawing.Point(368, 50);
-            this.groupBoxDescription.Name = "groupBoxDescription";
-            this.groupBoxDescription.Size = new System.Drawing.Size(400, 217);
-            this.groupBoxDescription.TabIndex = 89;
-            this.groupBoxDescription.TabStop = false;
-            this.groupBoxDescription.Text = "Quality settings";
+            this.checkBoxTessellation.AutoSize = true;
+            this.checkBoxTessellation.Location = new System.Drawing.Point(5, 40);
+            this.checkBoxTessellation.Name = "checkBoxTessellation";
+            this.checkBoxTessellation.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxTessellation.TabIndex = 54;
+            this.checkBoxTessellation.Text = "Tessellation";
+            this.checkBoxTessellation.UseVisualStyleBackColor = true;
             // 
-            // labelDetailTexturing
+            // labelResolution
             // 
-            this.labelDetailTexturing.AutoSize = true;
-            this.labelDetailTexturing.Location = new System.Drawing.Point(10, 111);
-            this.labelDetailTexturing.Name = "labelDetailTexturing";
-            this.labelDetailTexturing.Size = new System.Drawing.Size(77, 13);
-            this.labelDetailTexturing.TabIndex = 104;
-            this.labelDetailTexturing.Text = "Detail texturing";
+            this.labelResolution.AutoSize = true;
+            this.labelResolution.Location = new System.Drawing.Point(7, 10);
+            this.labelResolution.Name = "labelResolution";
+            this.labelResolution.Size = new System.Drawing.Size(57, 13);
+            this.labelResolution.TabIndex = 86;
+            this.labelResolution.Text = "Resolution";
             // 
-            // labelAmbientOcclusion
+            // labelDirectX
             // 
-            this.labelAmbientOcclusion.AutoSize = true;
-            this.labelAmbientOcclusion.Location = new System.Drawing.Point(10, 124);
-            this.labelAmbientOcclusion.Name = "labelAmbientOcclusion";
-            this.labelAmbientOcclusion.Size = new System.Drawing.Size(93, 13);
-            this.labelAmbientOcclusion.TabIndex = 103;
-            this.labelAmbientOcclusion.Text = "Ambient occlusion";
+            this.labelDirectX.AutoSize = true;
+            this.labelDirectX.Location = new System.Drawing.Point(7, 68);
+            this.labelDirectX.Name = "labelDirectX";
+            this.labelDirectX.Size = new System.Drawing.Size(42, 13);
+            this.labelDirectX.TabIndex = 27;
+            this.labelDirectX.Text = "DirectX";
             // 
-            // labelGeometricDetailValue
+            // comboBoxDirectX
             // 
-            this.labelGeometricDetailValue.AutoSize = true;
-            this.labelGeometricDetailValue.Location = new System.Drawing.Point(180, 98);
-            this.labelGeometricDetailValue.Name = "labelGeometricDetailValue";
-            this.labelGeometricDetailValue.Size = new System.Drawing.Size(27, 13);
-            this.labelGeometricDetailValue.TabIndex = 102;
-            this.labelGeometricDetailValue.Text = "Low";
+            this.comboBoxDirectX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDirectX.FormattingEnabled = true;
+            this.comboBoxDirectX.Items.AddRange(new object[] {
+            "DirectX 9",
+            "DirectX 10",
+            "DirectX 11"});
+            this.comboBoxDirectX.Location = new System.Drawing.Point(109, 64);
+            this.comboBoxDirectX.Name = "comboBoxDirectX";
+            this.comboBoxDirectX.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDirectX.TabIndex = 67;
+            this.comboBoxDirectX.SelectedIndexChanged += new System.EventHandler(this.comboBoxDirectX_SelectedIndexChanged);
             // 
-            // labelImagePostProcessing
+            // comboBoxAntialiasing
             // 
-            this.labelImagePostProcessing.AutoSize = true;
-            this.labelImagePostProcessing.Location = new System.Drawing.Point(10, 137);
-            this.labelImagePostProcessing.Name = "labelImagePostProcessing";
-            this.labelImagePostProcessing.Size = new System.Drawing.Size(113, 13);
-            this.labelImagePostProcessing.TabIndex = 105;
-            this.labelImagePostProcessing.Text = "Image post-processing";
+            this.comboBoxAntialiasing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAntialiasing.FormattingEnabled = true;
+            this.comboBoxAntialiasing.Items.AddRange(new object[] {
+            "AAA",
+            "MSAA 4X"});
+            this.comboBoxAntialiasing.Location = new System.Drawing.Point(109, 93);
+            this.comboBoxAntialiasing.Name = "comboBoxAntialiasing";
+            this.comboBoxAntialiasing.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxAntialiasing.TabIndex = 84;
             // 
-            // labelGeometricDetail
+            // spinnerFov
             // 
-            this.labelGeometricDetail.AutoSize = true;
-            this.labelGeometricDetail.Location = new System.Drawing.Point(10, 98);
-            this.labelGeometricDetail.Name = "labelGeometricDetail";
-            this.labelGeometricDetail.Size = new System.Drawing.Size(83, 13);
-            this.labelGeometricDetail.TabIndex = 101;
-            this.labelGeometricDetail.Text = "Geometric detail";
+            this.spinnerFov.Location = new System.Drawing.Point(109, 179);
+            this.spinnerFov.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.spinnerFov.Minimum = new decimal(new int[] {
+            45,
+            0,
+            0,
+            0});
+            this.spinnerFov.Name = "spinnerFov";
+            this.spinnerFov.Size = new System.Drawing.Size(120, 20);
+            this.spinnerFov.TabIndex = 80;
+            this.spinnerFov.Value = new decimal(new int[] {
+            45,
+            0,
+            0,
+            0});
             // 
-            // labelParallaxMapping
+            // comboBoxQuality
             // 
-            this.labelParallaxMapping.AutoSize = true;
-            this.labelParallaxMapping.Location = new System.Drawing.Point(10, 150);
-            this.labelParallaxMapping.Name = "labelParallaxMapping";
-            this.labelParallaxMapping.Size = new System.Drawing.Size(87, 13);
-            this.labelParallaxMapping.TabIndex = 106;
-            this.labelParallaxMapping.Text = "Parallax mapping";
+            this.comboBoxQuality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxQuality.FormattingEnabled = true;
+            this.comboBoxQuality.Items.AddRange(new object[] {
+            "Low",
+            "Medium",
+            "High",
+            "Very high"});
+            this.comboBoxQuality.Location = new System.Drawing.Point(109, 35);
+            this.comboBoxQuality.Name = "comboBoxQuality";
+            this.comboBoxQuality.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxQuality.TabIndex = 79;
+            this.comboBoxQuality.SelectedIndexChanged += new System.EventHandler(this.comboBoxQuality_SelectedIndexChanged);
             // 
-            // labelLightMaterialInteractionValue
+            // spinnerGamma
             // 
-            this.labelLightMaterialInteractionValue.AutoSize = true;
-            this.labelLightMaterialInteractionValue.Location = new System.Drawing.Point(180, 85);
-            this.labelLightMaterialInteractionValue.Name = "labelLightMaterialInteractionValue";
-            this.labelLightMaterialInteractionValue.Size = new System.Drawing.Size(40, 13);
-            this.labelLightMaterialInteractionValue.TabIndex = 100;
-            this.labelLightMaterialInteractionValue.Text = "Normal";
+            this.spinnerGamma.DecimalPlaces = 2;
+            this.spinnerGamma.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.spinnerGamma.Location = new System.Drawing.Point(109, 151);
+            this.spinnerGamma.Maximum = new decimal(new int[] {
+            145,
+            0,
+            0,
+            131072});
+            this.spinnerGamma.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.spinnerGamma.Name = "spinnerGamma";
+            this.spinnerGamma.Size = new System.Drawing.Size(120, 20);
+            this.spinnerGamma.TabIndex = 77;
+            this.spinnerGamma.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             // 
-            // labelShadowFiltering
+            // checkBoxFullscreen
             // 
-            this.labelShadowFiltering.AutoSize = true;
-            this.labelShadowFiltering.Location = new System.Drawing.Point(10, 163);
-            this.labelShadowFiltering.Name = "labelShadowFiltering";
-            this.labelShadowFiltering.Size = new System.Drawing.Size(82, 13);
-            this.labelShadowFiltering.TabIndex = 107;
-            this.labelShadowFiltering.Text = "Shadow filtering";
+            this.checkBoxFullscreen.AutoSize = true;
+            this.checkBoxFullscreen.Location = new System.Drawing.Point(10, 214);
+            this.checkBoxFullscreen.Name = "checkBoxFullscreen";
+            this.checkBoxFullscreen.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxFullscreen.TabIndex = 55;
+            this.checkBoxFullscreen.Text = "Fullscreen";
+            this.checkBoxFullscreen.UseVisualStyleBackColor = true;
             // 
-            // labelLightMaterialInteraction
+            // labelGamma
             // 
-            this.labelLightMaterialInteraction.AutoSize = true;
-            this.labelLightMaterialInteraction.Location = new System.Drawing.Point(10, 85);
-            this.labelLightMaterialInteraction.Name = "labelLightMaterialInteraction";
-            this.labelLightMaterialInteraction.Size = new System.Drawing.Size(121, 13);
-            this.labelLightMaterialInteraction.TabIndex = 99;
-            this.labelLightMaterialInteraction.Text = "Light-material interaction";
+            this.labelGamma.AutoSize = true;
+            this.labelGamma.Location = new System.Drawing.Point(7, 155);
+            this.labelGamma.Name = "labelGamma";
+            this.labelGamma.Size = new System.Drawing.Size(43, 13);
+            this.labelGamma.TabIndex = 33;
+            this.labelGamma.Text = "Gamma";
             // 
-            // labelAnalyticalAntiAliasing
+            // checkBoxVsync
             // 
-            this.labelAnalyticalAntiAliasing.AutoSize = true;
-            this.labelAnalyticalAntiAliasing.Location = new System.Drawing.Point(10, 176);
-            this.labelAnalyticalAntiAliasing.Name = "labelAnalyticalAntiAliasing";
-            this.labelAnalyticalAntiAliasing.Size = new System.Drawing.Size(110, 13);
-            this.labelAnalyticalAntiAliasing.TabIndex = 108;
-            this.labelAnalyticalAntiAliasing.Text = "Analytical anti-aliasing";
+            this.checkBoxVsync.AutoSize = true;
+            this.checkBoxVsync.Location = new System.Drawing.Point(10, 254);
+            this.checkBoxVsync.Name = "checkBoxVsync";
+            this.checkBoxVsync.Size = new System.Drawing.Size(55, 17);
+            this.checkBoxVsync.TabIndex = 56;
+            this.checkBoxVsync.Text = "Vsync";
+            this.checkBoxVsync.UseVisualStyleBackColor = true;
             // 
-            // labelSkinShadingValue
+            // labelAntialiasing
             // 
-            this.labelSkinShadingValue.AutoSize = true;
-            this.labelSkinShadingValue.Location = new System.Drawing.Point(180, 33);
-            this.labelSkinShadingValue.Name = "labelSkinShadingValue";
-            this.labelSkinShadingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelSkinShadingValue.TabIndex = 96;
-            this.labelSkinShadingValue.Text = "Disabled";
+            this.labelAntialiasing.AutoSize = true;
+            this.labelAntialiasing.Location = new System.Drawing.Point(7, 97);
+            this.labelAntialiasing.Name = "labelAntialiasing";
+            this.labelAntialiasing.Size = new System.Drawing.Size(60, 13);
+            this.labelAntialiasing.TabIndex = 34;
+            this.labelAntialiasing.Text = "Antialiasing";
             // 
-            // labelBumpMappingValue
+            // labelQuality
             // 
-            this.labelBumpMappingValue.AutoSize = true;
-            this.labelBumpMappingValue.Location = new System.Drawing.Point(180, 46);
-            this.labelBumpMappingValue.Name = "labelBumpMappingValue";
-            this.labelBumpMappingValue.Size = new System.Drawing.Size(40, 13);
-            this.labelBumpMappingValue.TabIndex = 98;
-            this.labelBumpMappingValue.Text = "Coarse";
+            this.labelQuality.AutoSize = true;
+            this.labelQuality.Location = new System.Drawing.Point(7, 39);
+            this.labelQuality.Name = "labelQuality";
+            this.labelQuality.Size = new System.Drawing.Size(39, 13);
+            this.labelQuality.TabIndex = 35;
+            this.labelQuality.Text = "Quality";
             // 
-            // labelVolumetricTexturing
+            // labelFov
             // 
-            this.labelVolumetricTexturing.AutoSize = true;
-            this.labelVolumetricTexturing.Location = new System.Drawing.Point(10, 189);
-            this.labelVolumetricTexturing.Name = "labelVolumetricTexturing";
-            this.labelVolumetricTexturing.Size = new System.Drawing.Size(99, 13);
-            this.labelVolumetricTexturing.TabIndex = 110;
-            this.labelVolumetricTexturing.Text = "Volumetric texturing";
+            this.labelFov.AutoSize = true;
+            this.labelFov.Location = new System.Drawing.Point(7, 183);
+            this.labelFov.Name = "labelFov";
+            this.labelFov.Size = new System.Drawing.Size(28, 13);
+            this.labelFov.TabIndex = 39;
+            this.labelFov.Text = "FOV";
             // 
-            // labelDetailTexturingValue
+            // labelWidth
             // 
-            this.labelDetailTexturingValue.AutoSize = true;
-            this.labelDetailTexturingValue.Location = new System.Drawing.Point(180, 111);
-            this.labelDetailTexturingValue.Name = "labelDetailTexturingValue";
-            this.labelDetailTexturingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelDetailTexturingValue.TabIndex = 109;
-            this.labelDetailTexturingValue.Text = "Disabled";
+            this.labelWidth.AutoSize = true;
+            this.labelWidth.Location = new System.Drawing.Point(250, 10);
+            this.labelWidth.Name = "labelWidth";
+            this.labelWidth.Size = new System.Drawing.Size(35, 13);
+            this.labelWidth.TabIndex = 8;
+            this.labelWidth.Text = "Width";
             // 
-            // labelShadowResolutionValue
+            // textBoxWidth
             // 
-            this.labelShadowResolutionValue.AutoSize = true;
-            this.labelShadowResolutionValue.Location = new System.Drawing.Point(180, 72);
-            this.labelShadowResolutionValue.Name = "labelShadowResolutionValue";
-            this.labelShadowResolutionValue.Size = new System.Drawing.Size(53, 13);
-            this.labelShadowResolutionValue.TabIndex = 97;
-            this.labelShadowResolutionValue.Text = "2.35 Mpix";
+            this.textBoxWidth.Location = new System.Drawing.Point(295, 7);
+            this.textBoxWidth.Name = "textBoxWidth";
+            this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWidth.TabIndex = 10;
             // 
-            // labelSoftParticlesValue
+            // textBoxHeight
             // 
-            this.labelSoftParticlesValue.AutoSize = true;
-            this.labelSoftParticlesValue.Location = new System.Drawing.Point(180, 59);
-            this.labelSoftParticlesValue.Name = "labelSoftParticlesValue";
-            this.labelSoftParticlesValue.Size = new System.Drawing.Size(48, 13);
-            this.labelSoftParticlesValue.TabIndex = 95;
-            this.labelSoftParticlesValue.Text = "Disabled";
+            this.textBoxHeight.Location = new System.Drawing.Point(463, 7);
+            this.textBoxHeight.Name = "textBoxHeight";
+            this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
+            this.textBoxHeight.TabIndex = 11;
             // 
-            // labelMotionBlurValue
+            // labelHeight
             // 
-            this.labelMotionBlurValue.AutoSize = true;
-            this.labelMotionBlurValue.Location = new System.Drawing.Point(180, 20);
-            this.labelMotionBlurValue.Name = "labelMotionBlurValue";
-            this.labelMotionBlurValue.Size = new System.Drawing.Size(48, 13);
-            this.labelMotionBlurValue.TabIndex = 112;
-            this.labelMotionBlurValue.Text = "Disabled";
-            // 
-            // labelShadowResolution
-            // 
-            this.labelShadowResolution.AutoSize = true;
-            this.labelShadowResolution.Location = new System.Drawing.Point(10, 72);
-            this.labelShadowResolution.Name = "labelShadowResolution";
-            this.labelShadowResolution.Size = new System.Drawing.Size(94, 13);
-            this.labelShadowResolution.TabIndex = 94;
-            this.labelShadowResolution.Text = "Shadow resolution";
-            // 
-            // labelAmbientOcclusionValue
-            // 
-            this.labelAmbientOcclusionValue.AutoSize = true;
-            this.labelAmbientOcclusionValue.Location = new System.Drawing.Point(180, 124);
-            this.labelAmbientOcclusionValue.Name = "labelAmbientOcclusionValue";
-            this.labelAmbientOcclusionValue.Size = new System.Drawing.Size(65, 13);
-            this.labelAmbientOcclusionValue.TabIndex = 113;
-            this.labelAmbientOcclusionValue.Text = "Approximate";
-            // 
-            // labelImagePostProcessingValue
-            // 
-            this.labelImagePostProcessingValue.AutoSize = true;
-            this.labelImagePostProcessingValue.Location = new System.Drawing.Point(180, 137);
-            this.labelImagePostProcessingValue.Name = "labelImagePostProcessingValue";
-            this.labelImagePostProcessingValue.Size = new System.Drawing.Size(40, 13);
-            this.labelImagePostProcessingValue.TabIndex = 111;
-            this.labelImagePostProcessingValue.Text = "Normal";
-            // 
-            // labelSoftParticles
-            // 
-            this.labelSoftParticles.AutoSize = true;
-            this.labelSoftParticles.Location = new System.Drawing.Point(10, 59);
-            this.labelSoftParticles.Name = "labelSoftParticles";
-            this.labelSoftParticles.Size = new System.Drawing.Size(68, 13);
-            this.labelSoftParticles.TabIndex = 93;
-            this.labelSoftParticles.Text = "Soft particles";
-            // 
-            // labelBumpMapping
-            // 
-            this.labelBumpMapping.AutoSize = true;
-            this.labelBumpMapping.Location = new System.Drawing.Point(10, 46);
-            this.labelBumpMapping.Name = "labelBumpMapping";
-            this.labelBumpMapping.Size = new System.Drawing.Size(77, 13);
-            this.labelBumpMapping.TabIndex = 92;
-            this.labelBumpMapping.Text = "Bump mapping";
-            // 
-            // labelParallaxMappingValue
-            // 
-            this.labelParallaxMappingValue.AutoSize = true;
-            this.labelParallaxMappingValue.Location = new System.Drawing.Point(180, 150);
-            this.labelParallaxMappingValue.Name = "labelParallaxMappingValue";
-            this.labelParallaxMappingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelParallaxMappingValue.TabIndex = 115;
-            this.labelParallaxMappingValue.Text = "Disabled";
-            // 
-            // labelSkinShading
-            // 
-            this.labelSkinShading.AutoSize = true;
-            this.labelSkinShading.Location = new System.Drawing.Point(10, 33);
-            this.labelSkinShading.Name = "labelSkinShading";
-            this.labelSkinShading.Size = new System.Drawing.Size(68, 13);
-            this.labelSkinShading.TabIndex = 91;
-            this.labelSkinShading.Text = "Skin shading";
-            // 
-            // labelMotionBlur
-            // 
-            this.labelMotionBlur.AutoSize = true;
-            this.labelMotionBlur.Location = new System.Drawing.Point(10, 20);
-            this.labelMotionBlur.Name = "labelMotionBlur";
-            this.labelMotionBlur.Size = new System.Drawing.Size(59, 13);
-            this.labelMotionBlur.TabIndex = 90;
-            this.labelMotionBlur.Text = "Motion blur";
-            // 
-            // labelShadowFilteringValue
-            // 
-            this.labelShadowFilteringValue.AutoSize = true;
-            this.labelShadowFilteringValue.Location = new System.Drawing.Point(180, 163);
-            this.labelShadowFilteringValue.Name = "labelShadowFilteringValue";
-            this.labelShadowFilteringValue.Size = new System.Drawing.Size(27, 13);
-            this.labelShadowFilteringValue.TabIndex = 117;
-            this.labelShadowFilteringValue.Text = "Fast";
-            // 
-            // labelAnalyticalAntiAliasingValue
-            // 
-            this.labelAnalyticalAntiAliasingValue.AutoSize = true;
-            this.labelAnalyticalAntiAliasingValue.Location = new System.Drawing.Point(180, 176);
-            this.labelAnalyticalAntiAliasingValue.Name = "labelAnalyticalAntiAliasingValue";
-            this.labelAnalyticalAntiAliasingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelAnalyticalAntiAliasingValue.TabIndex = 116;
-            this.labelAnalyticalAntiAliasingValue.Text = "Disabled";
-            // 
-            // labelVolumetricTexturingValue
-            // 
-            this.labelVolumetricTexturingValue.AutoSize = true;
-            this.labelVolumetricTexturingValue.Location = new System.Drawing.Point(180, 189);
-            this.labelVolumetricTexturingValue.Name = "labelVolumetricTexturingValue";
-            this.labelVolumetricTexturingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelVolumetricTexturingValue.TabIndex = 118;
-            this.labelVolumetricTexturingValue.Text = "Disabled";
-            // 
-            // checkBoxGlobalIllumination
-            // 
-            this.checkBoxGlobalIllumination.AutoSize = true;
-            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(10, 205);
-            this.checkBoxGlobalIllumination.Name = "checkBoxGlobalIllumination";
-            this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(110, 17);
-            this.checkBoxGlobalIllumination.TabIndex = 90;
-            this.checkBoxGlobalIllumination.Text = "Global illumination";
-            this.checkBoxGlobalIllumination.UseVisualStyleBackColor = true;
+            this.labelHeight.AutoSize = true;
+            this.labelHeight.Location = new System.Drawing.Point(415, 10);
+            this.labelHeight.Name = "labelHeight";
+            this.labelHeight.Size = new System.Drawing.Size(38, 13);
+            this.labelHeight.TabIndex = 9;
+            this.labelHeight.Text = "Height";
             // 
             // tabGeneral
             // 
             this.tabGeneral.BackColor = System.Drawing.Color.White;
-            this.tabGeneral.Controls.Add(this.label1);
+            this.tabGeneral.Controls.Add(this.labelCheatsNote);
             this.tabGeneral.Controls.Add(this.groupBoxGameOptions);
             this.tabGeneral.Controls.Add(this.groupBoxControls);
             this.tabGeneral.Controls.Add(this.groupBoxSound);
@@ -981,6 +992,50 @@
             this.tabGeneral.Size = new System.Drawing.Size(787, 304);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
+            // 
+            // labelCheatsNote
+            // 
+            this.labelCheatsNote.AutoSize = true;
+            this.labelCheatsNote.Location = new System.Drawing.Point(265, 175);
+            this.labelCheatsNote.Name = "labelCheatsNote";
+            this.labelCheatsNote.Size = new System.Drawing.Size(460, 13);
+            this.labelCheatsNote.TabIndex = 95;
+            this.labelCheatsNote.Text = "Note: cheats are automatically disabled after you quit the game. You have to enab" +
+    "le them again.";
+            // 
+            // groupBoxGameOptions
+            // 
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxCrosshair);
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxShowStats);
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxScreenshotMode);
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxHints);
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxSubtitles);
+            this.groupBoxGameOptions.Controls.Add(this.comboBoxDifficulty);
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxSkipIntro);
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxFastWeaponChange);
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxAdvancedPhysX);
+            this.groupBoxGameOptions.Controls.Add(this.comboBoxVoiceLanguage);
+            this.groupBoxGameOptions.Controls.Add(this.labelDifficulty);
+            this.groupBoxGameOptions.Controls.Add(this.comboBoxTextLanguage);
+            this.groupBoxGameOptions.Controls.Add(this.labelVoiceLanguage);
+            this.groupBoxGameOptions.Controls.Add(this.labelTextLanguage);
+            this.groupBoxGameOptions.Controls.Add(this.checkBoxLaserCrosshair);
+            this.groupBoxGameOptions.Location = new System.Drawing.Point(5, 5);
+            this.groupBoxGameOptions.Name = "groupBoxGameOptions";
+            this.groupBoxGameOptions.Size = new System.Drawing.Size(240, 290);
+            this.groupBoxGameOptions.TabIndex = 91;
+            this.groupBoxGameOptions.TabStop = false;
+            this.groupBoxGameOptions.Text = "Game options";
+            // 
+            // checkBoxCrosshair
+            // 
+            this.checkBoxCrosshair.AutoSize = true;
+            this.checkBoxCrosshair.Location = new System.Drawing.Point(8, 20);
+            this.checkBoxCrosshair.Name = "checkBoxCrosshair";
+            this.checkBoxCrosshair.Size = new System.Drawing.Size(69, 17);
+            this.checkBoxCrosshair.TabIndex = 48;
+            this.checkBoxCrosshair.Text = "Crosshair";
+            this.checkBoxCrosshair.UseVisualStyleBackColor = true;
             // 
             // checkBoxShowStats
             // 
@@ -1002,16 +1057,6 @@
             this.checkBoxScreenshotMode.Text = "Screenshot mode";
             this.checkBoxScreenshotMode.UseVisualStyleBackColor = true;
             // 
-            // checkBoxCrosshair
-            // 
-            this.checkBoxCrosshair.AutoSize = true;
-            this.checkBoxCrosshair.Location = new System.Drawing.Point(8, 20);
-            this.checkBoxCrosshair.Name = "checkBoxCrosshair";
-            this.checkBoxCrosshair.Size = new System.Drawing.Size(69, 17);
-            this.checkBoxCrosshair.TabIndex = 48;
-            this.checkBoxCrosshair.Text = "Crosshair";
-            this.checkBoxCrosshair.UseVisualStyleBackColor = true;
-            // 
             // checkBoxHints
             // 
             this.checkBoxHints.AutoSize = true;
@@ -1021,6 +1066,16 @@
             this.checkBoxHints.TabIndex = 47;
             this.checkBoxHints.Text = "Hints";
             this.checkBoxHints.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSubtitles
+            // 
+            this.checkBoxSubtitles.AutoSize = true;
+            this.checkBoxSubtitles.Location = new System.Drawing.Point(8, 60);
+            this.checkBoxSubtitles.Name = "checkBoxSubtitles";
+            this.checkBoxSubtitles.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxSubtitles.TabIndex = 44;
+            this.checkBoxSubtitles.Text = "Subtitles";
+            this.checkBoxSubtitles.UseVisualStyleBackColor = true;
             // 
             // comboBoxDifficulty
             // 
@@ -1032,10 +1087,20 @@
             "Hardcore",
             "Ranger easy",
             "Ranger hardcore"});
-            this.comboBoxDifficulty.Location = new System.Drawing.Point(110, 251);
+            this.comboBoxDifficulty.Location = new System.Drawing.Point(110, 259);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
             this.comboBoxDifficulty.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDifficulty.TabIndex = 64;
+            // 
+            // checkBoxSkipIntro
+            // 
+            this.checkBoxSkipIntro.AutoSize = true;
+            this.checkBoxSkipIntro.Location = new System.Drawing.Point(8, 140);
+            this.checkBoxSkipIntro.Name = "checkBoxSkipIntro";
+            this.checkBoxSkipIntro.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxSkipIntro.TabIndex = 89;
+            this.checkBoxSkipIntro.Text = "Skip intro";
+            this.checkBoxSkipIntro.UseVisualStyleBackColor = true;
             // 
             // checkBoxFastWeaponChange
             // 
@@ -1046,6 +1111,16 @@
             this.checkBoxFastWeaponChange.TabIndex = 46;
             this.checkBoxFastWeaponChange.Text = "Fast weapon switch";
             this.checkBoxFastWeaponChange.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAdvancedPhysX
+            // 
+            this.checkBoxAdvancedPhysX.AutoSize = true;
+            this.checkBoxAdvancedPhysX.Location = new System.Drawing.Point(8, 100);
+            this.checkBoxAdvancedPhysX.Name = "checkBoxAdvancedPhysX";
+            this.checkBoxAdvancedPhysX.Size = new System.Drawing.Size(108, 17);
+            this.checkBoxAdvancedPhysX.TabIndex = 52;
+            this.checkBoxAdvancedPhysX.Text = "Advanced PhysX";
+            this.checkBoxAdvancedPhysX.UseVisualStyleBackColor = true;
             // 
             // comboBoxVoiceLanguage
             // 
@@ -1063,6 +1138,15 @@
             this.comboBoxVoiceLanguage.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVoiceLanguage.TabIndex = 65;
             // 
+            // labelDifficulty
+            // 
+            this.labelDifficulty.AutoSize = true;
+            this.labelDifficulty.Location = new System.Drawing.Point(5, 263);
+            this.labelDifficulty.Name = "labelDifficulty";
+            this.labelDifficulty.Size = new System.Drawing.Size(47, 13);
+            this.labelDifficulty.TabIndex = 15;
+            this.labelDifficulty.Text = "Difficulty";
+            // 
             // comboBoxTextLanguage
             // 
             this.comboBoxTextLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1077,15 +1161,24 @@
             "Dutch",
             "Polish",
             "Czech"});
-            this.comboBoxTextLanguage.Location = new System.Drawing.Point(110, 226);
+            this.comboBoxTextLanguage.Location = new System.Drawing.Point(110, 230);
             this.comboBoxTextLanguage.Name = "comboBoxTextLanguage";
             this.comboBoxTextLanguage.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTextLanguage.TabIndex = 66;
             // 
+            // labelVoiceLanguage
+            // 
+            this.labelVoiceLanguage.AutoSize = true;
+            this.labelVoiceLanguage.Location = new System.Drawing.Point(5, 205);
+            this.labelVoiceLanguage.Name = "labelVoiceLanguage";
+            this.labelVoiceLanguage.Size = new System.Drawing.Size(81, 13);
+            this.labelVoiceLanguage.TabIndex = 18;
+            this.labelVoiceLanguage.Text = "Voice language";
+            // 
             // labelTextLanguage
             // 
             this.labelTextLanguage.AutoSize = true;
-            this.labelTextLanguage.Location = new System.Drawing.Point(5, 230);
+            this.labelTextLanguage.Location = new System.Drawing.Point(5, 234);
             this.labelTextLanguage.Name = "labelTextLanguage";
             this.labelTextLanguage.Size = new System.Drawing.Size(75, 13);
             this.labelTextLanguage.TabIndex = 19;
@@ -1100,162 +1193,6 @@
             this.checkBoxLaserCrosshair.TabIndex = 82;
             this.checkBoxLaserCrosshair.Text = "Laser crosshair";
             this.checkBoxLaserCrosshair.UseVisualStyleBackColor = true;
-            // 
-            // labelVoiceLanguage
-            // 
-            this.labelVoiceLanguage.AutoSize = true;
-            this.labelVoiceLanguage.Location = new System.Drawing.Point(5, 205);
-            this.labelVoiceLanguage.Name = "labelVoiceLanguage";
-            this.labelVoiceLanguage.Size = new System.Drawing.Size(81, 13);
-            this.labelVoiceLanguage.TabIndex = 18;
-            this.labelVoiceLanguage.Text = "Voice language";
-            // 
-            // labelDifficulty
-            // 
-            this.labelDifficulty.AutoSize = true;
-            this.labelDifficulty.Location = new System.Drawing.Point(5, 255);
-            this.labelDifficulty.Name = "labelDifficulty";
-            this.labelDifficulty.Size = new System.Drawing.Size(47, 13);
-            this.labelDifficulty.TabIndex = 15;
-            this.labelDifficulty.Text = "Difficulty";
-            // 
-            // checkBoxAdvancedPhysX
-            // 
-            this.checkBoxAdvancedPhysX.AutoSize = true;
-            this.checkBoxAdvancedPhysX.Location = new System.Drawing.Point(8, 100);
-            this.checkBoxAdvancedPhysX.Name = "checkBoxAdvancedPhysX";
-            this.checkBoxAdvancedPhysX.Size = new System.Drawing.Size(108, 17);
-            this.checkBoxAdvancedPhysX.TabIndex = 52;
-            this.checkBoxAdvancedPhysX.Text = "Advanced PhysX";
-            this.checkBoxAdvancedPhysX.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSkipIntro
-            // 
-            this.checkBoxSkipIntro.AutoSize = true;
-            this.checkBoxSkipIntro.Location = new System.Drawing.Point(8, 140);
-            this.checkBoxSkipIntro.Name = "checkBoxSkipIntro";
-            this.checkBoxSkipIntro.Size = new System.Drawing.Size(70, 17);
-            this.checkBoxSkipIntro.TabIndex = 89;
-            this.checkBoxSkipIntro.Text = "Skip intro";
-            this.checkBoxSkipIntro.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSubtitles
-            // 
-            this.checkBoxSubtitles.AutoSize = true;
-            this.checkBoxSubtitles.Location = new System.Drawing.Point(8, 60);
-            this.checkBoxSubtitles.Name = "checkBoxSubtitles";
-            this.checkBoxSubtitles.Size = new System.Drawing.Size(66, 17);
-            this.checkBoxSubtitles.TabIndex = 44;
-            this.checkBoxSubtitles.Text = "Subtitles";
-            this.checkBoxSubtitles.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxCheats
-            // 
-            this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
-            this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
-            this.groupBoxCheats.Location = new System.Drawing.Point(265, 105);
-            this.groupBoxCheats.Name = "groupBoxCheats";
-            this.groupBoxCheats.Size = new System.Drawing.Size(114, 65);
-            this.groupBoxCheats.TabIndex = 90;
-            this.groupBoxCheats.TabStop = false;
-            this.groupBoxCheats.Text = "Cheats";
-            // 
-            // checkBoxGodMode
-            // 
-            this.checkBoxGodMode.AutoSize = true;
-            this.checkBoxGodMode.Location = new System.Drawing.Point(10, 40);
-            this.checkBoxGodMode.Name = "checkBoxGodMode";
-            this.checkBoxGodMode.Size = new System.Drawing.Size(75, 17);
-            this.checkBoxGodMode.TabIndex = 54;
-            this.checkBoxGodMode.Text = "God mode";
-            this.checkBoxGodMode.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxUnlimitedAmmo
-            // 
-            this.checkBoxUnlimitedAmmo.AutoSize = true;
-            this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(10, 20);
-            this.checkBoxUnlimitedAmmo.Name = "checkBoxUnlimitedAmmo";
-            this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(100, 17);
-            this.checkBoxUnlimitedAmmo.TabIndex = 53;
-            this.checkBoxUnlimitedAmmo.Text = "Unlimited ammo";
-            this.checkBoxUnlimitedAmmo.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxSound
-            // 
-            this.groupBoxSound.Controls.Add(this.labelMasterVolume);
-            this.groupBoxSound.Controls.Add(this.spinnerMusicVolume);
-            this.groupBoxSound.Controls.Add(this.spinnerMasterVolume);
-            this.groupBoxSound.Controls.Add(this.labelMusicVolume);
-            this.groupBoxSound.Location = new System.Drawing.Point(265, 5);
-            this.groupBoxSound.Name = "groupBoxSound";
-            this.groupBoxSound.Size = new System.Drawing.Size(140, 80);
-            this.groupBoxSound.TabIndex = 91;
-            this.groupBoxSound.TabStop = false;
-            this.groupBoxSound.Text = "Sound";
-            // 
-            // labelMusicVolume
-            // 
-            this.labelMusicVolume.AutoSize = true;
-            this.labelMusicVolume.Location = new System.Drawing.Point(5, 50);
-            this.labelMusicVolume.Name = "labelMusicVolume";
-            this.labelMusicVolume.Size = new System.Drawing.Size(72, 13);
-            this.labelMusicVolume.TabIndex = 37;
-            this.labelMusicVolume.Text = "Music volume";
-            // 
-            // spinnerMasterVolume
-            // 
-            this.spinnerMasterVolume.DecimalPlaces = 2;
-            this.spinnerMasterVolume.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.spinnerMasterVolume.Location = new System.Drawing.Point(86, 17);
-            this.spinnerMasterVolume.Maximum = new decimal(new int[] {
-            95,
-            0,
-            0,
-            131072});
-            this.spinnerMasterVolume.Name = "spinnerMasterVolume";
-            this.spinnerMasterVolume.Size = new System.Drawing.Size(50, 20);
-            this.spinnerMasterVolume.TabIndex = 74;
-            // 
-            // spinnerMusicVolume
-            // 
-            this.spinnerMusicVolume.DecimalPlaces = 2;
-            this.spinnerMusicVolume.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.spinnerMusicVolume.Location = new System.Drawing.Point(86, 47);
-            this.spinnerMusicVolume.Maximum = new decimal(new int[] {
-            95,
-            0,
-            0,
-            131072});
-            this.spinnerMusicVolume.Name = "spinnerMusicVolume";
-            this.spinnerMusicVolume.Size = new System.Drawing.Size(50, 20);
-            this.spinnerMusicVolume.TabIndex = 75;
-            // 
-            // labelMasterVolume
-            // 
-            this.labelMasterVolume.AutoSize = true;
-            this.labelMasterVolume.Location = new System.Drawing.Point(5, 20);
-            this.labelMasterVolume.Name = "labelMasterVolume";
-            this.labelMasterVolume.Size = new System.Drawing.Size(76, 13);
-            this.labelMasterVolume.TabIndex = 23;
-            this.labelMasterVolume.Text = "Master volume";
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabGeneral);
-            this.tabControl.Controls.Add(this.tabVideo);
-            this.tabControl.Location = new System.Drawing.Point(10, 135);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(795, 330);
-            this.tabControl.TabIndex = 90;
             // 
             // groupBoxControls
             // 
@@ -1344,39 +1281,113 @@
             0,
             131072});
             // 
-            // groupBoxGameOptions
+            // groupBoxSound
             // 
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxCrosshair);
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxShowStats);
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxScreenshotMode);
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxHints);
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxSubtitles);
-            this.groupBoxGameOptions.Controls.Add(this.comboBoxDifficulty);
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxSkipIntro);
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxFastWeaponChange);
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxAdvancedPhysX);
-            this.groupBoxGameOptions.Controls.Add(this.comboBoxVoiceLanguage);
-            this.groupBoxGameOptions.Controls.Add(this.labelDifficulty);
-            this.groupBoxGameOptions.Controls.Add(this.comboBoxTextLanguage);
-            this.groupBoxGameOptions.Controls.Add(this.labelVoiceLanguage);
-            this.groupBoxGameOptions.Controls.Add(this.labelTextLanguage);
-            this.groupBoxGameOptions.Controls.Add(this.checkBoxLaserCrosshair);
-            this.groupBoxGameOptions.Location = new System.Drawing.Point(5, 5);
-            this.groupBoxGameOptions.Name = "groupBoxGameOptions";
-            this.groupBoxGameOptions.Size = new System.Drawing.Size(240, 290);
-            this.groupBoxGameOptions.TabIndex = 91;
-            this.groupBoxGameOptions.TabStop = false;
-            this.groupBoxGameOptions.Text = "Game options";
+            this.groupBoxSound.Controls.Add(this.labelMasterVolume);
+            this.groupBoxSound.Controls.Add(this.spinnerMusicVolume);
+            this.groupBoxSound.Controls.Add(this.spinnerMasterVolume);
+            this.groupBoxSound.Controls.Add(this.labelMusicVolume);
+            this.groupBoxSound.Location = new System.Drawing.Point(265, 5);
+            this.groupBoxSound.Name = "groupBoxSound";
+            this.groupBoxSound.Size = new System.Drawing.Size(140, 80);
+            this.groupBoxSound.TabIndex = 91;
+            this.groupBoxSound.TabStop = false;
+            this.groupBoxSound.Text = "Sound";
             // 
-            // label1
+            // labelMasterVolume
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(265, 175);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(460, 13);
-            this.label1.TabIndex = 95;
-            this.label1.Text = "Note: cheats are automatically disabled after you quit the game. You have to enab" +
-    "le them again.";
+            this.labelMasterVolume.AutoSize = true;
+            this.labelMasterVolume.Location = new System.Drawing.Point(5, 20);
+            this.labelMasterVolume.Name = "labelMasterVolume";
+            this.labelMasterVolume.Size = new System.Drawing.Size(76, 13);
+            this.labelMasterVolume.TabIndex = 23;
+            this.labelMasterVolume.Text = "Master volume";
+            // 
+            // spinnerMusicVolume
+            // 
+            this.spinnerMusicVolume.DecimalPlaces = 2;
+            this.spinnerMusicVolume.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.spinnerMusicVolume.Location = new System.Drawing.Point(86, 47);
+            this.spinnerMusicVolume.Maximum = new decimal(new int[] {
+            95,
+            0,
+            0,
+            131072});
+            this.spinnerMusicVolume.Name = "spinnerMusicVolume";
+            this.spinnerMusicVolume.Size = new System.Drawing.Size(50, 20);
+            this.spinnerMusicVolume.TabIndex = 75;
+            // 
+            // spinnerMasterVolume
+            // 
+            this.spinnerMasterVolume.DecimalPlaces = 2;
+            this.spinnerMasterVolume.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.spinnerMasterVolume.Location = new System.Drawing.Point(86, 17);
+            this.spinnerMasterVolume.Maximum = new decimal(new int[] {
+            95,
+            0,
+            0,
+            131072});
+            this.spinnerMasterVolume.Name = "spinnerMasterVolume";
+            this.spinnerMasterVolume.Size = new System.Drawing.Size(50, 20);
+            this.spinnerMasterVolume.TabIndex = 74;
+            // 
+            // labelMusicVolume
+            // 
+            this.labelMusicVolume.AutoSize = true;
+            this.labelMusicVolume.Location = new System.Drawing.Point(5, 50);
+            this.labelMusicVolume.Name = "labelMusicVolume";
+            this.labelMusicVolume.Size = new System.Drawing.Size(72, 13);
+            this.labelMusicVolume.TabIndex = 37;
+            this.labelMusicVolume.Text = "Music volume";
+            // 
+            // groupBoxCheats
+            // 
+            this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
+            this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
+            this.groupBoxCheats.Location = new System.Drawing.Point(265, 105);
+            this.groupBoxCheats.Name = "groupBoxCheats";
+            this.groupBoxCheats.Size = new System.Drawing.Size(114, 65);
+            this.groupBoxCheats.TabIndex = 90;
+            this.groupBoxCheats.TabStop = false;
+            this.groupBoxCheats.Text = "Cheats";
+            // 
+            // checkBoxUnlimitedAmmo
+            // 
+            this.checkBoxUnlimitedAmmo.AutoSize = true;
+            this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(10, 20);
+            this.checkBoxUnlimitedAmmo.Name = "checkBoxUnlimitedAmmo";
+            this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(100, 17);
+            this.checkBoxUnlimitedAmmo.TabIndex = 53;
+            this.checkBoxUnlimitedAmmo.Text = "Unlimited ammo";
+            this.checkBoxUnlimitedAmmo.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxGodMode
+            // 
+            this.checkBoxGodMode.AutoSize = true;
+            this.checkBoxGodMode.Location = new System.Drawing.Point(10, 40);
+            this.checkBoxGodMode.Name = "checkBoxGodMode";
+            this.checkBoxGodMode.Size = new System.Drawing.Size(75, 17);
+            this.checkBoxGodMode.TabIndex = 54;
+            this.checkBoxGodMode.Text = "God mode";
+            this.checkBoxGodMode.UseVisualStyleBackColor = true;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabGeneral);
+            this.tabControl.Controls.Add(this.tabVideo);
+            this.tabControl.Location = new System.Drawing.Point(10, 135);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(795, 330);
+            this.tabControl.TabIndex = 90;
             // 
             // Metro2033ConfigEditorForm
             // 
@@ -1415,27 +1426,27 @@
             this.Shown += new System.EventHandler(this.Metro2033ConfigEditorForm_Shown);
             this.tabVideo.ResumeLayout(false);
             this.tabVideo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerFov)).EndInit();
-            this.groupBoxDirectX11.ResumeLayout(false);
-            this.groupBoxDirectX11.PerformLayout();
             this.groupBoxDescription.ResumeLayout(false);
             this.groupBoxDescription.PerformLayout();
+            this.groupBoxDirectX11.ResumeLayout(false);
+            this.groupBoxDirectX11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerFov)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).EndInit();
             this.tabGeneral.ResumeLayout(false);
             this.tabGeneral.PerformLayout();
-            this.groupBoxCheats.ResumeLayout(false);
-            this.groupBoxCheats.PerformLayout();
-            this.groupBoxSound.ResumeLayout(false);
-            this.groupBoxSound.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerMasterVolume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerMusicVolume)).EndInit();
-            this.tabControl.ResumeLayout(false);
+            this.groupBoxGameOptions.ResumeLayout(false);
+            this.groupBoxGameOptions.PerformLayout();
             this.groupBoxControls.ResumeLayout(false);
             this.groupBoxControls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMouseSensitivity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMouseAimSensitivity)).EndInit();
-            this.groupBoxGameOptions.ResumeLayout(false);
-            this.groupBoxGameOptions.PerformLayout();
+            this.groupBoxSound.ResumeLayout(false);
+            this.groupBoxSound.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerMusicVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerMasterVolume)).EndInit();
+            this.groupBoxCheats.ResumeLayout(false);
+            this.groupBoxCheats.PerformLayout();
+            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1549,7 +1560,8 @@
         private System.Windows.Forms.Label labelMouseSensitivity;
         private System.Windows.Forms.NumericUpDown spinnerMouseAimSensitivity;
         private System.Windows.Forms.GroupBox groupBoxGameOptions;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCheatsNote;
+        private System.Windows.Forms.Label labelResolutionNote;
     }
 }
 
