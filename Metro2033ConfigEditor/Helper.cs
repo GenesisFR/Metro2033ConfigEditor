@@ -5,62 +5,51 @@ using System.IO;
 
 namespace Metro2033ConfigEditor
 {
-    public class Helper
+    public sealed class Helper
     {
-        private static Helper Instance;
-        
-        private string _STEAM_INSTALL_PATH;   // C:\Program Files (x86)\Steam
-        private string _REMOTE_CONFIG_PATH;   // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
-        private string _GAME_INSTALL_PATH;    // D:\Games\SteamLibrary\steamapps\common\Metro 2033
-        private string _GAME_EXECUTABLE_PATH; // D:\Games\SteamLibrary\steamapps\common\Metro 2033\metro2033.exe
+        private string _steamInstallPath;   // C:\Program Files (x86)\Steam
+        private string _remoteConfigPath;   // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
+        private string _gameInstallPath;    // D:\Games\SteamLibrary\steamapps\common\Metro 2033
+        private string _gameExecutablePath; // D:\Games\SteamLibrary\steamapps\common\Metro 2033\metro2033.exe
         
         private Dictionary<string, string> _dictionary;
         private Dictionary<string, string> _dictionaryUponClosure;
         
-        private Helper()
+        public static readonly Helper instance = new Helper();
+        
+        Helper()
         {
-            _STEAM_INSTALL_PATH   = getSteamInstallPath();
-            _REMOTE_CONFIG_PATH   = getRemoteCfgPath();
-            _GAME_INSTALL_PATH    = getGameInstallPath();
-            _GAME_EXECUTABLE_PATH = getGameExecutablePath();
+            _steamInstallPath   = getSteamInstallPath();
+            _remoteConfigPath   = getRemoteCfgPath();
+            _gameInstallPath    = getGameInstallPath();
+            _gameExecutablePath = getGameExecutablePath();
             
             _dictionary = new Dictionary<string, string>();
         }
         
         // Properties
-        public static Helper instance
-        {
-            get
-            {
-                if (Instance == null)
-                    Instance = new Helper();
-                
-                return Instance;
-            }
-        }
-        
         public string steamInstallPath
         {
-            get { return _STEAM_INSTALL_PATH; }
-            set { _STEAM_INSTALL_PATH = value; }
+            get { return _steamInstallPath; }
+            set { _steamInstallPath = value; }
         }
         
         public string remoteConfigPath
         {
-            get { return _REMOTE_CONFIG_PATH; }
-            set { _REMOTE_CONFIG_PATH = value; }
+            get { return _remoteConfigPath; }
+            set { _remoteConfigPath = value; }
         }
         
         public string gameInstallPath
         {
-            get { return _GAME_INSTALL_PATH; }
-            set { _GAME_INSTALL_PATH = value; }
+            get { return _gameInstallPath; }
+            set { _gameInstallPath = value; }
         }
         
         public string gameExecutablePath
         {
-            get { return _GAME_EXECUTABLE_PATH; }
-            set { _GAME_EXECUTABLE_PATH = value; }
+            get { return _gameExecutablePath; }
+            set { _gameExecutablePath = value; }
         }
         
         public Dictionary<string, string> dictionary
@@ -126,7 +115,7 @@ namespace Metro2033ConfigEditor
         
         public void readConfigFile()
         {
-            string[] fileLines = File.ReadAllLines(_REMOTE_CONFIG_PATH);
+            string[] fileLines = File.ReadAllLines(_remoteConfigPath);
             
             // Parse the content of the remote config and store every line in a dictionary
             foreach (string fileLine in fileLines)
@@ -160,7 +149,7 @@ namespace Metro2033ConfigEditor
                 }
                 
                 // Write everything back to the config
-                File.WriteAllText(_REMOTE_CONFIG_PATH, fileLines);
+                File.WriteAllText(_remoteConfigPath, fileLines);
                 return true;
             }
             catch
@@ -292,7 +281,7 @@ namespace Metro2033ConfigEditor
         {
             try
             {
-                string noIntroFile = _GAME_INSTALL_PATH + @"\content.upk9";
+                string noIntroFile = _gameInstallPath + @"\content.upk9";
                 
                 // Copy the intro fix to the game directory
                 if (noIntro)
