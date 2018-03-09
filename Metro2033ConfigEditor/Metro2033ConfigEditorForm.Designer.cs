@@ -30,11 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Metro2033ConfigEditorForm));
             this.buttonReload = new System.Windows.Forms.Button();
-            this.labelLocalConfigPath = new System.Windows.Forms.Label();
-            this.textBoxLocalConfigPath = new System.Windows.Forms.TextBox();
             this.labelRemoteConfigPath = new System.Windows.Forms.Label();
             this.textBoxRemoteConfigPath = new System.Windows.Forms.TextBox();
-            this.buttonBrowseLocalConfigPath = new System.Windows.Forms.Button();
             this.buttonBrowseRemoteConfigPath = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelMsaa = new System.Windows.Forms.Label();
@@ -164,27 +161,10 @@
             this.buttonReload.UseVisualStyleBackColor = true;
             this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
             // 
-            // labelLocalConfigPath
-            // 
-            this.labelLocalConfigPath.AutoSize = true;
-            this.labelLocalConfigPath.Location = new System.Drawing.Point(10, 40);
-            this.labelLocalConfigPath.Name = "labelLocalConfigPath";
-            this.labelLocalConfigPath.Size = new System.Drawing.Size(89, 13);
-            this.labelLocalConfigPath.TabIndex = 1;
-            this.labelLocalConfigPath.Text = "Local config path";
-            // 
-            // textBoxLocalConfigPath
-            // 
-            this.textBoxLocalConfigPath.Location = new System.Drawing.Point(140, 37);
-            this.textBoxLocalConfigPath.Name = "textBoxLocalConfigPath";
-            this.textBoxLocalConfigPath.ReadOnly = true;
-            this.textBoxLocalConfigPath.Size = new System.Drawing.Size(565, 20);
-            this.textBoxLocalConfigPath.TabIndex = 2;
-            // 
             // labelRemoteConfigPath
             // 
             this.labelRemoteConfigPath.AutoSize = true;
-            this.labelRemoteConfigPath.Location = new System.Drawing.Point(10, 70);
+            this.labelRemoteConfigPath.Location = new System.Drawing.Point(10, 40);
             this.labelRemoteConfigPath.Name = "labelRemoteConfigPath";
             this.labelRemoteConfigPath.Size = new System.Drawing.Size(100, 13);
             this.labelRemoteConfigPath.TabIndex = 3;
@@ -192,25 +172,15 @@
             // 
             // textBoxRemoteConfigPath
             // 
-            this.textBoxRemoteConfigPath.Location = new System.Drawing.Point(140, 67);
+            this.textBoxRemoteConfigPath.Location = new System.Drawing.Point(140, 37);
             this.textBoxRemoteConfigPath.Name = "textBoxRemoteConfigPath";
             this.textBoxRemoteConfigPath.ReadOnly = true;
             this.textBoxRemoteConfigPath.Size = new System.Drawing.Size(565, 20);
             this.textBoxRemoteConfigPath.TabIndex = 4;
             // 
-            // buttonBrowseLocalConfigPath
-            // 
-            this.buttonBrowseLocalConfigPath.Location = new System.Drawing.Point(725, 35);
-            this.buttonBrowseLocalConfigPath.Name = "buttonBrowseLocalConfigPath";
-            this.buttonBrowseLocalConfigPath.Size = new System.Drawing.Size(75, 23);
-            this.buttonBrowseLocalConfigPath.TabIndex = 5;
-            this.buttonBrowseLocalConfigPath.Text = "Browse";
-            this.buttonBrowseLocalConfigPath.UseVisualStyleBackColor = true;
-            this.buttonBrowseLocalConfigPath.Click += new System.EventHandler(this.buttonBrowseLocalConfig_Click);
-            // 
             // buttonBrowseRemoteConfigPath
             // 
-            this.buttonBrowseRemoteConfigPath.Location = new System.Drawing.Point(725, 65);
+            this.buttonBrowseRemoteConfigPath.Location = new System.Drawing.Point(725, 35);
             this.buttonBrowseRemoteConfigPath.Name = "buttonBrowseRemoteConfigPath";
             this.buttonBrowseRemoteConfigPath.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowseRemoteConfigPath.TabIndex = 6;
@@ -272,7 +242,7 @@
             // 
             // buttonBrowseGameExecutablePath
             // 
-            this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(725, 95);
+            this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(725, 65);
             this.buttonBrowseGameExecutablePath.Name = "buttonBrowseGameExecutablePath";
             this.buttonBrowseGameExecutablePath.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowseGameExecutablePath.TabIndex = 43;
@@ -282,7 +252,7 @@
             // 
             // textBoxGameExecutablePath
             // 
-            this.textBoxGameExecutablePath.Location = new System.Drawing.Point(140, 97);
+            this.textBoxGameExecutablePath.Location = new System.Drawing.Point(140, 67);
             this.textBoxGameExecutablePath.Name = "textBoxGameExecutablePath";
             this.textBoxGameExecutablePath.ReadOnly = true;
             this.textBoxGameExecutablePath.Size = new System.Drawing.Size(565, 20);
@@ -291,7 +261,7 @@
             // labelGameExecutablePath
             // 
             this.labelGameExecutablePath.AutoSize = true;
-            this.labelGameExecutablePath.Location = new System.Drawing.Point(10, 100);
+            this.labelGameExecutablePath.Location = new System.Drawing.Point(10, 70);
             this.labelGameExecutablePath.Name = "labelGameExecutablePath";
             this.labelGameExecutablePath.Size = new System.Drawing.Size(114, 13);
             this.labelGameExecutablePath.TabIndex = 41;
@@ -344,7 +314,7 @@
             this.linkLabelAuthor.Size = new System.Drawing.Size(130, 17);
             this.linkLabelAuthor.TabIndex = 94;
             this.linkLabelAuthor.TabStop = true;
-            this.linkLabelAuthor.Text = "v1.11 - Made by Genesis";
+            this.linkLabelAuthor.Text = "v1.12 - Made by Genesis";
             this.linkLabelAuthor.UseCompatibleTextRendering = true;
             this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAuthor_LinkClicked);
             // 
@@ -377,7 +347,7 @@
             this.tabVideo.Location = new System.Drawing.Point(4, 22);
             this.tabVideo.Name = "tabVideo";
             this.tabVideo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVideo.Size = new System.Drawing.Size(787, 304);
+            this.tabVideo.Size = new System.Drawing.Size(787, 334);
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
             this.tabVideo.UseVisualStyleBackColor = true;
@@ -385,7 +355,7 @@
             // labelResolutionNote
             // 
             this.labelResolutionNote.AutoSize = true;
-            this.labelResolutionNote.Location = new System.Drawing.Point(250, 32);
+            this.labelResolutionNote.Location = new System.Drawing.Point(255, 47);
             this.labelResolutionNote.Name = "labelResolutionNote";
             this.labelResolutionNote.Size = new System.Drawing.Size(268, 13);
             this.labelResolutionNote.TabIndex = 96;
@@ -394,7 +364,7 @@
             // checkBoxGlobalIllumination
             // 
             this.checkBoxGlobalIllumination.AutoSize = true;
-            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(10, 234);
+            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(15, 249);
             this.checkBoxGlobalIllumination.Name = "checkBoxGlobalIllumination";
             this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(110, 17);
             this.checkBoxGlobalIllumination.TabIndex = 90;
@@ -431,9 +401,9 @@
             this.groupBoxDescription.Controls.Add(this.labelGeometricDetailValue);
             this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusion);
             this.groupBoxDescription.Controls.Add(this.labelDetailTexturing);
-            this.groupBoxDescription.Location = new System.Drawing.Point(368, 58);
+            this.groupBoxDescription.Location = new System.Drawing.Point(373, 73);
             this.groupBoxDescription.Name = "groupBoxDescription";
-            this.groupBoxDescription.Size = new System.Drawing.Size(400, 217);
+            this.groupBoxDescription.Size = new System.Drawing.Size(390, 217);
             this.groupBoxDescription.TabIndex = 89;
             this.groupBoxDescription.TabStop = false;
             this.groupBoxDescription.Text = "Quality settings";
@@ -693,7 +663,7 @@
             // labelTextureFiltering
             // 
             this.labelTextureFiltering.AutoSize = true;
-            this.labelTextureFiltering.Location = new System.Drawing.Point(7, 126);
+            this.labelTextureFiltering.Location = new System.Drawing.Point(12, 141);
             this.labelTextureFiltering.Name = "labelTextureFiltering";
             this.labelTextureFiltering.Size = new System.Drawing.Size(79, 13);
             this.labelTextureFiltering.TabIndex = 26;
@@ -706,7 +676,7 @@
             this.comboBoxTextureFiltering.Items.AddRange(new object[] {
             "AF 4X",
             "AF 16X"});
-            this.comboBoxTextureFiltering.Location = new System.Drawing.Point(109, 122);
+            this.comboBoxTextureFiltering.Location = new System.Drawing.Point(114, 137);
             this.comboBoxTextureFiltering.Name = "comboBoxTextureFiltering";
             this.comboBoxTextureFiltering.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTextureFiltering.TabIndex = 83;
@@ -744,7 +714,7 @@
             "2560 x 1600",
             "3840 x 2160",
             "Custom resolution"});
-            this.comboBoxResolution.Location = new System.Drawing.Point(109, 6);
+            this.comboBoxResolution.Location = new System.Drawing.Point(114, 21);
             this.comboBoxResolution.Name = "comboBoxResolution";
             this.comboBoxResolution.Size = new System.Drawing.Size(121, 21);
             this.comboBoxResolution.TabIndex = 87;
@@ -754,7 +724,7 @@
             // 
             this.groupBoxDirectX11.Controls.Add(this.checkBoxDepthOfField);
             this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
-            this.groupBoxDirectX11.Location = new System.Drawing.Point(250, 58);
+            this.groupBoxDirectX11.Location = new System.Drawing.Point(255, 73);
             this.groupBoxDirectX11.Name = "groupBoxDirectX11";
             this.groupBoxDirectX11.Size = new System.Drawing.Size(99, 65);
             this.groupBoxDirectX11.TabIndex = 88;
@@ -784,7 +754,7 @@
             // labelResolution
             // 
             this.labelResolution.AutoSize = true;
-            this.labelResolution.Location = new System.Drawing.Point(7, 10);
+            this.labelResolution.Location = new System.Drawing.Point(12, 25);
             this.labelResolution.Name = "labelResolution";
             this.labelResolution.Size = new System.Drawing.Size(57, 13);
             this.labelResolution.TabIndex = 86;
@@ -793,7 +763,7 @@
             // labelDirectX
             // 
             this.labelDirectX.AutoSize = true;
-            this.labelDirectX.Location = new System.Drawing.Point(7, 68);
+            this.labelDirectX.Location = new System.Drawing.Point(12, 83);
             this.labelDirectX.Name = "labelDirectX";
             this.labelDirectX.Size = new System.Drawing.Size(42, 13);
             this.labelDirectX.TabIndex = 27;
@@ -807,7 +777,7 @@
             "DirectX 9",
             "DirectX 10",
             "DirectX 11"});
-            this.comboBoxDirectX.Location = new System.Drawing.Point(109, 64);
+            this.comboBoxDirectX.Location = new System.Drawing.Point(114, 79);
             this.comboBoxDirectX.Name = "comboBoxDirectX";
             this.comboBoxDirectX.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDirectX.TabIndex = 67;
@@ -820,14 +790,14 @@
             this.comboBoxAntialiasing.Items.AddRange(new object[] {
             "AAA",
             "MSAA 4X"});
-            this.comboBoxAntialiasing.Location = new System.Drawing.Point(109, 93);
+            this.comboBoxAntialiasing.Location = new System.Drawing.Point(114, 108);
             this.comboBoxAntialiasing.Name = "comboBoxAntialiasing";
             this.comboBoxAntialiasing.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAntialiasing.TabIndex = 84;
             // 
             // spinnerFov
             // 
-            this.spinnerFov.Location = new System.Drawing.Point(109, 179);
+            this.spinnerFov.Location = new System.Drawing.Point(114, 194);
             this.spinnerFov.Maximum = new decimal(new int[] {
             90,
             0,
@@ -856,7 +826,7 @@
             "Medium",
             "High",
             "Very high"});
-            this.comboBoxQuality.Location = new System.Drawing.Point(109, 35);
+            this.comboBoxQuality.Location = new System.Drawing.Point(114, 50);
             this.comboBoxQuality.Name = "comboBoxQuality";
             this.comboBoxQuality.Size = new System.Drawing.Size(121, 21);
             this.comboBoxQuality.TabIndex = 79;
@@ -870,7 +840,7 @@
             0,
             0,
             131072});
-            this.spinnerGamma.Location = new System.Drawing.Point(109, 151);
+            this.spinnerGamma.Location = new System.Drawing.Point(114, 166);
             this.spinnerGamma.Maximum = new decimal(new int[] {
             145,
             0,
@@ -893,7 +863,7 @@
             // checkBoxFullscreen
             // 
             this.checkBoxFullscreen.AutoSize = true;
-            this.checkBoxFullscreen.Location = new System.Drawing.Point(10, 214);
+            this.checkBoxFullscreen.Location = new System.Drawing.Point(15, 229);
             this.checkBoxFullscreen.Name = "checkBoxFullscreen";
             this.checkBoxFullscreen.Size = new System.Drawing.Size(74, 17);
             this.checkBoxFullscreen.TabIndex = 55;
@@ -903,7 +873,7 @@
             // labelGamma
             // 
             this.labelGamma.AutoSize = true;
-            this.labelGamma.Location = new System.Drawing.Point(7, 155);
+            this.labelGamma.Location = new System.Drawing.Point(12, 170);
             this.labelGamma.Name = "labelGamma";
             this.labelGamma.Size = new System.Drawing.Size(43, 13);
             this.labelGamma.TabIndex = 33;
@@ -912,7 +882,7 @@
             // checkBoxVsync
             // 
             this.checkBoxVsync.AutoSize = true;
-            this.checkBoxVsync.Location = new System.Drawing.Point(10, 254);
+            this.checkBoxVsync.Location = new System.Drawing.Point(15, 269);
             this.checkBoxVsync.Name = "checkBoxVsync";
             this.checkBoxVsync.Size = new System.Drawing.Size(55, 17);
             this.checkBoxVsync.TabIndex = 56;
@@ -922,7 +892,7 @@
             // labelAntialiasing
             // 
             this.labelAntialiasing.AutoSize = true;
-            this.labelAntialiasing.Location = new System.Drawing.Point(7, 97);
+            this.labelAntialiasing.Location = new System.Drawing.Point(12, 112);
             this.labelAntialiasing.Name = "labelAntialiasing";
             this.labelAntialiasing.Size = new System.Drawing.Size(60, 13);
             this.labelAntialiasing.TabIndex = 34;
@@ -931,7 +901,7 @@
             // labelQuality
             // 
             this.labelQuality.AutoSize = true;
-            this.labelQuality.Location = new System.Drawing.Point(7, 39);
+            this.labelQuality.Location = new System.Drawing.Point(12, 54);
             this.labelQuality.Name = "labelQuality";
             this.labelQuality.Size = new System.Drawing.Size(39, 13);
             this.labelQuality.TabIndex = 35;
@@ -940,7 +910,7 @@
             // labelFov
             // 
             this.labelFov.AutoSize = true;
-            this.labelFov.Location = new System.Drawing.Point(7, 183);
+            this.labelFov.Location = new System.Drawing.Point(12, 198);
             this.labelFov.Name = "labelFov";
             this.labelFov.Size = new System.Drawing.Size(28, 13);
             this.labelFov.TabIndex = 39;
@@ -949,7 +919,7 @@
             // labelWidth
             // 
             this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(250, 10);
+            this.labelWidth.Location = new System.Drawing.Point(255, 25);
             this.labelWidth.Name = "labelWidth";
             this.labelWidth.Size = new System.Drawing.Size(35, 13);
             this.labelWidth.TabIndex = 8;
@@ -957,14 +927,16 @@
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(295, 7);
+            this.textBoxWidth.Enabled = false;
+            this.textBoxWidth.Location = new System.Drawing.Point(300, 22);
             this.textBoxWidth.Name = "textBoxWidth";
             this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
             this.textBoxWidth.TabIndex = 10;
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(463, 7);
+            this.textBoxHeight.Enabled = false;
+            this.textBoxHeight.Location = new System.Drawing.Point(468, 22);
             this.textBoxHeight.Name = "textBoxHeight";
             this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
             this.textBoxHeight.TabIndex = 11;
@@ -972,7 +944,7 @@
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(415, 10);
+            this.labelHeight.Location = new System.Drawing.Point(420, 25);
             this.labelHeight.Name = "labelHeight";
             this.labelHeight.Size = new System.Drawing.Size(38, 13);
             this.labelHeight.TabIndex = 9;
@@ -989,14 +961,14 @@
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(787, 304);
+            this.tabGeneral.Size = new System.Drawing.Size(787, 334);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             // 
             // labelCheatsNote
             // 
             this.labelCheatsNote.AutoSize = true;
-            this.labelCheatsNote.Location = new System.Drawing.Point(265, 175);
+            this.labelCheatsNote.Location = new System.Drawing.Point(270, 190);
             this.labelCheatsNote.Name = "labelCheatsNote";
             this.labelCheatsNote.Size = new System.Drawing.Size(460, 13);
             this.labelCheatsNote.TabIndex = 95;
@@ -1020,7 +992,7 @@
             this.groupBoxGameOptions.Controls.Add(this.labelVoiceLanguage);
             this.groupBoxGameOptions.Controls.Add(this.labelTextLanguage);
             this.groupBoxGameOptions.Controls.Add(this.checkBoxLaserCrosshair);
-            this.groupBoxGameOptions.Location = new System.Drawing.Point(5, 5);
+            this.groupBoxGameOptions.Location = new System.Drawing.Point(10, 20);
             this.groupBoxGameOptions.Name = "groupBoxGameOptions";
             this.groupBoxGameOptions.Size = new System.Drawing.Size(240, 290);
             this.groupBoxGameOptions.TabIndex = 91;
@@ -1200,7 +1172,7 @@
             this.groupBoxControls.Controls.Add(this.spinnerMouseSensitivity);
             this.groupBoxControls.Controls.Add(this.labelMouseSensitivity);
             this.groupBoxControls.Controls.Add(this.spinnerMouseAimSensitivity);
-            this.groupBoxControls.Location = new System.Drawing.Point(425, 5);
+            this.groupBoxControls.Location = new System.Drawing.Point(430, 20);
             this.groupBoxControls.Name = "groupBoxControls";
             this.groupBoxControls.Size = new System.Drawing.Size(180, 80);
             this.groupBoxControls.TabIndex = 93;
@@ -1287,7 +1259,7 @@
             this.groupBoxSound.Controls.Add(this.spinnerMusicVolume);
             this.groupBoxSound.Controls.Add(this.spinnerMasterVolume);
             this.groupBoxSound.Controls.Add(this.labelMusicVolume);
-            this.groupBoxSound.Location = new System.Drawing.Point(265, 5);
+            this.groupBoxSound.Location = new System.Drawing.Point(270, 20);
             this.groupBoxSound.Name = "groupBoxSound";
             this.groupBoxSound.Size = new System.Drawing.Size(140, 80);
             this.groupBoxSound.TabIndex = 91;
@@ -1352,7 +1324,7 @@
             // 
             this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
             this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
-            this.groupBoxCheats.Location = new System.Drawing.Point(265, 105);
+            this.groupBoxCheats.Location = new System.Drawing.Point(270, 120);
             this.groupBoxCheats.Name = "groupBoxCheats";
             this.groupBoxCheats.Size = new System.Drawing.Size(114, 65);
             this.groupBoxCheats.TabIndex = 90;
@@ -1383,10 +1355,10 @@
             // 
             this.tabControl.Controls.Add(this.tabGeneral);
             this.tabControl.Controls.Add(this.tabVideo);
-            this.tabControl.Location = new System.Drawing.Point(10, 135);
+            this.tabControl.Location = new System.Drawing.Point(10, 105);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(795, 330);
+            this.tabControl.Size = new System.Drawing.Size(795, 360);
             this.tabControl.TabIndex = 90;
             // 
             // Metro2033ConfigEditorForm
@@ -1410,11 +1382,8 @@
             this.Controls.Add(this.labelMsaa);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonBrowseRemoteConfigPath);
-            this.Controls.Add(this.buttonBrowseLocalConfigPath);
             this.Controls.Add(this.textBoxRemoteConfigPath);
             this.Controls.Add(this.labelRemoteConfigPath);
-            this.Controls.Add(this.textBoxLocalConfigPath);
-            this.Controls.Add(this.labelLocalConfigPath);
             this.Controls.Add(this.buttonReload);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1455,11 +1424,8 @@
         #endregion
 
         private System.Windows.Forms.Button buttonReload;
-        private System.Windows.Forms.Label labelLocalConfigPath;
-        private System.Windows.Forms.TextBox textBoxLocalConfigPath;
         private System.Windows.Forms.Label labelRemoteConfigPath;
         private System.Windows.Forms.TextBox textBoxRemoteConfigPath;
-        private System.Windows.Forms.Button buttonBrowseLocalConfigPath;
         private System.Windows.Forms.Button buttonBrowseRemoteConfigPath;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelMsaa;
