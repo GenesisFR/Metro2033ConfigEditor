@@ -103,6 +103,7 @@
             this.textBoxHeight = new System.Windows.Forms.TextBox();
             this.labelHeight = new System.Windows.Forms.Label();
             this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.labelCheatsWarning = new System.Windows.Forms.Label();
             this.labelCheatsNote = new System.Windows.Forms.Label();
             this.groupBoxGameOptions = new System.Windows.Forms.GroupBox();
             this.checkBoxCrosshair = new System.Windows.Forms.CheckBox();
@@ -131,11 +132,12 @@
             this.spinnerMasterVolume = new System.Windows.Forms.NumericUpDown();
             this.labelMusicVolume = new System.Windows.Forms.Label();
             this.groupBoxCheats = new System.Windows.Forms.GroupBox();
+            this.checkBoxReadOnly = new System.Windows.Forms.CheckBox();
             this.checkBoxUnlimitedAmmo = new System.Windows.Forms.CheckBox();
             this.checkBoxGodMode = new System.Windows.Forms.CheckBox();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.checkBoxReadOnly = new System.Windows.Forms.CheckBox();
-            this.labelCheatsWarning = new System.Windows.Forms.Label();
+            this.linkLabelUpdateAvailable = new System.Windows.Forms.LinkLabel();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -968,6 +970,18 @@
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             // 
+            // labelCheatsWarning
+            // 
+            this.labelCheatsWarning.AutoSize = true;
+            this.labelCheatsWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCheatsWarning.Location = new System.Drawing.Point(270, 230);
+            this.labelCheatsWarning.Name = "labelCheatsWarning";
+            this.labelCheatsWarning.Size = new System.Drawing.Size(304, 13);
+            this.labelCheatsWarning.TabIndex = 96;
+            this.labelCheatsWarning.Text = "Warning: any change made to ingame settings won\'t be saved!";
+            this.labelCheatsWarning.Visible = false;
+            // 
             // labelCheatsNote
             // 
             this.labelCheatsNote.AutoSize = true;
@@ -1335,6 +1349,17 @@
             this.groupBoxCheats.TabStop = false;
             this.groupBoxCheats.Text = "Cheats";
             // 
+            // checkBoxReadOnly
+            // 
+            this.checkBoxReadOnly.AutoSize = true;
+            this.checkBoxReadOnly.Location = new System.Drawing.Point(10, 60);
+            this.checkBoxReadOnly.Name = "checkBoxReadOnly";
+            this.checkBoxReadOnly.Size = new System.Drawing.Size(118, 17);
+            this.checkBoxReadOnly.TabIndex = 55;
+            this.checkBoxReadOnly.Text = "Set file as read-only";
+            this.checkBoxReadOnly.UseVisualStyleBackColor = true;
+            this.checkBoxReadOnly.CheckedChanged += new System.EventHandler(this.checkBoxReadOnly_CheckedChanged);
+            // 
             // checkBoxUnlimitedAmmo
             // 
             this.checkBoxUnlimitedAmmo.AutoSize = true;
@@ -1365,34 +1390,32 @@
             this.tabControl.Size = new System.Drawing.Size(795, 360);
             this.tabControl.TabIndex = 90;
             // 
-            // checkBoxReadOnly
+            // linkLabelUpdateAvailable
             // 
-            this.checkBoxReadOnly.AutoSize = true;
-            this.checkBoxReadOnly.Location = new System.Drawing.Point(10, 60);
-            this.checkBoxReadOnly.Name = "checkBoxReadOnly";
-            this.checkBoxReadOnly.Size = new System.Drawing.Size(118, 17);
-            this.checkBoxReadOnly.TabIndex = 55;
-            this.checkBoxReadOnly.Text = "Set file as read-only";
-            this.checkBoxReadOnly.UseVisualStyleBackColor = true;
-            this.checkBoxReadOnly.CheckedChanged += new System.EventHandler(this.checkBoxReadOnly_CheckedChanged);
+            this.linkLabelUpdateAvailable.AllowDrop = true;
+            this.linkLabelUpdateAvailable.AutoSize = true;
+            this.linkLabelUpdateAvailable.LinkArea = new System.Windows.Forms.LinkArea(6, 6);
+            this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 485);
+            this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
+            this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(135, 17);
+            this.linkLabelUpdateAvailable.TabIndex = 95;
+            this.linkLabelUpdateAvailable.TabStop = true;
+            this.linkLabelUpdateAvailable.Text = "A new update is available!";
+            this.linkLabelUpdateAvailable.UseCompatibleTextRendering = true;
+            this.linkLabelUpdateAvailable.Visible = false;
+            this.linkLabelUpdateAvailable.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelUpdateAvailable_LinkClicked);
             // 
-            // labelCheatsWarning
+            // backgroundWorker
             // 
-            this.labelCheatsWarning.AutoSize = true;
-            this.labelCheatsWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelCheatsWarning.Location = new System.Drawing.Point(270, 230);
-            this.labelCheatsWarning.Name = "labelCheatsWarning";
-            this.labelCheatsWarning.Size = new System.Drawing.Size(304, 13);
-            this.labelCheatsWarning.TabIndex = 96;
-            this.labelCheatsWarning.Text = "Warning: any change made to ingame settings won\'t be saved!";
-            this.labelCheatsWarning.Visible = false;
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
             // Metro2033ConfigEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 516);
+            this.Controls.Add(this.linkLabelUpdateAvailable);
             this.Controls.Add(this.linkLabelAuthor);
             this.Controls.Add(this.buttonSteamInstallPath);
             this.Controls.Add(this.textBoxSteamInstallPath);
@@ -1557,6 +1580,8 @@
         private System.Windows.Forms.Label labelResolutionNote;
         private System.Windows.Forms.CheckBox checkBoxReadOnly;
         private System.Windows.Forms.Label labelCheatsWarning;
+        private System.Windows.Forms.LinkLabel linkLabelUpdateAvailable;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
     }
 }
 

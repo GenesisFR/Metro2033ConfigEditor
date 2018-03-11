@@ -1,7 +1,11 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Net;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Metro2033ConfigEditor
 {
@@ -124,6 +128,56 @@ namespace Metro2033ConfigEditor
             return true;
         }
         
+        public bool checkForUpdate()
+        {
+            // Get content of version.txt as a string
+            string result = downloadStringAsync().Result;
+
+            // Get assembly minor
+            int currentMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
+            
+            // Get version.txt minor
+            string[] splitResult = result.Split('.');
+            int remoteMinor = Convert.ToInt32(splitResult[1]);
+            int.Parse(splitResult[1]);
+            
+            return currentMinor < remoteMinor;
+        }
+        
+        async Task<string> downloadStringAsync()
+        {
+            // Start timing
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            // Initialize result to current version
+            Version version = Assembly.GetEntryAssembly().GetName().Version;
+            string result = version.Major + "." + version.Minor;
+            
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    // Read the string
+                    result = await client.DownloadStringTaskAsync(
+                        new Uri("https://raw.githubusercontent.com/GenesisFR/Metro2033ConfigEditor/master/version.txt"));
+                }
+            }
+            catch
+            {
+                
+            }
+            finally
+            {
+                // Stop timing
+                stopwatch.Stop();
+                
+                // Report time
+                Console.WriteLine("Time required: {0} ms", stopwatch.Elapsed.TotalMilliseconds);
+            }
+            
+            return result;
+        }
+
         public void readConfigFile()
         {
             string[] fileLines = File.ReadAllLines(remoteConfigPath);
@@ -230,7 +284,8 @@ namespace Metro2033ConfigEditor
             #endif
             
             // Accessing HKLM is different than HKCU
-            RegistryKey localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32);
+            RegistryKey localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
+                Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32);
             RegistryKey installKey = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110");
             
             if (installKey != null)

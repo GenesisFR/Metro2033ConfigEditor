@@ -19,6 +19,9 @@ namespace Metro2033ConfigEditor
             _toolTip = new ToolTip();
             
             addTooltips();
+            
+            // Check for update
+            backgroundWorker.RunWorkerAsync();
         }
         
         private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
@@ -43,7 +46,11 @@ namespace Metro2033ConfigEditor
             }
             catch
             {
-                DialogResult result = MessageBox.Show("It appears we were not able to locate your remote config file for Metro2033, please run the game at least once to generate it.\n\nYou can also point to its location by using the corresponding Browse button (it should be located in your Steam userdata directory).\n\nDo you want to run the game now?", "Config not found", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                DialogResult result = MessageBox.Show("It appears we were not able to locate your remote config file for Metro2033," +
+                    " please run the game at least once to generate it.\n\nYou can also point to its location by using the corresponding" +
+                    " Browse button (it should be located in your Steam userdata directory).\n\nDo you want to run the game now?",
+                    "Config not found", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                
                 if (result == DialogResult.Yes)
                     buttonStartGameSteam.PerformClick();
             }
@@ -53,7 +60,9 @@ namespace Metro2033ConfigEditor
         {
             if (haveSettingsChanged())
             {
-                DialogResult result = MessageBox.Show("You have unsaved changes, do you want to keep them?", "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                DialogResult result = MessageBox.Show("You have unsaved changes, do you want to keep them?", "Save",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                
                 if (result == DialogResult.Yes)
                     buttonSave.PerformClick();
                 
@@ -69,21 +78,38 @@ namespace Metro2033ConfigEditor
             _toolTip.InitialDelay = 1;
             
             _toolTip.SetToolTip(checkBoxSkipIntro,          "Skips intro logos and intro cutscene.");
-            _toolTip.SetToolTip(checkBoxScreenshotMode,     "Completely hides your weapon. You can combine it with the Ranger Hardcore difficulty to completely hide your HUD.");
+            _toolTip.SetToolTip(checkBoxScreenshotMode,     "Completely hides your weapon. You can combine it with the Ranger Hardcore" +
+                " difficulty to completely hide your HUD.");
             _toolTip.SetToolTip(checkBoxShowStats,          "Displays debug information such as framerate, draw count, etc.");
-            _toolTip.SetToolTip(checkBoxUnlimitedAmmo,      "Gives unlimited ammo for all types of ammo, including military-grade ammo. Military-grade ammo will deplete when buying items.");
+            _toolTip.SetToolTip(checkBoxUnlimitedAmmo,      "Gives unlimited ammo for all types of ammo, including military-grade ammo." +
+                " Military-grade ammo will deplete when buying items.");
             _toolTip.SetToolTip(checkBoxGodMode,            "Makes you invulnerable but you will need to wear a gas mask when required.");
             _toolTip.SetToolTip(spinnerFov,                 "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
-            _toolTip.SetToolTip(checkBoxFullscreen,         "Uncheck to play the game in windowed mode. To play borderless fullscreen, change your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so the taskbar will still be visible.");
-            _toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might actually be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different system that works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
-            _toolTip.SetToolTip(checkBoxVsync,              "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact performance.\nFor some reason, enabling Vsync will disable stereoscopy, thus boosting your framerate.");
+            _toolTip.SetToolTip(checkBoxFullscreen,         "Uncheck to play the game in windowed mode. To play borderless fullscreen," +
+                " change your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so" +
+                " the taskbar will still be visible.");
+            _toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might actually" +
+                " be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different system that" +
+                " works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
+            _toolTip.SetToolTip(checkBoxVsync,              "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact" +
+                " performance.\nFor some reason, enabling Vsync will disable stereoscopy, thus boosting your framerate.");
+        }
+        
+        private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            e.Result = Helper.instance.checkForUpdate();
+        }
+        
+        private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            linkLabelUpdateAvailable.Visible = (bool)e.Result;
         }
         
         private void readSettings()
         {
             Helper.instance.addKeysIfMissing();
             _skipIntroInitialState             = Helper.instance.isNoIntroSkipped;
-
+            
             // Checkboxes
             checkBoxSubtitles.Checked          = Helper.instance.dictionary["_show_subtitles"]   == "1";
             checkBoxFastWeaponChange.Checked   = Helper.instance.dictionary["fast_wpn_change"]   == "1";
@@ -192,7 +218,7 @@ namespace Metro2033ConfigEditor
             {
                 Helper.instance.steamInstallPath = FD.SelectedPath.ToLower();
                 buttonStartGameSteam.Enabled     = File.Exists(Helper.instance.steamInstallPath + @"\Steam.exe");
-                textBoxSteamInstallPath.Text     = buttonStartGameSteam.Enabled ? Helper.instance.steamInstallPath : "Steam executable not found";
+                textBoxSteamInstallPath.Text     = buttonStartGameSteam.Enabled ? Helper.instance.steamInstallPath : "Steam not found";
             }
         }
         
@@ -342,6 +368,12 @@ namespace Metro2033ConfigEditor
             Process.Start("https://github.com/GenesisFR");
         }
         
+        private void linkLabelUpdateAvailable_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabelUpdateAvailable.LinkVisited = true;
+            Process.Start("https://github.com/GenesisFR/Metro2033ConfigEditor/releases/latest");
+        }
+        
         private void buttonReload_Click(object sender, EventArgs e)
         {
             Helper.instance.readConfigFile();
@@ -355,9 +387,11 @@ namespace Metro2033ConfigEditor
             Helper.instance.isConfigReadOnly = checkBoxReadOnly.Checked;
             
             if (Helper.instance.writeConfigFile() && Helper.instance.copyNoIntroFix(checkBoxSkipIntro.Checked))
-                MessageBox.Show("Your config file has been successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your config file has been successfully saved!", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Unable to save the config file. Make sure it's not read-only!", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to save the config file. Make sure it's not read-only!", "Failure",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         
         private void buttonStartGameNoSteam_Click(object sender, EventArgs e)
