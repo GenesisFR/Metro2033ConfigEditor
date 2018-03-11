@@ -134,6 +134,8 @@
             this.checkBoxUnlimitedAmmo = new System.Windows.Forms.CheckBox();
             this.checkBoxGodMode = new System.Windows.Forms.CheckBox();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.checkBoxReadOnly = new System.Windows.Forms.CheckBox();
+            this.labelCheatsWarning = new System.Windows.Forms.Label();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -953,6 +955,7 @@
             // tabGeneral
             // 
             this.tabGeneral.BackColor = System.Drawing.Color.White;
+            this.tabGeneral.Controls.Add(this.labelCheatsWarning);
             this.tabGeneral.Controls.Add(this.labelCheatsNote);
             this.tabGeneral.Controls.Add(this.groupBoxGameOptions);
             this.tabGeneral.Controls.Add(this.groupBoxControls);
@@ -968,12 +971,12 @@
             // labelCheatsNote
             // 
             this.labelCheatsNote.AutoSize = true;
-            this.labelCheatsNote.Location = new System.Drawing.Point(270, 190);
+            this.labelCheatsNote.Location = new System.Drawing.Point(270, 210);
             this.labelCheatsNote.Name = "labelCheatsNote";
-            this.labelCheatsNote.Size = new System.Drawing.Size(460, 13);
+            this.labelCheatsNote.Size = new System.Drawing.Size(476, 13);
             this.labelCheatsNote.TabIndex = 95;
-            this.labelCheatsNote.Text = "Note: cheats are automatically disabled after you quit the game. You have to enab" +
-    "le them again.";
+            this.labelCheatsNote.Text = "Note: cheats are automatically disabled after you quit the game (unless you set t" +
+    "he file as read-only).";
             // 
             // groupBoxGameOptions
             // 
@@ -1322,11 +1325,12 @@
             // 
             // groupBoxCheats
             // 
+            this.groupBoxCheats.Controls.Add(this.checkBoxReadOnly);
             this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
             this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
             this.groupBoxCheats.Location = new System.Drawing.Point(270, 120);
             this.groupBoxCheats.Name = "groupBoxCheats";
-            this.groupBoxCheats.Size = new System.Drawing.Size(114, 65);
+            this.groupBoxCheats.Size = new System.Drawing.Size(132, 85);
             this.groupBoxCheats.TabIndex = 90;
             this.groupBoxCheats.TabStop = false;
             this.groupBoxCheats.Text = "Cheats";
@@ -1360,6 +1364,29 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(795, 360);
             this.tabControl.TabIndex = 90;
+            // 
+            // checkBoxReadOnly
+            // 
+            this.checkBoxReadOnly.AutoSize = true;
+            this.checkBoxReadOnly.Location = new System.Drawing.Point(10, 60);
+            this.checkBoxReadOnly.Name = "checkBoxReadOnly";
+            this.checkBoxReadOnly.Size = new System.Drawing.Size(118, 17);
+            this.checkBoxReadOnly.TabIndex = 55;
+            this.checkBoxReadOnly.Text = "Set file as read-only";
+            this.checkBoxReadOnly.UseVisualStyleBackColor = true;
+            this.checkBoxReadOnly.CheckedChanged += new System.EventHandler(this.checkBoxReadOnly_CheckedChanged);
+            // 
+            // labelCheatsWarning
+            // 
+            this.labelCheatsWarning.AutoSize = true;
+            this.labelCheatsWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCheatsWarning.Location = new System.Drawing.Point(270, 230);
+            this.labelCheatsWarning.Name = "labelCheatsWarning";
+            this.labelCheatsWarning.Size = new System.Drawing.Size(304, 13);
+            this.labelCheatsWarning.TabIndex = 96;
+            this.labelCheatsWarning.Text = "Warning: any change made to ingame settings won\'t be saved!";
+            this.labelCheatsWarning.Visible = false;
             // 
             // Metro2033ConfigEditorForm
             // 
@@ -1528,6 +1555,8 @@
         private System.Windows.Forms.GroupBox groupBoxGameOptions;
         private System.Windows.Forms.Label labelCheatsNote;
         private System.Windows.Forms.Label labelResolutionNote;
+        private System.Windows.Forms.CheckBox checkBoxReadOnly;
+        private System.Windows.Forms.Label labelCheatsWarning;
     }
 }
 

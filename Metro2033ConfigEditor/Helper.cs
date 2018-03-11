@@ -62,6 +62,17 @@ namespace Metro2033ConfigEditor
             get { return _dictionaryUponClosure; }
         }
         
+        public bool isNoIntroSkipped
+        {
+            get { return File.Exists(gameInstallPath + @"\content.upk9"); }
+        }
+
+        public bool isConfigReadOnly
+        {
+            get { return new FileInfo(remoteConfigPath).IsReadOnly; }
+            set { new FileInfo(remoteConfigPath).IsReadOnly = value; }
+        }
+        
         private void addKeyIfMissing(string key, string value)
         {
             if (!_dictionary.ContainsKey(key))
@@ -115,7 +126,7 @@ namespace Metro2033ConfigEditor
         
         public void readConfigFile()
         {
-            string[] fileLines = File.ReadAllLines(_remoteConfigPath);
+            string[] fileLines = File.ReadAllLines(remoteConfigPath);
             
             // Parse the content of the remote config and store every line in a dictionary
             foreach (string fileLine in fileLines)
@@ -135,6 +146,9 @@ namespace Metro2033ConfigEditor
         
         public bool writeConfigFile()
         {
+            // Used to restore the read-only attribute back to its original value
+            bool tempIsConfigReadOnly = isConfigReadOnly;
+            
             try
             {
                 string fileLines = "";
@@ -149,12 +163,17 @@ namespace Metro2033ConfigEditor
                 }
                 
                 // Write everything back to the config
-                File.WriteAllText(_remoteConfigPath, fileLines);
+                isConfigReadOnly = false;
+                File.WriteAllText(remoteConfigPath, fileLines);
                 return true;
             }
             catch
             {
                 return false;
+            }
+            finally
+            {
+                isConfigReadOnly = tempIsConfigReadOnly;
             }
         }
         
@@ -262,26 +281,11 @@ namespace Metro2033ConfigEditor
             return null;
         }
         
-        public bool copyCfgFile(string sourceFileName, string destFileName)
-        {
-            try
-            {
-                if (File.Exists(sourceFileName))
-                    File.Copy(sourceFileName, destFileName, true);
-            }
-            catch
-            {
-                return false;
-            }
-            
-            return true;
-        }
-        
         public bool copyNoIntroFix(bool noIntro)
         {
             try
             {
-                string noIntroFile = _gameInstallPath + @"\content.upk9";
+                string noIntroFile = gameInstallPath + @"\content.upk9";
                 
                 // Copy the intro fix to the game directory
                 if (noIntro)

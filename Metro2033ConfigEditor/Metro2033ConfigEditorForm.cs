@@ -82,7 +82,8 @@ namespace Metro2033ConfigEditor
         private void readSettings()
         {
             Helper.instance.addKeysIfMissing();
-            
+            _skipIntroInitialState             = Helper.instance.isNoIntroSkipped;
+
             // Checkboxes
             checkBoxSubtitles.Checked          = Helper.instance.dictionary["_show_subtitles"]   == "1";
             checkBoxFastWeaponChange.Checked   = Helper.instance.dictionary["fast_wpn_change"]   == "1";
@@ -91,10 +92,10 @@ namespace Metro2033ConfigEditor
             checkBoxCrosshair.Checked          = Helper.instance.dictionary["g_show_crosshair"]  == "on";
             checkBoxScreenshotMode.Checked     = Helper.instance.dictionary["r_hud_weapon"]      == "off";
             checkBoxShowStats.Checked          = Helper.instance.dictionary["stats"]             == "on";
-            _skipIntroInitialState             = File.Exists(Helper.instance.gameInstallPath + @"\content.upk9");
             checkBoxSkipIntro.Checked          = _skipIntroInitialState;
             checkBoxUnlimitedAmmo.Checked      = Helper.instance.dictionary["g_unlimitedammo"]   == "1";
             checkBoxGodMode.Checked            = Helper.instance.dictionary["g_god"]             == "1";
+            checkBoxReadOnly.Checked           = Helper.instance.isConfigReadOnly;
             checkBoxAdvancedPhysX.Checked      = Helper.instance.dictionary["ph_advanced_physX"] == "1";
             checkBoxDepthOfField.Checked       = Helper.instance.dictionary["r_dx11_dof"]        == "1";
             checkBoxTessellation.Checked       = Helper.instance.dictionary["r_dx11_tess"]       == "1";
@@ -167,7 +168,10 @@ namespace Metro2033ConfigEditor
             writeSettings(Helper.instance.dictionaryUponClosure);
             
             // Check if the Skip intro setting has changed
-            if (_skipIntroInitialState != checkBoxSkipIntro.Checked)
+            if (checkBoxSkipIntro.Checked != _skipIntroInitialState)
+                return true;
+            
+            if (checkBoxReadOnly.Checked != Helper.instance.isConfigReadOnly)
                 return true;
             
             // Check if other settings have changed
@@ -327,6 +331,11 @@ namespace Metro2033ConfigEditor
             groupBoxDirectX11.Enabled = comboBoxDirectX.Text == "DirectX 11";
         }
         
+        private void checkBoxReadOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            labelCheatsWarning.Visible = checkBoxReadOnly.Checked;
+        }
+        
         private void linkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelAuthor.LinkVisited = true;
@@ -343,6 +352,7 @@ namespace Metro2033ConfigEditor
         {
             writeSettings(Helper.instance.dictionary);
             _skipIntroInitialState = checkBoxSkipIntro.Checked;
+            Helper.instance.isConfigReadOnly = checkBoxReadOnly.Checked;
             
             if (Helper.instance.writeConfigFile() && Helper.instance.copyNoIntroFix(checkBoxSkipIntro.Checked))
                 MessageBox.Show("Your config file has been successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
