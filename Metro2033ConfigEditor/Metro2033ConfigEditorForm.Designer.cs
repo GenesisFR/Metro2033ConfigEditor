@@ -240,7 +240,7 @@
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
             this.buttonStartGameSteam.TabIndex = 40;
-            this.buttonStartGameSteam.Text = "Start Game (Steam)";
+            this.buttonStartGameSteam.Text = "Start game (Steam)";
             this.buttonStartGameSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameSteam.Click += new System.EventHandler(this.buttonStartGameSteam_Click);
             // 
@@ -277,7 +277,7 @@
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
             this.buttonStartGameNoSteam.TabIndex = 85;
-            this.buttonStartGameNoSteam.Text = "Start Game (Non-Steam)";
+            this.buttonStartGameNoSteam.Text = "Start game (non-Steam)";
             this.buttonStartGameNoSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameNoSteam.Click += new System.EventHandler(this.buttonStartGameNoSteam_Click);
             // 
@@ -318,7 +318,7 @@
             this.linkLabelAuthor.Size = new System.Drawing.Size(130, 17);
             this.linkLabelAuthor.TabIndex = 94;
             this.linkLabelAuthor.TabStop = true;
-            this.linkLabelAuthor.Text = "v1.15 - Made by Genesis";
+            this.linkLabelAuthor.Text = "v1.20 - Made by Genesis";
             this.linkLabelAuthor.UseCompatibleTextRendering = true;
             this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAuthor_LinkClicked);
             // 
