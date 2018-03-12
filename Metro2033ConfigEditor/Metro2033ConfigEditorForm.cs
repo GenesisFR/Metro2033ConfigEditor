@@ -30,7 +30,7 @@ namespace Metro2033ConfigEditor
             {
                 textBoxSteamInstallPath.Text   = Helper.instance.steamInstallPath;
                 textBoxRemoteConfigPath.Text   = Helper.instance.remoteConfigPath;
-                textBoxGameExecutablePath.Text = Helper.instance.gameInstallPath;
+                textBoxGameExecutablePath.Text = Helper.instance.gameExecutablePath;
                 
                 // Disable buttons
                 buttonReload.Enabled           = Helper.instance.remoteConfigPath != null;
