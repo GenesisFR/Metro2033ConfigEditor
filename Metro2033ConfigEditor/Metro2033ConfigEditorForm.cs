@@ -34,7 +34,7 @@ namespace Metro2033ConfigEditor
                 
                 // Disable buttons
                 buttonReload.Enabled           = Helper.instance.remoteConfigPath != null;
-                buttonSave.Enabled             = Helper.instance.remoteConfigPath != null && Helper.instance.gameInstallPath != null;
+                buttonSave.Enabled             = Helper.instance.remoteConfigPath != null;
                 buttonStartGameNoSteam.Enabled = Helper.instance.gameInstallPath != null;
                 buttonStartGameSteam.Enabled   = Helper.instance.steamInstallPath != null;
                 
@@ -46,9 +46,10 @@ namespace Metro2033ConfigEditor
             }
             catch
             {
-                DialogResult result = MessageBox.Show("It appears we were not able to locate your remote config file for Metro2033," +
-                    " please run the game at least once to generate it.\n\nYou can also point to its location by using the corresponding" +
-                    " Browse button (it should be located in your Steam userdata directory).\n\nDo you want to run the game now?",
+                DialogResult result = MessageBox.Show(@"It appears we were not able to locate the remote config file for Metro2033," +
+                    @" please run the game at least once to generate it.\n\nYou can also point to its location by using the corresponding" +
+                    @" Browse button (it should be located in your ""steam\userdata\<userid>\43110\remote"" directory).\n\nDo you want" +
+                    @" to run the game now?",
                     "Config not found", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 
                 if (result == DialogResult.Yes)
@@ -386,12 +387,18 @@ namespace Metro2033ConfigEditor
             _skipIntroInitialState = checkBoxSkipIntro.Checked;
             Helper.instance.isConfigReadOnly = checkBoxReadOnly.Checked;
             
-            if (Helper.instance.writeConfigFile() && Helper.instance.copyNoIntroFix(checkBoxSkipIntro.Checked))
-                MessageBox.Show("Your config file has been successfully saved!", "Success",
+            if (Helper.instance.writeConfigFile())
+                MessageBox.Show("The config file has been successfully saved!", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Unable to save the config file. Make sure it's not read-only!", "Failure",
+                MessageBox.Show("Unable to save the config file. Try running the program as admin?", "Failure",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+            if (!Helper.instance.copyNoIntroFix(checkBoxSkipIntro.Checked))
+                MessageBox.Show("Unable to " +
+                    (checkBoxSkipIntro.Checked ? "copy" : "delete") +
+                    " the no intro fix. Make sure the game executable path has been specified.", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         
         private void buttonStartGameNoSteam_Click(object sender, EventArgs e)

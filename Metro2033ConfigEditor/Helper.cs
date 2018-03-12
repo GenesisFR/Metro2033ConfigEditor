@@ -132,7 +132,7 @@ namespace Metro2033ConfigEditor
         {
             // Get content of version.txt as a string
             string result = downloadStringAsync().Result;
-
+            
             // Get assembly minor
             int currentMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
             
@@ -148,7 +148,7 @@ namespace Metro2033ConfigEditor
         {
             // Start timing
             Stopwatch stopwatch = Stopwatch.StartNew();
-
+            
             // Initialize result to current version
             Version version = Assembly.GetEntryAssembly().GetName().Version;
             string result = version.Major + "." + version.Minor;
@@ -177,7 +177,7 @@ namespace Metro2033ConfigEditor
             
             return result;
         }
-
+        
         public void readConfigFile()
         {
             string[] fileLines = File.ReadAllLines(remoteConfigPath);
@@ -299,7 +299,7 @@ namespace Metro2033ConfigEditor
             string currentDirectory = Directory.GetCurrentDirectory();
             
             if (File.Exists(currentDirectory + @"\metro2033.exe"))
-                return currentDirectory;
+                return currentDirectory.ToLower();
             
             return null;
         }
@@ -338,6 +338,10 @@ namespace Metro2033ConfigEditor
         
         public bool copyNoIntroFix(bool noIntro)
         {
+            // Game directory has to be specified first
+            if (gameInstallPath == null)
+                return false;
+            
             try
             {
                 string noIntroFile = gameInstallPath + @"\content.upk9";
