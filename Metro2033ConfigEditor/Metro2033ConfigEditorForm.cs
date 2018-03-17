@@ -101,7 +101,14 @@ namespace Metro2033ConfigEditor
         
         private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            // Start timing
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            
             e.Result = Helper.instance.CheckForUpdate();
+            
+            // Report time
+            stopwatch.Stop();
+            Console.WriteLine("Time required: {0} ms", stopwatch.Elapsed.TotalMilliseconds);
         }
         
         private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)

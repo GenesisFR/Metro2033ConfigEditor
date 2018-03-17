@@ -80,6 +80,7 @@ namespace Metro2033ConfigEditor
             set { new FileInfo(_configFilePath).IsReadOnly = value; }
         }
         
+        // General methods
         public static bool IsSingleInstance()
         {
             string guid = Assembly.GetEntryAssembly().GetType().GUID.ToString();
@@ -153,54 +154,138 @@ namespace Metro2033ConfigEditor
             return true;
         }
         
-        public bool CheckForUpdate()
+        // Getters
+        private string GetSteamInstallPath()
         {
-            // Get content of version.txt
-            string result = DownloadStringAsync().Result;
-            
-            // Get local minor version
-            int localMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
-            
-            // Get remote minor version
-            string[] splitResult = result.Split('.');
-            int remoteMinor = Convert.ToInt32(splitResult[1]);
-            
-            return localMinor < remoteMinor;
-        }
-        
-        private async Task<string> DownloadStringAsync()
-        {
-            // Start timing
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            
-            // Initialize result to local version
-            Version version = Assembly.GetEntryAssembly().GetName().Version;
-            string result = version.Major + "." + version.Minor;
+            #if DEBUG
+                return null;
+            #endif
             
             try
             {
-                // Fetch version.txt from repo
-                using (WebClient client = new WebClient())
+                // Look for Steam from the registry
+                object key = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null);
+                
+                if (key != null)
+                    return key.ToString().Replace('/', '\\').ToLower();
+            }
+            catch { }
+            
+            // Look for Steam in Program Files
+            string progFilesSteam = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Steam";
+            string progFilesSteamX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam";
+            
+            // Steam is a 32-bit program so it should install in Program Files (x86) by default
+            if (File.Exists(progFilesSteamX86 + @"\Steam.exe"))
+                return progFilesSteamX86;
+            else if (File.Exists(progFilesSteam + @"\Steam.exe"))
+                return progFilesSteam;
+            
+            // Finally, look for Steam in the current path
+            string currentDir = Directory.GetCurrentDirectory();
+            
+            if (currentDir.Contains(@"Steam\steamapps"))
+            {
+                // Get the Steam root directory
+                string[] splitSteamDir = currentDir.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
+                string steamDir = splitSteamDir[0] + @"\Steam";
+                
+                if (File.Exists(steamDir + @"\Steam.exe"))
+                    return steamDir;
+            }
+            
+            return null;
+        }
+        
+        private string GetGameInstallPath()
+        {
+            #if DEBUG
+                return null;
+            #endif
+            
+            try
+            {
+                // Accessing HKLM is different than HKCU
+                using (RegistryKey localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
+                    Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32))
+                using (RegistryKey installKey = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110"))
                 {
-                    // Read the content of the file
-                    result = await client.DownloadStringTaskAsync(
-                        new Uri("https://raw.githubusercontent.com/GenesisFR/Metro2033ConfigEditor/master/version.txt"));
+                    if (installKey != null)
+                    {
+                        object installLocation = installKey.GetValue("InstallLocation", null);
+                        if (installLocation != null)
+                            return installLocation.ToString().Replace('/', '\\').ToLower();
+                    }
                 }
+            }
+            catch { }
+            
+            // Look for the game in the current directory
+            string currentDir = Directory.GetCurrentDirectory();
+            
+            if (File.Exists(currentDir + @"\metro2033.exe"))
+                return currentDir.ToLower();
+            
+            return null;
+        }
+        
+        private string GetGameExecutablePath()
+        {
+            #if DEBUG
+                return null;
+            #endif
+            
+            string gamePath = _gameInstallPath ?? GetGameInstallPath();
+            string gameExePath = gamePath + @"\metro2033.exe";
+            
+            if (File.Exists(gameExePath))
+                return gameExePath;
+            
+            return null;
+        }
+        
+        private string GetConfigPath()
+        {
+            #if DEBUG
+                return null;
+            #endif
+            
+            string steamÞath = _steamInstallPath ?? GetSteamInstallPath();
+            string[] userDirs = Directory.GetDirectories(steamÞath + @"\userdata");
+            
+            // Parse through the user directories in search of the config file and return the first one found
+            foreach (string userDir in userDirs)
+            {
+                if (File.Exists(userDir + @"\43110\remote\user.cfg"))
+                    return userDir.ToLower() + @"\43110\remote\user.cfg";
+            }
+            
+            return null;
+        }
+        
+        // Config-related methods
+        public bool CopyNoIntroFix(bool disableIntro)
+        {
+            // Game directory has to be specified first
+            if (_gameInstallPath == null)
+                return false;
+            
+            try
+            {
+                string noIntroFilePath = _gameInstallPath + @"\content.upk9";
+                
+                // Copy the intro fix to the game directory
+                if (disableIntro)
+                    File.WriteAllBytes(noIntroFilePath, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
+                else
+                    File.Delete(noIntroFilePath);
             }
             catch
             {
-                
-            }
-            finally
-            {
-                // Stop timing
-                stopwatch.Stop();
-                
-                // Report time
-                Console.WriteLine("Time required: {0} ms", stopwatch.Elapsed.TotalMilliseconds);
+                return false;
             }
             
-            return result;
+            return true;
         }
         
         public void ReadConfigFile()
@@ -257,152 +342,60 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        // Key                                                                                    // Value
-        // HKEY_CURRENT_USER\Software\Valve\Steam\Users\44011294                                  // N/A
-        // HKEY_CURRENT_USER\Software\Valve\Steam                                                 // SteamPath
-        // HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam                                                // InstallPath
-        // HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam\NSIS                                           // Path
-        // HKEY_CURRENT_USER\System\GameConfigStore\Children\0a2fa510-040f-4297-82fe-f43f20481e6b // MatchedExeFullPath
-        // HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110 // InstallLocation
-        
-        private string GetSteamInstallPath()
+        // Network methods
+        public bool CheckForUpdate()
         {
-            #if DEBUG
-                return null;
-            #endif
+            if (!IsInternetAvailable())
+                return false;
             
-            try
-            {
-                // Look for Steam from the registry
-                object key = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null);
-                
-                if (key != null)
-                    return key.ToString().Replace('/', '\\').ToLower();
-            }
-            catch
-            {
-                
-            }
+            // Get content of version.txt
+            string result = DownloadStringAsync().Result;
             
-            // Look for Steam in Program Files
-            string progFilesSteam = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Steam";
-            string progFilesSteamX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam";
+            // Get local minor version
+            int localMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
             
-            // Steam is a 32-bit program so it should install in Program Files (x86) by default
-            if (File.Exists(progFilesSteamX86 + @"\Steam.exe"))
-                return progFilesSteamX86;
-            else if (File.Exists(progFilesSteam + @"\Steam.exe"))
-                return progFilesSteam;
+            // Get remote minor version
+            string[] splitResult = result.Split('.');
+            int remoteMinor = Convert.ToInt32(splitResult[1]);
             
-            // Finally, look for Steam in the current path
-            string currentDir = Directory.GetCurrentDirectory();
-            
-            if (currentDir.Contains(@"Steam\steamapps"))
-            {
-                // Get the Steam root directory
-                string[] splitSteamDir = currentDir.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
-                string steamDir = splitSteamDir[0] + @"\Steam";
-                
-                if (File.Exists(steamDir + @"\Steam.exe"))
-                    return steamDir;
-            }
-            
-            return null;
+            return localMinor < remoteMinor;
         }
         
-        private string GetGameInstallPath()
+        private async Task<string> DownloadStringAsync()
         {
-            #if DEBUG
-                return null;
-            #endif
+            // Initialize result to local version
+            Version version = Assembly.GetEntryAssembly().GetName().Version;
+            string result = version.Major + "." + version.Minor;
             
             try
             {
-                // Accessing HKLM is different than HKCU
-                using (RegistryKey localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
-                    Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32))
-                using (RegistryKey installKey = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110"))
+                // Fetch version.txt from repo
+                using (WebClient client = new WebClient())
                 {
-                    if (installKey != null)
-                    {
-                        object installLocation = installKey.GetValue("InstallLocation", null);
-                        if (installLocation != null)
-                            return installLocation.ToString().Replace('/', '\\').ToLower();
-                    }
+                    // Read the content of the file
+                    result = await client.DownloadStringTaskAsync(
+                        new Uri("https://raw.githubusercontent.com/GenesisFR/Metro2033ConfigEditor/master/version.txt"));
                 }
             }
-            catch
-            {
-                
-            }
+            catch { }
             
-            // Look for the game in the current directory
-            string currentDir = Directory.GetCurrentDirectory();
-            
-            if (File.Exists(currentDir + @"\metro2033.exe"))
-                return currentDir.ToLower();
-            
-            return null;
+            return result;
         }
         
-        private string GetGameExecutablePath()
+        public bool IsInternetAvailable()
         {
-            #if DEBUG
-                return null;
-            #endif
-            
-            string gamePath = _gameInstallPath ?? GetGameInstallPath();
-            string gameExePath = gamePath + @"\metro2033.exe";
-            
-            if (File.Exists(gameExePath))
-                return gameExePath;
-            
-            return null;
-        }
-        
-        private string GetConfigPath()
-        {
-            #if DEBUG
-                return null;
-            #endif
-            
-            string steamÞath = _steamInstallPath ?? GetSteamInstallPath();
-            string[] userDirs = Directory.GetDirectories(steamÞath + @"\userdata");
-            
-            // Parse through the user directories in search of the config file and return the first one found
-            foreach (string userDir in userDirs)
-            {
-                if (File.Exists(userDir + @"\43110\remote\user.cfg"))
-                    return userDir.ToLower() + @"\43110\remote\user.cfg";
-            }
-            
-            return null;
-        }
-        
-        public bool CopyNoIntroFix(bool disableIntro)
-        {
-            // Game directory has to be specified first
-            if (_gameInstallPath == null)
-                return false;
-            
             try
             {
-                string noIntroFilePath = _gameInstallPath + @"\content.upk9";
-                
-                // Copy the intro fix to the game directory
-                if (disableIntro)
-                    File.WriteAllBytes(noIntroFilePath, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
-                else
-                    File.Delete(noIntroFilePath);
+                Dns.GetHostEntry("www.google.com");
+                return true;
             }
             catch
             {
                 return false;
             }
-            
-            return true;
         }
         
+        // Conversion methods
         public string ConvertNumberToDifficulty(string number)
         {
             switch (number)
