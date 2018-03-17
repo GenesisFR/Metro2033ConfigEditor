@@ -163,7 +163,7 @@
             this.buttonReload.TabIndex = 0;
             this.buttonReload.Text = "Reload";
             this.buttonReload.UseVisualStyleBackColor = true;
-            this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
+            this.buttonReload.Click += new System.EventHandler(this.ButtonReload_Click);
             // 
             // labelConfigFilePath
             // 
@@ -190,7 +190,7 @@
             this.buttonBrowseConfigFilePath.TabIndex = 6;
             this.buttonBrowseConfigFilePath.Text = "Browse";
             this.buttonBrowseConfigFilePath.UseVisualStyleBackColor = true;
-            this.buttonBrowseConfigFilePath.Click += new System.EventHandler(this.buttonBrowseConfigFilePath_Click);
+            this.buttonBrowseConfigFilePath.Click += new System.EventHandler(this.ButtonBrowseConfigFilePath_Click);
             // 
             // buttonSave
             // 
@@ -200,7 +200,7 @@
             this.buttonSave.TabIndex = 7;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // labelMsaa
             // 
@@ -242,7 +242,7 @@
             this.buttonStartGameSteam.TabIndex = 40;
             this.buttonStartGameSteam.Text = "Start game (Steam)";
             this.buttonStartGameSteam.UseVisualStyleBackColor = true;
-            this.buttonStartGameSteam.Click += new System.EventHandler(this.buttonStartGameSteam_Click);
+            this.buttonStartGameSteam.Click += new System.EventHandler(this.ButtonStartGameSteam_Click);
             // 
             // buttonBrowseGameExecutablePath
             // 
@@ -252,7 +252,7 @@
             this.buttonBrowseGameExecutablePath.TabIndex = 43;
             this.buttonBrowseGameExecutablePath.Text = "Browse";
             this.buttonBrowseGameExecutablePath.UseVisualStyleBackColor = true;
-            this.buttonBrowseGameExecutablePath.Click += new System.EventHandler(this.buttonBrowseGameExecutable_Click);
+            this.buttonBrowseGameExecutablePath.Click += new System.EventHandler(this.ButtonBrowseGameExecutable_Click);
             // 
             // textBoxGameExecutablePath
             // 
@@ -279,7 +279,7 @@
             this.buttonStartGameNoSteam.TabIndex = 85;
             this.buttonStartGameNoSteam.Text = "Start game (non-Steam)";
             this.buttonStartGameNoSteam.UseVisualStyleBackColor = true;
-            this.buttonStartGameNoSteam.Click += new System.EventHandler(this.buttonStartGameNoSteam_Click);
+            this.buttonStartGameNoSteam.Click += new System.EventHandler(this.ButtonStartGameNoSteam_Click);
             // 
             // buttonSteamInstallPath
             // 
@@ -289,7 +289,7 @@
             this.buttonSteamInstallPath.TabIndex = 93;
             this.buttonSteamInstallPath.Text = "Browse";
             this.buttonSteamInstallPath.UseVisualStyleBackColor = true;
-            this.buttonSteamInstallPath.Click += new System.EventHandler(this.buttonSteamInstallPath_Click);
+            this.buttonSteamInstallPath.Click += new System.EventHandler(this.ButtonSteamInstallPath_Click);
             // 
             // textBoxSteamInstallPath
             // 
@@ -320,7 +320,7 @@
             this.linkLabelAuthor.TabStop = true;
             this.linkLabelAuthor.Text = "v1.20 - Made by Genesis";
             this.linkLabelAuthor.UseCompatibleTextRendering = true;
-            this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAuthor_LinkClicked);
+            this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAuthor_LinkClicked);
             // 
             // tabVideo
             // 
@@ -722,7 +722,7 @@
             this.comboBoxResolution.Name = "comboBoxResolution";
             this.comboBoxResolution.Size = new System.Drawing.Size(121, 21);
             this.comboBoxResolution.TabIndex = 87;
-            this.comboBoxResolution.SelectedIndexChanged += new System.EventHandler(this.comboBoxResolution_SelectedIndexChanged);
+            this.comboBoxResolution.SelectedIndexChanged += new System.EventHandler(this.ComboBoxResolution_SelectedIndexChanged);
             // 
             // groupBoxDirectX11
             // 
@@ -785,7 +785,7 @@
             this.comboBoxDirectX.Name = "comboBoxDirectX";
             this.comboBoxDirectX.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDirectX.TabIndex = 67;
-            this.comboBoxDirectX.SelectedIndexChanged += new System.EventHandler(this.comboBoxDirectX_SelectedIndexChanged);
+            this.comboBoxDirectX.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDirectX_SelectedIndexChanged);
             // 
             // comboBoxAntialiasing
             // 
@@ -834,7 +834,7 @@
             this.comboBoxQuality.Name = "comboBoxQuality";
             this.comboBoxQuality.Size = new System.Drawing.Size(121, 21);
             this.comboBoxQuality.TabIndex = 79;
-            this.comboBoxQuality.SelectedIndexChanged += new System.EventHandler(this.comboBoxQuality_SelectedIndexChanged);
+            this.comboBoxQuality.SelectedIndexChanged += new System.EventHandler(this.ComboBoxQuality_SelectedIndexChanged);
             // 
             // spinnerGamma
             // 
@@ -1358,7 +1358,7 @@
             this.checkBoxReadOnly.TabIndex = 55;
             this.checkBoxReadOnly.Text = "Set file as read-only";
             this.checkBoxReadOnly.UseVisualStyleBackColor = true;
-            this.checkBoxReadOnly.CheckedChanged += new System.EventHandler(this.checkBoxReadOnly_CheckedChanged);
+            this.checkBoxReadOnly.CheckedChanged += new System.EventHandler(this.CheckBoxReadOnly_CheckedChanged);
             // 
             // checkBoxUnlimitedAmmo
             // 
@@ -1403,12 +1403,12 @@
             this.linkLabelUpdateAvailable.Text = "A new update is available!";
             this.linkLabelUpdateAvailable.UseCompatibleTextRendering = true;
             this.linkLabelUpdateAvailable.Visible = false;
-            this.linkLabelUpdateAvailable.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelUpdateAvailable_LinkClicked);
+            this.linkLabelUpdateAvailable.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelUpdateAvailable_LinkClicked);
             // 
             // backgroundWorker
             // 
-            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
-            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker_RunWorkerCompleted);
             // 
             // Metro2033ConfigEditorForm
             // 

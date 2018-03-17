@@ -18,7 +18,7 @@ namespace Metro2033ConfigEditor
             _skipIntroInitialState = false;
             _toolTip = new ToolTip();
             
-            addTooltips();
+            AddTooltips();
             
             // Check for update
             backgroundWorker.RunWorkerAsync();
@@ -29,19 +29,19 @@ namespace Metro2033ConfigEditor
             try
             {
                 // Set textboxes
-                textBoxSteamInstallPath.Text   = Helper.instance.steamInstallPath ?? "Steam not found";
-                textBoxConfigFilePath.Text     = Helper.instance.configFilePath ?? "Config not found";
-                textBoxGameExecutablePath.Text = Helper.instance.gameExecutablePath ?? "Game not found";
+                textBoxSteamInstallPath.Text   = Helper.instance.SteamInstallPath ?? "Steam not found";
+                textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath ?? "Config not found";
+                textBoxGameExecutablePath.Text = Helper.instance.GameExecutablePath ?? "Game not found";
                 
                 // Set button states
-                buttonReload.Enabled           = Helper.instance.configFilePath != null;
-                buttonSave.Enabled             = Helper.instance.configFilePath != null;
-                buttonStartGameNoSteam.Enabled = Helper.instance.gameInstallPath != null;
-                buttonStartGameSteam.Enabled   = Helper.instance.steamInstallPath != null;
+                buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
+                buttonSave.Enabled             = Helper.instance.ConfigFilePath != null;
+                buttonStartGameNoSteam.Enabled = Helper.instance.GameInstallPath != null;
+                buttonStartGameSteam.Enabled   = Helper.instance.SteamInstallPath != null;
 
                 // Read config
-                Helper.instance.readConfigFile();
-                readSettings();
+                Helper.instance.ReadConfigFile();
+                ReadSettings();
             }
             catch
             {
@@ -62,7 +62,7 @@ namespace Metro2033ConfigEditor
         
         private void Metro2033ConfigEditorForm_Closing(object sender, FormClosingEventArgs e)
         {
-            if (haveSettingsChanged())
+            if (HaveSettingsChanged())
             {
                 DialogResult result = MessageBox.Show("You have unsaved changes, do you want to keep them?", "Save",
                     MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -75,7 +75,7 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        private void addTooltips()
+        private void AddTooltips()
         {
             // Show tooltips longer and faster
             _toolTip.AutoPopDelay = 30000;
@@ -99,60 +99,60 @@ namespace Metro2033ConfigEditor
                 " performance.\nFor some reason, enabling Vsync will disable stereoscopy, thus boosting your framerate.");
         }
         
-        private void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            e.Result = Helper.instance.checkForUpdate();
+            e.Result = Helper.instance.CheckForUpdate();
         }
         
-        private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             linkLabelUpdateAvailable.Visible = (bool)e.Result;
         }
         
-        private void readSettings()
+        private void ReadSettings()
         {
-            Helper.instance.addKeysIfMissing();
-            _skipIntroInitialState             = Helper.instance.isNoIntroSkipped;
+            Helper.instance.AddKeysIfMissing();
+            _skipIntroInitialState             = Helper.instance.IsNoIntroSkipped;
             
             // Checkboxes
-            checkBoxSubtitles.Checked          = Helper.instance.dictionary["_show_subtitles"]   == "1";
-            checkBoxFastWeaponChange.Checked   = Helper.instance.dictionary["fast_wpn_change"]   == "1";
-            checkBoxLaserCrosshair.Checked     = Helper.instance.dictionary["g_laser"]           == "1";
-            checkBoxHints.Checked              = Helper.instance.dictionary["g_quick_hints"]     == "1";
-            checkBoxCrosshair.Checked          = Helper.instance.dictionary["g_show_crosshair"]  == "on";
-            checkBoxScreenshotMode.Checked     = Helper.instance.dictionary["r_hud_weapon"]      == "off";
-            checkBoxShowStats.Checked          = Helper.instance.dictionary["stats"]             == "on";
-            checkBoxSkipIntro.Checked          = Helper.instance.isNoIntroSkipped;
-            checkBoxUnlimitedAmmo.Checked      = Helper.instance.dictionary["g_unlimitedammo"]   == "1";
-            checkBoxGodMode.Checked            = Helper.instance.dictionary["g_god"]             == "1";
-            checkBoxReadOnly.Checked           = Helper.instance.isConfigReadOnly;
-            checkBoxAdvancedPhysX.Checked      = Helper.instance.dictionary["ph_advanced_physX"] == "1";
-            checkBoxDepthOfField.Checked       = Helper.instance.dictionary["r_dx11_dof"]        == "1";
-            checkBoxTessellation.Checked       = Helper.instance.dictionary["r_dx11_tess"]       == "1";
-            checkBoxFullscreen.Checked         = Helper.instance.dictionary["r_fullscreen"]      == "on";
-            checkBoxGlobalIllumination.Checked = Helper.instance.dictionary["r_gi"]              == "1";
-            checkBoxVsync.Checked              = Helper.instance.dictionary["r_vsync"]           == "on";
+            checkBoxSubtitles.Checked          = Helper.instance.Dictionary["_show_subtitles"]   == "1";
+            checkBoxFastWeaponChange.Checked   = Helper.instance.Dictionary["fast_wpn_change"]   == "1";
+            checkBoxLaserCrosshair.Checked     = Helper.instance.Dictionary["g_laser"]           == "1";
+            checkBoxHints.Checked              = Helper.instance.Dictionary["g_quick_hints"]     == "1";
+            checkBoxCrosshair.Checked          = Helper.instance.Dictionary["g_show_crosshair"]  == "on";
+            checkBoxScreenshotMode.Checked     = Helper.instance.Dictionary["r_hud_weapon"]      == "off";
+            checkBoxShowStats.Checked          = Helper.instance.Dictionary["stats"]             == "on";
+            checkBoxSkipIntro.Checked          = Helper.instance.IsNoIntroSkipped;
+            checkBoxUnlimitedAmmo.Checked      = Helper.instance.Dictionary["g_unlimitedammo"]   == "1";
+            checkBoxGodMode.Checked            = Helper.instance.Dictionary["g_god"]             == "1";
+            checkBoxReadOnly.Checked           = Helper.instance.IsConfigReadOnly;
+            checkBoxAdvancedPhysX.Checked      = Helper.instance.Dictionary["ph_advanced_physX"] == "1";
+            checkBoxDepthOfField.Checked       = Helper.instance.Dictionary["r_dx11_dof"]        == "1";
+            checkBoxTessellation.Checked       = Helper.instance.Dictionary["r_dx11_tess"]       == "1";
+            checkBoxFullscreen.Checked         = Helper.instance.Dictionary["r_fullscreen"]      == "on";
+            checkBoxGlobalIllumination.Checked = Helper.instance.Dictionary["r_gi"]              == "1";
+            checkBoxVsync.Checked              = Helper.instance.Dictionary["r_vsync"]           == "on";
             
             // Comboboxes
-            comboBoxDifficulty.Text            = Helper.instance.convertNumberToDifficulty(Helper.instance.dictionary["g_game_difficulty"]);
-            comboBoxVoiceLanguage.Text         = Helper.instance.convertCodeToLanguage(Helper.instance.dictionary["lang_sound"]);
-            comboBoxTextLanguage.Text          = Helper.instance.convertCodeToLanguage(Helper.instance.dictionary["lang_text"]);
-            comboBoxTextureFiltering.Text      = Helper.instance.dictionary["r_af_level"] == "0" ? "AF 4X" : "AF 16X";
-            comboBoxDirectX.Text               = Helper.instance.convertNumberToDirectX(Helper.instance.dictionary["r_api"]);
-            comboBoxAntialiasing.Text          = Helper.instance.dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
-            comboBoxQuality.Text               = Helper.instance.convertNumberToQualityLevel(Helper.instance.dictionary["r_quality_level"]);
-            comboBoxResolution.Text            = Helper.instance.dictionary["r_res_hor"] + " x " + Helper.instance.dictionary["r_res_vert"];
+            comboBoxDifficulty.Text            = Helper.instance.ConvertNumberToDifficulty(Helper.instance.Dictionary["g_game_difficulty"]);
+            comboBoxVoiceLanguage.Text         = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_sound"]);
+            comboBoxTextLanguage.Text          = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_text"]);
+            comboBoxTextureFiltering.Text      = Helper.instance.Dictionary["r_af_level"] == "0" ? "AF 4X" : "AF 16X";
+            comboBoxDirectX.Text               = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
+            comboBoxAntialiasing.Text          = Helper.instance.Dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
+            comboBoxQuality.Text               = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
+            comboBoxResolution.Text            = Helper.instance.Dictionary["r_res_hor"] + " x " + Helper.instance.Dictionary["r_res_vert"];
             
             // Spinners
-            spinnerMouseSensitivity.Value      = Decimal.Parse(Helper.instance.dictionary["mouse_sens"]);
-            spinnerMouseAimSensitivity.Value   = Decimal.Parse(Helper.instance.dictionary["mouse_aim_sens"]);
-            spinnerMasterVolume.Value          = Decimal.Parse(Helper.instance.dictionary["s_master_volume"]);
-            spinnerMusicVolume.Value           = Decimal.Parse(Helper.instance.dictionary["s_music_volume"]);
-            spinnerGamma.Value                 = Decimal.Parse(Helper.instance.dictionary["r_gamma"]);
-            spinnerFov.Value                   = Decimal.Parse(Helper.instance.dictionary["sick_fov"]);
+            spinnerMouseSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
+            spinnerMouseAimSensitivity.Value   = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
+            spinnerMasterVolume.Value          = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
+            spinnerMusicVolume.Value           = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
+            spinnerGamma.Value                 = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
+            spinnerFov.Value                   = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
         }
         
-        private void writeSettings(Dictionary<string, string> dictionary)
+        private void WriteSettings(Dictionary<string, string> dictionary)
         {
             // Checkboxes
             dictionary["_show_subtitles"]   = checkBoxSubtitles.Checked ? "1" : "0";
@@ -172,13 +172,13 @@ namespace Metro2033ConfigEditor
             dictionary["r_vsync"]           = checkBoxVsync.Checked ? "on" : "off";
             
             // Comboboxes
-            dictionary["g_game_difficulty"] = Helper.instance.convertDifficultyToNumber(comboBoxDifficulty.Text);
-            dictionary["lang_sound"]        = Helper.instance.convertLanguageToCode(comboBoxVoiceLanguage.Text);
-            dictionary["lang_text"]         = Helper.instance.convertLanguageToCode(comboBoxTextLanguage.Text);
+            dictionary["g_game_difficulty"] = Helper.instance.ConvertDifficultyToNumber(comboBoxDifficulty.Text);
+            dictionary["lang_sound"]        = Helper.instance.ConvertLanguageToCode(comboBoxVoiceLanguage.Text);
+            dictionary["lang_text"]         = Helper.instance.ConvertLanguageToCode(comboBoxTextLanguage.Text);
             dictionary["r_af_level"]        = comboBoxTextureFiltering.Text == "AF 4X" ? "0" : "1";
-            dictionary["r_api"]             = Helper.instance.convertDirectXToNumber(comboBoxDirectX.Text);
+            dictionary["r_api"]             = Helper.instance.ConvertDirectXToNumber(comboBoxDirectX.Text);
             dictionary["r_msaa_level"]      = comboBoxAntialiasing.Text == "AAA" ? "0" : "1";
-            dictionary["r_quality_level"]   = Helper.instance.convertQualityLevelToNumber(comboBoxQuality.Text);
+            dictionary["r_quality_level"]   = Helper.instance.ConvertQualityLevelToNumber(comboBoxQuality.Text);
             
             // Spinners
             dictionary["mouse_sens"]        = spinnerMouseSensitivity.Value.Equals(1) ? "1." : spinnerMouseSensitivity.Value.ToString();
@@ -193,25 +193,25 @@ namespace Metro2033ConfigEditor
             dictionary["r_res_vert"]        = textBoxHeight.Text;
         }
         
-        private bool haveSettingsChanged()
+        private bool HaveSettingsChanged()
         {
             // Nothing to compare if the config file wasn't found
-            if (Helper.instance.configFilePath == null)
+            if (Helper.instance.ConfigFilePath == null)
                 return false;
             
             // Write changes in a separate dictionary to detect changes
-            writeSettings(Helper.instance.dictionaryUponClosure);
+            WriteSettings(Helper.instance.DictionaryUponClosure);
             
             // Check if non-dictionary settings have changed
-            if (checkBoxSkipIntro.Checked != _skipIntroInitialState || checkBoxReadOnly.Checked != Helper.instance.isConfigReadOnly)
+            if (checkBoxSkipIntro.Checked != _skipIntroInitialState || checkBoxReadOnly.Checked != Helper.instance.IsConfigReadOnly)
                 return true;
             
             // Check if settings in dictionaries have changed
-            return !Helper.instance.areDictionariesEqual();
+            return !Helper.instance.AreDictionariesEqual();
         }
         
         // EVENT HANDLERS
-        private void buttonSteamInstallPath_Click(object sender, EventArgs e)
+        private void ButtonSteamInstallPath_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
@@ -221,25 +221,25 @@ namespace Metro2033ConfigEditor
                 // Show the dialog and get result.
                 if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    Helper.instance.steamInstallPath = folderBrowserDialog.SelectedPath.ToLower();
-                    buttonStartGameSteam.Enabled     = File.Exists(Helper.instance.steamInstallPath + @"\Steam.exe");
-                    textBoxSteamInstallPath.Text     = buttonStartGameSteam.Enabled ? Helper.instance.steamInstallPath : "Steam not found";
+                    Helper.instance.SteamInstallPath = folderBrowserDialog.SelectedPath.ToLower();
+                    buttonStartGameSteam.Enabled     = File.Exists(Helper.instance.SteamInstallPath + @"\Steam.exe");
+                    textBoxSteamInstallPath.Text     = buttonStartGameSteam.Enabled ? Helper.instance.SteamInstallPath : "Steam not found";
                 }
             }
         }
 
-        private void buttonBrowseConfigFilePath_Click(object sender, EventArgs e)
+        private void ButtonBrowseConfigFilePath_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Metro 2033 config file|user.cfg";
-                openFileDialog.InitialDirectory = Helper.instance.steamInstallPath + @"\userdata";
+                openFileDialog.InitialDirectory = Helper.instance.SteamInstallPath + @"\userdata";
                 
                 // Show the dialog and get result.
                 if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    Helper.instance.configFilePath = openFileDialog.FileName.ToLower();
-                    textBoxConfigFilePath.Text     = Helper.instance.configFilePath;
+                    Helper.instance.ConfigFilePath = openFileDialog.FileName.ToLower();
+                    textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath;
                     buttonReload.Enabled           = true;
                     buttonSave.Enabled             = true;
                     
@@ -249,27 +249,27 @@ namespace Metro2033ConfigEditor
             }
         }
 
-        private void buttonBrowseGameExecutable_Click(object sender, EventArgs e)
+        private void ButtonBrowseGameExecutable_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Metro 2033 executable|metro2033.exe";
-                openFileDialog.InitialDirectory = Helper.instance.gameInstallPath;
+                openFileDialog.InitialDirectory = Helper.instance.GameInstallPath;
                 
                 // Show the dialog and get result.
                 if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    Helper.instance.gameInstallPath    = openFileDialog.FileName.Replace(openFileDialog.SafeFileName, "").ToLower();
-                    Helper.instance.gameExecutablePath = openFileDialog.FileName.ToLower();
-                    _skipIntroInitialState             = Helper.instance.isNoIntroSkipped;
-                    textBoxGameExecutablePath.Text     = Helper.instance.gameExecutablePath;
-                    checkBoxSkipIntro.Checked          = Helper.instance.isNoIntroSkipped;
+                    Helper.instance.GameInstallPath    = openFileDialog.FileName.Replace(openFileDialog.SafeFileName, "").ToLower();
+                    Helper.instance.GameExecutablePath = openFileDialog.FileName.ToLower();
+                    _skipIntroInitialState             = Helper.instance.IsNoIntroSkipped;
+                    textBoxGameExecutablePath.Text     = Helper.instance.GameExecutablePath;
+                    checkBoxSkipIntro.Checked          = Helper.instance.IsNoIntroSkipped;
                     buttonStartGameNoSteam.Enabled     = true;
                 }
             }
         }
         
-        private void comboBoxResolution_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxResolution_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Change the content of the width/height textboxes according to selected resolution
             if (comboBoxResolution.Text != "Custom resolution")
@@ -284,7 +284,7 @@ namespace Metro2033ConfigEditor
             textBoxHeight.Enabled = comboBoxResolution.Text == "Custom resolution";
         }
         
-        private void comboBoxQuality_SelectedLow()
+        private void ComboBoxQuality_SelectedLow()
         {
             labelMotionBlurValue.Text               = "Disabled";
             labelSkinShadingValue.Text              = "Disabled";
@@ -302,7 +302,7 @@ namespace Metro2033ConfigEditor
             labelVolumetricTexturingValue.Text      = "Disabled";
         }
         
-        private void comboBoxQuality_SelectedMedium()
+        private void ComboBoxQuality_SelectedMedium()
         {
             labelMotionBlurValue.Text               = "Disabled";
             labelSkinShadingValue.Text              = "Disabled";
@@ -320,7 +320,7 @@ namespace Metro2033ConfigEditor
             labelVolumetricTexturingValue.Text      = "Disabled";
         }
         
-        private void comboBoxQuality_SelectedHigh()
+        private void ComboBoxQuality_SelectedHigh()
         {
             labelMotionBlurValue.Text               = "Camera";
             labelSkinShadingValue.Text              = "Simple";
@@ -338,7 +338,7 @@ namespace Metro2033ConfigEditor
             labelVolumetricTexturingValue.Text      = "Low-precision, disabled for sun";
         }
         
-        private void comboBoxQuality_SelectedVeryHigh()
+        private void ComboBoxQuality_SelectedVeryHigh()
         {
             labelMotionBlurValue.Text               = "Camera + objects (DX10+)";
             labelSkinShadingValue.Text              = "Sub-scattering";
@@ -356,19 +356,19 @@ namespace Metro2033ConfigEditor
             labelVolumetricTexturingValue.Text      = "Full quality, including sun";
         }
         
-        private void comboBoxQuality_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxQuality_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxQuality.SelectedIndex == 0)
-                comboBoxQuality_SelectedLow();
+                ComboBoxQuality_SelectedLow();
             else if (comboBoxQuality.SelectedIndex == 1)
-                comboBoxQuality_SelectedMedium();
+                ComboBoxQuality_SelectedMedium();
             else if (comboBoxQuality.SelectedIndex == 2)
-                comboBoxQuality_SelectedHigh();
+                ComboBoxQuality_SelectedHigh();
             else
-                comboBoxQuality_SelectedVeryHigh();
+                ComboBoxQuality_SelectedVeryHigh();
         }
         
-        private void comboBoxDirectX_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxDirectX_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Disable antialiasing in DX9
             comboBoxAntialiasing.Enabled = comboBoxDirectX.Text != "DirectX 9";
@@ -377,43 +377,43 @@ namespace Metro2033ConfigEditor
             groupBoxDirectX11.Enabled = comboBoxDirectX.Text == "DirectX 11";
         }
         
-        private void checkBoxReadOnly_CheckedChanged(object sender, EventArgs e)
+        private void CheckBoxReadOnly_CheckedChanged(object sender, EventArgs e)
         {
             labelCheatsWarning.Visible = checkBoxReadOnly.Checked;
         }
         
-        private void linkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelAuthor.LinkVisited = true;
             Process.Start("https://github.com/GenesisFR");
         }
         
-        private void linkLabelUpdateAvailable_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabelUpdateAvailable_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelUpdateAvailable.LinkVisited = true;
             Process.Start("https://github.com/GenesisFR/Metro2033ConfigEditor/releases/latest");
         }
         
-        private void buttonReload_Click(object sender, EventArgs e)
+        private void ButtonReload_Click(object sender, EventArgs e)
         {
-            Helper.instance.readConfigFile();
-            readSettings();
+            Helper.instance.ReadConfigFile();
+            ReadSettings();
         }
         
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
-            writeSettings(Helper.instance.dictionary);
+            WriteSettings(Helper.instance.Dictionary);
             _skipIntroInitialState = checkBoxSkipIntro.Checked;
-            Helper.instance.isConfigReadOnly = checkBoxReadOnly.Checked;
+            Helper.instance.IsConfigReadOnly = checkBoxReadOnly.Checked;
             
-            if (Helper.instance.writeConfigFile())
+            if (Helper.instance.WriteConfigFile())
                 MessageBox.Show("The config file has been saved successfully!", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Unable to save the config file. Try running the program as admin?", "Failure",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             
-            if (!Helper.instance.copyNoIntroFix(checkBoxSkipIntro.Checked))
+            if (!Helper.instance.CopyNoIntroFix(checkBoxSkipIntro.Checked))
             {
                 if (checkBoxSkipIntro.Checked)
                     MessageBox.Show("Unable to copy the no intro fix. Make sure the game executable path has been specified.", "Warning",
@@ -424,18 +424,18 @@ namespace Metro2033ConfigEditor
             }
         }
 
-        private void buttonStartGameNoSteam_Click(object sender, EventArgs e)
+        private void ButtonStartGameNoSteam_Click(object sender, EventArgs e)
         {
             using (Process proc = new Process())
             {
-                proc.StartInfo.WorkingDirectory = Helper.instance.gameInstallPath;
-                proc.StartInfo.FileName = Helper.instance.gameExecutablePath;
+                proc.StartInfo.WorkingDirectory = Helper.instance.GameInstallPath;
+                proc.StartInfo.FileName = Helper.instance.GameExecutablePath;
                 proc.Start();
                 proc.Close();
             }
         }
 
-        private void buttonStartGameSteam_Click(object sender, EventArgs e)
+        private void ButtonStartGameSteam_Click(object sender, EventArgs e)
         {
             Process.Start("steam://run/43110");
         }

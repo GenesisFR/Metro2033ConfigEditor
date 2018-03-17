@@ -23,101 +23,101 @@ namespace Metro2033ConfigEditor
         
         Helper()
         {
-            _steamInstallPath   = getSteamInstallPath();
-            _configFilePath     = getConfigPath();
-            _gameInstallPath    = getGameInstallPath();
-            _gameExecutablePath = getGameExecutablePath();
+            _steamInstallPath   = GetSteamInstallPath();
+            _configFilePath     = GetConfigPath();
+            _gameInstallPath    = GetGameInstallPath();
+            _gameExecutablePath = GetGameExecutablePath();
             
             _dictionary = new Dictionary<string, string>();
         }
         
         // Properties
-        public string steamInstallPath
+        public string SteamInstallPath
         {
             get { return _steamInstallPath; }
             set { _steamInstallPath = value; }
         }
         
-        public string configFilePath
+        public string ConfigFilePath
         {
             get { return _configFilePath; }
             set { _configFilePath = value; }
         }
         
-        public string gameInstallPath
+        public string GameInstallPath
         {
             get { return _gameInstallPath; }
             set { _gameInstallPath = value; }
         }
         
-        public string gameExecutablePath
+        public string GameExecutablePath
         {
             get { return _gameExecutablePath; }
             set { _gameExecutablePath = value; }
         }
         
-        public Dictionary<string, string> dictionary
+        public Dictionary<string, string> Dictionary
         {
             get { return _dictionary; }
         }
         
-        public Dictionary<string, string> dictionaryUponClosure
+        public Dictionary<string, string> DictionaryUponClosure
         {
             get { return _dictionaryUponClosure; }
         }
         
-        public bool isNoIntroSkipped
+        public bool IsNoIntroSkipped
         {
-            get { return File.Exists(gameInstallPath + @"\content.upk9"); }
+            get { return File.Exists(GameInstallPath + @"\content.upk9"); }
         }
 
-        public bool isConfigReadOnly
+        public bool IsConfigReadOnly
         {
             get { return new FileInfo(_configFilePath).IsReadOnly; }
             set { new FileInfo(_configFilePath).IsReadOnly = value; }
         }
         
-        private void addKeyIfMissing(string key, string value)
+        private void AddKeyIfMissing(string key, string value)
         {
             if (!_dictionary.ContainsKey(key))
                 _dictionary[key] = value;
         }
         
-        public void addKeysIfMissing()
+        public void AddKeysIfMissing()
         {
-            addKeyIfMissing("_show_subtitles",   "0");
-            addKeyIfMissing("fast_wpn_change",   "0");
-            addKeyIfMissing("g_game_difficulty", "1");
-            addKeyIfMissing("g_god",             "0");
-            addKeyIfMissing("g_laser",           "1");
-            addKeyIfMissing("g_quick_hints",     "1");
-            addKeyIfMissing("g_show_crosshair",  "on");
-            addKeyIfMissing("g_unlimitedammo",   "0");
-            addKeyIfMissing("lang_sound",        "us");
-            addKeyIfMissing("lang_text",         "us");
-            addKeyIfMissing("mouse_aim_sens",    "0.208");
-            addKeyIfMissing("mouse_sens",        "0.4");
-            addKeyIfMissing("ph_advanced_physX", "0");
-            addKeyIfMissing("r_af_level",        "0");
-            addKeyIfMissing("r_api",             "0");
-            addKeyIfMissing("r_dx11_dof",        "1");
-            addKeyIfMissing("r_dx11_tess",       "1");
-            addKeyIfMissing("r_fullscreen",      "on");
-            addKeyIfMissing("r_gi",              "0");
-            addKeyIfMissing("r_hud_weapon",      "on");
-            addKeyIfMissing("r_msaa_level",      "0");
-            addKeyIfMissing("r_gamma",           "1.");
-            addKeyIfMissing("r_quality_level",   "2");
-            addKeyIfMissing("r_res_hor",         "1024");
-            addKeyIfMissing("r_res_vert",        "768");
-            addKeyIfMissing("r_vsync",           "off");
-            addKeyIfMissing("s_master_volume",   "0.50");
-            addKeyIfMissing("s_music_volume",    "0.50");
-            addKeyIfMissing("sick_fov",          "45.");
-            addKeyIfMissing("stats",             "off");
+            AddKeyIfMissing("_show_subtitles",   "0");
+            AddKeyIfMissing("fast_wpn_change",   "0");
+            AddKeyIfMissing("g_game_difficulty", "1");
+            AddKeyIfMissing("g_god",             "0");
+            AddKeyIfMissing("g_laser",           "1");
+            AddKeyIfMissing("g_quick_hints",     "1");
+            AddKeyIfMissing("g_show_crosshair",  "on");
+            AddKeyIfMissing("g_unlimitedammo",   "0");
+            AddKeyIfMissing("lang_sound",        "us");
+            AddKeyIfMissing("lang_text",         "us");
+            AddKeyIfMissing("mouse_aim_sens",    "0.208");
+            AddKeyIfMissing("mouse_sens",        "0.4");
+            AddKeyIfMissing("ph_advanced_physX", "0");
+            AddKeyIfMissing("r_af_level",        "0");
+            AddKeyIfMissing("r_api",             "0");
+            AddKeyIfMissing("r_dx11_dof",        "1");
+            AddKeyIfMissing("r_dx11_tess",       "1");
+            AddKeyIfMissing("r_fullscreen",      "on");
+            AddKeyIfMissing("r_gi",              "0");
+            AddKeyIfMissing("r_hud_weapon",      "on");
+            AddKeyIfMissing("r_msaa_level",      "0");
+            AddKeyIfMissing("r_gamma",           "1.");
+            AddKeyIfMissing("r_quality_level",   "2");
+            AddKeyIfMissing("r_res_hor",         "1024");
+            AddKeyIfMissing("r_res_vert",        "768");
+            AddKeyIfMissing("r_vsync",           "off");
+            AddKeyIfMissing("s_master_volume",   "0.50");
+            AddKeyIfMissing("s_music_volume",    "0.50");
+            AddKeyIfMissing("sick_fov",          "45.");
+            AddKeyIfMissing("stats",             "off");
         }
         
-        public bool areDictionariesEqual()
+        public bool AreDictionariesEqual()
         {
             foreach (string key in _dictionary.Keys)
             {
@@ -128,10 +128,10 @@ namespace Metro2033ConfigEditor
             return true;
         }
         
-        public bool checkForUpdate()
+        public bool CheckForUpdate()
         {
             // Get content of version.txt
-            string result = downloadStringAsync().Result;
+            string result = DownloadStringAsync().Result;
             
             // Get local minor version
             int localMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
@@ -143,7 +143,7 @@ namespace Metro2033ConfigEditor
             return localMinor < remoteMinor;
         }
         
-        private async Task<string> downloadStringAsync()
+        private async Task<string> DownloadStringAsync()
         {
             // Start timing
             Stopwatch stopwatch = Stopwatch.StartNew();
@@ -178,7 +178,7 @@ namespace Metro2033ConfigEditor
             return result;
         }
         
-        public void readConfigFile()
+        public void ReadConfigFile()
         {
             string[] fileLines = File.ReadAllLines(_configFilePath);
             
@@ -199,10 +199,10 @@ namespace Metro2033ConfigEditor
             _dictionaryUponClosure = new Dictionary<string, string>(_dictionary);
         }
         
-        public bool writeConfigFile()
+        public bool WriteConfigFile()
         {
             // Used to restore the read-only attribute back to its original value
-            bool tempIsConfigReadOnly = isConfigReadOnly;
+            bool tempIsConfigReadOnly = IsConfigReadOnly;
             
             try
             {
@@ -218,7 +218,7 @@ namespace Metro2033ConfigEditor
                 }
                 
                 // Write everything back to the config
-                isConfigReadOnly = false;
+                IsConfigReadOnly = false;
                 File.WriteAllText(_configFilePath, fileLines);
                 return true;
             }
@@ -228,7 +228,7 @@ namespace Metro2033ConfigEditor
             }
             finally
             {
-                isConfigReadOnly = tempIsConfigReadOnly;
+                IsConfigReadOnly = tempIsConfigReadOnly;
             }
         }
         
@@ -240,7 +240,7 @@ namespace Metro2033ConfigEditor
         // HKEY_CURRENT_USER\System\GameConfigStore\Children\0a2fa510-040f-4297-82fe-f43f20481e6b // MatchedExeFullPath
         // HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110 // InstallLocation
         
-        private string getSteamInstallPath()
+        private string GetSteamInstallPath()
         {
             #if DEBUG
                 return null;
@@ -285,7 +285,7 @@ namespace Metro2033ConfigEditor
             return null;
         }
         
-        private string getGameInstallPath()
+        private string GetGameInstallPath()
         {
             #if DEBUG
                 return null;
@@ -320,13 +320,13 @@ namespace Metro2033ConfigEditor
             return null;
         }
         
-        private string getGameExecutablePath()
+        private string GetGameExecutablePath()
         {
             #if DEBUG
                 return null;
             #endif
             
-            string gamePath = _gameInstallPath ?? getGameInstallPath();
+            string gamePath = _gameInstallPath ?? GetGameInstallPath();
             string gameExePath = gamePath + @"\metro2033.exe";
             
             if (File.Exists(gameExePath))
@@ -335,13 +335,13 @@ namespace Metro2033ConfigEditor
             return null;
         }
         
-        private string getConfigPath()
+        private string GetConfigPath()
         {
             #if DEBUG
                 return null;
             #endif
             
-            string steamÞath = _steamInstallPath ?? getSteamInstallPath();
+            string steamÞath = _steamInstallPath ?? GetSteamInstallPath();
             string[] userDirs = Directory.GetDirectories(steamÞath + @"\userdata");
             
             // Parse through the user directories in search of the config file and return the first one found
@@ -354,7 +354,7 @@ namespace Metro2033ConfigEditor
             return null;
         }
         
-        public bool copyNoIntroFix(bool disableIntro)
+        public bool CopyNoIntroFix(bool disableIntro)
         {
             // Game directory has to be specified first
             if (_gameInstallPath == null)
@@ -378,7 +378,7 @@ namespace Metro2033ConfigEditor
             return true;
         }
         
-        public string convertNumberToDifficulty(string number)
+        public string ConvertNumberToDifficulty(string number)
         {
             switch (number)
             {
@@ -396,7 +396,7 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        public string convertDifficultyToNumber(string difficulty)
+        public string ConvertDifficultyToNumber(string difficulty)
         {
             switch (difficulty)
             {
@@ -414,7 +414,7 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        public string convertCodeToLanguage(string code)
+        public string ConvertCodeToLanguage(string code)
         {
             switch (code)
             {
@@ -440,7 +440,7 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        public string convertLanguageToCode(string language)
+        public string ConvertLanguageToCode(string language)
         {
             switch (language)
             {
@@ -466,7 +466,7 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        public string convertNumberToDirectX(string number)
+        public string ConvertNumberToDirectX(string number)
         {
             switch (number)
             {
@@ -480,7 +480,7 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        public string convertDirectXToNumber(string directX)
+        public string ConvertDirectXToNumber(string directX)
         {
             switch (directX)
             {
@@ -494,7 +494,7 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        public string convertNumberToQualityLevel(string number)
+        public string ConvertNumberToQualityLevel(string number)
         {
             switch (number)
             {
@@ -510,7 +510,7 @@ namespace Metro2033ConfigEditor
             }
         }
         
-        public string convertQualityLevelToNumber(string quality)
+        public string ConvertQualityLevelToNumber(string quality)
         {
             switch (quality)
             {
