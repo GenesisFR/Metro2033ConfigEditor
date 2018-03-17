@@ -5,12 +5,15 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Metro2033ConfigEditor
 {
     public sealed class Helper
     {
+        private static Mutex _m;
+        
         private string _steamInstallPath;   // C:\Program Files (x86)\Steam
         private string _configFilePath;     // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
         private string _gameInstallPath;    // D:\Games\SteamLibrary\steamapps\common\Metro 2033
@@ -75,6 +78,28 @@ namespace Metro2033ConfigEditor
         {
             get { return new FileInfo(_configFilePath).IsReadOnly; }
             set { new FileInfo(_configFilePath).IsReadOnly = value; }
+        }
+        
+        public static bool IsSingleInstance()
+        {
+            string guid = Assembly.GetEntryAssembly().GetType().GUID.ToString();
+            
+            try
+            {
+                // Try to open existing mutex.
+                Mutex.OpenExisting(guid);
+            }
+            catch
+            {
+                // If exception occurred, there is no such mutex.
+                _m = new Mutex(true, guid);
+                
+                // Only one instance.
+                return true;
+            }
+            
+            // More than one instance.
+            return false;
         }
         
         private void AddKeyIfMissing(string key, string value)
