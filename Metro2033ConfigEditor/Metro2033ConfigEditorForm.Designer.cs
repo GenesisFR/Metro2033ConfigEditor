@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Metro2033ConfigEditorForm));
             this.buttonReload = new System.Windows.Forms.Button();
-            this.labelRemoteConfigPath = new System.Windows.Forms.Label();
-            this.textBoxRemoteConfigPath = new System.Windows.Forms.TextBox();
-            this.buttonBrowseRemoteConfigPath = new System.Windows.Forms.Button();
+            this.labelConfigFilePath = new System.Windows.Forms.Label();
+            this.textBoxConfigFilePath = new System.Windows.Forms.TextBox();
+            this.buttonBrowseConfigFilePath = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelMsaa = new System.Windows.Forms.Label();
             this.labelAdvancedPhysX = new System.Windows.Forms.Label();
@@ -165,32 +165,32 @@
             this.buttonReload.UseVisualStyleBackColor = true;
             this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
             // 
-            // labelRemoteConfigPath
+            // labelConfigFilePath
             // 
-            this.labelRemoteConfigPath.AutoSize = true;
-            this.labelRemoteConfigPath.Location = new System.Drawing.Point(10, 40);
-            this.labelRemoteConfigPath.Name = "labelRemoteConfigPath";
-            this.labelRemoteConfigPath.Size = new System.Drawing.Size(100, 13);
-            this.labelRemoteConfigPath.TabIndex = 3;
-            this.labelRemoteConfigPath.Text = "Remote config path";
+            this.labelConfigFilePath.AutoSize = true;
+            this.labelConfigFilePath.Location = new System.Drawing.Point(10, 40);
+            this.labelConfigFilePath.Name = "labelConfigFilePath";
+            this.labelConfigFilePath.Size = new System.Drawing.Size(77, 13);
+            this.labelConfigFilePath.TabIndex = 3;
+            this.labelConfigFilePath.Text = "Config file path";
             // 
-            // textBoxRemoteConfigPath
+            // textBoxConfigFilePath
             // 
-            this.textBoxRemoteConfigPath.Location = new System.Drawing.Point(140, 37);
-            this.textBoxRemoteConfigPath.Name = "textBoxRemoteConfigPath";
-            this.textBoxRemoteConfigPath.ReadOnly = true;
-            this.textBoxRemoteConfigPath.Size = new System.Drawing.Size(565, 20);
-            this.textBoxRemoteConfigPath.TabIndex = 4;
+            this.textBoxConfigFilePath.Location = new System.Drawing.Point(140, 37);
+            this.textBoxConfigFilePath.Name = "textBoxConfigFilePath";
+            this.textBoxConfigFilePath.ReadOnly = true;
+            this.textBoxConfigFilePath.Size = new System.Drawing.Size(565, 20);
+            this.textBoxConfigFilePath.TabIndex = 4;
             // 
-            // buttonBrowseRemoteConfigPath
+            // buttonBrowseConfigFilePath
             // 
-            this.buttonBrowseRemoteConfigPath.Location = new System.Drawing.Point(725, 35);
-            this.buttonBrowseRemoteConfigPath.Name = "buttonBrowseRemoteConfigPath";
-            this.buttonBrowseRemoteConfigPath.Size = new System.Drawing.Size(75, 23);
-            this.buttonBrowseRemoteConfigPath.TabIndex = 6;
-            this.buttonBrowseRemoteConfigPath.Text = "Browse";
-            this.buttonBrowseRemoteConfigPath.UseVisualStyleBackColor = true;
-            this.buttonBrowseRemoteConfigPath.Click += new System.EventHandler(this.buttonBrowseRemoteConfig_Click);
+            this.buttonBrowseConfigFilePath.Location = new System.Drawing.Point(725, 35);
+            this.buttonBrowseConfigFilePath.Name = "buttonBrowseConfigFilePath";
+            this.buttonBrowseConfigFilePath.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowseConfigFilePath.TabIndex = 6;
+            this.buttonBrowseConfigFilePath.Text = "Browse";
+            this.buttonBrowseConfigFilePath.UseVisualStyleBackColor = true;
+            this.buttonBrowseConfigFilePath.Click += new System.EventHandler(this.buttonBrowseConfigFilePath_Click);
             // 
             // buttonSave
             // 
@@ -1431,9 +1431,9 @@
             this.Controls.Add(this.labelAdvancedPhysX);
             this.Controls.Add(this.labelMsaa);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonBrowseRemoteConfigPath);
-            this.Controls.Add(this.textBoxRemoteConfigPath);
-            this.Controls.Add(this.labelRemoteConfigPath);
+            this.Controls.Add(this.buttonBrowseConfigFilePath);
+            this.Controls.Add(this.textBoxConfigFilePath);
+            this.Controls.Add(this.labelConfigFilePath);
             this.Controls.Add(this.buttonReload);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1474,9 +1474,9 @@
         #endregion
 
         private System.Windows.Forms.Button buttonReload;
-        private System.Windows.Forms.Label labelRemoteConfigPath;
-        private System.Windows.Forms.TextBox textBoxRemoteConfigPath;
-        private System.Windows.Forms.Button buttonBrowseRemoteConfigPath;
+        private System.Windows.Forms.Label labelConfigFilePath;
+        private System.Windows.Forms.TextBox textBoxConfigFilePath;
+        private System.Windows.Forms.Button buttonBrowseConfigFilePath;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelMsaa;
         private System.Windows.Forms.Label labelAdvancedPhysX;

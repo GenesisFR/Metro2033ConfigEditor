@@ -28,28 +28,31 @@ namespace Metro2033ConfigEditor
         {
             try
             {
-                textBoxSteamInstallPath.Text   = Helper.instance.steamInstallPath;
-                textBoxRemoteConfigPath.Text   = Helper.instance.remoteConfigPath;
-                textBoxGameExecutablePath.Text = Helper.instance.gameExecutablePath;
+                // Set textboxes
+                textBoxSteamInstallPath.Text   = Helper.instance.steamInstallPath ?? "Steam not found";
+                textBoxConfigFilePath.Text     = Helper.instance.configFilePath ?? "Config not found";
+                textBoxGameExecutablePath.Text = Helper.instance.gameExecutablePath ?? "Game not found";
                 
-                // Disable buttons
-                buttonReload.Enabled           = Helper.instance.remoteConfigPath != null;
-                buttonSave.Enabled             = Helper.instance.remoteConfigPath != null;
+                // Set button states
+                buttonReload.Enabled           = Helper.instance.configFilePath != null;
+                buttonSave.Enabled             = Helper.instance.configFilePath != null;
                 buttonStartGameNoSteam.Enabled = Helper.instance.gameInstallPath != null;
                 buttonStartGameSteam.Enabled   = Helper.instance.steamInstallPath != null;
-                
+
+                // Read config
                 Helper.instance.readConfigFile();
-                
-                // Initialize comboBoxResolution to "Custom resolution"
-                comboBoxResolution.SelectedIndex = comboBoxResolution.Items.Count - 1;
                 readSettings();
             }
             catch
             {
-                DialogResult result = MessageBox.Show(@"It appears we were not able to locate the remote config file for Metro2033," +
-                    @" please run the game at least once to generate it.\n\nYou can also point to its location by using the corresponding" +
-                    @" Browse button (it should be located in your ""steam\userdata\<userid>\43110\remote"" directory).\n\nDo you want" +
-                    @" to run the game now?",
+                DialogResult result = MessageBox.Show(
+                    "We were not able to locate the config file for Metro2033, please run the game at least once to generate it." +
+                    Environment.NewLine + Environment.NewLine +
+                    "You can also point to its location by using the corresponding Browse button. It should be located here:" +
+                    Environment.NewLine + Environment.NewLine +
+                    @"steam\userdata\<userid>\43110\remote\" +
+                    Environment.NewLine + Environment.NewLine +
+                    "Do you want to run the game now?",
                     "Config not found", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 
                 if (result == DialogResult.Yes)
@@ -89,9 +92,9 @@ namespace Metro2033ConfigEditor
             _toolTip.SetToolTip(checkBoxFullscreen,         "Uncheck to play the game in windowed mode. To play borderless fullscreen," +
                 " change your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so" +
                 " the taskbar will still be visible.");
-            _toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might actually" +
-                " be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different system that" +
-                " works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
+            _toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might" +
+                " actually be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different" +
+                " system that works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
             _toolTip.SetToolTip(checkBoxVsync,              "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact" +
                 " performance.\nFor some reason, enabling Vsync will disable stereoscopy, thus boosting your framerate.");
         }
@@ -119,7 +122,7 @@ namespace Metro2033ConfigEditor
             checkBoxCrosshair.Checked          = Helper.instance.dictionary["g_show_crosshair"]  == "on";
             checkBoxScreenshotMode.Checked     = Helper.instance.dictionary["r_hud_weapon"]      == "off";
             checkBoxShowStats.Checked          = Helper.instance.dictionary["stats"]             == "on";
-            checkBoxSkipIntro.Checked          = _skipIntroInitialState;
+            checkBoxSkipIntro.Checked          = Helper.instance.isNoIntroSkipped;
             checkBoxUnlimitedAmmo.Checked      = Helper.instance.dictionary["g_unlimitedammo"]   == "1";
             checkBoxGodMode.Checked            = Helper.instance.dictionary["g_god"]             == "1";
             checkBoxReadOnly.Checked           = Helper.instance.isConfigReadOnly;
@@ -192,73 +195,77 @@ namespace Metro2033ConfigEditor
         
         private bool haveSettingsChanged()
         {
+            // Nothing to compare if the config file wasn't found
+            if (Helper.instance.configFilePath == null)
+                return false;
+            
+            // Write changes in a separate dictionary to detect changes
             writeSettings(Helper.instance.dictionaryUponClosure);
             
-            // Check if the Skip intro setting has changed
-            if (checkBoxSkipIntro.Checked != _skipIntroInitialState)
+            // Check if non-dictionary settings have changed
+            if (checkBoxSkipIntro.Checked != _skipIntroInitialState || checkBoxReadOnly.Checked != Helper.instance.isConfigReadOnly)
                 return true;
             
-            if (checkBoxReadOnly.Checked != Helper.instance.isConfigReadOnly)
-                return true;
-            
-            // Check if other settings have changed
+            // Check if settings in dictionaries have changed
             return !Helper.instance.areDictionariesEqual();
         }
         
         // EVENT HANDLERS
         private void buttonSteamInstallPath_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog FD = new FolderBrowserDialog
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
-                Description         = "Locate your Steam installation directory",
-                ShowNewFolderButton = false
-            };
-            
-            // Show the dialog and get result.
-            if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                Helper.instance.steamInstallPath = FD.SelectedPath.ToLower();
-                buttonStartGameSteam.Enabled     = File.Exists(Helper.instance.steamInstallPath + @"\Steam.exe");
-                textBoxSteamInstallPath.Text     = buttonStartGameSteam.Enabled ? Helper.instance.steamInstallPath : "Steam not found";
+                folderBrowserDialog.Description = "Locate your Steam installation directory";
+                folderBrowserDialog.ShowNewFolderButton = false;
+                
+                // Show the dialog and get result.
+                if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Helper.instance.steamInstallPath = folderBrowserDialog.SelectedPath.ToLower();
+                    buttonStartGameSteam.Enabled     = File.Exists(Helper.instance.steamInstallPath + @"\Steam.exe");
+                    textBoxSteamInstallPath.Text     = buttonStartGameSteam.Enabled ? Helper.instance.steamInstallPath : "Steam not found";
+                }
             }
         }
-        
-        private void buttonBrowseRemoteConfig_Click(object sender, EventArgs e)
+
+        private void buttonBrowseConfigFilePath_Click(object sender, EventArgs e)
         {
-            OpenFileDialog FD = new OpenFileDialog
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                Filter           = "Metro 2033 config file|user.cfg",
-                InitialDirectory = Helper.instance.steamInstallPath + @"\userdata"
-            };
-            
-            // Show the dialog and get result.
-            if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                Helper.instance.remoteConfigPath = FD.FileName.ToLower();
-                textBoxRemoteConfigPath.Text     = Helper.instance.remoteConfigPath;
-                buttonReload.Enabled             = true;
-                buttonSave.Enabled               = Helper.instance.remoteConfigPath != null && Helper.instance.gameInstallPath != null;
+                openFileDialog.Filter = "Metro 2033 config file|user.cfg";
+                openFileDialog.InitialDirectory = Helper.instance.steamInstallPath + @"\userdata";
+                
+                // Show the dialog and get result.
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Helper.instance.configFilePath = openFileDialog.FileName.ToLower();
+                    textBoxConfigFilePath.Text     = Helper.instance.configFilePath;
+                    buttonReload.Enabled           = true;
+                    buttonSave.Enabled             = true;
+                    
+                    // Reload config automatically
+                    buttonReload.PerformClick();
+                }
             }
         }
-        
+
         private void buttonBrowseGameExecutable_Click(object sender, EventArgs e)
         {
-            OpenFileDialog FD = new OpenFileDialog
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                Filter           = "Metro 2033 executable|metro2033.exe",
-                InitialDirectory = Helper.instance.gameInstallPath
-            };
-            
-            // Show the dialog and get result.
-            if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                Helper.instance.gameInstallPath    = FD.FileName.Replace(FD.SafeFileName, "").ToLower();
-                Helper.instance.gameExecutablePath = FD.FileName.ToLower();
-                textBoxGameExecutablePath.Text     = Helper.instance.gameExecutablePath;
-                _skipIntroInitialState             = File.Exists(Helper.instance.gameInstallPath + @"\content.upk9");
-                checkBoxSkipIntro.Checked          = _skipIntroInitialState;
-                buttonSave.Enabled                 = Helper.instance.remoteConfigPath != null && Helper.instance.gameInstallPath != null;
-                buttonStartGameNoSteam.Enabled     = true;
+                openFileDialog.Filter = "Metro 2033 executable|metro2033.exe";
+                openFileDialog.InitialDirectory = Helper.instance.gameInstallPath;
+                
+                // Show the dialog and get result.
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Helper.instance.gameInstallPath    = openFileDialog.FileName.Replace(openFileDialog.SafeFileName, "").ToLower();
+                    Helper.instance.gameExecutablePath = openFileDialog.FileName.ToLower();
+                    _skipIntroInitialState             = Helper.instance.isNoIntroSkipped;
+                    textBoxGameExecutablePath.Text     = Helper.instance.gameExecutablePath;
+                    checkBoxSkipIntro.Checked          = Helper.instance.isNoIntroSkipped;
+                    buttonStartGameNoSteam.Enabled     = true;
+                }
             }
         }
         
@@ -268,8 +275,8 @@ namespace Metro2033ConfigEditor
             if (comboBoxResolution.Text != "Custom resolution")
             {
                 string[] splitResolution = comboBoxResolution.Text.Split(new string[] { " x " }, StringSplitOptions.None);
-                textBoxWidth.Text  = splitResolution[0];
-                textBoxHeight.Text = splitResolution[1];
+                textBoxWidth.Text        = splitResolution[0];
+                textBoxHeight.Text       = splitResolution[1];
             }
             
             // Enable the width/height textboxes only when selecting "Custom resolution"
@@ -277,76 +284,88 @@ namespace Metro2033ConfigEditor
             textBoxHeight.Enabled = comboBoxResolution.Text == "Custom resolution";
         }
         
+        private void comboBoxQuality_SelectedLow()
+        {
+            labelMotionBlurValue.Text               = "Disabled";
+            labelSkinShadingValue.Text              = "Disabled";
+            labelBumpMappingValue.Text              = "Coarse";
+            labelSoftParticlesValue.Text            = "Disabled";
+            labelShadowResolutionValue.Text         = "2.35 Mpix";
+            labelLightMaterialInteractionValue.Text = "Normal";
+            labelGeometricDetailValue.Text          = "Low";
+            labelDetailTexturingValue.Text          = "Disabled";
+            labelAmbientOcclusionValue.Text         = "Approximate";
+            labelImagePostProcessingValue.Text      = "Normal";
+            labelParallaxMappingValue.Text          = "Disabled";
+            labelShadowFilteringValue.Text          = "Fast";
+            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
+            labelVolumetricTexturingValue.Text      = "Disabled";
+        }
+        
+        private void comboBoxQuality_SelectedMedium()
+        {
+            labelMotionBlurValue.Text               = "Disabled";
+            labelSkinShadingValue.Text              = "Disabled";
+            labelBumpMappingValue.Text              = "Coarse";
+            labelSoftParticlesValue.Text            = "Disabled";
+            labelShadowResolutionValue.Text         = "4.19 Mpix";
+            labelLightMaterialInteractionValue.Text = "Normal";
+            labelGeometricDetailValue.Text          = "Normal";
+            labelDetailTexturingValue.Text          = "Enabled";
+            labelAmbientOcclusionValue.Text         = "Approximate";
+            labelImagePostProcessingValue.Text      = "Normal";
+            labelParallaxMappingValue.Text          = "Disabled";
+            labelShadowFilteringValue.Text          = "Normal";
+            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
+            labelVolumetricTexturingValue.Text      = "Disabled";
+        }
+        
+        private void comboBoxQuality_SelectedHigh()
+        {
+            labelMotionBlurValue.Text               = "Camera";
+            labelSkinShadingValue.Text              = "Simple";
+            labelBumpMappingValue.Text              = "Precise";
+            labelSoftParticlesValue.Text            = "Enabled";
+            labelShadowResolutionValue.Text         = "6.55 Mpix";
+            labelLightMaterialInteractionValue.Text = "Normal";
+            labelGeometricDetailValue.Text          = "High";
+            labelDetailTexturingValue.Text          = "Enabled";
+            labelAmbientOcclusionValue.Text         = "Precomputed + SSAO";
+            labelImagePostProcessingValue.Text      = "Full";
+            labelParallaxMappingValue.Text          = "Enabled";
+            labelShadowFilteringValue.Text          = "Hi-quality";
+            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
+            labelVolumetricTexturingValue.Text      = "Low-precision, disabled for sun";
+        }
+        
+        private void comboBoxQuality_SelectedVeryHigh()
+        {
+            labelMotionBlurValue.Text               = "Camera + objects (DX10+)";
+            labelSkinShadingValue.Text              = "Sub-scattering";
+            labelBumpMappingValue.Text              = "Precise";
+            labelSoftParticlesValue.Text            = "Enabled";
+            labelShadowResolutionValue.Text         = "9.43 Mpix";
+            labelLightMaterialInteractionValue.Text = "Full";
+            labelGeometricDetailValue.Text          = "Very high";
+            labelDetailTexturingValue.Text          = "Enabled";
+            labelAmbientOcclusionValue.Text         = "Precomputed + SSAO";
+            labelImagePostProcessingValue.Text      = "Full";
+            labelParallaxMappingValue.Text          = "Enabled with occlusion";
+            labelShadowFilteringValue.Text          = "Hi-quality";
+            labelAnalyticalAntiAliasingValue.Text   = "Enabled";
+            labelVolumetricTexturingValue.Text      = "Full quality, including sun";
+        }
+        
         private void comboBoxQuality_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxQuality.SelectedIndex == 0)
-            {
-                labelMotionBlurValue.Text               = "Disabled";
-                labelSkinShadingValue.Text              = "Disabled";
-                labelBumpMappingValue.Text              = "Coarse";
-                labelSoftParticlesValue.Text            = "Disabled";
-                labelShadowResolutionValue.Text         = "2.35 Mpix";
-                labelLightMaterialInteractionValue.Text = "Normal";
-                labelGeometricDetailValue.Text          = "Low";
-                labelDetailTexturingValue.Text          = "Disabled";
-                labelAmbientOcclusionValue.Text         = "Approximate";
-                labelImagePostProcessingValue.Text      = "Normal";
-                labelParallaxMappingValue.Text          = "Disabled";
-                labelShadowFilteringValue.Text          = "Fast";
-                labelAnalyticalAntiAliasingValue.Text   = "Disabled";
-                labelVolumetricTexturingValue.Text      = "Disabled";
-            }
+                comboBoxQuality_SelectedLow();
             else if (comboBoxQuality.SelectedIndex == 1)
-            {
-                labelMotionBlurValue.Text               = "Disabled";
-                labelSkinShadingValue.Text              = "Disabled";
-                labelBumpMappingValue.Text              = "Coarse";
-                labelSoftParticlesValue.Text            = "Disabled";
-                labelShadowResolutionValue.Text         = "4.19 Mpix";
-                labelLightMaterialInteractionValue.Text = "Normal";
-                labelGeometricDetailValue.Text          = "Normal";
-                labelDetailTexturingValue.Text          = "Enabled";
-                labelAmbientOcclusionValue.Text         = "Approximate";
-                labelImagePostProcessingValue.Text      = "Normal";
-                labelParallaxMappingValue.Text          = "Disabled";
-                labelShadowFilteringValue.Text          = "Normal";
-                labelAnalyticalAntiAliasingValue.Text   = "Disabled";
-                labelVolumetricTexturingValue.Text      = "Disabled";
-            }
+                comboBoxQuality_SelectedMedium();
             else if (comboBoxQuality.SelectedIndex == 2)
-            {
-                labelMotionBlurValue.Text               = "Camera";
-                labelSkinShadingValue.Text              = "Simple";
-                labelBumpMappingValue.Text              = "Precise";
-                labelSoftParticlesValue.Text            = "Enabled";
-                labelShadowResolutionValue.Text         = "6.55 Mpix";
-                labelLightMaterialInteractionValue.Text = "Normal";
-                labelGeometricDetailValue.Text          = "High";
-                labelDetailTexturingValue.Text          = "Enabled";
-                labelAmbientOcclusionValue.Text         = "Precomputed + SSAO";
-                labelImagePostProcessingValue.Text      = "Full";
-                labelParallaxMappingValue.Text          = "Enabled";
-                labelShadowFilteringValue.Text          = "Hi-quality";
-                labelAnalyticalAntiAliasingValue.Text   = "Disabled";
-                labelVolumetricTexturingValue.Text      = "Low-precision, disabled for sun";
-            }
+                comboBoxQuality_SelectedHigh();
             else
-            {
-                labelMotionBlurValue.Text               = "Camera + objects (DX10+)";
-                labelSkinShadingValue.Text              = "Sub-scattering";
-                labelBumpMappingValue.Text              = "Precise";
-                labelSoftParticlesValue.Text            = "Enabled";
-                labelShadowResolutionValue.Text         = "9.43 Mpix";
-                labelLightMaterialInteractionValue.Text = "Full";
-                labelGeometricDetailValue.Text          = "Very high";
-                labelDetailTexturingValue.Text          = "Enabled";
-                labelAmbientOcclusionValue.Text         = "Precomputed + SSAO";
-                labelImagePostProcessingValue.Text      = "Full";
-                labelParallaxMappingValue.Text          = "Enabled with occlusion";
-                labelShadowFilteringValue.Text          = "Hi-quality";
-                labelAnalyticalAntiAliasingValue.Text   = "Enabled";
-                labelVolumetricTexturingValue.Text      = "Full quality, including sun";
-            }
+                comboBoxQuality_SelectedVeryHigh();
         }
         
         private void comboBoxDirectX_SelectedIndexChanged(object sender, EventArgs e)
@@ -388,28 +407,34 @@ namespace Metro2033ConfigEditor
             Helper.instance.isConfigReadOnly = checkBoxReadOnly.Checked;
             
             if (Helper.instance.writeConfigFile())
-                MessageBox.Show("The config file has been successfully saved!", "Success",
+                MessageBox.Show("The config file has been saved successfully!", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Unable to save the config file. Try running the program as admin?", "Failure",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             
             if (!Helper.instance.copyNoIntroFix(checkBoxSkipIntro.Checked))
-                MessageBox.Show("Unable to " +
-                    (checkBoxSkipIntro.Checked ? "copy" : "delete") +
-                    " the no intro fix. Make sure the game executable path has been specified.", "Warning",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {
+                if (checkBoxSkipIntro.Checked)
+                    MessageBox.Show("Unable to copy the no intro fix. Make sure the game executable path has been specified.", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                    MessageBox.Show("Unable to delete the no intro fix. Make sure the game executable path has been specified.", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-        
+
         private void buttonStartGameNoSteam_Click(object sender, EventArgs e)
         {
-            Process proc = new Process();
-            proc.StartInfo.WorkingDirectory = Helper.instance.gameInstallPath;
-            proc.StartInfo.FileName = Helper.instance.gameExecutablePath;
-            proc.Start();
-            proc.Close();
+            using (Process proc = new Process())
+            {
+                proc.StartInfo.WorkingDirectory = Helper.instance.gameInstallPath;
+                proc.StartInfo.FileName = Helper.instance.gameExecutablePath;
+                proc.Start();
+                proc.Close();
+            }
         }
-        
+
         private void buttonStartGameSteam_Click(object sender, EventArgs e)
         {
             Process.Start("steam://run/43110");

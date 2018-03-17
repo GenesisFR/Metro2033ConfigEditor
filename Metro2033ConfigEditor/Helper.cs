@@ -12,7 +12,7 @@ namespace Metro2033ConfigEditor
     public sealed class Helper
     {
         private string _steamInstallPath;   // C:\Program Files (x86)\Steam
-        private string _remoteConfigPath;   // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
+        private string _configFilePath;     // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
         private string _gameInstallPath;    // D:\Games\SteamLibrary\steamapps\common\Metro 2033
         private string _gameExecutablePath; // D:\Games\SteamLibrary\steamapps\common\Metro 2033\metro2033.exe
         
@@ -24,7 +24,7 @@ namespace Metro2033ConfigEditor
         Helper()
         {
             _steamInstallPath   = getSteamInstallPath();
-            _remoteConfigPath   = getRemoteCfgPath();
+            _configFilePath     = getConfigPath();
             _gameInstallPath    = getGameInstallPath();
             _gameExecutablePath = getGameExecutablePath();
             
@@ -38,10 +38,10 @@ namespace Metro2033ConfigEditor
             set { _steamInstallPath = value; }
         }
         
-        public string remoteConfigPath
+        public string configFilePath
         {
-            get { return _remoteConfigPath; }
-            set { _remoteConfigPath = value; }
+            get { return _configFilePath; }
+            set { _configFilePath = value; }
         }
         
         public string gameInstallPath
@@ -73,8 +73,8 @@ namespace Metro2033ConfigEditor
 
         public bool isConfigReadOnly
         {
-            get { return new FileInfo(remoteConfigPath).IsReadOnly; }
-            set { new FileInfo(remoteConfigPath).IsReadOnly = value; }
+            get { return new FileInfo(_configFilePath).IsReadOnly; }
+            set { new FileInfo(_configFilePath).IsReadOnly = value; }
         }
         
         private void addKeyIfMissing(string key, string value)
@@ -130,34 +130,34 @@ namespace Metro2033ConfigEditor
         
         public bool checkForUpdate()
         {
-            // Get content of version.txt as a string
+            // Get content of version.txt
             string result = downloadStringAsync().Result;
             
-            // Get assembly minor
-            int currentMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
+            // Get local minor version
+            int localMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
             
-            // Get version.txt minor
+            // Get remote minor version
             string[] splitResult = result.Split('.');
             int remoteMinor = Convert.ToInt32(splitResult[1]);
-            int.Parse(splitResult[1]);
             
-            return currentMinor < remoteMinor;
+            return localMinor < remoteMinor;
         }
         
-        async Task<string> downloadStringAsync()
+        private async Task<string> downloadStringAsync()
         {
             // Start timing
             Stopwatch stopwatch = Stopwatch.StartNew();
             
-            // Initialize result to current version
+            // Initialize result to local version
             Version version = Assembly.GetEntryAssembly().GetName().Version;
             string result = version.Major + "." + version.Minor;
             
             try
             {
+                // Fetch version.txt from repo
                 using (WebClient client = new WebClient())
                 {
-                    // Read the string
+                    // Read the content of the file
                     result = await client.DownloadStringTaskAsync(
                         new Uri("https://raw.githubusercontent.com/GenesisFR/Metro2033ConfigEditor/master/version.txt"));
                 }
@@ -180,19 +180,20 @@ namespace Metro2033ConfigEditor
         
         public void readConfigFile()
         {
-            string[] fileLines = File.ReadAllLines(remoteConfigPath);
+            string[] fileLines = File.ReadAllLines(_configFilePath);
             
-            // Parse the content of the remote config and store every line in a dictionary
+            // Parse the content of the config and store every line in a dictionary
             foreach (string fileLine in fileLines)
             {
                 // Split the line using SPACE as a delimiter
                 string[] splitLines = fileLine.Split(' ');
-                // If we have 0 or 2+ SPACE characters, use the whole line as a key
-                if (splitLines.Length == 1 || splitLines.Length > 2)
-                    _dictionary[fileLine] = "";
+                
                 // If we have 1 SPACE character, use the 1st part as a key and the 2nd part as a value
-                else if (splitLines.Length == 2)
+                if (splitLines.Length == 2)
                     _dictionary[splitLines[0]] = splitLines[1];
+                // Otherwise, use the whole line as a key
+                else
+                    _dictionary[fileLine] = "";
             }
             
             _dictionaryUponClosure = new Dictionary<string, string>(_dictionary);
@@ -210,15 +211,15 @@ namespace Metro2033ConfigEditor
                 // Parse the content of the dictionary to reconstruct the lines
                 foreach (string key in _dictionary.Keys)
                 {
-                    if (_dictionary[key] == "")
-                        fileLines += key + "\r\n";
-                    else
+                    if (_dictionary[key] != "")
                         fileLines += key + " " + _dictionary[key] + "\r\n";
+                    else
+                        fileLines += key + "\r\n";
                 }
                 
                 // Write everything back to the config
                 isConfigReadOnly = false;
-                File.WriteAllText(remoteConfigPath, fileLines);
+                File.WriteAllText(_configFilePath, fileLines);
                 return true;
             }
             catch
@@ -239,78 +240,94 @@ namespace Metro2033ConfigEditor
         // HKEY_CURRENT_USER\System\GameConfigStore\Children\0a2fa510-040f-4297-82fe-f43f20481e6b // MatchedExeFullPath
         // HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110 // InstallLocation
         
-        public string getSteamInstallPath()
+        private string getSteamInstallPath()
         {
             #if DEBUG
                 return null;
             #endif
             
-            // Look for Steam from the registry
-            object key = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null);
-            
-            if (key != null)
-                return key.ToString().Replace('/', '\\').ToLower();
+            try
+            {
+                // Look for Steam from the registry
+                object key = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null);
+                
+                if (key != null)
+                    return key.ToString().Replace('/', '\\').ToLower();
+            }
+            catch
+            {
+                
+            }
             
             // Look for Steam in Program Files
-            string programFilesSteam = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Steam";
-            string programFilesSteamX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam";
+            string progFilesSteam = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Steam";
+            string progFilesSteamX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam";
             
             // Steam is a 32-bit program so it should install in Program Files (x86) by default
-            if (File.Exists(programFilesSteamX86 + @"\Steam.exe"))
-                return programFilesSteamX86;
-            else if (File.Exists(programFilesSteam + @"\Steam.exe"))
-                return programFilesSteam;
+            if (File.Exists(progFilesSteamX86 + @"\Steam.exe"))
+                return progFilesSteamX86;
+            else if (File.Exists(progFilesSteam + @"\Steam.exe"))
+                return progFilesSteam;
             
             // Finally, look for Steam in the current path
-            string currentDirectory = Directory.GetCurrentDirectory();
+            string currentDir = Directory.GetCurrentDirectory();
             
-            if (currentDirectory.Contains(@"Steam\steamapps"))
+            if (currentDir.Contains(@"Steam\steamapps"))
             {
                 // Get the Steam root directory
-                string[] splitSteamDirectory = currentDirectory.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
-                string steamDirectory = splitSteamDirectory[0] + @"\Steam";
+                string[] splitSteamDir = currentDir.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
+                string steamDir = splitSteamDir[0] + @"\Steam";
                 
-                if (File.Exists(steamDirectory + @"\Steam.exe"))
-                    return steamDirectory;
+                if (File.Exists(steamDir + @"\Steam.exe"))
+                    return steamDir;
             }
             
             return null;
         }
         
-        public string getGameInstallPath()
+        private string getGameInstallPath()
         {
             #if DEBUG
                 return null;
             #endif
             
-            // Accessing HKLM is different than HKCU
-            RegistryKey localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
-                Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32);
-            RegistryKey installKey = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110");
-            
-            if (installKey != null)
+            try
             {
-                object installLocation = installKey.GetValue("InstallLocation");
-                if (installLocation != null)
-                    return installLocation.ToString().Replace('/', '\\').ToLower();
+                // Accessing HKLM is different than HKCU
+                using (RegistryKey localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
+                    Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32))
+                using (RegistryKey installKey = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110"))
+                {
+                    if (installKey != null)
+                    {
+                        object installLocation = installKey.GetValue("InstallLocation", null);
+                        if (installLocation != null)
+                            return installLocation.ToString().Replace('/', '\\').ToLower();
+                    }
+                }
+            }
+            catch
+            {
+                
             }
             
             // Look for the game in the current directory
-            string currentDirectory = Directory.GetCurrentDirectory();
+            string currentDir = Directory.GetCurrentDirectory();
             
-            if (File.Exists(currentDirectory + @"\metro2033.exe"))
-                return currentDirectory.ToLower();
+            if (File.Exists(currentDir + @"\metro2033.exe"))
+                return currentDir.ToLower();
             
             return null;
         }
         
-        public string getGameExecutablePath()
+        private string getGameExecutablePath()
         {
             #if DEBUG
                 return null;
             #endif
             
-            string gameExePath = getGameInstallPath() + @"\metro2033.exe";
+            string gamePath = _gameInstallPath ?? getGameInstallPath();
+            string gameExePath = gamePath + @"\metro2033.exe";
             
             if (File.Exists(gameExePath))
                 return gameExePath;
@@ -318,39 +335,40 @@ namespace Metro2033ConfigEditor
             return null;
         }
         
-        public string getRemoteCfgPath()
+        private string getConfigPath()
         {
             #if DEBUG
                 return null;
             #endif
             
-            string[] userDirectories = System.IO.Directory.GetDirectories(getSteamInstallPath() + @"\userdata");
+            string steamÞath = _steamInstallPath ?? getSteamInstallPath();
+            string[] userDirs = Directory.GetDirectories(steamÞath + @"\userdata");
             
-            // Parse through the user directories in search of the remote config and return the first one found
-            foreach (string userDirectory in userDirectories)
+            // Parse through the user directories in search of the config file and return the first one found
+            foreach (string userDir in userDirs)
             {
-                if (File.Exists(userDirectory + @"\43110\remote\user.cfg"))
-                    return userDirectory.ToLower() + @"\43110\remote\user.cfg";
+                if (File.Exists(userDir + @"\43110\remote\user.cfg"))
+                    return userDir.ToLower() + @"\43110\remote\user.cfg";
             }
             
             return null;
         }
         
-        public bool copyNoIntroFix(bool noIntro)
+        public bool copyNoIntroFix(bool disableIntro)
         {
             // Game directory has to be specified first
-            if (gameInstallPath == null)
+            if (_gameInstallPath == null)
                 return false;
             
             try
             {
-                string noIntroFile = gameInstallPath + @"\content.upk9";
+                string noIntroFilePath = _gameInstallPath + @"\content.upk9";
                 
                 // Copy the intro fix to the game directory
-                if (noIntro)
-                    File.WriteAllBytes(noIntroFile, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
+                if (disableIntro)
+                    File.WriteAllBytes(noIntroFilePath, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
                 else
-                    File.Delete(noIntroFile);
+                    File.Delete(noIntroFilePath);
             }
             catch
             {
