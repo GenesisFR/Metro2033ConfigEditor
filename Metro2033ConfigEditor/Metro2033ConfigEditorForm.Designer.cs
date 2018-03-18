@@ -160,7 +160,7 @@
             this.buttonReload.Location = new System.Drawing.Point(441, 480);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(49, 23);
-            this.buttonReload.TabIndex = 0;
+            this.buttonReload.TabIndex = 45;
             this.buttonReload.Text = "Reload";
             this.buttonReload.UseVisualStyleBackColor = true;
             this.buttonReload.Click += new System.EventHandler(this.ButtonReload_Click);
@@ -171,7 +171,7 @@
             this.labelConfigFilePath.Location = new System.Drawing.Point(10, 40);
             this.labelConfigFilePath.Name = "labelConfigFilePath";
             this.labelConfigFilePath.Size = new System.Drawing.Size(77, 13);
-            this.labelConfigFilePath.TabIndex = 3;
+            this.labelConfigFilePath.TabIndex = 4;
             this.labelConfigFilePath.Text = "Config file path";
             // 
             // textBoxConfigFilePath
@@ -180,7 +180,7 @@
             this.textBoxConfigFilePath.Name = "textBoxConfigFilePath";
             this.textBoxConfigFilePath.ReadOnly = true;
             this.textBoxConfigFilePath.Size = new System.Drawing.Size(565, 20);
-            this.textBoxConfigFilePath.TabIndex = 4;
+            this.textBoxConfigFilePath.TabIndex = 5;
             // 
             // buttonBrowseConfigFilePath
             // 
@@ -197,7 +197,7 @@
             this.buttonSave.Location = new System.Drawing.Point(496, 480);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(49, 23);
-            this.buttonSave.TabIndex = 7;
+            this.buttonSave.TabIndex = 46;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
@@ -239,7 +239,7 @@
             this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 480);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
-            this.buttonStartGameSteam.TabIndex = 40;
+            this.buttonStartGameSteam.TabIndex = 48;
             this.buttonStartGameSteam.Text = "Start game (Steam)";
             this.buttonStartGameSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameSteam.Click += new System.EventHandler(this.ButtonStartGameSteam_Click);
@@ -249,7 +249,7 @@
             this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(725, 65);
             this.buttonBrowseGameExecutablePath.Name = "buttonBrowseGameExecutablePath";
             this.buttonBrowseGameExecutablePath.Size = new System.Drawing.Size(75, 23);
-            this.buttonBrowseGameExecutablePath.TabIndex = 43;
+            this.buttonBrowseGameExecutablePath.TabIndex = 9;
             this.buttonBrowseGameExecutablePath.Text = "Browse";
             this.buttonBrowseGameExecutablePath.UseVisualStyleBackColor = true;
             this.buttonBrowseGameExecutablePath.Click += new System.EventHandler(this.ButtonBrowseGameExecutable_Click);
@@ -260,7 +260,7 @@
             this.textBoxGameExecutablePath.Name = "textBoxGameExecutablePath";
             this.textBoxGameExecutablePath.ReadOnly = true;
             this.textBoxGameExecutablePath.Size = new System.Drawing.Size(565, 20);
-            this.textBoxGameExecutablePath.TabIndex = 42;
+            this.textBoxGameExecutablePath.TabIndex = 8;
             // 
             // labelGameExecutablePath
             // 
@@ -268,7 +268,7 @@
             this.labelGameExecutablePath.Location = new System.Drawing.Point(10, 70);
             this.labelGameExecutablePath.Name = "labelGameExecutablePath";
             this.labelGameExecutablePath.Size = new System.Drawing.Size(114, 13);
-            this.labelGameExecutablePath.TabIndex = 41;
+            this.labelGameExecutablePath.TabIndex = 7;
             this.labelGameExecutablePath.Text = "Game executable path";
             // 
             // buttonStartGameNoSteam
@@ -276,7 +276,7 @@
             this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 480);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
-            this.buttonStartGameNoSteam.TabIndex = 85;
+            this.buttonStartGameNoSteam.TabIndex = 47;
             this.buttonStartGameNoSteam.Text = "Start game (non-Steam)";
             this.buttonStartGameNoSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameNoSteam.Click += new System.EventHandler(this.ButtonStartGameNoSteam_Click);
@@ -286,7 +286,7 @@
             this.buttonSteamInstallPath.Location = new System.Drawing.Point(725, 5);
             this.buttonSteamInstallPath.Name = "buttonSteamInstallPath";
             this.buttonSteamInstallPath.Size = new System.Drawing.Size(75, 23);
-            this.buttonSteamInstallPath.TabIndex = 93;
+            this.buttonSteamInstallPath.TabIndex = 3;
             this.buttonSteamInstallPath.Text = "Browse";
             this.buttonSteamInstallPath.UseVisualStyleBackColor = true;
             this.buttonSteamInstallPath.Click += new System.EventHandler(this.ButtonSteamInstallPath_Click);
@@ -297,7 +297,7 @@
             this.textBoxSteamInstallPath.Name = "textBoxSteamInstallPath";
             this.textBoxSteamInstallPath.ReadOnly = true;
             this.textBoxSteamInstallPath.Size = new System.Drawing.Size(565, 20);
-            this.textBoxSteamInstallPath.TabIndex = 92;
+            this.textBoxSteamInstallPath.TabIndex = 2;
             // 
             // labelSteamInstallPath
             // 
@@ -305,7 +305,7 @@
             this.labelSteamInstallPath.Location = new System.Drawing.Point(10, 10);
             this.labelSteamInstallPath.Name = "labelSteamInstallPath";
             this.labelSteamInstallPath.Size = new System.Drawing.Size(90, 13);
-            this.labelSteamInstallPath.TabIndex = 91;
+            this.labelSteamInstallPath.TabIndex = 1;
             this.labelSteamInstallPath.Text = "Steam install path";
             // 
             // linkLabelAuthor
@@ -316,7 +316,7 @@
             this.linkLabelAuthor.Location = new System.Drawing.Point(10, 485);
             this.linkLabelAuthor.Name = "linkLabelAuthor";
             this.linkLabelAuthor.Size = new System.Drawing.Size(130, 17);
-            this.linkLabelAuthor.TabIndex = 94;
+            this.linkLabelAuthor.TabIndex = 43;
             this.linkLabelAuthor.TabStop = true;
             this.linkLabelAuthor.Text = "v1.22 - Made by Genesis";
             this.linkLabelAuthor.UseCompatibleTextRendering = true;
@@ -362,7 +362,7 @@
             this.labelResolutionNote.Location = new System.Drawing.Point(255, 47);
             this.labelResolutionNote.Name = "labelResolutionNote";
             this.labelResolutionNote.Size = new System.Drawing.Size(268, 13);
-            this.labelResolutionNote.TabIndex = 96;
+            this.labelResolutionNote.TabIndex = 70;
             this.labelResolutionNote.Text = "Note: game doesn\'t support resolutions below 800x600.";
             // 
             // checkBoxGlobalIllumination
@@ -371,7 +371,7 @@
             this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(15, 249);
             this.checkBoxGlobalIllumination.Name = "checkBoxGlobalIllumination";
             this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(110, 17);
-            this.checkBoxGlobalIllumination.TabIndex = 90;
+            this.checkBoxGlobalIllumination.TabIndex = 64;
             this.checkBoxGlobalIllumination.Text = "Global illumination";
             this.checkBoxGlobalIllumination.UseVisualStyleBackColor = true;
             // 
@@ -408,7 +408,7 @@
             this.groupBoxDescription.Location = new System.Drawing.Point(373, 73);
             this.groupBoxDescription.Name = "groupBoxDescription";
             this.groupBoxDescription.Size = new System.Drawing.Size(390, 217);
-            this.groupBoxDescription.TabIndex = 89;
+            this.groupBoxDescription.TabIndex = 74;
             this.groupBoxDescription.TabStop = false;
             this.groupBoxDescription.Text = "Quality settings";
             // 
@@ -418,7 +418,7 @@
             this.labelVolumetricTexturingValue.Location = new System.Drawing.Point(180, 189);
             this.labelVolumetricTexturingValue.Name = "labelVolumetricTexturingValue";
             this.labelVolumetricTexturingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelVolumetricTexturingValue.TabIndex = 118;
+            this.labelVolumetricTexturingValue.TabIndex = 102;
             this.labelVolumetricTexturingValue.Text = "Disabled";
             // 
             // labelAnalyticalAntiAliasingValue
@@ -427,7 +427,7 @@
             this.labelAnalyticalAntiAliasingValue.Location = new System.Drawing.Point(180, 176);
             this.labelAnalyticalAntiAliasingValue.Name = "labelAnalyticalAntiAliasingValue";
             this.labelAnalyticalAntiAliasingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelAnalyticalAntiAliasingValue.TabIndex = 116;
+            this.labelAnalyticalAntiAliasingValue.TabIndex = 100;
             this.labelAnalyticalAntiAliasingValue.Text = "Disabled";
             // 
             // labelShadowFilteringValue
@@ -436,7 +436,7 @@
             this.labelShadowFilteringValue.Location = new System.Drawing.Point(180, 163);
             this.labelShadowFilteringValue.Name = "labelShadowFilteringValue";
             this.labelShadowFilteringValue.Size = new System.Drawing.Size(27, 13);
-            this.labelShadowFilteringValue.TabIndex = 117;
+            this.labelShadowFilteringValue.TabIndex = 98;
             this.labelShadowFilteringValue.Text = "Fast";
             // 
             // labelMotionBlur
@@ -445,7 +445,7 @@
             this.labelMotionBlur.Location = new System.Drawing.Point(10, 20);
             this.labelMotionBlur.Name = "labelMotionBlur";
             this.labelMotionBlur.Size = new System.Drawing.Size(59, 13);
-            this.labelMotionBlur.TabIndex = 90;
+            this.labelMotionBlur.TabIndex = 75;
             this.labelMotionBlur.Text = "Motion blur";
             // 
             // labelSkinShading
@@ -454,7 +454,7 @@
             this.labelSkinShading.Location = new System.Drawing.Point(10, 33);
             this.labelSkinShading.Name = "labelSkinShading";
             this.labelSkinShading.Size = new System.Drawing.Size(68, 13);
-            this.labelSkinShading.TabIndex = 91;
+            this.labelSkinShading.TabIndex = 77;
             this.labelSkinShading.Text = "Skin shading";
             // 
             // labelParallaxMappingValue
@@ -463,7 +463,7 @@
             this.labelParallaxMappingValue.Location = new System.Drawing.Point(180, 150);
             this.labelParallaxMappingValue.Name = "labelParallaxMappingValue";
             this.labelParallaxMappingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelParallaxMappingValue.TabIndex = 115;
+            this.labelParallaxMappingValue.TabIndex = 96;
             this.labelParallaxMappingValue.Text = "Disabled";
             // 
             // labelBumpMapping
@@ -472,7 +472,7 @@
             this.labelBumpMapping.Location = new System.Drawing.Point(10, 46);
             this.labelBumpMapping.Name = "labelBumpMapping";
             this.labelBumpMapping.Size = new System.Drawing.Size(77, 13);
-            this.labelBumpMapping.TabIndex = 92;
+            this.labelBumpMapping.TabIndex = 79;
             this.labelBumpMapping.Text = "Bump mapping";
             // 
             // labelSoftParticles
@@ -481,7 +481,7 @@
             this.labelSoftParticles.Location = new System.Drawing.Point(10, 59);
             this.labelSoftParticles.Name = "labelSoftParticles";
             this.labelSoftParticles.Size = new System.Drawing.Size(68, 13);
-            this.labelSoftParticles.TabIndex = 93;
+            this.labelSoftParticles.TabIndex = 81;
             this.labelSoftParticles.Text = "Soft particles";
             // 
             // labelImagePostProcessingValue
@@ -490,7 +490,7 @@
             this.labelImagePostProcessingValue.Location = new System.Drawing.Point(180, 137);
             this.labelImagePostProcessingValue.Name = "labelImagePostProcessingValue";
             this.labelImagePostProcessingValue.Size = new System.Drawing.Size(40, 13);
-            this.labelImagePostProcessingValue.TabIndex = 111;
+            this.labelImagePostProcessingValue.TabIndex = 94;
             this.labelImagePostProcessingValue.Text = "Normal";
             // 
             // labelAmbientOcclusionValue
@@ -499,7 +499,7 @@
             this.labelAmbientOcclusionValue.Location = new System.Drawing.Point(180, 124);
             this.labelAmbientOcclusionValue.Name = "labelAmbientOcclusionValue";
             this.labelAmbientOcclusionValue.Size = new System.Drawing.Size(65, 13);
-            this.labelAmbientOcclusionValue.TabIndex = 113;
+            this.labelAmbientOcclusionValue.TabIndex = 92;
             this.labelAmbientOcclusionValue.Text = "Approximate";
             // 
             // labelShadowResolution
@@ -508,7 +508,7 @@
             this.labelShadowResolution.Location = new System.Drawing.Point(10, 72);
             this.labelShadowResolution.Name = "labelShadowResolution";
             this.labelShadowResolution.Size = new System.Drawing.Size(94, 13);
-            this.labelShadowResolution.TabIndex = 94;
+            this.labelShadowResolution.TabIndex = 83;
             this.labelShadowResolution.Text = "Shadow resolution";
             // 
             // labelMotionBlurValue
@@ -517,7 +517,7 @@
             this.labelMotionBlurValue.Location = new System.Drawing.Point(180, 20);
             this.labelMotionBlurValue.Name = "labelMotionBlurValue";
             this.labelMotionBlurValue.Size = new System.Drawing.Size(48, 13);
-            this.labelMotionBlurValue.TabIndex = 112;
+            this.labelMotionBlurValue.TabIndex = 76;
             this.labelMotionBlurValue.Text = "Disabled";
             // 
             // labelSoftParticlesValue
@@ -526,7 +526,7 @@
             this.labelSoftParticlesValue.Location = new System.Drawing.Point(180, 59);
             this.labelSoftParticlesValue.Name = "labelSoftParticlesValue";
             this.labelSoftParticlesValue.Size = new System.Drawing.Size(48, 13);
-            this.labelSoftParticlesValue.TabIndex = 95;
+            this.labelSoftParticlesValue.TabIndex = 82;
             this.labelSoftParticlesValue.Text = "Disabled";
             // 
             // labelShadowResolutionValue
@@ -535,7 +535,7 @@
             this.labelShadowResolutionValue.Location = new System.Drawing.Point(180, 72);
             this.labelShadowResolutionValue.Name = "labelShadowResolutionValue";
             this.labelShadowResolutionValue.Size = new System.Drawing.Size(53, 13);
-            this.labelShadowResolutionValue.TabIndex = 97;
+            this.labelShadowResolutionValue.TabIndex = 84;
             this.labelShadowResolutionValue.Text = "2.35 Mpix";
             // 
             // labelDetailTexturingValue
@@ -544,7 +544,7 @@
             this.labelDetailTexturingValue.Location = new System.Drawing.Point(180, 111);
             this.labelDetailTexturingValue.Name = "labelDetailTexturingValue";
             this.labelDetailTexturingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelDetailTexturingValue.TabIndex = 109;
+            this.labelDetailTexturingValue.TabIndex = 90;
             this.labelDetailTexturingValue.Text = "Disabled";
             // 
             // labelVolumetricTexturing
@@ -553,7 +553,7 @@
             this.labelVolumetricTexturing.Location = new System.Drawing.Point(10, 189);
             this.labelVolumetricTexturing.Name = "labelVolumetricTexturing";
             this.labelVolumetricTexturing.Size = new System.Drawing.Size(99, 13);
-            this.labelVolumetricTexturing.TabIndex = 110;
+            this.labelVolumetricTexturing.TabIndex = 101;
             this.labelVolumetricTexturing.Text = "Volumetric texturing";
             // 
             // labelBumpMappingValue
@@ -562,7 +562,7 @@
             this.labelBumpMappingValue.Location = new System.Drawing.Point(180, 46);
             this.labelBumpMappingValue.Name = "labelBumpMappingValue";
             this.labelBumpMappingValue.Size = new System.Drawing.Size(40, 13);
-            this.labelBumpMappingValue.TabIndex = 98;
+            this.labelBumpMappingValue.TabIndex = 80;
             this.labelBumpMappingValue.Text = "Coarse";
             // 
             // labelSkinShadingValue
@@ -571,7 +571,7 @@
             this.labelSkinShadingValue.Location = new System.Drawing.Point(180, 33);
             this.labelSkinShadingValue.Name = "labelSkinShadingValue";
             this.labelSkinShadingValue.Size = new System.Drawing.Size(48, 13);
-            this.labelSkinShadingValue.TabIndex = 96;
+            this.labelSkinShadingValue.TabIndex = 78;
             this.labelSkinShadingValue.Text = "Disabled";
             // 
             // labelAnalyticalAntiAliasing
@@ -580,7 +580,7 @@
             this.labelAnalyticalAntiAliasing.Location = new System.Drawing.Point(10, 176);
             this.labelAnalyticalAntiAliasing.Name = "labelAnalyticalAntiAliasing";
             this.labelAnalyticalAntiAliasing.Size = new System.Drawing.Size(110, 13);
-            this.labelAnalyticalAntiAliasing.TabIndex = 108;
+            this.labelAnalyticalAntiAliasing.TabIndex = 99;
             this.labelAnalyticalAntiAliasing.Text = "Analytical anti-aliasing";
             // 
             // labelLightMaterialInteraction
@@ -589,7 +589,7 @@
             this.labelLightMaterialInteraction.Location = new System.Drawing.Point(10, 85);
             this.labelLightMaterialInteraction.Name = "labelLightMaterialInteraction";
             this.labelLightMaterialInteraction.Size = new System.Drawing.Size(121, 13);
-            this.labelLightMaterialInteraction.TabIndex = 99;
+            this.labelLightMaterialInteraction.TabIndex = 85;
             this.labelLightMaterialInteraction.Text = "Light-material interaction";
             // 
             // labelShadowFiltering
@@ -598,7 +598,7 @@
             this.labelShadowFiltering.Location = new System.Drawing.Point(10, 163);
             this.labelShadowFiltering.Name = "labelShadowFiltering";
             this.labelShadowFiltering.Size = new System.Drawing.Size(82, 13);
-            this.labelShadowFiltering.TabIndex = 107;
+            this.labelShadowFiltering.TabIndex = 97;
             this.labelShadowFiltering.Text = "Shadow filtering";
             // 
             // labelLightMaterialInteractionValue
@@ -607,7 +607,7 @@
             this.labelLightMaterialInteractionValue.Location = new System.Drawing.Point(180, 85);
             this.labelLightMaterialInteractionValue.Name = "labelLightMaterialInteractionValue";
             this.labelLightMaterialInteractionValue.Size = new System.Drawing.Size(40, 13);
-            this.labelLightMaterialInteractionValue.TabIndex = 100;
+            this.labelLightMaterialInteractionValue.TabIndex = 86;
             this.labelLightMaterialInteractionValue.Text = "Normal";
             // 
             // labelParallaxMapping
@@ -616,7 +616,7 @@
             this.labelParallaxMapping.Location = new System.Drawing.Point(10, 150);
             this.labelParallaxMapping.Name = "labelParallaxMapping";
             this.labelParallaxMapping.Size = new System.Drawing.Size(87, 13);
-            this.labelParallaxMapping.TabIndex = 106;
+            this.labelParallaxMapping.TabIndex = 95;
             this.labelParallaxMapping.Text = "Parallax mapping";
             // 
             // labelGeometricDetail
@@ -625,7 +625,7 @@
             this.labelGeometricDetail.Location = new System.Drawing.Point(10, 98);
             this.labelGeometricDetail.Name = "labelGeometricDetail";
             this.labelGeometricDetail.Size = new System.Drawing.Size(83, 13);
-            this.labelGeometricDetail.TabIndex = 101;
+            this.labelGeometricDetail.TabIndex = 87;
             this.labelGeometricDetail.Text = "Geometric detail";
             // 
             // labelImagePostProcessing
@@ -634,7 +634,7 @@
             this.labelImagePostProcessing.Location = new System.Drawing.Point(10, 137);
             this.labelImagePostProcessing.Name = "labelImagePostProcessing";
             this.labelImagePostProcessing.Size = new System.Drawing.Size(113, 13);
-            this.labelImagePostProcessing.TabIndex = 105;
+            this.labelImagePostProcessing.TabIndex = 93;
             this.labelImagePostProcessing.Text = "Image post-processing";
             // 
             // labelGeometricDetailValue
@@ -643,7 +643,7 @@
             this.labelGeometricDetailValue.Location = new System.Drawing.Point(180, 98);
             this.labelGeometricDetailValue.Name = "labelGeometricDetailValue";
             this.labelGeometricDetailValue.Size = new System.Drawing.Size(27, 13);
-            this.labelGeometricDetailValue.TabIndex = 102;
+            this.labelGeometricDetailValue.TabIndex = 88;
             this.labelGeometricDetailValue.Text = "Low";
             // 
             // labelAmbientOcclusion
@@ -652,7 +652,7 @@
             this.labelAmbientOcclusion.Location = new System.Drawing.Point(10, 124);
             this.labelAmbientOcclusion.Name = "labelAmbientOcclusion";
             this.labelAmbientOcclusion.Size = new System.Drawing.Size(93, 13);
-            this.labelAmbientOcclusion.TabIndex = 103;
+            this.labelAmbientOcclusion.TabIndex = 91;
             this.labelAmbientOcclusion.Text = "Ambient occlusion";
             // 
             // labelDetailTexturing
@@ -661,7 +661,7 @@
             this.labelDetailTexturing.Location = new System.Drawing.Point(10, 111);
             this.labelDetailTexturing.Name = "labelDetailTexturing";
             this.labelDetailTexturing.Size = new System.Drawing.Size(77, 13);
-            this.labelDetailTexturing.TabIndex = 104;
+            this.labelDetailTexturing.TabIndex = 89;
             this.labelDetailTexturing.Text = "Detail texturing";
             // 
             // labelTextureFiltering
@@ -670,7 +670,7 @@
             this.labelTextureFiltering.Location = new System.Drawing.Point(12, 141);
             this.labelTextureFiltering.Name = "labelTextureFiltering";
             this.labelTextureFiltering.Size = new System.Drawing.Size(79, 13);
-            this.labelTextureFiltering.TabIndex = 26;
+            this.labelTextureFiltering.TabIndex = 57;
             this.labelTextureFiltering.Text = "Texture filtering";
             // 
             // comboBoxTextureFiltering
@@ -683,7 +683,7 @@
             this.comboBoxTextureFiltering.Location = new System.Drawing.Point(114, 137);
             this.comboBoxTextureFiltering.Name = "comboBoxTextureFiltering";
             this.comboBoxTextureFiltering.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxTextureFiltering.TabIndex = 83;
+            this.comboBoxTextureFiltering.TabIndex = 58;
             // 
             // comboBoxResolution
             // 
@@ -721,7 +721,7 @@
             this.comboBoxResolution.Location = new System.Drawing.Point(114, 21);
             this.comboBoxResolution.Name = "comboBoxResolution";
             this.comboBoxResolution.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxResolution.TabIndex = 87;
+            this.comboBoxResolution.TabIndex = 50;
             this.comboBoxResolution.SelectedIndexChanged += new System.EventHandler(this.ComboBoxResolution_SelectedIndexChanged);
             // 
             // groupBoxDirectX11
@@ -731,7 +731,7 @@
             this.groupBoxDirectX11.Location = new System.Drawing.Point(255, 73);
             this.groupBoxDirectX11.Name = "groupBoxDirectX11";
             this.groupBoxDirectX11.Size = new System.Drawing.Size(99, 65);
-            this.groupBoxDirectX11.TabIndex = 88;
+            this.groupBoxDirectX11.TabIndex = 71;
             this.groupBoxDirectX11.TabStop = false;
             this.groupBoxDirectX11.Text = "DirectX 11";
             // 
@@ -741,7 +741,7 @@
             this.checkBoxDepthOfField.Location = new System.Drawing.Point(5, 20);
             this.checkBoxDepthOfField.Name = "checkBoxDepthOfField";
             this.checkBoxDepthOfField.Size = new System.Drawing.Size(89, 17);
-            this.checkBoxDepthOfField.TabIndex = 53;
+            this.checkBoxDepthOfField.TabIndex = 72;
             this.checkBoxDepthOfField.Text = "Depth of field";
             this.checkBoxDepthOfField.UseVisualStyleBackColor = true;
             // 
@@ -751,7 +751,7 @@
             this.checkBoxTessellation.Location = new System.Drawing.Point(5, 40);
             this.checkBoxTessellation.Name = "checkBoxTessellation";
             this.checkBoxTessellation.Size = new System.Drawing.Size(82, 17);
-            this.checkBoxTessellation.TabIndex = 54;
+            this.checkBoxTessellation.TabIndex = 73;
             this.checkBoxTessellation.Text = "Tessellation";
             this.checkBoxTessellation.UseVisualStyleBackColor = true;
             // 
@@ -761,7 +761,7 @@
             this.labelResolution.Location = new System.Drawing.Point(12, 25);
             this.labelResolution.Name = "labelResolution";
             this.labelResolution.Size = new System.Drawing.Size(57, 13);
-            this.labelResolution.TabIndex = 86;
+            this.labelResolution.TabIndex = 49;
             this.labelResolution.Text = "Resolution";
             // 
             // labelDirectX
@@ -770,7 +770,7 @@
             this.labelDirectX.Location = new System.Drawing.Point(12, 83);
             this.labelDirectX.Name = "labelDirectX";
             this.labelDirectX.Size = new System.Drawing.Size(42, 13);
-            this.labelDirectX.TabIndex = 27;
+            this.labelDirectX.TabIndex = 53;
             this.labelDirectX.Text = "DirectX";
             // 
             // comboBoxDirectX
@@ -784,7 +784,7 @@
             this.comboBoxDirectX.Location = new System.Drawing.Point(114, 79);
             this.comboBoxDirectX.Name = "comboBoxDirectX";
             this.comboBoxDirectX.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxDirectX.TabIndex = 67;
+            this.comboBoxDirectX.TabIndex = 54;
             this.comboBoxDirectX.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDirectX_SelectedIndexChanged);
             // 
             // comboBoxAntialiasing
@@ -797,7 +797,7 @@
             this.comboBoxAntialiasing.Location = new System.Drawing.Point(114, 108);
             this.comboBoxAntialiasing.Name = "comboBoxAntialiasing";
             this.comboBoxAntialiasing.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxAntialiasing.TabIndex = 84;
+            this.comboBoxAntialiasing.TabIndex = 56;
             // 
             // spinnerFov
             // 
@@ -814,7 +814,7 @@
             0});
             this.spinnerFov.Name = "spinnerFov";
             this.spinnerFov.Size = new System.Drawing.Size(120, 20);
-            this.spinnerFov.TabIndex = 80;
+            this.spinnerFov.TabIndex = 62;
             this.spinnerFov.Value = new decimal(new int[] {
             45,
             0,
@@ -833,7 +833,7 @@
             this.comboBoxQuality.Location = new System.Drawing.Point(114, 50);
             this.comboBoxQuality.Name = "comboBoxQuality";
             this.comboBoxQuality.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxQuality.TabIndex = 79;
+            this.comboBoxQuality.TabIndex = 52;
             this.comboBoxQuality.SelectedIndexChanged += new System.EventHandler(this.ComboBoxQuality_SelectedIndexChanged);
             // 
             // spinnerGamma
@@ -857,7 +857,7 @@
             65536});
             this.spinnerGamma.Name = "spinnerGamma";
             this.spinnerGamma.Size = new System.Drawing.Size(120, 20);
-            this.spinnerGamma.TabIndex = 77;
+            this.spinnerGamma.TabIndex = 60;
             this.spinnerGamma.Value = new decimal(new int[] {
             5,
             0,
@@ -870,7 +870,7 @@
             this.checkBoxFullscreen.Location = new System.Drawing.Point(15, 229);
             this.checkBoxFullscreen.Name = "checkBoxFullscreen";
             this.checkBoxFullscreen.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxFullscreen.TabIndex = 55;
+            this.checkBoxFullscreen.TabIndex = 63;
             this.checkBoxFullscreen.Text = "Fullscreen";
             this.checkBoxFullscreen.UseVisualStyleBackColor = true;
             // 
@@ -880,7 +880,7 @@
             this.labelGamma.Location = new System.Drawing.Point(12, 170);
             this.labelGamma.Name = "labelGamma";
             this.labelGamma.Size = new System.Drawing.Size(43, 13);
-            this.labelGamma.TabIndex = 33;
+            this.labelGamma.TabIndex = 59;
             this.labelGamma.Text = "Gamma";
             // 
             // checkBoxVsync
@@ -889,7 +889,7 @@
             this.checkBoxVsync.Location = new System.Drawing.Point(15, 269);
             this.checkBoxVsync.Name = "checkBoxVsync";
             this.checkBoxVsync.Size = new System.Drawing.Size(55, 17);
-            this.checkBoxVsync.TabIndex = 56;
+            this.checkBoxVsync.TabIndex = 65;
             this.checkBoxVsync.Text = "Vsync";
             this.checkBoxVsync.UseVisualStyleBackColor = true;
             // 
@@ -899,7 +899,7 @@
             this.labelAntialiasing.Location = new System.Drawing.Point(12, 112);
             this.labelAntialiasing.Name = "labelAntialiasing";
             this.labelAntialiasing.Size = new System.Drawing.Size(60, 13);
-            this.labelAntialiasing.TabIndex = 34;
+            this.labelAntialiasing.TabIndex = 55;
             this.labelAntialiasing.Text = "Antialiasing";
             // 
             // labelQuality
@@ -908,7 +908,7 @@
             this.labelQuality.Location = new System.Drawing.Point(12, 54);
             this.labelQuality.Name = "labelQuality";
             this.labelQuality.Size = new System.Drawing.Size(39, 13);
-            this.labelQuality.TabIndex = 35;
+            this.labelQuality.TabIndex = 51;
             this.labelQuality.Text = "Quality";
             // 
             // labelFov
@@ -917,7 +917,7 @@
             this.labelFov.Location = new System.Drawing.Point(12, 198);
             this.labelFov.Name = "labelFov";
             this.labelFov.Size = new System.Drawing.Size(28, 13);
-            this.labelFov.TabIndex = 39;
+            this.labelFov.TabIndex = 61;
             this.labelFov.Text = "FOV";
             // 
             // labelWidth
@@ -926,7 +926,7 @@
             this.labelWidth.Location = new System.Drawing.Point(255, 25);
             this.labelWidth.Name = "labelWidth";
             this.labelWidth.Size = new System.Drawing.Size(35, 13);
-            this.labelWidth.TabIndex = 8;
+            this.labelWidth.TabIndex = 66;
             this.labelWidth.Text = "Width";
             // 
             // textBoxWidth
@@ -935,7 +935,7 @@
             this.textBoxWidth.Name = "textBoxWidth";
             this.textBoxWidth.ShortcutsEnabled = false;
             this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
-            this.textBoxWidth.TabIndex = 10;
+            this.textBoxWidth.TabIndex = 67;
             this.textBoxWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxResolution_KeyPress);
             // 
             // textBoxHeight
@@ -944,7 +944,7 @@
             this.textBoxHeight.Name = "textBoxHeight";
             this.textBoxHeight.ShortcutsEnabled = false;
             this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
-            this.textBoxHeight.TabIndex = 11;
+            this.textBoxHeight.TabIndex = 69;
             this.textBoxHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxResolution_KeyPress);
             // 
             // labelHeight
@@ -953,7 +953,7 @@
             this.labelHeight.Location = new System.Drawing.Point(420, 25);
             this.labelHeight.Name = "labelHeight";
             this.labelHeight.Size = new System.Drawing.Size(38, 13);
-            this.labelHeight.TabIndex = 9;
+            this.labelHeight.TabIndex = 68;
             this.labelHeight.Text = "Height";
             // 
             // tabGeneral
@@ -980,7 +980,7 @@
             this.labelCheatsWarning.Location = new System.Drawing.Point(270, 230);
             this.labelCheatsWarning.Name = "labelCheatsWarning";
             this.labelCheatsWarning.Size = new System.Drawing.Size(304, 13);
-            this.labelCheatsWarning.TabIndex = 96;
+            this.labelCheatsWarning.TabIndex = 42;
             this.labelCheatsWarning.Text = "Warning: any change made to ingame settings won\'t be saved!";
             this.labelCheatsWarning.Visible = false;
             // 
@@ -990,7 +990,7 @@
             this.labelCheatsNote.Location = new System.Drawing.Point(270, 210);
             this.labelCheatsNote.Name = "labelCheatsNote";
             this.labelCheatsNote.Size = new System.Drawing.Size(476, 13);
-            this.labelCheatsNote.TabIndex = 95;
+            this.labelCheatsNote.TabIndex = 41;
             this.labelCheatsNote.Text = "Note: cheats are automatically disabled after you quit the game (unless you set t" +
     "he file as read-only).";
             // 
@@ -1014,7 +1014,7 @@
             this.groupBoxGameOptions.Location = new System.Drawing.Point(10, 20);
             this.groupBoxGameOptions.Name = "groupBoxGameOptions";
             this.groupBoxGameOptions.Size = new System.Drawing.Size(240, 290);
-            this.groupBoxGameOptions.TabIndex = 91;
+            this.groupBoxGameOptions.TabIndex = 11;
             this.groupBoxGameOptions.TabStop = false;
             this.groupBoxGameOptions.Text = "Game options";
             // 
@@ -1024,7 +1024,7 @@
             this.checkBoxCrosshair.Location = new System.Drawing.Point(8, 20);
             this.checkBoxCrosshair.Name = "checkBoxCrosshair";
             this.checkBoxCrosshair.Size = new System.Drawing.Size(69, 17);
-            this.checkBoxCrosshair.TabIndex = 48;
+            this.checkBoxCrosshair.TabIndex = 12;
             this.checkBoxCrosshair.Text = "Crosshair";
             this.checkBoxCrosshair.UseVisualStyleBackColor = true;
             // 
@@ -1034,7 +1034,7 @@
             this.checkBoxShowStats.Location = new System.Drawing.Point(8, 180);
             this.checkBoxShowStats.Name = "checkBoxShowStats";
             this.checkBoxShowStats.Size = new System.Drawing.Size(78, 17);
-            this.checkBoxShowStats.TabIndex = 50;
+            this.checkBoxShowStats.TabIndex = 20;
             this.checkBoxShowStats.Text = "Show stats";
             this.checkBoxShowStats.UseVisualStyleBackColor = true;
             // 
@@ -1044,7 +1044,7 @@
             this.checkBoxScreenshotMode.Location = new System.Drawing.Point(8, 160);
             this.checkBoxScreenshotMode.Name = "checkBoxScreenshotMode";
             this.checkBoxScreenshotMode.Size = new System.Drawing.Size(109, 17);
-            this.checkBoxScreenshotMode.TabIndex = 49;
+            this.checkBoxScreenshotMode.TabIndex = 19;
             this.checkBoxScreenshotMode.Text = "Screenshot mode";
             this.checkBoxScreenshotMode.UseVisualStyleBackColor = true;
             // 
@@ -1054,7 +1054,7 @@
             this.checkBoxHints.Location = new System.Drawing.Point(8, 80);
             this.checkBoxHints.Name = "checkBoxHints";
             this.checkBoxHints.Size = new System.Drawing.Size(50, 17);
-            this.checkBoxHints.TabIndex = 47;
+            this.checkBoxHints.TabIndex = 15;
             this.checkBoxHints.Text = "Hints";
             this.checkBoxHints.UseVisualStyleBackColor = true;
             // 
@@ -1064,7 +1064,7 @@
             this.checkBoxSubtitles.Location = new System.Drawing.Point(8, 60);
             this.checkBoxSubtitles.Name = "checkBoxSubtitles";
             this.checkBoxSubtitles.Size = new System.Drawing.Size(66, 17);
-            this.checkBoxSubtitles.TabIndex = 44;
+            this.checkBoxSubtitles.TabIndex = 14;
             this.checkBoxSubtitles.Text = "Subtitles";
             this.checkBoxSubtitles.UseVisualStyleBackColor = true;
             // 
@@ -1081,7 +1081,7 @@
             this.comboBoxDifficulty.Location = new System.Drawing.Point(110, 259);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
             this.comboBoxDifficulty.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxDifficulty.TabIndex = 64;
+            this.comboBoxDifficulty.TabIndex = 26;
             // 
             // checkBoxSkipIntro
             // 
@@ -1089,7 +1089,7 @@
             this.checkBoxSkipIntro.Location = new System.Drawing.Point(8, 140);
             this.checkBoxSkipIntro.Name = "checkBoxSkipIntro";
             this.checkBoxSkipIntro.Size = new System.Drawing.Size(70, 17);
-            this.checkBoxSkipIntro.TabIndex = 89;
+            this.checkBoxSkipIntro.TabIndex = 18;
             this.checkBoxSkipIntro.Text = "Skip intro";
             this.checkBoxSkipIntro.UseVisualStyleBackColor = true;
             // 
@@ -1099,7 +1099,7 @@
             this.checkBoxFastWeaponChange.Location = new System.Drawing.Point(8, 40);
             this.checkBoxFastWeaponChange.Name = "checkBoxFastWeaponChange";
             this.checkBoxFastWeaponChange.Size = new System.Drawing.Size(120, 17);
-            this.checkBoxFastWeaponChange.TabIndex = 46;
+            this.checkBoxFastWeaponChange.TabIndex = 13;
             this.checkBoxFastWeaponChange.Text = "Fast weapon switch";
             this.checkBoxFastWeaponChange.UseVisualStyleBackColor = true;
             // 
@@ -1109,7 +1109,7 @@
             this.checkBoxAdvancedPhysX.Location = new System.Drawing.Point(8, 100);
             this.checkBoxAdvancedPhysX.Name = "checkBoxAdvancedPhysX";
             this.checkBoxAdvancedPhysX.Size = new System.Drawing.Size(108, 17);
-            this.checkBoxAdvancedPhysX.TabIndex = 52;
+            this.checkBoxAdvancedPhysX.TabIndex = 16;
             this.checkBoxAdvancedPhysX.Text = "Advanced PhysX";
             this.checkBoxAdvancedPhysX.UseVisualStyleBackColor = true;
             // 
@@ -1127,7 +1127,7 @@
             this.comboBoxVoiceLanguage.Location = new System.Drawing.Point(110, 201);
             this.comboBoxVoiceLanguage.Name = "comboBoxVoiceLanguage";
             this.comboBoxVoiceLanguage.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxVoiceLanguage.TabIndex = 65;
+            this.comboBoxVoiceLanguage.TabIndex = 22;
             // 
             // labelDifficulty
             // 
@@ -1135,7 +1135,7 @@
             this.labelDifficulty.Location = new System.Drawing.Point(5, 263);
             this.labelDifficulty.Name = "labelDifficulty";
             this.labelDifficulty.Size = new System.Drawing.Size(47, 13);
-            this.labelDifficulty.TabIndex = 15;
+            this.labelDifficulty.TabIndex = 25;
             this.labelDifficulty.Text = "Difficulty";
             // 
             // comboBoxTextLanguage
@@ -1155,7 +1155,7 @@
             this.comboBoxTextLanguage.Location = new System.Drawing.Point(110, 230);
             this.comboBoxTextLanguage.Name = "comboBoxTextLanguage";
             this.comboBoxTextLanguage.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxTextLanguage.TabIndex = 66;
+            this.comboBoxTextLanguage.TabIndex = 24;
             // 
             // labelVoiceLanguage
             // 
@@ -1163,7 +1163,7 @@
             this.labelVoiceLanguage.Location = new System.Drawing.Point(5, 205);
             this.labelVoiceLanguage.Name = "labelVoiceLanguage";
             this.labelVoiceLanguage.Size = new System.Drawing.Size(81, 13);
-            this.labelVoiceLanguage.TabIndex = 18;
+            this.labelVoiceLanguage.TabIndex = 21;
             this.labelVoiceLanguage.Text = "Voice language";
             // 
             // labelTextLanguage
@@ -1172,7 +1172,7 @@
             this.labelTextLanguage.Location = new System.Drawing.Point(5, 234);
             this.labelTextLanguage.Name = "labelTextLanguage";
             this.labelTextLanguage.Size = new System.Drawing.Size(75, 13);
-            this.labelTextLanguage.TabIndex = 19;
+            this.labelTextLanguage.TabIndex = 23;
             this.labelTextLanguage.Text = "Text language";
             // 
             // checkBoxLaserCrosshair
@@ -1181,7 +1181,7 @@
             this.checkBoxLaserCrosshair.Location = new System.Drawing.Point(8, 120);
             this.checkBoxLaserCrosshair.Name = "checkBoxLaserCrosshair";
             this.checkBoxLaserCrosshair.Size = new System.Drawing.Size(97, 17);
-            this.checkBoxLaserCrosshair.TabIndex = 82;
+            this.checkBoxLaserCrosshair.TabIndex = 17;
             this.checkBoxLaserCrosshair.Text = "Laser crosshair";
             this.checkBoxLaserCrosshair.UseVisualStyleBackColor = true;
             // 
@@ -1194,7 +1194,7 @@
             this.groupBoxControls.Location = new System.Drawing.Point(430, 20);
             this.groupBoxControls.Name = "groupBoxControls";
             this.groupBoxControls.Size = new System.Drawing.Size(180, 80);
-            this.groupBoxControls.TabIndex = 93;
+            this.groupBoxControls.TabIndex = 32;
             this.groupBoxControls.TabStop = false;
             this.groupBoxControls.Text = "Controls";
             // 
@@ -1204,7 +1204,7 @@
             this.labelMouseAimSensitivity.Location = new System.Drawing.Point(5, 20);
             this.labelMouseAimSensitivity.Name = "labelMouseAimSensitivity";
             this.labelMouseAimSensitivity.Size = new System.Drawing.Size(106, 13);
-            this.labelMouseAimSensitivity.TabIndex = 21;
+            this.labelMouseAimSensitivity.TabIndex = 33;
             this.labelMouseAimSensitivity.Text = "Mouse aim sensitivity";
             // 
             // spinnerMouseSensitivity
@@ -1228,7 +1228,7 @@
             65536});
             this.spinnerMouseSensitivity.Name = "spinnerMouseSensitivity";
             this.spinnerMouseSensitivity.Size = new System.Drawing.Size(60, 20);
-            this.spinnerMouseSensitivity.TabIndex = 72;
+            this.spinnerMouseSensitivity.TabIndex = 36;
             this.spinnerMouseSensitivity.Value = new decimal(new int[] {
             1,
             0,
@@ -1241,7 +1241,7 @@
             this.labelMouseSensitivity.Location = new System.Drawing.Point(5, 50);
             this.labelMouseSensitivity.Name = "labelMouseSensitivity";
             this.labelMouseSensitivity.Size = new System.Drawing.Size(87, 13);
-            this.labelMouseSensitivity.TabIndex = 20;
+            this.labelMouseSensitivity.TabIndex = 35;
             this.labelMouseSensitivity.Text = "Mouse sensitivity";
             // 
             // spinnerMouseAimSensitivity
@@ -1265,7 +1265,7 @@
             131072});
             this.spinnerMouseAimSensitivity.Name = "spinnerMouseAimSensitivity";
             this.spinnerMouseAimSensitivity.Size = new System.Drawing.Size(60, 20);
-            this.spinnerMouseAimSensitivity.TabIndex = 73;
+            this.spinnerMouseAimSensitivity.TabIndex = 34;
             this.spinnerMouseAimSensitivity.Value = new decimal(new int[] {
             5,
             0,
@@ -1281,7 +1281,7 @@
             this.groupBoxSound.Location = new System.Drawing.Point(270, 20);
             this.groupBoxSound.Name = "groupBoxSound";
             this.groupBoxSound.Size = new System.Drawing.Size(140, 80);
-            this.groupBoxSound.TabIndex = 91;
+            this.groupBoxSound.TabIndex = 27;
             this.groupBoxSound.TabStop = false;
             this.groupBoxSound.Text = "Sound";
             // 
@@ -1291,7 +1291,7 @@
             this.labelMasterVolume.Location = new System.Drawing.Point(5, 20);
             this.labelMasterVolume.Name = "labelMasterVolume";
             this.labelMasterVolume.Size = new System.Drawing.Size(76, 13);
-            this.labelMasterVolume.TabIndex = 23;
+            this.labelMasterVolume.TabIndex = 28;
             this.labelMasterVolume.Text = "Master volume";
             // 
             // spinnerMusicVolume
@@ -1310,7 +1310,7 @@
             131072});
             this.spinnerMusicVolume.Name = "spinnerMusicVolume";
             this.spinnerMusicVolume.Size = new System.Drawing.Size(50, 20);
-            this.spinnerMusicVolume.TabIndex = 75;
+            this.spinnerMusicVolume.TabIndex = 31;
             // 
             // spinnerMasterVolume
             // 
@@ -1328,7 +1328,7 @@
             131072});
             this.spinnerMasterVolume.Name = "spinnerMasterVolume";
             this.spinnerMasterVolume.Size = new System.Drawing.Size(50, 20);
-            this.spinnerMasterVolume.TabIndex = 74;
+            this.spinnerMasterVolume.TabIndex = 29;
             // 
             // labelMusicVolume
             // 
@@ -1336,7 +1336,7 @@
             this.labelMusicVolume.Location = new System.Drawing.Point(5, 50);
             this.labelMusicVolume.Name = "labelMusicVolume";
             this.labelMusicVolume.Size = new System.Drawing.Size(72, 13);
-            this.labelMusicVolume.TabIndex = 37;
+            this.labelMusicVolume.TabIndex = 30;
             this.labelMusicVolume.Text = "Music volume";
             // 
             // groupBoxCheats
@@ -1347,7 +1347,7 @@
             this.groupBoxCheats.Location = new System.Drawing.Point(270, 120);
             this.groupBoxCheats.Name = "groupBoxCheats";
             this.groupBoxCheats.Size = new System.Drawing.Size(132, 85);
-            this.groupBoxCheats.TabIndex = 90;
+            this.groupBoxCheats.TabIndex = 37;
             this.groupBoxCheats.TabStop = false;
             this.groupBoxCheats.Text = "Cheats";
             // 
@@ -1357,7 +1357,7 @@
             this.checkBoxReadOnly.Location = new System.Drawing.Point(10, 60);
             this.checkBoxReadOnly.Name = "checkBoxReadOnly";
             this.checkBoxReadOnly.Size = new System.Drawing.Size(118, 17);
-            this.checkBoxReadOnly.TabIndex = 55;
+            this.checkBoxReadOnly.TabIndex = 40;
             this.checkBoxReadOnly.Text = "Set file as read-only";
             this.checkBoxReadOnly.UseVisualStyleBackColor = true;
             this.checkBoxReadOnly.CheckedChanged += new System.EventHandler(this.CheckBoxReadOnly_CheckedChanged);
@@ -1368,7 +1368,7 @@
             this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(10, 20);
             this.checkBoxUnlimitedAmmo.Name = "checkBoxUnlimitedAmmo";
             this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(100, 17);
-            this.checkBoxUnlimitedAmmo.TabIndex = 53;
+            this.checkBoxUnlimitedAmmo.TabIndex = 38;
             this.checkBoxUnlimitedAmmo.Text = "Unlimited ammo";
             this.checkBoxUnlimitedAmmo.UseVisualStyleBackColor = true;
             // 
@@ -1378,7 +1378,7 @@
             this.checkBoxGodMode.Location = new System.Drawing.Point(10, 40);
             this.checkBoxGodMode.Name = "checkBoxGodMode";
             this.checkBoxGodMode.Size = new System.Drawing.Size(75, 17);
-            this.checkBoxGodMode.TabIndex = 54;
+            this.checkBoxGodMode.TabIndex = 39;
             this.checkBoxGodMode.Text = "God mode";
             this.checkBoxGodMode.UseVisualStyleBackColor = true;
             // 
@@ -1390,7 +1390,7 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(795, 360);
-            this.tabControl.TabIndex = 90;
+            this.tabControl.TabIndex = 10;
             // 
             // linkLabelUpdateAvailable
             // 
@@ -1400,7 +1400,7 @@
             this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 485);
             this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
             this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(135, 17);
-            this.linkLabelUpdateAvailable.TabIndex = 95;
+            this.linkLabelUpdateAvailable.TabIndex = 44;
             this.linkLabelUpdateAvailable.TabStop = true;
             this.linkLabelUpdateAvailable.Text = "A new update is available!";
             this.linkLabelUpdateAvailable.UseCompatibleTextRendering = true;
