@@ -34,10 +34,6 @@
             this.textBoxConfigFilePath = new System.Windows.Forms.TextBox();
             this.buttonBrowseConfigFilePath = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.labelMsaa = new System.Windows.Forms.Label();
-            this.labelAdvancedPhysX = new System.Windows.Forms.Label();
-            this.labelFullscreen = new System.Windows.Forms.Label();
-            this.labelVsync = new System.Windows.Forms.Label();
             this.buttonStartGameSteam = new System.Windows.Forms.Button();
             this.buttonBrowseGameExecutablePath = new System.Windows.Forms.Button();
             this.textBoxGameExecutablePath = new System.Windows.Forms.TextBox();
@@ -201,38 +197,6 @@
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
-            // 
-            // labelMsaa
-            // 
-            this.labelMsaa.AutoSize = true;
-            this.labelMsaa.Location = new System.Drawing.Point(438, 118);
-            this.labelMsaa.Name = "labelMsaa";
-            this.labelMsaa.Size = new System.Drawing.Size(0, 13);
-            this.labelMsaa.TabIndex = 24;
-            // 
-            // labelAdvancedPhysX
-            // 
-            this.labelAdvancedPhysX.AutoSize = true;
-            this.labelAdvancedPhysX.Location = new System.Drawing.Point(438, 113);
-            this.labelAdvancedPhysX.Name = "labelAdvancedPhysX";
-            this.labelAdvancedPhysX.Size = new System.Drawing.Size(0, 13);
-            this.labelAdvancedPhysX.TabIndex = 25;
-            // 
-            // labelFullscreen
-            // 
-            this.labelFullscreen.AutoSize = true;
-            this.labelFullscreen.Location = new System.Drawing.Point(438, 278);
-            this.labelFullscreen.Name = "labelFullscreen";
-            this.labelFullscreen.Size = new System.Drawing.Size(0, 13);
-            this.labelFullscreen.TabIndex = 32;
-            // 
-            // labelVsync
-            // 
-            this.labelVsync.AutoSize = true;
-            this.labelVsync.Location = new System.Drawing.Point(438, 427);
-            this.labelVsync.Name = "labelVsync";
-            this.labelVsync.Size = new System.Drawing.Size(0, 13);
-            this.labelVsync.TabIndex = 36;
             // 
             // buttonStartGameSteam
             // 
@@ -1428,10 +1392,6 @@
             this.Controls.Add(this.textBoxGameExecutablePath);
             this.Controls.Add(this.labelGameExecutablePath);
             this.Controls.Add(this.buttonStartGameSteam);
-            this.Controls.Add(this.labelVsync);
-            this.Controls.Add(this.labelFullscreen);
-            this.Controls.Add(this.labelAdvancedPhysX);
-            this.Controls.Add(this.labelMsaa);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonBrowseConfigFilePath);
             this.Controls.Add(this.textBoxConfigFilePath);
@@ -1480,10 +1440,6 @@
         private System.Windows.Forms.TextBox textBoxConfigFilePath;
         private System.Windows.Forms.Button buttonBrowseConfigFilePath;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Label labelMsaa;
-        private System.Windows.Forms.Label labelAdvancedPhysX;
-        private System.Windows.Forms.Label labelFullscreen;
-        private System.Windows.Forms.Label labelVsync;
         private System.Windows.Forms.Button buttonStartGameSteam;
         private System.Windows.Forms.Button buttonBrowseGameExecutablePath;
         private System.Windows.Forms.TextBox textBoxGameExecutablePath;
