@@ -388,7 +388,7 @@ namespace Metro2033ConfigEditor
         private void TextBoxResolution_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Don't validate input if it's not a digit
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (e.KeyChar == (char)Keys.Enter || !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
             else
                 comboBoxResolution.SelectedItem = "Custom resolution";
