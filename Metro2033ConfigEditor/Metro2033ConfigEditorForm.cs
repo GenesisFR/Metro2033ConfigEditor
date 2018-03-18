@@ -285,10 +285,6 @@ namespace Metro2033ConfigEditor
                 textBoxWidth.Text        = splitResolution[0];
                 textBoxHeight.Text       = splitResolution[1];
             }
-            
-            // Enable the width/height textboxes only when selecting "Custom resolution"
-            textBoxWidth.Enabled  = comboBoxResolution.Text == "Custom resolution";
-            textBoxHeight.Enabled = comboBoxResolution.Text == "Custom resolution";
         }
         
         private void ComboBoxQuality_SelectedLow()
@@ -387,6 +383,15 @@ namespace Metro2033ConfigEditor
         private void CheckBoxReadOnly_CheckedChanged(object sender, EventArgs e)
         {
             labelCheatsWarning.Visible = checkBoxReadOnly.Checked;
+        }
+        
+        private void TextBoxResolution_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Don't validate input if it's not a digit
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+            else
+                comboBoxResolution.SelectedItem = "Custom resolution";
         }
         
         private void LinkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

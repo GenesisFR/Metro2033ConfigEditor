@@ -931,19 +931,19 @@
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Enabled = false;
             this.textBoxWidth.Location = new System.Drawing.Point(300, 22);
             this.textBoxWidth.Name = "textBoxWidth";
             this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
             this.textBoxWidth.TabIndex = 10;
+            this.textBoxWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxResolution_KeyPress);
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Enabled = false;
             this.textBoxHeight.Location = new System.Drawing.Point(468, 22);
             this.textBoxHeight.Name = "textBoxHeight";
             this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
             this.textBoxHeight.TabIndex = 11;
+            this.textBoxHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxResolution_KeyPress);
             // 
             // labelHeight
             // 
