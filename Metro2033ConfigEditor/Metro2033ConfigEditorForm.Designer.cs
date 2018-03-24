@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Metro2033ConfigEditorForm));
             this.buttonReload = new System.Windows.Forms.Button();
             this.labelConfigFilePath = new System.Windows.Forms.Label();
@@ -39,7 +40,7 @@
             this.textBoxGameExecutablePath = new System.Windows.Forms.TextBox();
             this.labelGameExecutablePath = new System.Windows.Forms.Label();
             this.buttonStartGameNoSteam = new System.Windows.Forms.Button();
-            this.buttonSteamInstallPath = new System.Windows.Forms.Button();
+            this.buttonBrowseSteamInstallPath = new System.Windows.Forms.Button();
             this.textBoxSteamInstallPath = new System.Windows.Forms.TextBox();
             this.labelSteamInstallPath = new System.Windows.Forms.Label();
             this.linkLabelAuthor = new System.Windows.Forms.LinkLabel();
@@ -134,6 +135,8 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.linkLabelUpdateAvailable = new System.Windows.Forms.LinkLabel();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.fileSystemWatcher = new System.IO.FileSystemWatcher();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -149,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMasterVolume)).BeginInit();
             this.groupBoxCheats.SuspendLayout();
             this.tabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonReload
@@ -177,6 +181,7 @@
             this.textBoxConfigFilePath.ReadOnly = true;
             this.textBoxConfigFilePath.Size = new System.Drawing.Size(565, 20);
             this.textBoxConfigFilePath.TabIndex = 5;
+            this.textBoxConfigFilePath.TabStop = false;
             // 
             // buttonBrowseConfigFilePath
             // 
@@ -225,6 +230,7 @@
             this.textBoxGameExecutablePath.ReadOnly = true;
             this.textBoxGameExecutablePath.Size = new System.Drawing.Size(565, 20);
             this.textBoxGameExecutablePath.TabIndex = 8;
+            this.textBoxGameExecutablePath.TabStop = false;
             // 
             // labelGameExecutablePath
             // 
@@ -245,15 +251,15 @@
             this.buttonStartGameNoSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameNoSteam.Click += new System.EventHandler(this.ButtonStartGameNoSteam_Click);
             // 
-            // buttonSteamInstallPath
+            // buttonBrowseSteamInstallPath
             // 
-            this.buttonSteamInstallPath.Location = new System.Drawing.Point(725, 5);
-            this.buttonSteamInstallPath.Name = "buttonSteamInstallPath";
-            this.buttonSteamInstallPath.Size = new System.Drawing.Size(75, 23);
-            this.buttonSteamInstallPath.TabIndex = 3;
-            this.buttonSteamInstallPath.Text = "Browse";
-            this.buttonSteamInstallPath.UseVisualStyleBackColor = true;
-            this.buttonSteamInstallPath.Click += new System.EventHandler(this.ButtonSteamInstallPath_Click);
+            this.buttonBrowseSteamInstallPath.Location = new System.Drawing.Point(725, 5);
+            this.buttonBrowseSteamInstallPath.Name = "buttonBrowseSteamInstallPath";
+            this.buttonBrowseSteamInstallPath.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowseSteamInstallPath.TabIndex = 3;
+            this.buttonBrowseSteamInstallPath.Text = "Browse";
+            this.buttonBrowseSteamInstallPath.UseVisualStyleBackColor = true;
+            this.buttonBrowseSteamInstallPath.Click += new System.EventHandler(this.ButtonBrowseSteamInstallPath_Click);
             // 
             // textBoxSteamInstallPath
             // 
@@ -262,6 +268,7 @@
             this.textBoxSteamInstallPath.ReadOnly = true;
             this.textBoxSteamInstallPath.Size = new System.Drawing.Size(565, 20);
             this.textBoxSteamInstallPath.TabIndex = 2;
+            this.textBoxSteamInstallPath.TabStop = false;
             // 
             // labelSteamInstallPath
             // 
@@ -1376,6 +1383,20 @@
             this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
             this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker_RunWorkerCompleted);
             // 
+            // fileSystemWatcher
+            // 
+            this.fileSystemWatcher.EnableRaisingEvents = true;
+            this.fileSystemWatcher.Filter = "user.cfg";
+            this.fileSystemWatcher.NotifyFilter = System.IO.NotifyFilters.LastWrite;
+            this.fileSystemWatcher.SynchronizingObject = this;
+            this.fileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.FileSystemWatcher_Changed);
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 300000;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.ReshowDelay = 100;
+            // 
             // Metro2033ConfigEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1383,7 +1404,7 @@
             this.ClientSize = new System.Drawing.Size(814, 516);
             this.Controls.Add(this.linkLabelUpdateAvailable);
             this.Controls.Add(this.linkLabelAuthor);
-            this.Controls.Add(this.buttonSteamInstallPath);
+            this.Controls.Add(this.buttonBrowseSteamInstallPath);
             this.Controls.Add(this.textBoxSteamInstallPath);
             this.Controls.Add(this.labelSteamInstallPath);
             this.Controls.Add(this.tabControl);
@@ -1428,6 +1449,7 @@
             this.groupBoxCheats.ResumeLayout(false);
             this.groupBoxCheats.PerformLayout();
             this.tabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1445,7 +1467,7 @@
         private System.Windows.Forms.TextBox textBoxGameExecutablePath;
         private System.Windows.Forms.Label labelGameExecutablePath;
         private System.Windows.Forms.Button buttonStartGameNoSteam;
-        private System.Windows.Forms.Button buttonSteamInstallPath;
+        private System.Windows.Forms.Button buttonBrowseSteamInstallPath;
         private System.Windows.Forms.TextBox textBoxSteamInstallPath;
         private System.Windows.Forms.Label labelSteamInstallPath;
         private System.Windows.Forms.LinkLabel linkLabelAuthor;
@@ -1540,6 +1562,8 @@
         private System.Windows.Forms.Label labelCheatsWarning;
         private System.Windows.Forms.LinkLabel linkLabelUpdateAvailable;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.IO.FileSystemWatcher fileSystemWatcher;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

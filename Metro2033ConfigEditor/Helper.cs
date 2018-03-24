@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Reflection;
@@ -12,7 +11,7 @@ namespace Metro2033ConfigEditor
 {
     public sealed class Helper
     {
-        private static Mutex _m;
+        private static Mutex _mutex;
 
         private string _steamInstallPath;   // C:\Program Files (x86)\Steam
         private string _configFilePath;     // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
@@ -93,7 +92,7 @@ namespace Metro2033ConfigEditor
             catch
             {
                 // If exception occurred, there is no such mutex.
-                _m = new Mutex(true, guid);
+                _mutex = new Mutex(true, guid);
 
                 // Only one instance.
                 return true;
@@ -263,7 +262,7 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
-        // Config-related methods
+        // File-related methods
         public bool CopyNoIntroFix(bool disableIntro)
         {
             // Game directory has to be specified first
@@ -286,6 +285,22 @@ namespace Metro2033ConfigEditor
             }
 
             return true;
+        }
+
+        public bool IsFileReady(string path)
+        {
+            // If the file can be opened, it means it's no longer locked by another process
+            try
+            {
+                using (FileStream inputStream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.None))
+                {
+                    return inputStream.Length > 0;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public void ReadConfigFile()

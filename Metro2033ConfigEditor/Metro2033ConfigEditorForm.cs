@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -8,16 +9,11 @@ namespace Metro2033ConfigEditor
 {
     public partial class Metro2033ConfigEditorForm : Form
     {
-        private bool _skipIntroInitialState;
-        private ToolTip _toolTip;
+        private bool _skipIntroInitialState = false;
 
         public Metro2033ConfigEditorForm()
         {
             InitializeComponent();
-
-            _skipIntroInitialState = false;
-            _toolTip = new ToolTip();
-
             AddTooltips();
 
             // Check for update
@@ -33,6 +29,9 @@ namespace Metro2033ConfigEditor
                 textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath ?? "Config not found";
                 textBoxGameExecutablePath.Text = Helper.instance.GameExecutablePath ?? "Game not found";
 
+                if (Helper.instance.ConfigFilePath != null)
+                    fileSystemWatcher.Path = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
+
                 // Set button states
                 buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
                 buttonSave.Enabled             = Helper.instance.ConfigFilePath != null;
@@ -40,8 +39,7 @@ namespace Metro2033ConfigEditor
                 buttonStartGameSteam.Enabled   = Helper.instance.SteamInstallPath != null;
 
                 // Read config
-                Helper.instance.ReadConfigFile();
-                ReadSettings();
+                buttonReload.PerformClick();
             }
             catch
             {
@@ -77,43 +75,111 @@ namespace Metro2033ConfigEditor
 
         private void AddTooltips()
         {
-            // Show tooltips longer and faster
-            _toolTip.AutoPopDelay = 30000;
-            _toolTip.InitialDelay = 1;
-
-            _toolTip.SetToolTip(checkBoxSkipIntro,          "Skips intro logos and intro cutscene.");
-            _toolTip.SetToolTip(checkBoxScreenshotMode,     "Completely hides your weapon. You can combine it with the Ranger Hardcore" +
+            toolTip.SetToolTip(checkBoxSkipIntro,          "Skips intro logos and intro cutscene.");
+            toolTip.SetToolTip(checkBoxScreenshotMode,     "Completely hides your weapon. You can combine it with the Ranger Hardcore" +
                 " difficulty to completely hide your HUD.");
-            _toolTip.SetToolTip(checkBoxShowStats,          "Displays debug information such as framerate, draw count, etc.");
-            _toolTip.SetToolTip(checkBoxUnlimitedAmmo,      "Gives unlimited ammo for all types of ammo, including military-grade ammo." +
+            toolTip.SetToolTip(checkBoxShowStats,          "Displays debug information such as framerate, draw count, etc.");
+            toolTip.SetToolTip(checkBoxUnlimitedAmmo,      "Gives unlimited ammo for all types of ammo, including military-grade ammo." +
                 " Military-grade ammo will deplete when buying items.");
-            _toolTip.SetToolTip(checkBoxGodMode,            "Makes you invulnerable but you will need to wear a gas mask when required.");
-            _toolTip.SetToolTip(spinnerFov,                 "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
-            _toolTip.SetToolTip(checkBoxFullscreen,         "Uncheck to play the game in windowed mode. To play borderless fullscreen," +
+            toolTip.SetToolTip(checkBoxGodMode,            "Makes you invulnerable but you will need to wear a gas mask when required.");
+            toolTip.SetToolTip(spinnerFov,                 "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
+            toolTip.SetToolTip(checkBoxFullscreen,         "Uncheck to play the game in windowed mode. To play borderless fullscreen," +
                 " change your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so" +
                 " the taskbar will still be visible.");
-            _toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might" +
+            toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might" +
                 " actually be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different" +
                 " system that works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
-            _toolTip.SetToolTip(checkBoxVsync,              "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact" +
+            toolTip.SetToolTip(checkBoxVsync,              "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact" +
                 " performance.\nFor some reason, enabling Vsync will disable stereoscopy, thus boosting your framerate.");
         }
 
-        private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void ComboBoxQuality_SelectedLow()
         {
-            // Start timing
-            Stopwatch stopwatch = Stopwatch.StartNew();
-
-            e.Result = Helper.instance.CheckForUpdate();
-
-            // Report time
-            stopwatch.Stop();
-            Console.WriteLine("Time required: {0} ms", stopwatch.Elapsed.TotalMilliseconds);
+            labelMotionBlurValue.Text               = "Disabled";
+            labelSkinShadingValue.Text              = "Disabled";
+            labelBumpMappingValue.Text              = "Coarse";
+            labelSoftParticlesValue.Text            = "Disabled";
+            labelShadowResolutionValue.Text         = "2.35 Mpix";
+            labelLightMaterialInteractionValue.Text = "Normal";
+            labelGeometricDetailValue.Text          = "Low";
+            labelDetailTexturingValue.Text          = "Disabled";
+            labelAmbientOcclusionValue.Text         = "Approximate";
+            labelImagePostProcessingValue.Text      = "Normal";
+            labelParallaxMappingValue.Text          = "Disabled";
+            labelShadowFilteringValue.Text          = "Fast";
+            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
+            labelVolumetricTexturingValue.Text      = "Disabled";
         }
 
-        private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        private void ComboBoxQuality_SelectedMedium()
         {
-            linkLabelUpdateAvailable.Visible = (bool)e.Result;
+            labelMotionBlurValue.Text               = "Disabled";
+            labelSkinShadingValue.Text              = "Disabled";
+            labelBumpMappingValue.Text              = "Coarse";
+            labelSoftParticlesValue.Text            = "Disabled";
+            labelShadowResolutionValue.Text         = "4.19 Mpix";
+            labelLightMaterialInteractionValue.Text = "Normal";
+            labelGeometricDetailValue.Text          = "Normal";
+            labelDetailTexturingValue.Text          = "Enabled";
+            labelAmbientOcclusionValue.Text         = "Approximate";
+            labelImagePostProcessingValue.Text      = "Normal";
+            labelParallaxMappingValue.Text          = "Disabled";
+            labelShadowFilteringValue.Text          = "Normal";
+            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
+            labelVolumetricTexturingValue.Text      = "Disabled";
+        }
+
+        private void ComboBoxQuality_SelectedHigh()
+        {
+            labelMotionBlurValue.Text               = "Camera";
+            labelSkinShadingValue.Text              = "Simple";
+            labelBumpMappingValue.Text              = "Precise";
+            labelSoftParticlesValue.Text            = "Enabled";
+            labelShadowResolutionValue.Text         = "6.55 Mpix";
+            labelLightMaterialInteractionValue.Text = "Normal";
+            labelGeometricDetailValue.Text          = "High";
+            labelDetailTexturingValue.Text          = "Enabled";
+            labelAmbientOcclusionValue.Text         = "Precomputed + SSAO";
+            labelImagePostProcessingValue.Text      = "Full";
+            labelParallaxMappingValue.Text          = "Enabled";
+            labelShadowFilteringValue.Text          = "Hi-quality";
+            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
+            labelVolumetricTexturingValue.Text      = "Low-precision, disabled for sun";
+        }
+
+        private void ComboBoxQuality_SelectedVeryHigh()
+        {
+            labelMotionBlurValue.Text               = "Camera + objects (DX10+)";
+            labelSkinShadingValue.Text              = "Sub-scattering";
+            labelBumpMappingValue.Text              = "Precise";
+            labelSoftParticlesValue.Text            = "Enabled";
+            labelShadowResolutionValue.Text         = "9.43 Mpix";
+            labelLightMaterialInteractionValue.Text = "Full";
+            labelGeometricDetailValue.Text          = "Very high";
+            labelDetailTexturingValue.Text          = "Enabled";
+            labelAmbientOcclusionValue.Text         = "Precomputed + SSAO";
+            labelImagePostProcessingValue.Text      = "Full";
+            labelParallaxMappingValue.Text          = "Enabled with occlusion";
+            labelShadowFilteringValue.Text          = "Hi-quality";
+            labelAnalyticalAntiAliasingValue.Text   = "Enabled";
+            labelVolumetricTexturingValue.Text      = "Full quality, including sun";
+        }
+
+        private bool HaveSettingsChanged()
+        {
+            // Nothing to compare if the config file wasn't found
+            if (Helper.instance.ConfigFilePath == null)
+                return false;
+
+            // Write changes in a separate dictionary to detect changes
+            WriteSettings(Helper.instance.DictionaryUponClosure);
+
+            // Check if non-dictionary settings have changed
+            if (checkBoxSkipIntro.Checked != _skipIntroInitialState || checkBoxReadOnly.Checked != Helper.instance.IsConfigReadOnly)
+                return true;
+
+            // Check if settings in dictionaries have changed
+            return !Helper.instance.AreDictionariesEqual();
         }
 
         private void ReadSettings()
@@ -200,29 +266,12 @@ namespace Metro2033ConfigEditor
             dictionary["r_res_vert"]        = textBoxHeight.Text;
         }
 
-        private bool HaveSettingsChanged()
-        {
-            // Nothing to compare if the config file wasn't found
-            if (Helper.instance.ConfigFilePath == null)
-                return false;
-
-            // Write changes in a separate dictionary to detect changes
-            WriteSettings(Helper.instance.DictionaryUponClosure);
-
-            // Check if non-dictionary settings have changed
-            if (checkBoxSkipIntro.Checked != _skipIntroInitialState || checkBoxReadOnly.Checked != Helper.instance.IsConfigReadOnly)
-                return true;
-
-            // Check if settings in dictionaries have changed
-            return !Helper.instance.AreDictionariesEqual();
-        }
-
         // EVENT HANDLERS
-        private void ButtonSteamInstallPath_Click(object sender, EventArgs e)
+        private void ButtonBrowseSteamInstallPath_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
-                folderBrowserDialog.Description = "Locate your Steam installation directory";
+                folderBrowserDialog.Description = "Please locate your Steam installation directory.";
                 folderBrowserDialog.ShowNewFolderButton = false;
 
                 // Show the dialog and get result.
@@ -252,6 +301,8 @@ namespace Metro2033ConfigEditor
 
                     // Reload config automatically
                     buttonReload.PerformClick();
+
+                    fileSystemWatcher.Path = new FileInfo(openFileDialog.FileName).DirectoryName;
                 }
             }
         }
@@ -285,78 +336,12 @@ namespace Metro2033ConfigEditor
                 textBoxWidth.Text        = splitResolution[0];
                 textBoxHeight.Text       = splitResolution[1];
             }
-        }
-
-        private void ComboBoxQuality_SelectedLow()
-        {
-            labelMotionBlurValue.Text               = "Disabled";
-            labelSkinShadingValue.Text              = "Disabled";
-            labelBumpMappingValue.Text              = "Coarse";
-            labelSoftParticlesValue.Text            = "Disabled";
-            labelShadowResolutionValue.Text         = "2.35 Mpix";
-            labelLightMaterialInteractionValue.Text = "Normal";
-            labelGeometricDetailValue.Text          = "Low";
-            labelDetailTexturingValue.Text          = "Disabled";
-            labelAmbientOcclusionValue.Text         = "Approximate";
-            labelImagePostProcessingValue.Text      = "Normal";
-            labelParallaxMappingValue.Text          = "Disabled";
-            labelShadowFilteringValue.Text          = "Fast";
-            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
-            labelVolumetricTexturingValue.Text      = "Disabled";
-        }
-
-        private void ComboBoxQuality_SelectedMedium()
-        {
-            labelMotionBlurValue.Text               = "Disabled";
-            labelSkinShadingValue.Text              = "Disabled";
-            labelBumpMappingValue.Text              = "Coarse";
-            labelSoftParticlesValue.Text            = "Disabled";
-            labelShadowResolutionValue.Text         = "4.19 Mpix";
-            labelLightMaterialInteractionValue.Text = "Normal";
-            labelGeometricDetailValue.Text          = "Normal";
-            labelDetailTexturingValue.Text          = "Enabled";
-            labelAmbientOcclusionValue.Text         = "Approximate";
-            labelImagePostProcessingValue.Text      = "Normal";
-            labelParallaxMappingValue.Text          = "Disabled";
-            labelShadowFilteringValue.Text          = "Normal";
-            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
-            labelVolumetricTexturingValue.Text      = "Disabled";
-        }
-
-        private void ComboBoxQuality_SelectedHigh()
-        {
-            labelMotionBlurValue.Text               = "Camera";
-            labelSkinShadingValue.Text              = "Simple";
-            labelBumpMappingValue.Text              = "Precise";
-            labelSoftParticlesValue.Text            = "Enabled";
-            labelShadowResolutionValue.Text         = "6.55 Mpix";
-            labelLightMaterialInteractionValue.Text = "Normal";
-            labelGeometricDetailValue.Text          = "High";
-            labelDetailTexturingValue.Text          = "Enabled";
-            labelAmbientOcclusionValue.Text         = "Precomputed + SSAO";
-            labelImagePostProcessingValue.Text      = "Full";
-            labelParallaxMappingValue.Text          = "Enabled";
-            labelShadowFilteringValue.Text          = "Hi-quality";
-            labelAnalyticalAntiAliasingValue.Text   = "Disabled";
-            labelVolumetricTexturingValue.Text      = "Low-precision, disabled for sun";
-        }
-
-        private void ComboBoxQuality_SelectedVeryHigh()
-        {
-            labelMotionBlurValue.Text               = "Camera + objects (DX10+)";
-            labelSkinShadingValue.Text              = "Sub-scattering";
-            labelBumpMappingValue.Text              = "Precise";
-            labelSoftParticlesValue.Text            = "Enabled";
-            labelShadowResolutionValue.Text         = "9.43 Mpix";
-            labelLightMaterialInteractionValue.Text = "Full";
-            labelGeometricDetailValue.Text          = "Very high";
-            labelDetailTexturingValue.Text          = "Enabled";
-            labelAmbientOcclusionValue.Text         = "Precomputed + SSAO";
-            labelImagePostProcessingValue.Text      = "Full";
-            labelParallaxMappingValue.Text          = "Enabled with occlusion";
-            labelShadowFilteringValue.Text          = "Hi-quality";
-            labelAnalyticalAntiAliasingValue.Text   = "Enabled";
-            labelVolumetricTexturingValue.Text      = "Full quality, including sun";
+            else
+            {
+                // Automatically give focus to the Width textbox, if necessary
+                if (!textBoxHeight.Focused)
+                    textBoxWidth.Focus();
+            }
         }
 
         private void ComboBoxQuality_SelectedIndexChanged(object sender, EventArgs e)
@@ -414,25 +399,34 @@ namespace Metro2033ConfigEditor
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            WriteSettings(Helper.instance.Dictionary);
-            _skipIntroInitialState = checkBoxSkipIntro.Checked;
-            Helper.instance.IsConfigReadOnly = checkBoxReadOnly.Checked;
-
-            if (Helper.instance.WriteConfigFile())
-                MessageBox.Show("The config file has been saved successfully!", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Unable to save the config file. Try running the program as admin?", "Failure",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            if (!Helper.instance.CopyNoIntroFix(checkBoxSkipIntro.Checked))
+            try
             {
-                if (checkBoxSkipIntro.Checked)
-                    MessageBox.Show("Unable to copy the no intro fix. Make sure the game executable path has been specified.", "Warning",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Don't watch for file changes during the saving process
+                fileSystemWatcher.EnableRaisingEvents = false;
+
+                WriteSettings(Helper.instance.Dictionary);
+                _skipIntroInitialState = checkBoxSkipIntro.Checked;
+                Helper.instance.IsConfigReadOnly = checkBoxReadOnly.Checked;
+
+                if (Helper.instance.WriteConfigFile())
+                    MessageBox.Show("The config file has been saved successfully!", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Unable to delete the no intro fix. Make sure the game executable path has been specified.", "Warning",
+                    MessageBox.Show("Unable to save the config file. Try running the program as admin?", "Failure",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (!Helper.instance.CopyNoIntroFix(checkBoxSkipIntro.Checked))
+                    MessageBox.Show("Unable to enable/disable the no intro fix. Make sure the game executable path has been specified.", "Warning",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch
+            {
+                // Nothing to do here
+            }
+            finally
+            {
+                // Saving process done, watch for file changes again
+                fileSystemWatcher.EnableRaisingEvents = true;
             }
         }
 
@@ -450,6 +444,49 @@ namespace Metro2033ConfigEditor
         private void ButtonStartGameSteam_Click(object sender, EventArgs e)
         {
             Process.Start("steam://run/43110");
+        }
+
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // Start timing
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            e.Result = Helper.instance.CheckForUpdate();
+
+            // Report time
+            stopwatch.Stop();
+            Console.WriteLine("Time required: {0} ms", stopwatch.Elapsed.TotalMilliseconds);
+        }
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            linkLabelUpdateAvailable.Visible = (bool)e.Result;
+        }
+
+        private void FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            try
+            {
+                // Prevents a double firing, known for FileSystemWatcher
+                fileSystemWatcher.EnableRaisingEvents = false;
+
+                while (!Helper.instance.IsFileReady(e.FullPath))
+                    Console.WriteLine("File busy");
+
+                DialogResult result = MessageBox.Show("The config file has been modified by another program. Do you want to reload it?", "Reload",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                if (result == DialogResult.Yes)
+                    buttonReload.PerformClick();
+            }
+            catch
+            {
+                // Nothing to do here
+            }
+            finally
+            {
+                fileSystemWatcher.EnableRaisingEvents = true;
+            }
         }
     }
 }
