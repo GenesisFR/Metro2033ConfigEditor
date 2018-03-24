@@ -46,15 +46,14 @@ namespace Metro2033ConfigEditor
             }
             catch
             {
-                DialogResult result = MessageBox.Show(
-                    "We were not able to locate the config file for Metro2033, please run the game at least once to generate it." +
-                    Environment.NewLine + Environment.NewLine +
-                    "You can also point to its location by using the corresponding Browse button. It should be located here:" +
-                    Environment.NewLine + Environment.NewLine +
-                    @"steam\userdata\<userid>\43110\remote\" +
-                    Environment.NewLine + Environment.NewLine +
-                    "Do you want to run the game now?",
-                    "Config not found", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                string steamPath = Helper.instance.SteamInstallPath != null ? String.Format(@"{0}\{1}", Helper.instance.SteamInstallPath,
+                    @"userdata\<userid>\43110\remote\") : @"Steam\userdata\<userid>\43110\remote\";
+
+                DialogResult result = MessageBox.Show(String.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
+                        "We were not able to locate the config file for Metro2033, please run the game at least once to generate it.",
+                        "You can also point to its location by using the corresponding Browse button. It should be located here:",
+                        steamPath, "Do you want to run the game now?"),
+                        "Config not found", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
                 if (result == DialogResult.Yes)
                     buttonStartGameSteam.PerformClick();
@@ -217,7 +216,7 @@ namespace Metro2033ConfigEditor
             comboBoxDirectX.Text               = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
             comboBoxAntialiasing.Text          = Helper.instance.Dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
             comboBoxQuality.Text               = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
-            comboBoxResolution.Text            = Helper.instance.Dictionary["r_res_hor"] + " x " + Helper.instance.Dictionary["r_res_vert"];
+            comboBoxResolution.Text            = String.Format("{0} x {1}", Helper.instance.Dictionary["r_res_hor"], Helper.instance.Dictionary["r_res_vert"]);
 
             // Spinners
             spinnerMouseSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
@@ -262,7 +261,7 @@ namespace Metro2033ConfigEditor
             dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString();
             dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString();
             dictionary["r_gamma"]           = spinnerGamma.Value.Equals(1) ? "1." : spinnerGamma.Value.ToString();
-            dictionary["sick_fov"]          = spinnerFov.Value.ToString() + ".";
+            dictionary["sick_fov"]          = String.Format("{0}.", spinnerFov.Value.ToString());
 
             // Textboxes
             dictionary["r_res_hor"]         = textBoxWidth.Text;
@@ -416,15 +415,15 @@ namespace Metro2033ConfigEditor
                 Helper.instance.IsConfigReadOnly = checkBoxReadOnly.Checked;
 
                 if (Helper.instance.WriteConfigFile())
-                    MessageBox.Show("The config file has been saved successfully!", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("The config file has been saved successfully!",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("Unable to save the config file. Try running the program as admin?", "Failure",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Unable to save the config file. Try running the program as admin?",
+                        "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 if (!Helper.instance.CopyNoIntroFix(checkBoxSkipIntro.Checked))
-                    MessageBox.Show("Unable to enable/disable the no intro fix. Make sure the game executable path has been specified.", "Warning",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Unable to enable/disable the no intro fix. Make sure the game executable path has been specified.",
+                        "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch
             {
@@ -482,8 +481,8 @@ namespace Metro2033ConfigEditor
                 while (!Helper.instance.IsFileReady(e.FullPath))
                     Console.WriteLine("File locked by another process");
 
-                DialogResult result = MessageBox.Show("The config file has been modified by another program. Do you want to reload it?", "Reload",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                DialogResult result = MessageBox.Show("The config file has been modified by another program. Do you want to reload it?",
+                    "Reload", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
                 if (result == DialogResult.Yes)
                     buttonReload.PerformClick();
