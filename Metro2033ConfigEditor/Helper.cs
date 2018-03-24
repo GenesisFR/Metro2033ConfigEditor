@@ -12,71 +12,51 @@ namespace Metro2033ConfigEditor
     public sealed class Helper
     {
         private static Mutex _mutex;
-
-        private string _steamInstallPath;   // C:\Program Files (x86)\Steam
-        private string _configFilePath;     // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
-        private string _gameInstallPath;    // D:\Games\SteamLibrary\steamapps\common\Metro 2033
-        private string _gameExecutablePath; // D:\Games\SteamLibrary\steamapps\common\Metro 2033\metro2033.exe
-
-        private Dictionary<string, string> _dictionary;
-        private Dictionary<string, string> _dictionaryUponClosure;
-
         public static readonly Helper instance = new Helper();
 
         Helper()
         {
-            _steamInstallPath   = GetSteamInstallPath();
-            _configFilePath     = GetConfigPath();
-            _gameInstallPath    = GetGameInstallPath();
-            _gameExecutablePath = GetGameExecutablePath();
-
-            _dictionary = new Dictionary<string, string>();
+            SteamInstallPath   = GetSteamInstallPath();   // C:\Program Files (x86)\Steam
+            ConfigFilePath     = GetConfigPath();         // C:\Program Files (x86)\Steam\userdata\userID\43110\remote\user.cfg
+            GameInstallPath    = GetGameInstallPath();    // D:\Games\SteamLibrary\steamapps\common\Metro 2033
+            GameExecutablePath = GetGameExecutablePath(); // D:\Games\SteamLibrary\steamapps\common\Metro 2033\metro2033.exe
+            Dictionary         = new Dictionary<string, string>();
         }
 
         // Properties
-        public string SteamInstallPath
-        {
-            get { return _steamInstallPath; }
-            set { _steamInstallPath = value; }
-        }
-
-        public string ConfigFilePath
-        {
-            get { return _configFilePath; }
-            set { _configFilePath = value; }
-        }
-
-        public string GameInstallPath
-        {
-            get { return _gameInstallPath; }
-            set { _gameInstallPath = value; }
-        }
-
-        public string GameExecutablePath
-        {
-            get { return _gameExecutablePath; }
-            set { _gameExecutablePath = value; }
-        }
-
-        public Dictionary<string, string> Dictionary
-        {
-            get { return _dictionary; }
-        }
-
-        public Dictionary<string, string> DictionaryUponClosure
-        {
-            get { return _dictionaryUponClosure; }
-        }
+        public string SteamInstallPath { get; set; }
+        public string ConfigFilePath { get; set; }
+        public string GameInstallPath { get; set; }
+        public string GameExecutablePath { get; set; }
+        public Dictionary<string, string> Dictionary { get; }
+        public Dictionary<string, string> DictionaryUponClosure { get; private set; }
 
         public bool IsNoIntroSkipped
         {
-            get { return File.Exists(Path.Combine(_gameInstallPath, "content.upk9")); }
+            get
+            {
+                if (GameInstallPath != null)
+                    return File.Exists(Path.Combine(GameInstallPath, "content.upk9"));
+                else
+                    return false;
+            }
         }
 
         public bool IsConfigReadOnly
         {
-            get { return new FileInfo(_configFilePath).IsReadOnly; }
-            set { new FileInfo(_configFilePath).IsReadOnly = value; }
+            get
+            {
+                if (ConfigFilePath != null)
+                    return new FileInfo(ConfigFilePath).IsReadOnly;
+                else
+                    return false;
+            }
+
+            set
+            {
+                if (ConfigFilePath != null)
+                    new FileInfo(ConfigFilePath).IsReadOnly = value;
+            }
         }
 
         // General methods
@@ -86,26 +66,26 @@ namespace Metro2033ConfigEditor
 
             try
             {
-                // Try to open existing mutex.
+                // Try to open an existing mutex
                 Mutex.OpenExisting(guid);
             }
             catch
             {
-                // If exception occurred, there is no such mutex.
+                // If an exception occurred, there is no such mutex
                 _mutex = new Mutex(true, guid);
 
-                // Only one instance.
+                // Only one instance
                 return true;
             }
 
-            // More than one instance.
+            // More than one instance
             return false;
         }
 
         private void AddKeyIfMissing(string key, string value)
         {
-            if (!_dictionary.ContainsKey(key))
-                _dictionary[key] = value;
+            if (!Dictionary.ContainsKey(key))
+                Dictionary[key] = value;
         }
 
         public void AddKeysIfMissing()
@@ -144,9 +124,9 @@ namespace Metro2033ConfigEditor
 
         public bool AreDictionariesEqual()
         {
-            foreach (string key in _dictionary.Keys)
+            foreach (string key in Dictionary.Keys)
             {
-                if (_dictionary[key] != _dictionaryUponClosure[key])
+                if (Dictionary[key] != DictionaryUponClosure[key])
                     return false;
             }
 
@@ -160,6 +140,12 @@ namespace Metro2033ConfigEditor
                 return null;
             #endif
 
+            // Look for Steam from the registry, then in Program Files, then from the current directory
+            return GetSteamInstallFromRegistry() ?? GetSteamInstallInProgramFiles() ?? GetSteamInstallFromCurrentDir();
+        }
+
+        private string GetSteamInstallFromRegistry()
+        {
             try
             {
                 // Look for Steam from the registry
@@ -168,29 +154,56 @@ namespace Metro2033ConfigEditor
                 if (key != null)
                     return key.ToString().Replace('/', '\\').ToLower();
             }
-            catch { }
-
-            // Look for Steam in Program Files
-            string progFilesSteamExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), @"Steam\Steam.exe");
-            string progFilesSteamExeX86 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Steam\Steam.exe");
-
-            // Steam is a 32-bit program so it should install in Program Files (x86) by default
-            if (File.Exists(progFilesSteamExeX86))
-                return progFilesSteamExeX86;
-            else if (File.Exists(progFilesSteamExe))
-                return progFilesSteamExe;
-
-            // Finally, look for Steam in the current path
-            string currentDir = Directory.GetCurrentDirectory();
-
-            if (currentDir.Contains(@"Steam\steamapps"))
+            catch
             {
-                // Get the Steam root directory
-                string[] splitSteamDir = currentDir.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
-                string steamDir = Path.Combine(splitSteamDir[0], "Steam");
+                // Nothing to do here
+            }
 
-                if (File.Exists(Path.Combine(steamDir, "Steam.exe")))
-                    return steamDir;
+            return null;
+        }
+
+        private string GetSteamInstallInProgramFiles()
+        {
+            try
+            {
+                // Look for Steam in Program Files
+                string progFilesSteamExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), @"Steam\Steam.exe");
+                string progFilesSteamExeX86 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Steam\Steam.exe");
+
+                // Steam is a 32-bit program so it should install in Program Files (x86) by default
+                if (File.Exists(progFilesSteamExeX86))
+                    return progFilesSteamExeX86;
+                else if (File.Exists(progFilesSteamExe))
+                    return progFilesSteamExe;
+            }
+            catch
+            {
+                // Nothing to do here
+            }
+
+            return null;
+        }
+
+        private string GetSteamInstallFromCurrentDir()
+        {
+            try
+            {
+                // Finally, look for Steam in the current path
+                string currentDir = Directory.GetCurrentDirectory();
+
+                if (currentDir.Contains(@"Steam\steamapps"))
+                {
+                    // Get the Steam root directory
+                    string[] splitSteamDir = currentDir.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
+                    string steamDir = Path.Combine(splitSteamDir[0], "Steam");
+
+                    if (File.Exists(Path.Combine(steamDir, "Steam.exe")))
+                        return steamDir;
+                }
+            }
+            catch
+            {
+                // Nothing to do here
             }
 
             return null;
@@ -202,6 +215,12 @@ namespace Metro2033ConfigEditor
                 return null;
             #endif
 
+            // Look for the game from the registry, then from the current directory
+            return GetGameInstallPathFromRegistry() ?? GetGameInstallPathFromCurrentDir();
+        }
+
+        private string GetGameInstallPathFromRegistry()
+        {
             try
             {
                 // Accessing HKLM is different than HKCU
@@ -217,13 +236,28 @@ namespace Metro2033ConfigEditor
                     }
                 }
             }
-            catch { }
+            catch
+            {
+                // Nothing to do here
+            }
 
-            // Look for the game in the current directory
-            string currentDir = Directory.GetCurrentDirectory();
+            return null;
+        }
 
-            if (File.Exists(Path.Combine(currentDir, "metro2033.exe")))
-                return currentDir.ToLower();
+        private string GetGameInstallPathFromCurrentDir()
+        {
+            try
+            {
+                // Look for the game in the current directory
+                string currentDir = Directory.GetCurrentDirectory();
+
+                if (File.Exists(Path.Combine(currentDir, "metro2033.exe")))
+                    return currentDir.ToLower();
+            }
+            catch
+            {
+                // Nothing to do here
+            }
 
             return null;
         }
@@ -234,11 +268,18 @@ namespace Metro2033ConfigEditor
                 return null;
             #endif
 
-            string gamePath = _gameInstallPath ?? GetGameInstallPath();
-            string gameExePath = Path.Combine(gamePath, "metro2033.exe");
+            try
+            {
+                string gamePath = GameInstallPath ?? GetGameInstallPath();
+                string gameExePath = Path.Combine(gamePath, "metro2033.exe");
 
-            if (File.Exists(gameExePath))
-                return gameExePath;
+                if (File.Exists(gameExePath))
+                    return gameExePath;
+            }
+            catch
+            {
+                // Nothing to do here
+            }
 
             return null;
         }
@@ -249,16 +290,23 @@ namespace Metro2033ConfigEditor
                 return null;
             #endif
 
-            string steamÞath = _steamInstallPath ?? GetSteamInstallPath();
-            string[] userDirs = Directory.GetDirectories(Path.Combine(steamÞath, "userdata"));
-
-            // Parse through the user directories in search of the config file and return the first one found
-            foreach (string userDir in userDirs)
+            try
             {
-                string configPath = Path.Combine(userDir, @"43110\remote\user.cfg");
+                string steamÞath = SteamInstallPath ?? GetSteamInstallPath();
+                string[] userDirs = Directory.GetDirectories(Path.Combine(steamÞath, "userdata"));
 
-                if (File.Exists(configPath))
-                    return configPath.ToLower();
+                // Parse through the user directories in search of the config file and return the first one found
+                foreach (string userDir in userDirs)
+                {
+                    string configPath = Path.Combine(userDir, @"43110\remote\user.cfg");
+
+                    if (File.Exists(configPath))
+                        return configPath.ToLower();
+                }
+            }
+            catch
+            {
+                // Nothing to do here
             }
 
             return null;
@@ -267,22 +315,28 @@ namespace Metro2033ConfigEditor
         // File-related methods
         public bool CopyNoIntroFix(bool disableIntro)
         {
+            // Game directory has to be specified first
+            if (GameInstallPath == null)
+                return false;
+
             try
             {
-                string noIntroFilePath = Path.Combine(_gameInstallPath, "content.upk9");
+                string noIntroFilePath = Path.Combine(GameInstallPath, "content.upk9");
 
                 // Copy the intro fix to the game directory
                 if (disableIntro)
                     File.WriteAllBytes(noIntroFilePath, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
                 else
                     File.Delete(noIntroFilePath);
+
+                return true;
             }
             catch
             {
-                return false;
+                // Nothing to do here
             }
 
-            return true;
+            return false;
         }
 
         public bool IsFileReady(string path)
@@ -290,36 +344,45 @@ namespace Metro2033ConfigEditor
             // If the file can be opened, it means it's no longer locked by another process
             try
             {
-                using (FileStream inputStream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.None))
+                using (FileStream fileStream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.None))
                 {
-                    return inputStream.Length > 0;
+                    return true;
                 }
             }
             catch
             {
-                return false;
+                // Nothing to do here
             }
+
+            return false;
         }
 
         public void ReadConfigFile()
         {
-            string[] fileLines = File.ReadAllLines(_configFilePath);
-
-            // Parse the content of the config and store every line in a dictionary
-            foreach (string fileLine in fileLines)
+            try
             {
-                // Split the line using SPACE as a delimiter
-                string[] splitLines = fileLine.Split(' ');
+                string[] fileLines = File.ReadAllLines(ConfigFilePath);
 
-                // If we have 1 SPACE character, use the 1st part as a key and the 2nd part as a value
-                if (splitLines.Length == 2)
-                    _dictionary[splitLines[0]] = splitLines[1];
-                // Otherwise, use the whole line as a key
-                else
-                    _dictionary[fileLine] = "";
+                // Parse the content of the config and store every line in a dictionary
+                foreach (string fileLine in fileLines)
+                {
+                    // Split the line using SPACE as a delimiter
+                    string[] splitLines = fileLine.Split(' ');
+
+                    // If we have 1 SPACE character, use the 1st part as a key and the 2nd part as a value
+                    if (splitLines.Length == 2)
+                        Dictionary[splitLines[0]] = splitLines[1];
+                    // Otherwise, use the whole line as a key
+                    else
+                        Dictionary[fileLine] = "";
+                }
+
+                DictionaryUponClosure = new Dictionary<string, string>(Dictionary);
             }
-
-            _dictionaryUponClosure = new Dictionary<string, string>(_dictionary);
+            catch
+            {
+                // Nothing to do here
+            }
         }
 
         public bool WriteConfigFile()
@@ -332,27 +395,29 @@ namespace Metro2033ConfigEditor
                 string fileLines = "";
 
                 // Parse the content of the dictionary to reconstruct the lines
-                foreach (string key in _dictionary.Keys)
+                foreach (string key in Dictionary.Keys)
                 {
-                    if (_dictionary[key] != "")
-                        fileLines += String.Format("{0} {1}\r\n", key, _dictionary[key]);
+                    if (Dictionary[key] != "")
+                        fileLines += String.Format("{0} {1}\r\n", key, Dictionary[key]);
                     else
                         fileLines += String.Format("{0}\r\n", key);
                 }
 
                 // Write everything back to the config
                 IsConfigReadOnly = false;
-                File.WriteAllText(_configFilePath, fileLines);
+                File.WriteAllText(ConfigFilePath, fileLines);
                 return true;
             }
             catch
             {
-                return false;
+                // Nothing to do here
             }
             finally
             {
                 IsConfigReadOnly = tempIsConfigReadOnly;
             }
+
+            return false;
         }
 
         // Network methods
@@ -361,13 +426,13 @@ namespace Metro2033ConfigEditor
             if (!IsInternetAvailable())
                 return false;
 
-            // Get content of version.txt
+            // Get repository version
             string result = DownloadStringAsync().Result;
 
             // Get local minor version
             int localMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
 
-            // Get remote minor version
+            // Get repository minor version
             string[] splitResult = result.Split('.');
             int remoteMinor = Convert.ToInt32(splitResult[1]);
 
@@ -390,7 +455,10 @@ namespace Metro2033ConfigEditor
                         new Uri("https://raw.githubusercontent.com/GenesisFR/Metro2033ConfigEditor/master/version.txt"));
                 }
             }
-            catch { }
+            catch
+            {
+                // Nothing to do here
+            }
 
             return result;
         }

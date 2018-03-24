@@ -11,6 +11,7 @@ namespace Metro2033ConfigEditor
     {
         private bool _skipIntroInitialState = false;
 
+        // TODO: add file and directory exceptions/exists in read config
         public Metro2033ConfigEditorForm()
         {
             InitializeComponent();
@@ -22,42 +23,42 @@ namespace Metro2033ConfigEditor
 
         private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
         {
-            try
+            // Set textboxes
+            textBoxSteamInstallPath.Text   = Helper.instance.SteamInstallPath ?? "Steam not found";
+            textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath ?? "Config not found";
+            textBoxGameExecutablePath.Text = Helper.instance.GameExecutablePath ?? "Game not found";
+
+            // Set button states
+            buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
+            buttonSave.Enabled             = Helper.instance.ConfigFilePath != null;
+            buttonStartGameNoSteam.Enabled = Helper.instance.GameInstallPath != null;
+            buttonStartGameSteam.Enabled   = Helper.instance.SteamInstallPath != null;
+
+            if (Helper.instance.ConfigFilePath != null)
             {
-                // Set textboxes
-                textBoxSteamInstallPath.Text   = Helper.instance.SteamInstallPath ?? "Steam not found";
-                textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath ?? "Config not found";
-                textBoxGameExecutablePath.Text = Helper.instance.GameExecutablePath ?? "Game not found";
+                fileSystemWatcherConfig.Path = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
 
-                if (Helper.instance.ConfigFilePath != null)
-                    fileSystemWatcherConfig.Path = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
-
-                if (Helper.instance.GameInstallPath != null)
-                    fileSystemWatcherNoIntro.Path = Helper.instance.GameInstallPath;
-
-                // Set button states
-                buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
-                buttonSave.Enabled             = Helper.instance.ConfigFilePath != null;
-                buttonStartGameNoSteam.Enabled = Helper.instance.GameInstallPath != null;
-                buttonStartGameSteam.Enabled   = Helper.instance.SteamInstallPath != null;
-
-                // Read config
+                // Read the config file
                 buttonReload.PerformClick();
             }
-            catch
+            else
             {
                 string steamPath = Helper.instance.SteamInstallPath != null ? String.Format(@"{0}\{1}", Helper.instance.SteamInstallPath,
-                    @"userdata\<userid>\43110\remote\") : @"Steam\userdata\<userid>\43110\remote\";
+                @"userdata\<userid>\43110\remote\") : @"Steam\userdata\<userid>\43110\remote\";
 
                 DialogResult result = MessageBox.Show(String.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
                         "We were not able to locate the config file for Metro2033, please run the game at least once to generate it.",
                         "You can also point to its location by using the corresponding Browse button. It should be located here:",
                         steamPath, "Do you want to run the game now?"),
-                        "Config not found", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        "Config not found",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
                 if (result == DialogResult.Yes)
                     buttonStartGameSteam.PerformClick();
             }
+
+            if (Helper.instance.GameInstallPath != null)
+                fileSystemWatcherNoIntro.Path = Helper.instance.GameInstallPath;
         }
 
         private void Metro2033ConfigEditorForm_Closing(object sender, FormClosingEventArgs e)
@@ -433,7 +434,7 @@ namespace Metro2033ConfigEditor
             {
                 // Saving process done, watch for file changes again
                 fileSystemWatcherConfig.EnableRaisingEvents = true;
-                fileSystemWatcherNoIntro.EnableRaisingEvents = true;
+                fileSystemWatcherNoIntro.EnableRaisingEvents = Helper.instance.IsNoIntroSkipped;
             }
         }
 
