@@ -281,7 +281,7 @@ namespace Metro2033ConfigEditor
                 if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     Helper.instance.SteamInstallPath = folderBrowserDialog.SelectedPath.ToLower();
-                    buttonStartGameSteam.Enabled     = File.Exists(Helper.instance.SteamInstallPath + @"\Steam.exe");
+                    buttonStartGameSteam.Enabled     = File.Exists(Path.Combine(Helper.instance.SteamInstallPath, "Steam.exe"));
                     textBoxSteamInstallPath.Text     = buttonStartGameSteam.Enabled ? Helper.instance.SteamInstallPath : "Steam not found";
                 }
             }
@@ -292,7 +292,7 @@ namespace Metro2033ConfigEditor
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Metro 2033 config file|user.cfg";
-                openFileDialog.InitialDirectory = Helper.instance.SteamInstallPath + @"\userdata";
+                openFileDialog.InitialDirectory = Path.Combine(Helper.instance.SteamInstallPath, "userdata");
 
                 // Show the dialog and get result.
                 if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)

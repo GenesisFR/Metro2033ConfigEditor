@@ -70,7 +70,7 @@ namespace Metro2033ConfigEditor
 
         public bool IsNoIntroSkipped
         {
-            get { return File.Exists(GameInstallPath + @"\content.upk9"); }
+            get { return File.Exists(Path.Combine(_gameInstallPath, "content.upk9")); }
         }
 
         public bool IsConfigReadOnly
@@ -171,14 +171,14 @@ namespace Metro2033ConfigEditor
             catch { }
 
             // Look for Steam in Program Files
-            string progFilesSteam = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Steam";
-            string progFilesSteamX86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam";
+            string progFilesSteamExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), @"Steam\Steam.exe");
+            string progFilesSteamExeX86 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Steam\Steam.exe");
 
             // Steam is a 32-bit program so it should install in Program Files (x86) by default
-            if (File.Exists(progFilesSteamX86 + @"\Steam.exe"))
-                return progFilesSteamX86;
-            else if (File.Exists(progFilesSteam + @"\Steam.exe"))
-                return progFilesSteam;
+            if (File.Exists(progFilesSteamExeX86))
+                return progFilesSteamExeX86;
+            else if (File.Exists(progFilesSteamExe))
+                return progFilesSteamExe;
 
             // Finally, look for Steam in the current path
             string currentDir = Directory.GetCurrentDirectory();
@@ -187,9 +187,9 @@ namespace Metro2033ConfigEditor
             {
                 // Get the Steam root directory
                 string[] splitSteamDir = currentDir.Split(new string[] { @"\Steam\steamapps\" }, StringSplitOptions.None);
-                string steamDir = splitSteamDir[0] + @"\Steam";
+                string steamDir = Path.Combine(splitSteamDir[0], "Steam");
 
-                if (File.Exists(steamDir + @"\Steam.exe"))
+                if (File.Exists(Path.Combine(steamDir, "Steam.exe")))
                     return steamDir;
             }
 
@@ -222,7 +222,7 @@ namespace Metro2033ConfigEditor
             // Look for the game in the current directory
             string currentDir = Directory.GetCurrentDirectory();
 
-            if (File.Exists(currentDir + @"\metro2033.exe"))
+            if (File.Exists(Path.Combine(currentDir, "metro2033.exe")))
                 return currentDir.ToLower();
 
             return null;
@@ -235,7 +235,7 @@ namespace Metro2033ConfigEditor
             #endif
 
             string gamePath = _gameInstallPath ?? GetGameInstallPath();
-            string gameExePath = gamePath + @"\metro2033.exe";
+            string gameExePath = Path.Combine(gamePath, "metro2033.exe");
 
             if (File.Exists(gameExePath))
                 return gameExePath;
@@ -250,13 +250,15 @@ namespace Metro2033ConfigEditor
             #endif
 
             string steamÞath = _steamInstallPath ?? GetSteamInstallPath();
-            string[] userDirs = Directory.GetDirectories(steamÞath + @"\userdata");
+            string[] userDirs = Directory.GetDirectories(Path.Combine(steamÞath, "userdata"));
 
             // Parse through the user directories in search of the config file and return the first one found
             foreach (string userDir in userDirs)
             {
-                if (File.Exists(userDir + @"\43110\remote\user.cfg"))
-                    return userDir.ToLower() + @"\43110\remote\user.cfg";
+                string configPath = Path.Combine(userDir, @"43110\remote\user.cfg");
+
+                if (File.Exists(configPath))
+                    return configPath.ToLower();
             }
 
             return null;
@@ -265,13 +267,9 @@ namespace Metro2033ConfigEditor
         // File-related methods
         public bool CopyNoIntroFix(bool disableIntro)
         {
-            // Game directory has to be specified first
-            if (_gameInstallPath == null)
-                return false;
-
             try
             {
-                string noIntroFilePath = _gameInstallPath + @"\content.upk9";
+                string noIntroFilePath = Path.Combine(_gameInstallPath, "content.upk9");
 
                 // Copy the intro fix to the game directory
                 if (disableIntro)
