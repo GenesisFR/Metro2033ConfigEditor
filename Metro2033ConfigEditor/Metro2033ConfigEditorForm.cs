@@ -351,7 +351,7 @@ namespace Metro2033ConfigEditor
                 textBoxWidth.Text = Helper.instance.Dictionary["r_res_hor"];
                 textBoxHeight.Text = Helper.instance.Dictionary["r_res_vert"];
 
-                // Automatically give focus to the width textbox, if necessary
+                // Automatically give focus to the width textbox when necessary
                 if (comboBoxResolution.Focused && !textBoxHeight.Focused)
                     textBoxWidth.Focus();
             }
