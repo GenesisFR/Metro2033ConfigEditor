@@ -30,7 +30,10 @@ namespace Metro2033ConfigEditor
                 textBoxGameExecutablePath.Text = Helper.instance.GameExecutablePath ?? "Game not found";
 
                 if (Helper.instance.ConfigFilePath != null)
-                    fileSystemWatcher.Path = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
+                    fileSystemWatcherConfig.Path = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
+
+                if (Helper.instance.GameInstallPath != null)
+                    fileSystemWatcherNoIntro.Path = Helper.instance.GameInstallPath;
 
                 // Set button states
                 buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
@@ -298,11 +301,10 @@ namespace Metro2033ConfigEditor
                     textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath;
                     buttonReload.Enabled           = true;
                     buttonSave.Enabled             = true;
+                    fileSystemWatcherConfig.Path   = new FileInfo(openFileDialog.FileName).DirectoryName;
 
                     // Reload config automatically
                     buttonReload.PerformClick();
-
-                    fileSystemWatcher.Path = new FileInfo(openFileDialog.FileName).DirectoryName;
                 }
             }
         }
@@ -317,12 +319,16 @@ namespace Metro2033ConfigEditor
                 // Show the dialog and get result.
                 if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    Helper.instance.GameInstallPath    = openFileDialog.FileName.Replace(openFileDialog.SafeFileName, "").ToLower();
+                    Helper.instance.GameInstallPath    = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
                     Helper.instance.GameExecutablePath = openFileDialog.FileName.ToLower();
                     _skipIntroInitialState             = Helper.instance.IsNoIntroSkipped;
                     textBoxGameExecutablePath.Text     = Helper.instance.GameExecutablePath;
                     checkBoxSkipIntro.Checked          = Helper.instance.IsNoIntroSkipped;
                     buttonStartGameNoSteam.Enabled     = true;
+                    fileSystemWatcherNoIntro.Path      = Helper.instance.GameInstallPath;
+
+                    // Reload config automatically
+                    buttonReload.PerformClick();
                 }
             }
         }
@@ -402,7 +408,8 @@ namespace Metro2033ConfigEditor
             try
             {
                 // Don't watch for file changes during the saving process
-                fileSystemWatcher.EnableRaisingEvents = false;
+                fileSystemWatcherConfig.EnableRaisingEvents = false;
+                fileSystemWatcherNoIntro.EnableRaisingEvents = false;
 
                 WriteSettings(Helper.instance.Dictionary);
                 _skipIntroInitialState = checkBoxSkipIntro.Checked;
@@ -426,7 +433,8 @@ namespace Metro2033ConfigEditor
             finally
             {
                 // Saving process done, watch for file changes again
-                fileSystemWatcher.EnableRaisingEvents = true;
+                fileSystemWatcherConfig.EnableRaisingEvents = true;
+                fileSystemWatcherNoIntro.EnableRaisingEvents = true;
             }
         }
 
@@ -463,15 +471,16 @@ namespace Metro2033ConfigEditor
             linkLabelUpdateAvailable.Visible = (bool)e.Result;
         }
 
-        private void FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
+        private void FileSystemWatcherConfig_Changed(object sender, FileSystemEventArgs e)
         {
             try
             {
-                // Prevents a double firing, known for FileSystemWatcher
-                fileSystemWatcher.EnableRaisingEvents = false;
+                // Prevents a double firing, known issue for FileSystemWatcher
+                fileSystemWatcherConfig.EnableRaisingEvents = false;
 
+                // Wait until the file is accessible
                 while (!Helper.instance.IsFileReady(e.FullPath))
-                    Console.WriteLine("File busy");
+                    Console.WriteLine("File locked by another process");
 
                 DialogResult result = MessageBox.Show("The config file has been modified by another program. Do you want to reload it?", "Reload",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -485,8 +494,13 @@ namespace Metro2033ConfigEditor
             }
             finally
             {
-                fileSystemWatcher.EnableRaisingEvents = true;
+                fileSystemWatcherConfig.EnableRaisingEvents = true;
             }
+        }
+
+        private void FileSystemWatcherNoIntro_Changed(object sender, FileSystemEventArgs e)
+        {
+            buttonReload.PerformClick();
         }
     }
 }

@@ -135,8 +135,9 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.linkLabelUpdateAvailable = new System.Windows.Forms.LinkLabel();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.fileSystemWatcher = new System.IO.FileSystemWatcher();
+            this.fileSystemWatcherConfig = new System.IO.FileSystemWatcher();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.fileSystemWatcherNoIntro = new System.IO.FileSystemWatcher();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -152,7 +153,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMasterVolume)).BeginInit();
             this.groupBoxCheats.SuspendLayout();
             this.tabControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcherConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcherNoIntro)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonReload
@@ -1383,19 +1385,29 @@
             this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
             this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker_RunWorkerCompleted);
             // 
-            // fileSystemWatcher
+            // fileSystemWatcherConfig
             // 
-            this.fileSystemWatcher.EnableRaisingEvents = true;
-            this.fileSystemWatcher.Filter = "user.cfg";
-            this.fileSystemWatcher.NotifyFilter = System.IO.NotifyFilters.LastWrite;
-            this.fileSystemWatcher.SynchronizingObject = this;
-            this.fileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.FileSystemWatcher_Changed);
+            this.fileSystemWatcherConfig.EnableRaisingEvents = true;
+            this.fileSystemWatcherConfig.Filter = "user.cfg";
+            this.fileSystemWatcherConfig.NotifyFilter = System.IO.NotifyFilters.LastWrite;
+            this.fileSystemWatcherConfig.SynchronizingObject = this;
+            this.fileSystemWatcherConfig.Changed += new System.IO.FileSystemEventHandler(this.FileSystemWatcherConfig_Changed);
             // 
             // toolTip
             // 
             this.toolTip.AutoPopDelay = 300000;
             this.toolTip.InitialDelay = 500;
             this.toolTip.ReshowDelay = 100;
+            // 
+            // fileSystemWatcherNoIntro
+            // 
+            this.fileSystemWatcherNoIntro.EnableRaisingEvents = true;
+            this.fileSystemWatcherNoIntro.Filter = "content.upk9";
+            this.fileSystemWatcherNoIntro.NotifyFilter = System.IO.NotifyFilters.FileName;
+            this.fileSystemWatcherNoIntro.SynchronizingObject = this;
+            this.fileSystemWatcherNoIntro.Created += new System.IO.FileSystemEventHandler(this.FileSystemWatcherNoIntro_Changed);
+            this.fileSystemWatcherNoIntro.Deleted += new System.IO.FileSystemEventHandler(this.FileSystemWatcherNoIntro_Changed);
+            this.fileSystemWatcherNoIntro.Renamed += new System.IO.RenamedEventHandler(this.FileSystemWatcherNoIntro_Changed);
             // 
             // Metro2033ConfigEditorForm
             // 
@@ -1449,7 +1461,8 @@
             this.groupBoxCheats.ResumeLayout(false);
             this.groupBoxCheats.PerformLayout();
             this.tabControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcherConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcherNoIntro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1562,8 +1575,9 @@
         private System.Windows.Forms.Label labelCheatsWarning;
         private System.Windows.Forms.LinkLabel linkLabelUpdateAvailable;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
-        private System.IO.FileSystemWatcher fileSystemWatcher;
+        private System.IO.FileSystemWatcher fileSystemWatcherConfig;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.IO.FileSystemWatcher fileSystemWatcherNoIntro;
     }
 }
 
