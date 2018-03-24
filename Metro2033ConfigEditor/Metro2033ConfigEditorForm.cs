@@ -11,7 +11,6 @@ namespace Metro2033ConfigEditor
     {
         private bool _skipIntroInitialState = false;
 
-        // TODO: add file and directory exceptions/exists in read config
         public Metro2033ConfigEditorForm()
         {
             InitializeComponent();
@@ -217,7 +216,12 @@ namespace Metro2033ConfigEditor
             comboBoxDirectX.Text               = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
             comboBoxAntialiasing.Text          = Helper.instance.Dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
             comboBoxQuality.Text               = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
-            comboBoxResolution.Text            = String.Format("{0} x {1}", Helper.instance.Dictionary["r_res_hor"], Helper.instance.Dictionary["r_res_vert"]);
+
+            string resolution = String.Format("{0} x {1}", Helper.instance.Dictionary["r_res_hor"], Helper.instance.Dictionary["r_res_vert"]);
+            if (comboBoxResolution.Items.Contains(resolution))
+                comboBoxResolution.Text = resolution;
+            else
+                comboBoxResolution.Text = "Custom resolution";
 
             // Spinners
             spinnerMouseSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
@@ -344,8 +348,11 @@ namespace Metro2033ConfigEditor
             }
             else
             {
-                // Automatically give focus to the Width textbox, if necessary
-                if (!textBoxHeight.Focused)
+                textBoxWidth.Text = Helper.instance.Dictionary["r_res_hor"];
+                textBoxHeight.Text = Helper.instance.Dictionary["r_res_vert"];
+
+                // Automatically give focus to the width textbox, if necessary
+                if (comboBoxResolution.Focused && !textBoxHeight.Focused)
                     textBoxWidth.Focus();
             }
         }
