@@ -222,12 +222,40 @@ namespace Metro2033ConfigEditor
             comboBoxResolution.Text            = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
 
             // Spinners
-            spinnerMouseSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
-            spinnerMouseAimSensitivity.Value   = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
-            spinnerMasterVolume.Value          = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
-            spinnerMusicVolume.Value           = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
-            spinnerGamma.Value                 = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
-            spinnerFov.Value                   = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
+            try
+            {
+                spinnerMouseSensitivity.Value    = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
+                spinnerMouseAimSensitivity.Value = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
+                spinnerMasterVolume.Value        = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
+                spinnerMusicVolume.Value         = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
+                spinnerGamma.Value               = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
+                spinnerFov.Value                 = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteInformation<Helper>(ex.Message);
+            }
+        }
+
+        private void StartProcess(object filename)
+        {
+            try
+            {
+                using (Process proc = new Process())
+                {
+                    if (filename is string)
+                        proc.StartInfo.FileName = filename.ToString();
+                    else if (filename is ProcessStartInfo)
+                        proc.StartInfo = (ProcessStartInfo)filename;
+
+                    proc.Start();
+                    proc.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteInformation<Helper>(ex.Message);
+            }
         }
 
         private void WriteSettings(Dictionary<string, string> dictionary)
@@ -389,17 +417,17 @@ namespace Metro2033ConfigEditor
             else
                 comboBoxResolution.SelectedItem = "Custom resolution";
         }
-
+        
         private void LinkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelAuthor.LinkVisited = true;
-            Process.Start("https://github.com/GenesisFR");
+            StartProcess("https://github.com/GenesisFR");
         }
 
         private void LinkLabelUpdateAvailable_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelUpdateAvailable.LinkVisited = true;
-            Process.Start("https://github.com/GenesisFR/Metro2033ConfigEditor/releases/latest");
+            StartProcess("https://github.com/GenesisFR/Metro2033ConfigEditor/releases/latest");
         }
 
         private void ButtonReload_Click(object sender, EventArgs e)
@@ -445,18 +473,14 @@ namespace Metro2033ConfigEditor
 
         private void ButtonStartGameNoSteam_Click(object sender, EventArgs e)
         {
-            using (Process proc = new Process())
-            {
-                proc.StartInfo.WorkingDirectory = Helper.instance.GameInstallPath;
-                proc.StartInfo.FileName = Helper.instance.GameExecutablePath;
-                proc.Start();
-                proc.Close();
-            }
+            ProcessStartInfo startInfo = new ProcessStartInfo(Helper.instance.GameExecutablePath);
+            startInfo.WorkingDirectory = Helper.instance.GameInstallPath;
+            StartProcess(startInfo);
         }
 
         private void ButtonStartGameSteam_Click(object sender, EventArgs e)
         {
-            Process.Start("steam://run/43110");
+            StartProcess("steam://run/43110");
         }
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
