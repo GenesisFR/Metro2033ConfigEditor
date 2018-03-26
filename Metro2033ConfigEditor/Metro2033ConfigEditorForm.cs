@@ -417,7 +417,12 @@ namespace Metro2033ConfigEditor
             else
                 comboBoxResolution.SelectedItem = "Custom resolution";
         }
-        
+
+        private void buttonReportBug_Click(object sender, EventArgs e)
+        {
+            StartProcess("https://github.com/GenesisFR/Metro2033ConfigEditor/issues");
+        }
+
         private void LinkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelAuthor.LinkVisited = true;

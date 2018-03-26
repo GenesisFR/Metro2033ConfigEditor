@@ -138,6 +138,7 @@
             this.fileSystemWatcherConfig = new System.IO.FileSystemWatcher();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.fileSystemWatcherNoIntro = new System.IO.FileSystemWatcher();
+            this.buttonReportBug = new System.Windows.Forms.Button();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -286,7 +287,7 @@
             this.linkLabelAuthor.AllowDrop = true;
             this.linkLabelAuthor.AutoSize = true;
             this.linkLabelAuthor.LinkArea = new System.Windows.Forms.LinkArea(16, 7);
-            this.linkLabelAuthor.Location = new System.Drawing.Point(10, 485);
+            this.linkLabelAuthor.Location = new System.Drawing.Point(95, 485);
             this.linkLabelAuthor.Name = "linkLabelAuthor";
             this.linkLabelAuthor.Size = new System.Drawing.Size(130, 17);
             this.linkLabelAuthor.TabIndex = 43;
@@ -1409,11 +1410,22 @@
             this.fileSystemWatcherNoIntro.Deleted += new System.IO.FileSystemEventHandler(this.FileSystemWatcherNoIntro_Changed);
             this.fileSystemWatcherNoIntro.Renamed += new System.IO.RenamedEventHandler(this.FileSystemWatcherNoIntro_Changed);
             // 
+            // buttonReportBug
+            // 
+            this.buttonReportBug.Location = new System.Drawing.Point(9, 480);
+            this.buttonReportBug.Name = "buttonReportBug";
+            this.buttonReportBug.Size = new System.Drawing.Size(80, 23);
+            this.buttonReportBug.TabIndex = 42;
+            this.buttonReportBug.Text = "Report a bug";
+            this.buttonReportBug.UseVisualStyleBackColor = true;
+            this.buttonReportBug.Click += new System.EventHandler(this.buttonReportBug_Click);
+            // 
             // Metro2033ConfigEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 516);
+            this.Controls.Add(this.buttonReportBug);
             this.Controls.Add(this.linkLabelUpdateAvailable);
             this.Controls.Add(this.linkLabelAuthor);
             this.Controls.Add(this.buttonBrowseSteamInstallPath);
@@ -1578,6 +1590,7 @@
         private System.IO.FileSystemWatcher fileSystemWatcherConfig;
         private System.Windows.Forms.ToolTip toolTip;
         private System.IO.FileSystemWatcher fileSystemWatcherNoIntro;
+        private System.Windows.Forms.Button buttonReportBug;
     }
 }
 
