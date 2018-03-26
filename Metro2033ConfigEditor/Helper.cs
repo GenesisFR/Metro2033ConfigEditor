@@ -154,9 +154,9 @@ namespace Metro2033ConfigEditor
                 if (key != null)
                     return key.ToString().Replace('/', '\\').ToLower();
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return null;
@@ -176,9 +176,9 @@ namespace Metro2033ConfigEditor
                 else if (File.Exists(progFilesSteamExe))
                     return progFilesSteamExe;
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return null;
@@ -201,9 +201,9 @@ namespace Metro2033ConfigEditor
                         return steamDir;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return null;
@@ -236,9 +236,9 @@ namespace Metro2033ConfigEditor
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return null;
@@ -254,9 +254,9 @@ namespace Metro2033ConfigEditor
                 if (File.Exists(Path.Combine(currentDir, "metro2033.exe")))
                     return currentDir.ToLower();
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return null;
@@ -276,9 +276,9 @@ namespace Metro2033ConfigEditor
                 if (File.Exists(gameExePath))
                     return gameExePath;
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return null;
@@ -304,9 +304,9 @@ namespace Metro2033ConfigEditor
                         return configPath.ToLower();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return null;
@@ -331,9 +331,9 @@ namespace Metro2033ConfigEditor
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return false;
@@ -349,9 +349,9 @@ namespace Metro2033ConfigEditor
                     return true;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return false;
@@ -379,9 +379,9 @@ namespace Metro2033ConfigEditor
 
                 DictionaryUponClosure = new Dictionary<string, string>(Dictionary);
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -408,9 +408,9 @@ namespace Metro2033ConfigEditor
                 File.WriteAllText(ConfigFilePath, fileLines);
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -455,9 +455,9 @@ namespace Metro2033ConfigEditor
                         new Uri("https://raw.githubusercontent.com/GenesisFR/Metro2033ConfigEditor/master/version.txt"));
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
 
             return result;

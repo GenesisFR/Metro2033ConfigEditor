@@ -216,12 +216,8 @@ namespace Metro2033ConfigEditor
             comboBoxDirectX.Text               = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
             comboBoxAntialiasing.Text          = Helper.instance.Dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
             comboBoxQuality.Text               = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
-
-            string resolution = String.Format("{0} x {1}", Helper.instance.Dictionary["r_res_hor"], Helper.instance.Dictionary["r_res_vert"]);
-            if (comboBoxResolution.Items.Contains(resolution))
-                comboBoxResolution.Text = resolution;
-            else
-                comboBoxResolution.Text = "Custom resolution";
+            string resolution                  = String.Format("{0} x {1}", Helper.instance.Dictionary["r_res_hor"], Helper.instance.Dictionary["r_res_vert"]);
+            comboBoxResolution.Text            = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
 
             // Spinners
             spinnerMouseSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
@@ -352,7 +348,7 @@ namespace Metro2033ConfigEditor
                 textBoxHeight.Text = Helper.instance.Dictionary["r_res_vert"];
 
                 // Automatically give focus to the width textbox when necessary
-                if (comboBoxResolution.Focused && !textBoxHeight.Focused)
+                if (comboBoxResolution.Focused)
                     textBoxWidth.Focus();
             }
         }
@@ -433,9 +429,9 @@ namespace Metro2033ConfigEditor
                     MessageBox.Show("Unable to enable/disable the no intro fix. Make sure the game executable path has been specified.",
                         "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
             finally
             {
@@ -495,9 +491,9 @@ namespace Metro2033ConfigEditor
                 if (result == DialogResult.Yes)
                     buttonReload.PerformClick();
             }
-            catch
+            catch (Exception ex)
             {
-                // Nothing to do here
+                Console.WriteLine(ex.Message);
             }
             finally
             {
