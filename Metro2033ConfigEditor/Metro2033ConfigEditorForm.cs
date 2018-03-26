@@ -73,6 +73,8 @@ namespace Metro2033ConfigEditor
                 // Do not close the form if the user pressed Cancel
                 e.Cancel = result == DialogResult.Cancel;
             }
+
+            Logger.WriteToFile();
         }
 
         private void AddTooltips()
@@ -431,7 +433,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message, e.ToString());
             }
             finally
             {
@@ -493,7 +495,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message, e.ToString());
             }
             finally
             {

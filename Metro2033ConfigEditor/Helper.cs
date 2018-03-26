@@ -156,7 +156,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return null;
@@ -178,7 +178,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return null;
@@ -203,7 +203,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return null;
@@ -238,7 +238,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return null;
@@ -256,7 +256,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return null;
@@ -278,7 +278,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return null;
@@ -306,7 +306,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return null;
@@ -315,10 +315,6 @@ namespace Metro2033ConfigEditor
         // File-related methods
         public bool CopyNoIntroFix(bool disableIntro)
         {
-            // Game directory has to be specified first
-            if (GameInstallPath == null)
-                return false;
-
             try
             {
                 string noIntroFilePath = Path.Combine(GameInstallPath, "content.upk9");
@@ -333,7 +329,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message, disableIntro);
             }
 
             return false;
@@ -351,7 +347,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return false;
@@ -381,7 +377,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
         }
 
@@ -410,7 +406,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
             finally
             {
@@ -457,7 +453,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.WriteInformation<Helper>(ex.Message);
             }
 
             return result;

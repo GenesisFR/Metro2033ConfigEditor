@@ -9,8 +9,12 @@ namespace Metro2033ConfigEditor
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(params string[] args)
         {
+            // Enable logging
+            if (args.Length != 0 && args[0] == "-log")
+                Logger.enabled = true;
+
             // Make sure another instance is not running
             if (!Helper.IsSingleInstance())
             {
