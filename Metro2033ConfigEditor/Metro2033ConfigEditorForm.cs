@@ -218,7 +218,8 @@ namespace Metro2033ConfigEditor
             comboBoxDirectX.Text               = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
             comboBoxAntialiasing.Text          = Helper.instance.Dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
             comboBoxQuality.Text               = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
-            string resolution                  = String.Format("{0} x {1}", Helper.instance.Dictionary["r_res_hor"], Helper.instance.Dictionary["r_res_vert"]);
+            string resolution                  = String.Format("{0} x {1}", Helper.instance.Dictionary["r_res_hor"],
+                                                    Helper.instance.Dictionary["r_res_vert"]);
             comboBoxResolution.Text            = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
 
             // Spinners
@@ -233,6 +234,9 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
+                MessageBox.Show(String.Format("Exception: {0}\n\n{1}",
+                    ex.Message, "Setting default values for volume, sensitivity, gamma and FOV."),
+                    "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Logger.WriteInformation<Helper>(ex.Message);
             }
         }
@@ -254,7 +258,9 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Logger.WriteInformation<Helper>(ex.Message);
+                MessageBox.Show(String.Format("There was a problem opening the following process:\n\n{0}", filename.ToString()),
+                    "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Logger.WriteInformation<Helper>(ex.Message, filename.ToString());
             }
         }
 
