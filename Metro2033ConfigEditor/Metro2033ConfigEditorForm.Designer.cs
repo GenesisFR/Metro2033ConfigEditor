@@ -293,7 +293,7 @@
             this.linkLabelAuthor.Size = new System.Drawing.Size(130, 17);
             this.linkLabelAuthor.TabIndex = 45;
             this.linkLabelAuthor.TabStop = true;
-            this.linkLabelAuthor.Text = "v1.26 - Made by Genesis";
+            this.linkLabelAuthor.Text = "v1.27 - Made by Genesis";
             this.linkLabelAuthor.UseCompatibleTextRendering = true;
             this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAuthor_LinkClicked);
             // 
