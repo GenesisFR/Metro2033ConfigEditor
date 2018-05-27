@@ -427,6 +427,11 @@ namespace Metro2033ConfigEditor
             StartProcess("https://github.com/GenesisFR/Metro2033ConfigEditor/issues");
         }
 
+        private void ButtonDonate_Click(object sender, EventArgs e)
+        {
+            StartProcess("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X8KPQY9YGX4XQ");
+        }
+
         private void LinkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelAuthor.LinkVisited = true;

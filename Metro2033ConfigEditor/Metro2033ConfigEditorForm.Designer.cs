@@ -139,6 +139,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.fileSystemWatcherNoIntro = new System.IO.FileSystemWatcher();
             this.buttonReportBug = new System.Windows.Forms.Button();
+            this.buttonDonate = new System.Windows.Forms.Button();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -160,7 +161,7 @@
             // 
             // buttonReload
             // 
-            this.buttonReload.Location = new System.Drawing.Point(441, 480);
+            this.buttonReload.Location = new System.Drawing.Point(441, 488);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(49, 23);
             this.buttonReload.TabIndex = 45;
@@ -198,7 +199,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(496, 480);
+            this.buttonSave.Location = new System.Drawing.Point(496, 488);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(49, 23);
             this.buttonSave.TabIndex = 46;
@@ -208,7 +209,7 @@
             // 
             // buttonStartGameSteam
             // 
-            this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 480);
+            this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 488);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
             this.buttonStartGameSteam.TabIndex = 48;
@@ -246,7 +247,7 @@
             // 
             // buttonStartGameNoSteam
             // 
-            this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 480);
+            this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 488);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
             this.buttonStartGameNoSteam.TabIndex = 47;
@@ -287,7 +288,7 @@
             this.linkLabelAuthor.AllowDrop = true;
             this.linkLabelAuthor.AutoSize = true;
             this.linkLabelAuthor.LinkArea = new System.Windows.Forms.LinkArea(16, 7);
-            this.linkLabelAuthor.Location = new System.Drawing.Point(95, 485);
+            this.linkLabelAuthor.Location = new System.Drawing.Point(95, 493);
             this.linkLabelAuthor.Name = "linkLabelAuthor";
             this.linkLabelAuthor.Size = new System.Drawing.Size(130, 17);
             this.linkLabelAuthor.TabIndex = 43;
@@ -325,7 +326,7 @@
             this.tabVideo.Location = new System.Drawing.Point(4, 22);
             this.tabVideo.Name = "tabVideo";
             this.tabVideo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVideo.Size = new System.Drawing.Size(787, 334);
+            this.tabVideo.Size = new System.Drawing.Size(787, 314);
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
             this.tabVideo.UseVisualStyleBackColor = true;
@@ -942,7 +943,7 @@
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(787, 334);
+            this.tabGeneral.Size = new System.Drawing.Size(787, 324);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             // 
@@ -1363,7 +1364,7 @@
             this.tabControl.Location = new System.Drawing.Point(10, 105);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(795, 360);
+            this.tabControl.Size = new System.Drawing.Size(795, 350);
             this.tabControl.TabIndex = 10;
             // 
             // linkLabelUpdateAvailable
@@ -1371,7 +1372,7 @@
             this.linkLabelUpdateAvailable.AllowDrop = true;
             this.linkLabelUpdateAvailable.AutoSize = true;
             this.linkLabelUpdateAvailable.LinkArea = new System.Windows.Forms.LinkArea(6, 6);
-            this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 485);
+            this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 493);
             this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
             this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(135, 17);
             this.linkLabelUpdateAvailable.TabIndex = 44;
@@ -1412,7 +1413,7 @@
             // 
             // buttonReportBug
             // 
-            this.buttonReportBug.Location = new System.Drawing.Point(9, 480);
+            this.buttonReportBug.Location = new System.Drawing.Point(9, 460);
             this.buttonReportBug.Name = "buttonReportBug";
             this.buttonReportBug.Size = new System.Drawing.Size(80, 23);
             this.buttonReportBug.TabIndex = 42;
@@ -1420,11 +1421,22 @@
             this.buttonReportBug.UseVisualStyleBackColor = true;
             this.buttonReportBug.Click += new System.EventHandler(this.ButtonReportBug_Click);
             // 
+            // buttonDonate
+            // 
+            this.buttonDonate.Location = new System.Drawing.Point(9, 488);
+            this.buttonDonate.Name = "buttonDonate";
+            this.buttonDonate.Size = new System.Drawing.Size(80, 23);
+            this.buttonDonate.TabIndex = 49;
+            this.buttonDonate.Text = "Donate";
+            this.buttonDonate.UseVisualStyleBackColor = true;
+            this.buttonDonate.Click += new System.EventHandler(this.ButtonDonate_Click);
+            // 
             // Metro2033ConfigEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 516);
+            this.Controls.Add(this.buttonDonate);
             this.Controls.Add(this.buttonReportBug);
             this.Controls.Add(this.linkLabelUpdateAvailable);
             this.Controls.Add(this.linkLabelAuthor);
@@ -1591,6 +1603,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.IO.FileSystemWatcher fileSystemWatcherNoIntro;
         private System.Windows.Forms.Button buttonReportBug;
+        private System.Windows.Forms.Button buttonDonate;
     }
 }
 
