@@ -424,7 +424,7 @@ namespace Metro2033ConfigEditor
                 comboBoxResolution.SelectedItem = "Custom resolution";
         }
 
-        private void buttonReportBug_Click(object sender, EventArgs e)
+        private void ButtonReportBug_Click(object sender, EventArgs e)
         {
             StartProcess("https://github.com/GenesisFR/Metro2033ConfigEditor/issues");
         }
@@ -499,7 +499,7 @@ namespace Metro2033ConfigEditor
             // Start timing
             Stopwatch stopwatch = Stopwatch.StartNew();
 
-            e.Result = Helper.instance.CheckForUpdate();
+            e.Result = Helper.instance.IsUpdateAvailable();
 
             // Report time
             stopwatch.Stop();

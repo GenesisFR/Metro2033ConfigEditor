@@ -417,25 +417,7 @@ namespace Metro2033ConfigEditor
         }
 
         // Network methods
-        public bool CheckForUpdate()
-        {
-            if (!IsInternetAvailable())
-                return false;
-
-            // Get repository version
-            string result = DownloadStringAsync().Result;
-
-            // Get local minor version
-            int localMinor = Assembly.GetEntryAssembly().GetName().Version.Minor;
-
-            // Get repository minor version
-            string[] splitResult = result.Split('.');
-            int remoteMinor = Convert.ToInt32(splitResult[1]);
-
-            return localMinor < remoteMinor;
-        }
-
-        private async Task<string> DownloadStringAsync()
+        private async Task<Version> DownloadStringAsync()
         {
             // Initialize result to local version
             Version version = Assembly.GetEntryAssembly().GetName().Version;
@@ -456,7 +438,14 @@ namespace Metro2033ConfigEditor
                 Logger.WriteInformation<Helper>(ex.Message);
             }
 
-            return result;
+            try
+            {
+                return new Version(result);
+            }
+            catch
+            {
+                return version;
+            }
         }
 
         public bool IsInternetAvailable()
@@ -470,6 +459,21 @@ namespace Metro2033ConfigEditor
             {
                 return false;
             }
+        }
+
+        public bool IsUpdateAvailable()
+        {
+            if (!IsInternetAvailable())
+                return false;
+
+            // Get local version
+            Version localVersion = Assembly.GetEntryAssembly().GetName().Version;
+
+            // Get repository version
+            Version remoteVersion = DownloadStringAsync().Result;
+
+            // Compare versions
+            return localVersion.CompareTo(remoteVersion) < 0;
         }
 
         // Conversion methods
