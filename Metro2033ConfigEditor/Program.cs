@@ -12,11 +12,10 @@ namespace Metro2033ConfigEditor
         static void Main(params string[] args)
         {
             // Enable logging
-            if (args.Length != 0 && args[0] == "-log")
-                Logger.enabled = true;
+            Logger.enabled = args.Length != 0 && args[0] == "-log";
 
             // Make sure another instance is not running
-            if (!Helper.IsSingleInstance())
+            if (!Instance.IsSingleInstance())
             {
                 MessageBox.Show("An instance of this program is already running!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

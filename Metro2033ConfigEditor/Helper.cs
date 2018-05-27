@@ -11,7 +11,6 @@ namespace Metro2033ConfigEditor
 {
     public sealed class Helper
     {
-        private static Mutex _mutex;
         public static readonly Helper instance = new Helper();
 
         Helper()
@@ -60,28 +59,6 @@ namespace Metro2033ConfigEditor
         }
 
         // General methods
-        public static bool IsSingleInstance()
-        {
-            string guid = Assembly.GetEntryAssembly().GetType().GUID.ToString();
-
-            try
-            {
-                // Try to open an existing mutex
-                Mutex.OpenExisting(guid);
-            }
-            catch
-            {
-                // If an exception occurred, there is no such mutex
-                _mutex = new Mutex(true, guid);
-
-                // Only one instance
-                return true;
-            }
-
-            // More than one instance
-            return false;
-        }
-
         private void AddKeyIfMissing(string key, string value)
         {
             if (!Dictionary.ContainsKey(key))
