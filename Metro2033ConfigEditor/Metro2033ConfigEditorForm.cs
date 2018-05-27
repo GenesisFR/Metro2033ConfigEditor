@@ -43,14 +43,14 @@ namespace Metro2033ConfigEditor
             else
             {
                 string steamPath = Helper.instance.SteamInstallPath != null ? String.Format(@"{0}\{1}", Helper.instance.SteamInstallPath,
-                @"userdata\<userid>\43110\remote\") : @"Steam\userdata\<userid>\43110\remote\";
+                    @"userdata\<userid>\43110\remote\") : @"Steam\userdata\<userid>\43110\remote\";
 
                 DialogResult result = MessageBox.Show(String.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
-                        "We were not able to locate the config file for Metro2033, please run the game at least once to generate it.",
-                        "You can also point to its location by using the corresponding Browse button. It should be located here:",
-                        steamPath, "Do you want to run the game now?"),
-                        "Config not found",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    "We were not able to locate the config file for Metro2033, please run the game at least once to generate it.",
+                    "You can also point to its location by using the corresponding Browse button. It should be located here:",
+                    steamPath, "Do you want to run the game now?"),
+                    "Config not found",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
                 if (result == DialogResult.Yes)
                     buttonStartGameSteam.PerformClick();
@@ -218,8 +218,7 @@ namespace Metro2033ConfigEditor
             comboBoxDirectX.Text               = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
             comboBoxAntialiasing.Text          = Helper.instance.Dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
             comboBoxQuality.Text               = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
-            string resolution                  = String.Format("{0} x {1}", Helper.instance.Dictionary["r_res_hor"],
-                                                    Helper.instance.Dictionary["r_res_vert"]);
+            string resolution                  = $"{Helper.instance.Dictionary["r_res_hor"]} x {Helper.instance.Dictionary["r_res_vert"]}";
             comboBoxResolution.Text            = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
 
             // Spinners
@@ -234,8 +233,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show(String.Format("Exception: {0}\n\n{1}",
-                    ex.Message, "Setting default values for volume, sensitivity, gamma and FOV."),
+                MessageBox.Show($"Exception: {ex.Message}\n\nSetting default values for volume, sensitivity, gamma and FOV.",
                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Logger.WriteInformation<Helper>(ex.Message);
             }
@@ -258,7 +256,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show(String.Format("There was a problem opening the following process:\n\n{0}", filename.ToString()),
+                MessageBox.Show($"There was a problem opening the following process:\n\n{filename.ToString()}",
                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Logger.WriteInformation<Helper>(ex.Message, filename.ToString());
             }
@@ -298,7 +296,7 @@ namespace Metro2033ConfigEditor
             dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString();
             dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString();
             dictionary["r_gamma"]           = spinnerGamma.Value.Equals(1) ? "1." : spinnerGamma.Value.ToString();
-            dictionary["sick_fov"]          = String.Format("{0}.", spinnerFov.Value.ToString());
+            dictionary["sick_fov"]          = $"{spinnerFov.Value.ToString()}.";
 
             // Textboxes
             dictionary["r_res_hor"]         = textBoxWidth.Text;
@@ -314,7 +312,7 @@ namespace Metro2033ConfigEditor
                 folderBrowserDialog.ShowNewFolderButton = false;
 
                 // Show the dialog and get result.
-                if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
                     Helper.instance.SteamInstallPath = folderBrowserDialog.SelectedPath.ToLower();
                     buttonStartGameSteam.Enabled     = File.Exists(Path.Combine(Helper.instance.SteamInstallPath, "Steam.exe"));
@@ -331,7 +329,7 @@ namespace Metro2033ConfigEditor
                 openFileDialog.InitialDirectory = Path.Combine(Helper.instance.SteamInstallPath, "userdata");
 
                 // Show the dialog and get result.
-                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Helper.instance.ConfigFilePath = openFileDialog.FileName.ToLower();
                     textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath;
@@ -353,7 +351,7 @@ namespace Metro2033ConfigEditor
                 openFileDialog.InitialDirectory = Helper.instance.GameInstallPath;
 
                 // Show the dialog and get result.
-                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Helper.instance.GameInstallPath    = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
                     Helper.instance.GameExecutablePath = openFileDialog.FileName.ToLower();
@@ -503,7 +501,7 @@ namespace Metro2033ConfigEditor
 
             // Report time
             stopwatch.Stop();
-            Console.WriteLine("Time required: {0} ms", stopwatch.Elapsed.TotalMilliseconds);
+            Console.WriteLine($"Time required: {stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

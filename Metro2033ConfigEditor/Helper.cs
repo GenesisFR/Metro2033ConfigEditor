@@ -394,9 +394,9 @@ namespace Metro2033ConfigEditor
                 foreach (string key in Dictionary.Keys)
                 {
                     if (Dictionary[key] != "")
-                        fileLines += String.Format("{0} {1}\r\n", key, Dictionary[key]);
+                        fileLines += $"{key} {Dictionary[key]}\r\n";
                     else
-                        fileLines += String.Format("{0}\r\n", key);
+                        fileLines += $"{key}\r\n";
                 }
 
                 // Write everything back to the config
@@ -421,7 +421,7 @@ namespace Metro2033ConfigEditor
         {
             // Initialize result to local version
             Version version = Assembly.GetEntryAssembly().GetName().Version;
-            string result = String.Format("{0}.{1}", version.Major, version.Minor);
+            string result = $"{version.Major}.{version.Minor}";
 
             try
             {

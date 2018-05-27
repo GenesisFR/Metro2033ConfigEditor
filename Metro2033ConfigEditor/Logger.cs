@@ -36,7 +36,7 @@ namespace Metro2033ConfigEditor
 
         public static void WriteInformation<T>(string message = "", object param = null, [CallerMemberName]string method = "")
         {
-            string info = String.Format("{0}.{1}({2}): {3}", typeof(T).Name, method, param != null ? param.ToString() : "", message);
+            string info = $"{typeof(T).Name}.{method}({(param != null ? param.ToString() : "")}): {message}";
             Append(info);
         }
 
@@ -47,7 +47,7 @@ namespace Metro2033ConfigEditor
                 if (enabled)
                 {
                     string logFileName = Process.GetCurrentProcess().ProcessName + ".log";
-                    _content = String.Format("{0}\n{1}\n{2}", GetSystemInfo(), GetPathInfo(), _content);
+                    _content = $"{GetSystemInfo()}\n{GetPathInfo()}\n{_content}";
                     File.AppendAllText(logFileName, _content);
                 }
             }

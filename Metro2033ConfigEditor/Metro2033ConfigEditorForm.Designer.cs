@@ -1418,7 +1418,7 @@
             this.buttonReportBug.TabIndex = 42;
             this.buttonReportBug.Text = "Report a bug";
             this.buttonReportBug.UseVisualStyleBackColor = true;
-            this.buttonReportBug.Click += new System.EventHandler(this.buttonReportBug_Click);
+            this.buttonReportBug.Click += new System.EventHandler(this.ButtonReportBug_Click);
             // 
             // Metro2033ConfigEditorForm
             // 
