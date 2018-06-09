@@ -43,7 +43,6 @@
             this.buttonBrowseSteamInstallPath = new System.Windows.Forms.Button();
             this.textBoxSteamInstallPath = new System.Windows.Forms.TextBox();
             this.labelSteamInstallPath = new System.Windows.Forms.Label();
-            this.linkLabelAuthor = new System.Windows.Forms.LinkLabel();
             this.tabVideo = new System.Windows.Forms.TabPage();
             this.labelResolutionNote = new System.Windows.Forms.Label();
             this.checkBoxGlobalIllumination = new System.Windows.Forms.CheckBox();
@@ -164,7 +163,7 @@
             this.buttonReload.Location = new System.Drawing.Point(441, 488);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(49, 23);
-            this.buttonReload.TabIndex = 47;
+            this.buttonReload.TabIndex = 46;
             this.buttonReload.Text = "Reload";
             this.buttonReload.UseVisualStyleBackColor = true;
             this.buttonReload.Click += new System.EventHandler(this.ButtonReload_Click);
@@ -202,7 +201,7 @@
             this.buttonSave.Location = new System.Drawing.Point(496, 488);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(49, 23);
-            this.buttonSave.TabIndex = 48;
+            this.buttonSave.TabIndex = 47;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
@@ -212,7 +211,7 @@
             this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 488);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
-            this.buttonStartGameSteam.TabIndex = 50;
+            this.buttonStartGameSteam.TabIndex = 49;
             this.buttonStartGameSteam.Text = "Start game (Steam)";
             this.buttonStartGameSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameSteam.Click += new System.EventHandler(this.ButtonStartGameSteam_Click);
@@ -250,7 +249,7 @@
             this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 488);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
-            this.buttonStartGameNoSteam.TabIndex = 49;
+            this.buttonStartGameNoSteam.TabIndex = 48;
             this.buttonStartGameNoSteam.Text = "Start game (non-Steam)";
             this.buttonStartGameNoSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameNoSteam.Click += new System.EventHandler(this.ButtonStartGameNoSteam_Click);
@@ -283,20 +282,6 @@
             this.labelSteamInstallPath.TabIndex = 1;
             this.labelSteamInstallPath.Text = "Steam install path";
             // 
-            // linkLabelAuthor
-            // 
-            this.linkLabelAuthor.AllowDrop = true;
-            this.linkLabelAuthor.AutoSize = true;
-            this.linkLabelAuthor.LinkArea = new System.Windows.Forms.LinkArea(16, 7);
-            this.linkLabelAuthor.Location = new System.Drawing.Point(95, 493);
-            this.linkLabelAuthor.Name = "linkLabelAuthor";
-            this.linkLabelAuthor.Size = new System.Drawing.Size(130, 17);
-            this.linkLabelAuthor.TabIndex = 45;
-            this.linkLabelAuthor.TabStop = true;
-            this.linkLabelAuthor.Text = "v1.27 - Made by Genesis";
-            this.linkLabelAuthor.UseCompatibleTextRendering = true;
-            this.linkLabelAuthor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelAuthor_LinkClicked);
-            // 
             // tabVideo
             // 
             this.tabVideo.Controls.Add(this.labelResolutionNote);
@@ -326,7 +311,7 @@
             this.tabVideo.Location = new System.Drawing.Point(4, 22);
             this.tabVideo.Name = "tabVideo";
             this.tabVideo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVideo.Size = new System.Drawing.Size(787, 324);
+            this.tabVideo.Size = new System.Drawing.Size(787, 339);
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
             this.tabVideo.UseVisualStyleBackColor = true;
@@ -943,7 +928,7 @@
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(787, 324);
+            this.tabGeneral.Size = new System.Drawing.Size(787, 339);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             // 
@@ -1364,7 +1349,7 @@
             this.tabControl.Location = new System.Drawing.Point(10, 105);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(795, 350);
+            this.tabControl.Size = new System.Drawing.Size(795, 365);
             this.tabControl.TabIndex = 10;
             // 
             // linkLabelUpdateAvailable
@@ -1375,7 +1360,7 @@
             this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 493);
             this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
             this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(135, 17);
-            this.linkLabelUpdateAvailable.TabIndex = 46;
+            this.linkLabelUpdateAvailable.TabIndex = 45;
             this.linkLabelUpdateAvailable.TabStop = true;
             this.linkLabelUpdateAvailable.Text = "A new update is available!";
             this.linkLabelUpdateAvailable.UseCompatibleTextRendering = true;
@@ -1413,7 +1398,7 @@
             // 
             // buttonReportBug
             // 
-            this.buttonReportBug.Location = new System.Drawing.Point(9, 460);
+            this.buttonReportBug.Location = new System.Drawing.Point(9, 488);
             this.buttonReportBug.Name = "buttonReportBug";
             this.buttonReportBug.Size = new System.Drawing.Size(80, 23);
             this.buttonReportBug.TabIndex = 43;
@@ -1423,7 +1408,7 @@
             // 
             // buttonDonate
             // 
-            this.buttonDonate.Location = new System.Drawing.Point(9, 488);
+            this.buttonDonate.Location = new System.Drawing.Point(95, 488);
             this.buttonDonate.Name = "buttonDonate";
             this.buttonDonate.Size = new System.Drawing.Size(80, 23);
             this.buttonDonate.TabIndex = 44;
@@ -1439,7 +1424,6 @@
             this.Controls.Add(this.buttonDonate);
             this.Controls.Add(this.buttonReportBug);
             this.Controls.Add(this.linkLabelUpdateAvailable);
-            this.Controls.Add(this.linkLabelAuthor);
             this.Controls.Add(this.buttonBrowseSteamInstallPath);
             this.Controls.Add(this.textBoxSteamInstallPath);
             this.Controls.Add(this.labelSteamInstallPath);
@@ -1459,7 +1443,7 @@
             this.MaximizeBox = false;
             this.Name = "Metro2033ConfigEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Metro 2033 Config Editor";
+            this.Text = "Metro 2033 Config Editor v1.28";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Metro2033ConfigEditorForm_Closing);
             this.Shown += new System.EventHandler(this.Metro2033ConfigEditorForm_Shown);
             this.tabVideo.ResumeLayout(false);
@@ -1507,7 +1491,6 @@
         private System.Windows.Forms.Button buttonBrowseSteamInstallPath;
         private System.Windows.Forms.TextBox textBoxSteamInstallPath;
         private System.Windows.Forms.Label labelSteamInstallPath;
-        private System.Windows.Forms.LinkLabel linkLabelAuthor;
         private System.Windows.Forms.TabPage tabVideo;
         private System.Windows.Forms.CheckBox checkBoxGlobalIllumination;
         private System.Windows.Forms.GroupBox groupBoxDescription;

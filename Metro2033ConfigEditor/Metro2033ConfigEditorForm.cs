@@ -432,12 +432,6 @@ namespace Metro2033ConfigEditor
             StartProcess("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X8KPQY9YGX4XQ");
         }
 
-        private void LinkLabelAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            linkLabelAuthor.LinkVisited = true;
-            StartProcess("https://github.com/GenesisFR");
-        }
-
         private void LinkLabelUpdateAvailable_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabelUpdateAvailable.LinkVisited = true;
