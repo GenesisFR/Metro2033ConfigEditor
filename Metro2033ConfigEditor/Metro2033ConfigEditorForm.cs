@@ -22,42 +22,7 @@ namespace Metro2033ConfigEditor
 
         private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
         {
-            // Set textboxes
-            textBoxSteamInstallPath.Text   = Helper.instance.SteamInstallPath ?? "Steam not found";
-            textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath ?? "Config not found";
-            textBoxGameExecutablePath.Text = Helper.instance.GameExecutablePath ?? "Game not found";
-
-            // Set button states
-            buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
-            buttonSave.Enabled             = Helper.instance.ConfigFilePath != null;
-            buttonStartGameNoSteam.Enabled = Helper.instance.GameInstallPath != null;
-            buttonStartGameSteam.Enabled   = Helper.instance.SteamInstallPath != null;
-
-            if (Helper.instance.ConfigFilePath != null)
-            {
-                fileSystemWatcherConfig.Path = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
-
-                // Read the config file
-                buttonReload.PerformClick();
-            }
-            else
-            {
-                string steamPath = Helper.instance.SteamInstallPath != null ? String.Format(@"{0}\{1}", Helper.instance.SteamInstallPath,
-                    @"userdata\<userid>\43110\remote\") : @"Steam\userdata\<userid>\43110\remote\";
-
-                DialogResult result = MessageBox.Show(String.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
-                    "We were not able to locate the config file for Metro2033, please run the game at least once to generate it.",
-                    "You can also point to its location by using the corresponding Browse button. It should be located here:",
-                    steamPath, "Do you want to run the game now?"),
-                    "Config not found",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-
-                if (result == DialogResult.Yes)
-                    buttonStartGameSteam.PerformClick();
-            }
-
-            if (Helper.instance.GameInstallPath != null)
-                fileSystemWatcherNoIntro.Path = Helper.instance.GameInstallPath;
+            refreshUI();
         }
 
         private void Metro2033ConfigEditorForm_Closing(object sender, FormClosingEventArgs e)
@@ -239,6 +204,43 @@ namespace Metro2033ConfigEditor
             }
         }
 
+        private void refreshUI()
+        {
+            // Set textboxes
+            textBoxSteamInstallPath.Text   = Helper.instance.SteamInstallPath ?? "Steam not found";
+            textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath ?? "Config not found";
+            textBoxGameExecutablePath.Text = Helper.instance.GameExecutablePath ?? "Game not found";
+
+            // Set button states
+            buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
+            buttonSave.Enabled             = Helper.instance.ConfigFilePath != null;
+            buttonStartGameNoSteam.Enabled = Helper.instance.GameInstallPath != null;
+            buttonStartGameSteam.Enabled   = Helper.instance.SteamInstallPath != null;
+
+            if (Helper.instance.ConfigFilePath != null)
+            {
+                fileSystemWatcherConfig.Path = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
+
+                // Read the config file
+                buttonReload.PerformClick();
+            }
+            else
+            {
+                string steamPath = Helper.instance.SteamInstallPath != null ? String.Format(@"{0}\{1}", Helper.instance.SteamInstallPath,
+                    @"userdata\<userid>\43110\remote\") : @"Steam\userdata\<userid>\43110\remote\";
+
+                DialogResult result = MessageBox.Show(String.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
+                    "We were not able to locate the config file for Metro2033, please run the game at least once to generate it.",
+                    "You can also point to its location by using the corresponding Browse button. It should be located here:",
+                    steamPath, "Do you want to run the game now?"),
+                    "Config not found",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                if (result == DialogResult.Yes)
+                    buttonStartGameSteam.PerformClick();
+            }
+        }
+
         private void StartProcess(object filename)
         {
             try
@@ -303,7 +305,7 @@ namespace Metro2033ConfigEditor
             dictionary["r_res_vert"]        = textBoxHeight.Text;
         }
 
-        // EVENT HANDLERS
+        // Event handlers
         private void ButtonBrowseSteamInstallPath_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
@@ -311,12 +313,18 @@ namespace Metro2033ConfigEditor
                 folderBrowserDialog.Description = "Please locate your Steam installation directory.";
                 folderBrowserDialog.ShowNewFolderButton = false;
 
-                // Show the dialog and get result.
+                // Show the dialog
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Helper.instance.SteamInstallPath = folderBrowserDialog.SelectedPath.ToLower();
-                    buttonStartGameSteam.Enabled     = File.Exists(Path.Combine(Helper.instance.SteamInstallPath, "Steam.exe"));
-                    textBoxSteamInstallPath.Text     = buttonStartGameSteam.Enabled ? Helper.instance.SteamInstallPath : "Steam not found";
+                    if (File.Exists(Path.Combine(folderBrowserDialog.SelectedPath, "Steam.exe")))
+                    {
+                        Helper.instance.SteamInstallPath = folderBrowserDialog.SelectedPath.ToLower();
+
+                        // Find config and game paths automatically
+                        Helper.instance.UpdateConfigAndGamePaths();
+
+                        refreshUI();
+                    }
                 }
             }
         }
@@ -328,7 +336,7 @@ namespace Metro2033ConfigEditor
                 openFileDialog.Filter = "Metro 2033 config file|user.cfg";
                 openFileDialog.InitialDirectory = Path.Combine(Helper.instance.SteamInstallPath, "userdata");
 
-                // Show the dialog and get result.
+                // Show the dialog
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Helper.instance.ConfigFilePath = openFileDialog.FileName.ToLower();
@@ -350,7 +358,7 @@ namespace Metro2033ConfigEditor
                 openFileDialog.Filter = "Metro 2033 executable|metro2033.exe";
                 openFileDialog.InitialDirectory = Helper.instance.GameInstallPath;
 
-                // Show the dialog and get result.
+                // Show the dialog
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Helper.instance.GameInstallPath    = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();

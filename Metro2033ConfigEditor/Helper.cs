@@ -110,6 +110,13 @@ namespace Metro2033ConfigEditor
             return true;
         }
 
+        public void UpdateConfigAndGamePaths()
+        {
+            ConfigFilePath     = GetConfigPath();
+            GameInstallPath    = GetGameInstallPath();
+            GameExecutablePath = GetGameExecutablePath();
+        }
+
         // Getters
         private string GetSteamInstallPath()
         {
