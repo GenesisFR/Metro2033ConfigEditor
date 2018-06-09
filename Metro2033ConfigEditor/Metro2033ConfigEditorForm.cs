@@ -334,7 +334,9 @@ namespace Metro2033ConfigEditor
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Metro 2033 config file|user.cfg";
-                openFileDialog.InitialDirectory = Path.Combine(Helper.instance.SteamInstallPath, "userdata");
+
+                if (Helper.instance.SteamInstallPath != null)
+                    openFileDialog.InitialDirectory = Path.Combine(Helper.instance.SteamInstallPath, "userdata");
 
                 // Show the dialog
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
