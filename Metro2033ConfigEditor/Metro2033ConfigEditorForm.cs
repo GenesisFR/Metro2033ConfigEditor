@@ -227,7 +227,7 @@ namespace Metro2033ConfigEditor
             else
             {
                 string steamPath = Helper.instance.SteamInstallPath != null ? String.Format(@"{0}\{1}", Helper.instance.SteamInstallPath,
-                    @"userdata\<userid>\43110\remote\") : @"Steam\userdata\<userid>\43110\remote\";
+                    @"userdata\<user-id>\43110\remote\") : @"Steam\userdata\<user-id>\43110\remote\";
 
                 DialogResult result = MessageBox.Show(String.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
                     "We were not able to locate the config file for Metro2033, please run the game at least once to generate it.",

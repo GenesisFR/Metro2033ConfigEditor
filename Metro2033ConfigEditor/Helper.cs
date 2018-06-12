@@ -125,18 +125,25 @@ namespace Metro2033ConfigEditor
             #endif
 
             // Look for Steam from the registry, then in Program Files, then from the current directory
-            return GetSteamInstallFromRegistry() ?? GetSteamInstallInProgramFiles() ?? GetSteamInstallFromCurrentDir();
+            return GetSteamInstallPathRegistry() ?? GetSteamInstallPathProgramFiles() ?? GetSteamInstallPathCurrentDir();
         }
 
-        private string GetSteamInstallFromRegistry()
+        private string GetSteamInstallPathRegistry()
         {
             try
             {
-                // Look for Steam from the registry
-                object key = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", null);
+                RegistryKey key = Registry.LocalMachine.OpenSubKey(@"Software\Wow6432Node\Valve\Steam") ??
+                    Registry.LocalMachine.OpenSubKey(@"Software\Valve\Steam") ??
+                    Registry.CurrentUser.OpenSubKey(@"Software\Wow6432Node\Valve\Steam") ??
+                    Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam");
 
                 if (key != null)
-                    return key.ToString().Replace('/', '\\').ToLower();
+                {
+                    object value = key.GetValue("InstallPath") ?? key.GetValue("SteamPath");
+
+                    if (value != null)
+                        return value.ToString().Replace("/", @"\").ToLower();
+                }
             }
             catch (Exception ex)
             {
@@ -146,11 +153,10 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
-        private string GetSteamInstallInProgramFiles()
+        private string GetSteamInstallPathProgramFiles()
         {
             try
             {
-                // Look for Steam in Program Files
                 string progFilesSteamExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
                     @"Steam\Steam.exe");
                 string progFilesSteamExeX86 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
@@ -170,11 +176,10 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
-        private string GetSteamInstallFromCurrentDir()
+        private string GetSteamInstallPathCurrentDir()
         {
             try
             {
-                // Look for Steam in the current directory
                 string currentDir = Directory.GetCurrentDirectory();
 
                 if (currentDir.Contains(@"Steam\steamapps"))
@@ -195,22 +200,25 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
+        // Based on LibraryFolders() https://github.com/Jamedjo/RSTabExplorer/blob/master/RockSmithTabExplorer/Services/RocksmithLocator.cs
         private List<string> GetSteamLibraryDirs()
         {
             List<string> steamLibDirs = new List<string>();
 
-            if (SteamInstallPath != null)
-                steamLibDirs.Add(SteamInstallPath);
-
             try
             {
-                string configFile = Path.Combine(SteamInstallPath, @"config\config.vdf");
+                // Games can be installed to the Steam directory
+                if (SteamInstallPath != null)
+                    steamLibDirs.Add(SteamInstallPath);
+
+                // Used to find BaseInstallFolder_ in a string and split "" into separate groups
                 Regex regex = new Regex("BaseInstallFolder[^\"]*\"\\s*\"([^\"]*)\"");
 
-                // Parse config.vdf and extract lines containing BaseInstallFolder_ to get Steam library directories
-                using (StreamReader reader = new StreamReader(configFile))
+                // Parse config.vdf and extract relevant lines to get Steam library directories
+                using (StreamReader reader = new StreamReader(Path.Combine(SteamInstallPath, @"config\config.vdf")))
                 {
                     string line;
+
                     while ((line = reader.ReadLine()) != null)
                     {
                         Match match = regex.Match(line);
@@ -243,17 +251,18 @@ namespace Metro2033ConfigEditor
         {
             try
             {
-                // Accessing HKLM is different than HKCU
-                using (RegistryKey localKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
-                    Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32))
-                using (RegistryKey installKey = localKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110"))
+                RegistryKey key =
+                    Registry.LocalMachine.OpenSubKey(@"Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110") ??
+                    Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110") ??
+                    Registry.CurrentUser.OpenSubKey(@"Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110") ??
+                    Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 43110");
+
+                if (key != null)
                 {
-                    if (installKey != null)
-                    {
-                        object installLocation = installKey.GetValue("InstallLocation", null);
-                        if (installLocation != null)
-                            return installLocation.ToString().Replace('/', '\\').ToLower();
-                    }
+                    object value = key.GetValue("InstallLocation");
+
+                    if (value != null)
+                        return value.ToString().Replace("/", @"\").ToLower();
                 }
             }
             catch (Exception ex)
