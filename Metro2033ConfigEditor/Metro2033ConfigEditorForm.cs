@@ -228,39 +228,35 @@ namespace Metro2033ConfigEditor
             {
                 string steamPath = Helper.instance.SteamInstallPath != null ? String.Format(@"{0}\{1}", Helper.instance.SteamInstallPath,
                     @"userdata\<user-id>\43110\remote\") : @"Steam\userdata\<user-id>\43110\remote\";
-
-                DialogResult result = MessageBox.Show(String.Format("{0}\n\n{1}\n\n{2}\n\n{3}",
-                    "We were not able to locate the config file for Metro2033, please run the game at least once to generate it.",
+                string text = String.Format("{0}\n\n{1}\n\n{2}{3}",
+                    "We were not able to locate the config file for Metro 2033, please run the game at least once to generate it.",
                     "You can also point to its location by using the corresponding Browse button. It should be located here:",
-                    steamPath, "Do you want to run the game now?"),
-                    "Config not found",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    steamPath,
+                    Helper.instance.SteamInstallPath != null ? "\n\nDo you want to run the game now?" : "");
 
-                if (result == DialogResult.Yes)
+                if (MessageBox.Show(text, "Config not found", Helper.instance.SteamInstallPath != null ? MessageBoxButtons.YesNo :
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                     buttonStartGameSteam.PerformClick();
             }
         }
 
-        private void StartProcess(object filename)
+        private void StartProcess(object path)
         {
+            ProcessStartInfo pathStartInfo = path is ProcessStartInfo ? (ProcessStartInfo)path : new ProcessStartInfo(path.ToString());
+
             try
             {
                 using (Process proc = new Process())
                 {
-                    if (filename is string)
-                        proc.StartInfo.FileName = filename.ToString();
-                    else if (filename is ProcessStartInfo)
-                        proc.StartInfo = (ProcessStartInfo)filename;
-
+                    proc.StartInfo = pathStartInfo;
                     proc.Start();
-                    proc.Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"There was a problem opening the following process:\n\n{filename.ToString()}",
+                MessageBox.Show($"There was a problem opening the following process:\n\n{pathStartInfo.FileName}",
                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Logger.WriteInformation<Helper>(ex.Message, filename.ToString());
+                Logger.WriteInformation<Helper>(ex.Message, pathStartInfo.FileName);
             }
         }
 
@@ -308,23 +304,21 @@ namespace Metro2033ConfigEditor
         // Event handlers
         private void ButtonBrowseSteamInstallPath_Click(object sender, EventArgs e)
         {
-            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                folderBrowserDialog.Description = "Please locate your Steam installation directory.";
-                folderBrowserDialog.ShowNewFolderButton = false;
+                openFileDialog.Filter = "Steam executable|Steam.exe";
+                openFileDialog.InitialDirectory = Helper.instance.SteamInstallPath ??
+                    Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
 
-                // Show the dialog
-                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                // Show a file browser
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (File.Exists(Path.Combine(folderBrowserDialog.SelectedPath, "Steam.exe")))
-                    {
-                        Helper.instance.SteamInstallPath = folderBrowserDialog.SelectedPath.ToLower();
+                    Helper.instance.SteamInstallPath = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
 
-                        // Find config and game paths automatically
-                        Helper.instance.UpdateConfigAndGamePaths();
+                    // Find config and game paths automatically
+                    Helper.instance.UpdateConfigAndGamePaths();
 
-                        refreshUI();
-                    }
+                    refreshUI();
                 }
             }
         }
@@ -334,11 +328,23 @@ namespace Metro2033ConfigEditor
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Metro 2033 config file|user.cfg";
-
-                if (Helper.instance.SteamInstallPath != null)
-                    openFileDialog.InitialDirectory = Path.Combine(Helper.instance.SteamInstallPath, "userdata");
-
-                // Show the dialog
+                // Pick config folder, then Steam folder, then Program Files
+                openFileDialog.InitialDirectory = Helper.instance.ConfigFilePath != null ?
+                    new FileInfo(Helper.instance.ConfigFilePath).DirectoryName : Helper.instance.SteamInstallPath != null ?
+                    Path.Combine(Helper.instance.SteamInstallPath, "userdata") :
+                    Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+                /*
+                if (Helper.instance.ConfigFilePath != null)
+                    openFileDialog.InitialDirectory = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
+                else
+                {
+                    if (Helper.instance.SteamInstallPath != null)
+                        openFileDialog.InitialDirectory = Path.Combine(Helper.instance.SteamInstallPath, "userdata");
+                    else
+                        openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+                }
+                //*/
+                // Show a file browser
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Helper.instance.ConfigFilePath = openFileDialog.FileName.ToLower();
@@ -360,7 +366,7 @@ namespace Metro2033ConfigEditor
                 openFileDialog.Filter = "Metro 2033 executable|metro2033.exe";
                 openFileDialog.InitialDirectory = Helper.instance.GameInstallPath;
 
-                // Show the dialog
+                // Show a file browser
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Helper.instance.GameInstallPath    = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
@@ -510,7 +516,7 @@ namespace Metro2033ConfigEditor
 
             // Report time
             stopwatch.Stop();
-            Console.WriteLine($"Time required: {stopwatch.Elapsed.TotalMilliseconds} ms");
+            Console.WriteLine($"Update time: {stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -529,10 +535,8 @@ namespace Metro2033ConfigEditor
                 while (!Helper.instance.IsFileReady(e.FullPath))
                     Console.WriteLine("File locked by another process");
 
-                DialogResult result = MessageBox.Show("The config file has been modified by another program. Do you want to reload it?",
-                    "Reload", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-
-                if (result == DialogResult.Yes)
+                if (MessageBox.Show("The config file has been modified by another program. Do you want to reload it?", "Reload",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                     buttonReload.PerformClick();
             }
             catch (Exception ex)

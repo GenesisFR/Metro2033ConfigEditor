@@ -124,7 +124,7 @@ namespace Metro2033ConfigEditor
                 return null;
             #endif
 
-            // Look for Steam from the registry, then in Program Files, then from the current directory
+            // Look for Steam from the registry, then in Program Files and finally from the current directory
             return GetSteamInstallPathRegistry() ?? GetSteamInstallPathProgramFiles() ?? GetSteamInstallPathCurrentDir();
         }
 
@@ -211,7 +211,7 @@ namespace Metro2033ConfigEditor
                 if (SteamInstallPath != null)
                     steamLibDirs.Add(SteamInstallPath);
 
-                // Used to find BaseInstallFolder_ in a string and split "" into separate groups
+                // Used to find BaseInstallFolder_ in a string and split text surrounded by double quotes into separate groups
                 Regex regex = new Regex("BaseInstallFolder[^\"]*\"\\s*\"([^\"]*)\"");
 
                 // Parse config.vdf and extract relevant lines to get Steam library directories
@@ -243,7 +243,7 @@ namespace Metro2033ConfigEditor
                 return null;
             #endif
 
-            // Look for the game from the registry, then from the current directory, then from the Steam library directories
+            // Look for the game from the registry, then from the current directory and finally from the Steam library directories
             return GetGameInstallPathFromRegistry() ?? GetGameInstallPathFromCurrentDir() ?? GetGameInstallPathFromSteamLibDirs();
         }
 
@@ -277,7 +277,6 @@ namespace Metro2033ConfigEditor
         {
             try
             {
-                // Look for the game in the current directory
                 string currentDir = Directory.GetCurrentDirectory();
 
                 if (File.Exists(Path.Combine(currentDir, "metro2033.exe")))
@@ -295,7 +294,6 @@ namespace Metro2033ConfigEditor
         {
             try
             {
-                // Look for the game in all Steam library directories
                 foreach (string steamLibDir in GetSteamLibraryDirs())
                 {
                     string gameSteamDir = Path.Combine(steamLibDir, @"steamapps\common\Metro 2033");
@@ -336,7 +334,6 @@ namespace Metro2033ConfigEditor
 
         private string GetConfigPath()
         {
-            //return null;
             #if DEBUG
                 return null;
             #endif
@@ -346,7 +343,7 @@ namespace Metro2033ConfigEditor
                 string steamÞath = SteamInstallPath ?? GetSteamInstallPath();
                 string[] steamUserDataDirs = Directory.GetDirectories(Path.Combine(steamÞath, "userdata"));
 
-                // Parse through the user directories in search of the config file and return the first one found
+                // Parse through Steam user directories in search of the config file and return the first one found
                 foreach (string steamUserDataDir in steamUserDataDirs)
                 {
                     string configPath = Path.Combine(steamUserDataDir, @"43110\remote\user.cfg");
