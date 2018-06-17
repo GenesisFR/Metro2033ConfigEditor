@@ -941,7 +941,7 @@
             this.labelCheatsWarning.Name = "labelCheatsWarning";
             this.labelCheatsWarning.Size = new System.Drawing.Size(304, 13);
             this.labelCheatsWarning.TabIndex = 42;
-            this.labelCheatsWarning.Text = "Warning: any change made to ingame settings won\'t be saved!";
+            this.labelCheatsWarning.Text = "Warning: changes made to ingame settings won\'t be saved!";
             this.labelCheatsWarning.Visible = false;
             // 
             // labelCheatsNote

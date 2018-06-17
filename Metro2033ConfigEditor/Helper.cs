@@ -336,6 +336,7 @@ namespace Metro2033ConfigEditor
 
         private string GetConfigPath()
         {
+            //return null;
             #if DEBUG
                 return null;
             #endif
@@ -343,12 +344,12 @@ namespace Metro2033ConfigEditor
             try
             {
                 string steamÞath = SteamInstallPath ?? GetSteamInstallPath();
-                string[] userDirs = Directory.GetDirectories(Path.Combine(steamÞath, "userdata"));
+                string[] steamUserDataDirs = Directory.GetDirectories(Path.Combine(steamÞath, "userdata"));
 
                 // Parse through the user directories in search of the config file and return the first one found
-                foreach (string userDir in userDirs)
+                foreach (string steamUserDataDir in steamUserDataDirs)
                 {
-                    string configPath = Path.Combine(userDir, @"43110\remote\user.cfg");
+                    string configPath = Path.Combine(steamUserDataDir, @"43110\remote\user.cfg");
 
                     if (File.Exists(configPath))
                         return configPath.ToLower();
@@ -412,7 +413,7 @@ namespace Metro2033ConfigEditor
                 // Parse the content of the config and store every line in a dictionary
                 foreach (string fileLine in fileLines)
                 {
-                    // Split the line using SPACE as a delimiter
+                    // Split the line to get the key and its value
                     string[] splitLines = fileLine.Split(' ');
 
                     // If we have 1 SPACE character, use the 1st part as a key and the 2nd part as a value
@@ -467,7 +468,7 @@ namespace Metro2033ConfigEditor
         }
 
         // Network methods
-        private async Task<Version> DownloadStringAsync()
+        private async Task<Version> DownloadRepoVersionAsync()
         {
             // Initialize result to local version
             Version version = Assembly.GetEntryAssembly().GetName().Version;
@@ -520,7 +521,7 @@ namespace Metro2033ConfigEditor
             Version localVersion = Assembly.GetEntryAssembly().GetName().Version;
 
             // Get repository version
-            Version remoteVersion = DownloadStringAsync().Result;
+            Version remoteVersion = DownloadRepoVersionAsync().Result;
 
             // Compare versions
             return localVersion.CompareTo(remoteVersion) < 0;
