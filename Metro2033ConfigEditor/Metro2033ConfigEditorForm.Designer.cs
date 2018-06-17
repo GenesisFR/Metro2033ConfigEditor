@@ -160,9 +160,9 @@
             // 
             // buttonReload
             // 
-            this.buttonReload.Location = new System.Drawing.Point(441, 488);
+            this.buttonReload.Location = new System.Drawing.Point(444, 488);
             this.buttonReload.Name = "buttonReload";
-            this.buttonReload.Size = new System.Drawing.Size(49, 23);
+            this.buttonReload.Size = new System.Drawing.Size(55, 23);
             this.buttonReload.TabIndex = 46;
             this.buttonReload.Text = "Reload";
             this.buttonReload.UseVisualStyleBackColor = true;
@@ -198,9 +198,9 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(496, 488);
+            this.buttonSave.Location = new System.Drawing.Point(505, 488);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(49, 23);
+            this.buttonSave.Size = new System.Drawing.Size(40, 23);
             this.buttonSave.TabIndex = 47;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -1400,7 +1400,7 @@
             // 
             this.buttonReportBug.Location = new System.Drawing.Point(9, 488);
             this.buttonReportBug.Name = "buttonReportBug";
-            this.buttonReportBug.Size = new System.Drawing.Size(80, 23);
+            this.buttonReportBug.Size = new System.Drawing.Size(78, 23);
             this.buttonReportBug.TabIndex = 43;
             this.buttonReportBug.Text = "Report a bug";
             this.buttonReportBug.UseVisualStyleBackColor = true;
@@ -1408,9 +1408,9 @@
             // 
             // buttonDonate
             // 
-            this.buttonDonate.Location = new System.Drawing.Point(95, 488);
+            this.buttonDonate.Location = new System.Drawing.Point(93, 488);
             this.buttonDonate.Name = "buttonDonate";
-            this.buttonDonate.Size = new System.Drawing.Size(80, 23);
+            this.buttonDonate.Size = new System.Drawing.Size(59, 23);
             this.buttonDonate.TabIndex = 44;
             this.buttonDonate.Text = "Donate";
             this.buttonDonate.UseVisualStyleBackColor = true;
