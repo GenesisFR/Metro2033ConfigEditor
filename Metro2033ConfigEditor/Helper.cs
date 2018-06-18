@@ -120,15 +120,11 @@ namespace Metro2033ConfigEditor
         // Getters
         private string GetSteamInstallPath()
         {
-            #if DEBUG
-                return null;
-            #endif
-
             // Look for Steam from the registry, then in Program Files and finally from the current directory
-            return GetSteamInstallPathRegistry() ?? GetSteamInstallPathProgramFiles() ?? GetSteamInstallPathCurrentDir();
+            return GetSteamPathRegistry() ?? GetSteamPathProgramFiles() ?? GetSteamPathCurrentDir();
         }
 
-        private string GetSteamInstallPathRegistry()
+        private string GetSteamPathRegistry()
         {
             try
             {
@@ -153,7 +149,7 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
-        private string GetSteamInstallPathProgramFiles()
+        private string GetSteamPathProgramFiles()
         {
             try
             {
@@ -176,7 +172,7 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
-        private string GetSteamInstallPathCurrentDir()
+        private string GetSteamPathCurrentDir()
         {
             try
             {
@@ -239,15 +235,11 @@ namespace Metro2033ConfigEditor
 
         private string GetGameInstallPath()
         {
-            #if DEBUG
-                return null;
-            #endif
-
             // Look for the game from the registry, then from the current directory and finally from the Steam library directories
-            return GetGameInstallPathFromRegistry() ?? GetGameInstallPathFromCurrentDir() ?? GetGameInstallPathFromSteamLibDirs();
+            return GetGamePathRegistry() ?? GetGamePathCurrentDir() ?? GetGamePathSteamLibDirs();
         }
 
-        private string GetGameInstallPathFromRegistry()
+        private string GetGamePathRegistry()
         {
             try
             {
@@ -273,7 +265,7 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
-        private string GetGameInstallPathFromCurrentDir()
+        private string GetGamePathCurrentDir()
         {
             try
             {
@@ -290,7 +282,7 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
-        private string GetGameInstallPathFromSteamLibDirs()
+        private string GetGamePathSteamLibDirs()
         {
             try
             {
@@ -312,10 +304,6 @@ namespace Metro2033ConfigEditor
 
         private string GetGameExecutablePath()
         {
-            #if DEBUG
-                return null;
-            #endif
-
             try
             {
                 string gamePath = GameInstallPath ?? GetGameInstallPath();
@@ -334,10 +322,6 @@ namespace Metro2033ConfigEditor
 
         private string GetConfigPath()
         {
-            #if DEBUG
-                return null;
-            #endif
-
             try
             {
                 string steamÞath = SteamInstallPath ?? GetSteamInstallPath();

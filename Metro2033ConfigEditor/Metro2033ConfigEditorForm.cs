@@ -328,22 +328,13 @@ namespace Metro2033ConfigEditor
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Metro 2033 config file|user.cfg";
-                // Pick config folder, then Steam folder, then Program Files
+
+                // Pick config folder, then Steam folder and finally Program Files
                 openFileDialog.InitialDirectory = Helper.instance.ConfigFilePath != null ?
                     new FileInfo(Helper.instance.ConfigFilePath).DirectoryName : Helper.instance.SteamInstallPath != null ?
                     Path.Combine(Helper.instance.SteamInstallPath, "userdata") :
                     Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
-                /*
-                if (Helper.instance.ConfigFilePath != null)
-                    openFileDialog.InitialDirectory = new FileInfo(Helper.instance.ConfigFilePath).DirectoryName;
-                else
-                {
-                    if (Helper.instance.SteamInstallPath != null)
-                        openFileDialog.InitialDirectory = Path.Combine(Helper.instance.SteamInstallPath, "userdata");
-                    else
-                        openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
-                }
-                //*/
+
                 // Show a file browser
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -431,7 +422,7 @@ namespace Metro2033ConfigEditor
 
         private void TextBoxResolution_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Don't validate input if it's not a digit
+            // User can type digits only
             if (e.KeyChar == (char)Keys.Enter || !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
             else
