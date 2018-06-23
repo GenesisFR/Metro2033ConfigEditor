@@ -507,7 +507,7 @@ namespace Metro2033ConfigEditor
 
             // Report time
             stopwatch.Stop();
-            Console.WriteLine($"Update time: {stopwatch.Elapsed.TotalMilliseconds} ms");
+            Console.WriteLine($"Update check done in {stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

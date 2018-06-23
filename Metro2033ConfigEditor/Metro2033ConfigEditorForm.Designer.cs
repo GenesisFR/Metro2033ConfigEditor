@@ -939,7 +939,7 @@
             this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
             this.labelCheatsWarning.Location = new System.Drawing.Point(270, 230);
             this.labelCheatsWarning.Name = "labelCheatsWarning";
-            this.labelCheatsWarning.Size = new System.Drawing.Size(304, 13);
+            this.labelCheatsWarning.Size = new System.Drawing.Size(289, 13);
             this.labelCheatsWarning.TabIndex = 42;
             this.labelCheatsWarning.Text = "Warning: changes made to ingame settings won\'t be saved!";
             this.labelCheatsWarning.Visible = false;
@@ -1443,7 +1443,7 @@
             this.MaximizeBox = false;
             this.Name = "Metro2033ConfigEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Metro 2033 Config Editor v1.28";
+            this.Text = "Metro 2033 Config Editor v1.29";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Metro2033ConfigEditorForm_Closing);
             this.Shown += new System.EventHandler(this.Metro2033ConfigEditorForm_Shown);
             this.tabVideo.ResumeLayout(false);
