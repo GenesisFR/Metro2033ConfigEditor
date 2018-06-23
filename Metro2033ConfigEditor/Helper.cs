@@ -223,7 +223,6 @@ namespace Metro2033ConfigEditor
                             steamLibDirs.Add(Regex.Unescape(match.Groups[1].Value));
                     }
                 }
-
             }
             catch (Exception ex)
             {
