@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
 
 namespace Metro2033ConfigEditor
@@ -9,7 +10,7 @@ namespace Metro2033ConfigEditor
 
         public static bool IsSingleInstance()
         {
-            string guid = Assembly.GetEntryAssembly().GetType().GUID.ToString();
+            string guid = Marshal.GetTypeLibGuidForAssembly(Assembly.GetExecutingAssembly()).ToString();
 
             try
             {
