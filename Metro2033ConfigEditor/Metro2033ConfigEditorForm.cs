@@ -318,11 +318,9 @@ namespace Metro2033ConfigEditor
                 // Show a file browser
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    // Find config/game paths and reload config automatically
                     Helper.instance.SteamInstallPath = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
-
-                    // Find config and game paths automatically
                     Helper.instance.UpdateConfigAndGamePaths();
-
                     refreshUI();
                 }
             }
@@ -343,14 +341,9 @@ namespace Metro2033ConfigEditor
                 // Show a file browser
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    Helper.instance.ConfigFilePath = openFileDialog.FileName.ToLower();
-                    textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath;
-                    buttonReload.Enabled           = true;
-                    buttonSave.Enabled             = true;
-                    fileSystemWatcherConfig.Path   = new FileInfo(openFileDialog.FileName).DirectoryName;
-
                     // Reload config automatically
-                    buttonReload.PerformClick();
+                    Helper.instance.ConfigFilePath = openFileDialog.FileName.ToLower();
+                    refreshUI();
                 }
             }
         }
@@ -365,16 +358,10 @@ namespace Metro2033ConfigEditor
                 // Show a file browser
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    // Update UI
                     Helper.instance.GameInstallPath    = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
                     Helper.instance.GameExecutablePath = openFileDialog.FileName.ToLower();
-                    _skipIntroInitialState             = Helper.instance.IsNoIntroSkipped;
-                    textBoxGameExecutablePath.Text     = Helper.instance.GameExecutablePath;
-                    checkBoxSkipIntro.Checked          = Helper.instance.IsNoIntroSkipped;
-                    buttonStartGameNoSteam.Enabled     = true;
-                    fileSystemWatcherNoIntro.Path      = Helper.instance.GameInstallPath;
-
-                    // Reload config automatically
-                    buttonReload.PerformClick();
+                    refreshUI();
                 }
             }
         }
