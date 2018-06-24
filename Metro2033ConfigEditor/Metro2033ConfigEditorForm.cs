@@ -58,7 +58,7 @@ namespace Metro2033ConfigEditor
             toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might" +
                 " actually be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different" +
                 " system that works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
-            toolTip.SetToolTip(checkBoxVsync, "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact" +
+            toolTip.SetToolTip(checkBoxVsync, "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact performance." +
                 "\nFor some reason, enabling Vsync will disable stereoscopy, thus boosting your framerate.");
         }
 
