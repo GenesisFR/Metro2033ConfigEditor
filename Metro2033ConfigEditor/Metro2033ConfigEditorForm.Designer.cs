@@ -164,7 +164,7 @@
             // 
             // buttonReload
             // 
-            this.buttonReload.Location = new System.Drawing.Point(444, 488);
+            this.buttonReload.Location = new System.Drawing.Point(444, 483);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(55, 23);
             this.buttonReload.TabIndex = 46;
@@ -175,7 +175,7 @@
             // labelConfigFilePath
             // 
             this.labelConfigFilePath.AutoSize = true;
-            this.labelConfigFilePath.Location = new System.Drawing.Point(10, 40);
+            this.labelConfigFilePath.Location = new System.Drawing.Point(10, 45);
             this.labelConfigFilePath.Name = "labelConfigFilePath";
             this.labelConfigFilePath.Size = new System.Drawing.Size(77, 13);
             this.labelConfigFilePath.TabIndex = 4;
@@ -183,7 +183,7 @@
             // 
             // textBoxConfigFilePath
             // 
-            this.textBoxConfigFilePath.Location = new System.Drawing.Point(140, 37);
+            this.textBoxConfigFilePath.Location = new System.Drawing.Point(140, 42);
             this.textBoxConfigFilePath.Name = "textBoxConfigFilePath";
             this.textBoxConfigFilePath.ReadOnly = true;
             this.textBoxConfigFilePath.Size = new System.Drawing.Size(565, 20);
@@ -192,7 +192,7 @@
             // 
             // buttonBrowseConfigFilePath
             // 
-            this.buttonBrowseConfigFilePath.Location = new System.Drawing.Point(725, 35);
+            this.buttonBrowseConfigFilePath.Location = new System.Drawing.Point(725, 40);
             this.buttonBrowseConfigFilePath.Name = "buttonBrowseConfigFilePath";
             this.buttonBrowseConfigFilePath.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowseConfigFilePath.TabIndex = 6;
@@ -202,7 +202,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(505, 488);
+            this.buttonSave.Location = new System.Drawing.Point(505, 483);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(40, 23);
             this.buttonSave.TabIndex = 47;
@@ -212,7 +212,7 @@
             // 
             // buttonStartGameSteam
             // 
-            this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 488);
+            this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 483);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
             this.buttonStartGameSteam.TabIndex = 49;
@@ -222,7 +222,7 @@
             // 
             // buttonBrowseGameExecutablePath
             // 
-            this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(725, 65);
+            this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(725, 70);
             this.buttonBrowseGameExecutablePath.Name = "buttonBrowseGameExecutablePath";
             this.buttonBrowseGameExecutablePath.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowseGameExecutablePath.TabIndex = 9;
@@ -232,7 +232,7 @@
             // 
             // textBoxGameExecutablePath
             // 
-            this.textBoxGameExecutablePath.Location = new System.Drawing.Point(140, 67);
+            this.textBoxGameExecutablePath.Location = new System.Drawing.Point(140, 72);
             this.textBoxGameExecutablePath.Name = "textBoxGameExecutablePath";
             this.textBoxGameExecutablePath.ReadOnly = true;
             this.textBoxGameExecutablePath.Size = new System.Drawing.Size(565, 20);
@@ -242,7 +242,7 @@
             // labelGameExecutablePath
             // 
             this.labelGameExecutablePath.AutoSize = true;
-            this.labelGameExecutablePath.Location = new System.Drawing.Point(10, 70);
+            this.labelGameExecutablePath.Location = new System.Drawing.Point(10, 75);
             this.labelGameExecutablePath.Name = "labelGameExecutablePath";
             this.labelGameExecutablePath.Size = new System.Drawing.Size(114, 13);
             this.labelGameExecutablePath.TabIndex = 7;
@@ -250,7 +250,7 @@
             // 
             // buttonStartGameNoSteam
             // 
-            this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 488);
+            this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 483);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
             this.buttonStartGameNoSteam.TabIndex = 48;
@@ -260,7 +260,7 @@
             // 
             // buttonBrowseSteamInstallPath
             // 
-            this.buttonBrowseSteamInstallPath.Location = new System.Drawing.Point(725, 5);
+            this.buttonBrowseSteamInstallPath.Location = new System.Drawing.Point(725, 10);
             this.buttonBrowseSteamInstallPath.Name = "buttonBrowseSteamInstallPath";
             this.buttonBrowseSteamInstallPath.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowseSteamInstallPath.TabIndex = 3;
@@ -270,7 +270,7 @@
             // 
             // textBoxSteamInstallPath
             // 
-            this.textBoxSteamInstallPath.Location = new System.Drawing.Point(140, 7);
+            this.textBoxSteamInstallPath.Location = new System.Drawing.Point(140, 12);
             this.textBoxSteamInstallPath.Name = "textBoxSteamInstallPath";
             this.textBoxSteamInstallPath.ReadOnly = true;
             this.textBoxSteamInstallPath.Size = new System.Drawing.Size(565, 20);
@@ -280,7 +280,7 @@
             // labelSteamInstallPath
             // 
             this.labelSteamInstallPath.AutoSize = true;
-            this.labelSteamInstallPath.Location = new System.Drawing.Point(10, 10);
+            this.labelSteamInstallPath.Location = new System.Drawing.Point(10, 15);
             this.labelSteamInstallPath.Name = "labelSteamInstallPath";
             this.labelSteamInstallPath.Size = new System.Drawing.Size(90, 13);
             this.labelSteamInstallPath.TabIndex = 1;
@@ -1372,7 +1372,7 @@
             this.linkLabelUpdateAvailable.AllowDrop = true;
             this.linkLabelUpdateAvailable.AutoSize = true;
             this.linkLabelUpdateAvailable.LinkArea = new System.Windows.Forms.LinkArea(6, 6);
-            this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 493);
+            this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 488);
             this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
             this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(135, 17);
             this.linkLabelUpdateAvailable.TabIndex = 45;
@@ -1413,7 +1413,7 @@
             // 
             // buttonReportBug
             // 
-            this.buttonReportBug.Location = new System.Drawing.Point(13, 488);
+            this.buttonReportBug.Location = new System.Drawing.Point(13, 483);
             this.buttonReportBug.Name = "buttonReportBug";
             this.buttonReportBug.Size = new System.Drawing.Size(78, 23);
             this.buttonReportBug.TabIndex = 43;
@@ -1423,7 +1423,7 @@
             // 
             // buttonDonate
             // 
-            this.buttonDonate.Location = new System.Drawing.Point(97, 488);
+            this.buttonDonate.Location = new System.Drawing.Point(97, 483);
             this.buttonDonate.Name = "buttonDonate";
             this.buttonDonate.Size = new System.Drawing.Size(59, 23);
             this.buttonDonate.TabIndex = 44;
@@ -1433,7 +1433,7 @@
             // 
             // buttonOpenSavedGamesPath
             // 
-            this.buttonOpenSavedGamesPath.Location = new System.Drawing.Point(725, 95);
+            this.buttonOpenSavedGamesPath.Location = new System.Drawing.Point(725, 100);
             this.buttonOpenSavedGamesPath.Name = "buttonOpenSavedGamesPath";
             this.buttonOpenSavedGamesPath.Size = new System.Drawing.Size(75, 23);
             this.buttonOpenSavedGamesPath.TabIndex = 12;
@@ -1443,7 +1443,7 @@
             // 
             // textBoxSavedGamesPath
             // 
-            this.textBoxSavedGamesPath.Location = new System.Drawing.Point(140, 97);
+            this.textBoxSavedGamesPath.Location = new System.Drawing.Point(140, 102);
             this.textBoxSavedGamesPath.Name = "textBoxSavedGamesPath";
             this.textBoxSavedGamesPath.ReadOnly = true;
             this.textBoxSavedGamesPath.Size = new System.Drawing.Size(565, 20);
@@ -1453,7 +1453,7 @@
             // labelSavedGamesPath
             // 
             this.labelSavedGamesPath.AutoSize = true;
-            this.labelSavedGamesPath.Location = new System.Drawing.Point(10, 100);
+            this.labelSavedGamesPath.Location = new System.Drawing.Point(10, 105);
             this.labelSavedGamesPath.Name = "labelSavedGamesPath";
             this.labelSavedGamesPath.Size = new System.Drawing.Size(96, 13);
             this.labelSavedGamesPath.TabIndex = 10;
