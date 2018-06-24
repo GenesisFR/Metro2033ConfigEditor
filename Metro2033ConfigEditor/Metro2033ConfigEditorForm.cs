@@ -190,8 +190,8 @@ namespace Metro2033ConfigEditor
             // Spinners
             try
             {
-                spinnerMouseSensitivity.Value    = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
-                spinnerMouseAimSensitivity.Value = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
+                spinnerSensitivity.Value         = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
+                spinnerAimSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
                 spinnerMasterVolume.Value        = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
                 spinnerMusicVolume.Value         = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
                 spinnerGamma.Value               = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
@@ -291,8 +291,8 @@ namespace Metro2033ConfigEditor
             dictionary["r_quality_level"]   = Helper.instance.ConvertQualityLevelToNumber(comboBoxQuality.Text);
 
             // Spinners
-            dictionary["mouse_sens"]        = spinnerMouseSensitivity.Value.Equals(1) ? "1." : spinnerMouseSensitivity.Value.ToString();
-            dictionary["mouse_aim_sens"]    = spinnerMouseAimSensitivity.Value.ToString();
+            dictionary["mouse_sens"]        = spinnerSensitivity.Value.Equals(1) ? "1." : spinnerSensitivity.Value.ToString();
+            dictionary["mouse_aim_sens"]    = spinnerAimSensitivity.Value.ToString();
             dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString();
             dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString();
             dictionary["r_gamma"]           = spinnerGamma.Value.Equals(1) ? "1." : spinnerGamma.Value.ToString();
