@@ -85,7 +85,7 @@
             this.labelDirectX = new System.Windows.Forms.Label();
             this.comboBoxDirectX = new System.Windows.Forms.ComboBox();
             this.comboBoxAntialiasing = new System.Windows.Forms.ComboBox();
-            this.spinnerFov = new System.Windows.Forms.NumericUpDown();
+            this.spinnerFOV = new System.Windows.Forms.NumericUpDown();
             this.comboBoxQuality = new System.Windows.Forms.ComboBox();
             this.spinnerGamma = new System.Windows.Forms.NumericUpDown();
             this.checkBoxFullscreen = new System.Windows.Forms.CheckBox();
@@ -146,7 +146,7 @@
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerFov)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerFOV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).BeginInit();
             this.tabGeneral.SuspendLayout();
             this.groupBoxGameOptions.SuspendLayout();
@@ -299,7 +299,7 @@
             this.tabVideo.Controls.Add(this.labelDirectX);
             this.tabVideo.Controls.Add(this.comboBoxDirectX);
             this.tabVideo.Controls.Add(this.comboBoxAntialiasing);
-            this.tabVideo.Controls.Add(this.spinnerFov);
+            this.tabVideo.Controls.Add(this.spinnerFOV);
             this.tabVideo.Controls.Add(this.comboBoxQuality);
             this.tabVideo.Controls.Add(this.spinnerGamma);
             this.tabVideo.Controls.Add(this.checkBoxFullscreen);
@@ -765,21 +765,21 @@
             // 
             // spinnerFov
             // 
-            this.spinnerFov.Location = new System.Drawing.Point(114, 194);
-            this.spinnerFov.Maximum = new decimal(new int[] {
+            this.spinnerFOV.Location = new System.Drawing.Point(114, 194);
+            this.spinnerFOV.Maximum = new decimal(new int[] {
             90,
             0,
             0,
             0});
-            this.spinnerFov.Minimum = new decimal(new int[] {
+            this.spinnerFOV.Minimum = new decimal(new int[] {
             45,
             0,
             0,
             0});
-            this.spinnerFov.Name = "spinnerFov";
-            this.spinnerFov.Size = new System.Drawing.Size(120, 20);
-            this.spinnerFov.TabIndex = 62;
-            this.spinnerFov.Value = new decimal(new int[] {
+            this.spinnerFOV.Name = "spinnerFov";
+            this.spinnerFOV.Size = new System.Drawing.Size(120, 20);
+            this.spinnerFOV.TabIndex = 62;
+            this.spinnerFOV.Value = new decimal(new int[] {
             45,
             0,
             0,
@@ -1498,7 +1498,7 @@
             this.groupBoxDescription.PerformLayout();
             this.groupBoxDirectX11.ResumeLayout(false);
             this.groupBoxDirectX11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerFov)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerFOV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).EndInit();
             this.tabGeneral.ResumeLayout(false);
             this.tabGeneral.PerformLayout();
@@ -1578,7 +1578,7 @@
         private System.Windows.Forms.Label labelDirectX;
         private System.Windows.Forms.ComboBox comboBoxDirectX;
         private System.Windows.Forms.ComboBox comboBoxAntialiasing;
-        private System.Windows.Forms.NumericUpDown spinnerFov;
+        private System.Windows.Forms.NumericUpDown spinnerFOV;
         private System.Windows.Forms.ComboBox comboBoxQuality;
         private System.Windows.Forms.NumericUpDown spinnerGamma;
         private System.Windows.Forms.CheckBox checkBoxFullscreen;

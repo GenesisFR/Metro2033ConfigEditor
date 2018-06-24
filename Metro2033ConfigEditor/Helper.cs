@@ -517,42 +517,6 @@ namespace Metro2033ConfigEditor
         }
 
         // Conversion methods
-        public string ConvertNumberToDifficulty(string number)
-        {
-            switch (number)
-            {
-                default:
-                case "0":
-                    return "Easy";
-                case "1":
-                    return "Normal";
-                case "2":
-                    return "Hardcore";
-                case "3":
-                    return "Ranger easy";
-                case "4":
-                    return "Ranger hardcore";
-            }
-        }
-
-        public string ConvertDifficultyToNumber(string difficulty)
-        {
-            switch (difficulty)
-            {
-                default:
-                case "Easy":
-                    return "0";
-                case "Normal":
-                    return "1";
-                case "Hardcore":
-                    return "2";
-                case "Ranger easy":
-                    return "3";
-                case "Ranger hardcore":
-                    return "4";
-            }
-        }
-
         public string ConvertCodeToLanguage(string code)
         {
             switch (code)
@@ -605,6 +569,74 @@ namespace Metro2033ConfigEditor
             }
         }
 
+        public string ConvertNumberToDifficulty(string number)
+        {
+            switch (number)
+            {
+                default:
+                case "0":
+                    return "Easy";
+                case "1":
+                    return "Normal";
+                case "2":
+                    return "Hardcore";
+                case "3":
+                    return "Ranger easy";
+                case "4":
+                    return "Ranger hardcore";
+            }
+        }
+
+        public string ConvertDifficultyToNumber(string difficulty)
+        {
+            switch (difficulty)
+            {
+                default:
+                case "Easy":
+                    return "0";
+                case "Normal":
+                    return "1";
+                case "Hardcore":
+                    return "2";
+                case "Ranger easy":
+                    return "3";
+                case "Ranger hardcore":
+                    return "4";
+            }
+        }
+
+        public string ConvertNumberToQualityLevel(string number)
+        {
+            switch (number)
+            {
+                default:
+                case "0":
+                    return "Low";
+                case "1":
+                    return "Medium";
+                case "2":
+                    return "High";
+                case "3":
+                    return "Very high";
+            }
+        }
+
+        public string ConvertQualityLevelToNumber(string qualityLevel)
+        {
+            switch (qualityLevel)
+            {
+                default:
+                case "Low":
+                    return "0";
+                case "Medium":
+                    return "1";
+                case "High":
+                    return "2";
+                case "Very high":
+                    return "3";
+            }
+        }
+
         public string ConvertNumberToDirectX(string number)
         {
             switch (number)
@@ -633,35 +665,51 @@ namespace Metro2033ConfigEditor
             }
         }
 
-        public string ConvertNumberToQualityLevel(string number)
+        public string ConvertNumberToAntialiasing(string number)
         {
             switch (number)
             {
                 default:
                 case "0":
-                    return "Low";
+                    return "AAA";
                 case "1":
-                    return "Medium";
-                case "2":
-                    return "High";
-                case "3":
-                    return "Very high";
+                    return "MSAA 4X";
             }
         }
 
-        public string ConvertQualityLevelToNumber(string quality)
+        public string ConvertAntialiasingToNumber(string antialiasing)
         {
-            switch (quality)
+            switch (antialiasing)
             {
                 default:
-                case "Low":
+                case "AAA":
                     return "0";
-                case "Medium":
+                case "MSAA 4X":
                     return "1";
-                case "High":
-                    return "2";
-                case "Very high":
-                    return "3";
+            }
+        }
+
+        public string ConvertNumberToTextureFiltering(string number)
+        {
+            switch (number)
+            {
+                default:
+                case "0":
+                    return "AF 4X";
+                case "1":
+                    return "AF 16X";
+            }
+        }
+
+        public string ConvertTextureFilteringToNumber(string textureFiltering)
+        {
+            switch (textureFiltering)
+            {
+                default:
+                case "AF 4X":
+                    return "0";
+                case "AF 16X":
+                    return "1";
             }
         }
     }

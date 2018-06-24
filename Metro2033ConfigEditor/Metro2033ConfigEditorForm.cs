@@ -51,7 +51,7 @@ namespace Metro2033ConfigEditor
             toolTip.SetToolTip(checkBoxUnlimitedAmmo, "Gives unlimited ammo for all types of ammo, including military-grade ammo." +
                 " Military-grade ammo will deplete when buying items.");
             toolTip.SetToolTip(checkBoxGodMode, "Makes you invulnerable but you will need to wear a gas mask when required.");
-            toolTip.SetToolTip(spinnerFov, "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
+            toolTip.SetToolTip(spinnerFOV, "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
             toolTip.SetToolTip(checkBoxFullscreen, "Uncheck to play the game in windowed mode. To play borderless fullscreen, change" +
                 " your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so the" +
                 " taskbar will still be visible.");
@@ -180,9 +180,9 @@ namespace Metro2033ConfigEditor
             comboBoxDifficulty.Text            = Helper.instance.ConvertNumberToDifficulty(Helper.instance.Dictionary["g_game_difficulty"]);
             comboBoxVoiceLanguage.Text         = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_sound"]);
             comboBoxTextLanguage.Text          = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_text"]);
-            comboBoxTextureFiltering.Text      = Helper.instance.Dictionary["r_af_level"] == "0" ? "AF 4X" : "AF 16X";
+            comboBoxTextureFiltering.Text      = Helper.instance.ConvertNumberToTextureFiltering(Helper.instance.Dictionary["r_af_level"]);
             comboBoxDirectX.Text               = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
-            comboBoxAntialiasing.Text          = Helper.instance.Dictionary["r_msaa_level"] == "0" ? "AAA" : "MSAA 4X";
+            comboBoxAntialiasing.Text          = Helper.instance.ConvertNumberToAntialiasing(Helper.instance.Dictionary["r_msaa_level"]);
             comboBoxQuality.Text               = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
             string resolution                  = $"{Helper.instance.Dictionary["r_res_hor"]} x {Helper.instance.Dictionary["r_res_vert"]}";
             comboBoxResolution.Text            = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
@@ -195,7 +195,7 @@ namespace Metro2033ConfigEditor
                 spinnerMasterVolume.Value        = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
                 spinnerMusicVolume.Value         = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
                 spinnerGamma.Value               = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
-                spinnerFov.Value                 = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
+                spinnerFOV.Value                 = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
             }
             catch (Exception ex)
             {
@@ -289,9 +289,9 @@ namespace Metro2033ConfigEditor
             dictionary["g_game_difficulty"] = Helper.instance.ConvertDifficultyToNumber(comboBoxDifficulty.Text);
             dictionary["lang_sound"]        = Helper.instance.ConvertLanguageToCode(comboBoxVoiceLanguage.Text);
             dictionary["lang_text"]         = Helper.instance.ConvertLanguageToCode(comboBoxTextLanguage.Text);
-            dictionary["r_af_level"]        = comboBoxTextureFiltering.Text == "AF 4X" ? "0" : "1";
+            dictionary["r_af_level"]        = Helper.instance.ConvertTextureFilteringToNumber(comboBoxTextureFiltering.Text);
             dictionary["r_api"]             = Helper.instance.ConvertDirectXToNumber(comboBoxDirectX.Text);
-            dictionary["r_msaa_level"]      = comboBoxAntialiasing.Text == "AAA" ? "0" : "1";
+            dictionary["r_msaa_level"]      = Helper.instance.ConvertAntialiasingToNumber(comboBoxAntialiasing.Text);
             dictionary["r_quality_level"]   = Helper.instance.ConvertQualityLevelToNumber(comboBoxQuality.Text);
 
             // Spinners
@@ -300,7 +300,7 @@ namespace Metro2033ConfigEditor
             dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString();
             dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString();
             dictionary["r_gamma"]           = spinnerGamma.Value.Equals(1) ? "1." : spinnerGamma.Value.ToString();
-            dictionary["sick_fov"]          = $"{spinnerFov.Value.ToString()}.";
+            dictionary["sick_fov"]          = $"{spinnerFOV.Value.ToString()}.";
 
             // Textboxes
             dictionary["r_res_hor"]         = textBoxWidth.Text;
