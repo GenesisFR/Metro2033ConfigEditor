@@ -168,6 +168,7 @@ namespace Metro2033ConfigEditor
             checkBoxUnlimitedAmmo.Checked      = Helper.instance.Dictionary["g_unlimitedammo"]   == "1";
             checkBoxGodMode.Checked            = Helper.instance.Dictionary["g_god"]             == "1";
             checkBoxReadOnly.Checked           = Helper.instance.IsConfigReadOnly;
+            checkBoxInvertYAxis.Checked        = Helper.instance.Dictionary["invert_y_axis"]     == "on";
             checkBoxAdvancedPhysX.Checked      = Helper.instance.Dictionary["ph_advanced_physX"] == "1";
             checkBoxDepthOfField.Checked       = Helper.instance.Dictionary["r_dx11_dof"]        == "1";
             checkBoxTessellation.Checked       = Helper.instance.Dictionary["r_dx11_tess"]       == "1";
@@ -272,6 +273,7 @@ namespace Metro2033ConfigEditor
             dictionary["stats"]             = checkBoxShowStats.Checked ? "on" : "off";
             dictionary["g_unlimitedammo"]   = checkBoxUnlimitedAmmo.Checked ? "1" : "0";
             dictionary["g_god"]             = checkBoxGodMode.Checked ? "1" : "0";
+            dictionary["invert_y_axis"]     = checkBoxInvertYAxis.Checked ? "on" : "off";
             dictionary["ph_advanced_physX"] = checkBoxAdvancedPhysX.Checked ? "1" : "0";
             dictionary["r_dx11_dof"]        = checkBoxDepthOfField.Checked ? "1" : "0";
             dictionary["r_dx11_tess"]       = checkBoxTessellation.Checked ? "1" : "0";

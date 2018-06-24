@@ -139,6 +139,7 @@
             this.fileSystemWatcherNoIntro = new System.IO.FileSystemWatcher();
             this.buttonReportBug = new System.Windows.Forms.Button();
             this.buttonDonate = new System.Windows.Forms.Button();
+            this.checkBoxInvertYAxis = new System.Windows.Forms.CheckBox();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -1147,13 +1148,14 @@
             // 
             // groupBoxControls
             // 
+            this.groupBoxControls.Controls.Add(this.checkBoxInvertYAxis);
             this.groupBoxControls.Controls.Add(this.labelMouseAimSensitivity);
             this.groupBoxControls.Controls.Add(this.spinnerMouseSensitivity);
             this.groupBoxControls.Controls.Add(this.labelMouseSensitivity);
             this.groupBoxControls.Controls.Add(this.spinnerMouseAimSensitivity);
             this.groupBoxControls.Location = new System.Drawing.Point(430, 20);
             this.groupBoxControls.Name = "groupBoxControls";
-            this.groupBoxControls.Size = new System.Drawing.Size(180, 80);
+            this.groupBoxControls.Size = new System.Drawing.Size(180, 106);
             this.groupBoxControls.TabIndex = 32;
             this.groupBoxControls.TabStop = false;
             this.groupBoxControls.Text = "Controls";
@@ -1416,6 +1418,16 @@
             this.buttonDonate.UseVisualStyleBackColor = true;
             this.buttonDonate.Click += new System.EventHandler(this.ButtonDonate_Click);
             // 
+            // checkBoxInvertYAxis
+            // 
+            this.checkBoxInvertYAxis.AutoSize = true;
+            this.checkBoxInvertYAxis.Location = new System.Drawing.Point(8, 80);
+            this.checkBoxInvertYAxis.Name = "checkBoxInvertYAxis";
+            this.checkBoxInvertYAxis.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxInvertYAxis.TabIndex = 43;
+            this.checkBoxInvertYAxis.Text = "Invert Y axis";
+            this.checkBoxInvertYAxis.UseVisualStyleBackColor = true;
+            // 
             // Metro2033ConfigEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1587,6 +1599,7 @@
         private System.IO.FileSystemWatcher fileSystemWatcherNoIntro;
         private System.Windows.Forms.Button buttonReportBug;
         private System.Windows.Forms.Button buttonDonate;
+        private System.Windows.Forms.CheckBox checkBoxInvertYAxis;
     }
 }
 

@@ -75,6 +75,7 @@ namespace Metro2033ConfigEditor
             AddKeyIfMissing("g_quick_hints",     "1");
             AddKeyIfMissing("g_show_crosshair",  "on");
             AddKeyIfMissing("g_unlimitedammo",   "0");
+            AddKeyIfMissing("invert_y_axis",     "off");
             AddKeyIfMissing("lang_sound",        "us");
             AddKeyIfMissing("lang_text",         "us");
             AddKeyIfMissing("mouse_aim_sens",    "0.208");
