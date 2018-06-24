@@ -239,6 +239,9 @@ namespace Metro2033ConfigEditor
                     MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                     buttonStartGameSteam.PerformClick();
             }
+
+            if (Helper.instance.GameInstallPath != null)
+                fileSystemWatcherNoIntro.Path = Helper.instance.GameInstallPath;
         }
 
         private void StartProcess(object path)
