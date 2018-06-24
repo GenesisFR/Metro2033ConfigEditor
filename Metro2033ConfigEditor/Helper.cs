@@ -19,6 +19,7 @@ namespace Metro2033ConfigEditor
             ConfigFilePath     = GetConfigPath();         // C:\Program Files (x86)\Steam\userdata\<user-id>\43110\remote\user.cfg
             GameInstallPath    = GetGameInstallPath();    // C:\Program Files (x86)\Steam\steamapps\common\Metro 2033
             GameExecutablePath = GetGameExecutablePath(); // C:\Program Files (x86)\Steam\steamapps\common\Metro 2033\metro2033.exe
+            SavedGamesPath     = GetSavedGamesPath();     // C:\Users\<username>\Documents\4A Games\Metro 2033
             Dictionary         = new Dictionary<string, string>();
         }
 
@@ -27,6 +28,7 @@ namespace Metro2033ConfigEditor
         public string ConfigFilePath { get; set; }
         public string GameInstallPath { get; set; }
         public string GameExecutablePath { get; set; }
+        public string SavedGamesPath { get; private set; }
         public Dictionary<string, string> Dictionary { get; }
         public Dictionary<string, string> DictionaryUponClosure { get; private set; }
 
@@ -342,6 +344,11 @@ namespace Metro2033ConfigEditor
             }
 
             return null;
+        }
+
+        private string GetSavedGamesPath()
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"4A Games\Metro 2033").ToLower();
         }
 
         // File-related methods

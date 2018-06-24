@@ -140,6 +140,9 @@
             this.fileSystemWatcherNoIntro = new System.IO.FileSystemWatcher();
             this.buttonReportBug = new System.Windows.Forms.Button();
             this.buttonDonate = new System.Windows.Forms.Button();
+            this.buttonOpenSavedGamesPath = new System.Windows.Forms.Button();
+            this.textBoxSavedGamesPath = new System.Windows.Forms.TextBox();
+            this.labelSavedGamesPath = new System.Windows.Forms.Label();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -312,7 +315,7 @@
             this.tabVideo.Location = new System.Drawing.Point(4, 22);
             this.tabVideo.Name = "tabVideo";
             this.tabVideo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVideo.Size = new System.Drawing.Size(787, 339);
+            this.tabVideo.Size = new System.Drawing.Size(787, 309);
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
             this.tabVideo.UseVisualStyleBackColor = true;
@@ -929,7 +932,7 @@
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(787, 339);
+            this.tabGeneral.Size = new System.Drawing.Size(787, 309);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             // 
@@ -938,7 +941,7 @@
             this.labelCheatsWarning.AutoSize = true;
             this.labelCheatsWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelCheatsWarning.Location = new System.Drawing.Point(270, 230);
+            this.labelCheatsWarning.Location = new System.Drawing.Point(270, 218);
             this.labelCheatsWarning.Name = "labelCheatsWarning";
             this.labelCheatsWarning.Size = new System.Drawing.Size(289, 13);
             this.labelCheatsWarning.TabIndex = 42;
@@ -948,7 +951,7 @@
             // labelCheatsNote
             // 
             this.labelCheatsNote.AutoSize = true;
-            this.labelCheatsNote.Location = new System.Drawing.Point(270, 210);
+            this.labelCheatsNote.Location = new System.Drawing.Point(270, 198);
             this.labelCheatsNote.Name = "labelCheatsNote";
             this.labelCheatsNote.Size = new System.Drawing.Size(476, 13);
             this.labelCheatsNote.TabIndex = 41;
@@ -972,7 +975,7 @@
             this.groupBoxGameOptions.Controls.Add(this.labelVoiceLanguage);
             this.groupBoxGameOptions.Controls.Add(this.labelTextLanguage);
             this.groupBoxGameOptions.Controls.Add(this.checkBoxLaserCrosshair);
-            this.groupBoxGameOptions.Location = new System.Drawing.Point(10, 20);
+            this.groupBoxGameOptions.Location = new System.Drawing.Point(10, 8);
             this.groupBoxGameOptions.Name = "groupBoxGameOptions";
             this.groupBoxGameOptions.Size = new System.Drawing.Size(240, 290);
             this.groupBoxGameOptions.TabIndex = 11;
@@ -1153,7 +1156,7 @@
             this.groupBoxMouse.Controls.Add(this.spinnerSensitivity);
             this.groupBoxMouse.Controls.Add(this.labelSensitivity);
             this.groupBoxMouse.Controls.Add(this.spinnerAimSensitivity);
-            this.groupBoxMouse.Location = new System.Drawing.Point(430, 20);
+            this.groupBoxMouse.Location = new System.Drawing.Point(430, 8);
             this.groupBoxMouse.Name = "groupBoxMouse";
             this.groupBoxMouse.Size = new System.Drawing.Size(148, 106);
             this.groupBoxMouse.TabIndex = 32;
@@ -1250,7 +1253,7 @@
             this.groupBoxSound.Controls.Add(this.spinnerMusicVolume);
             this.groupBoxSound.Controls.Add(this.spinnerMasterVolume);
             this.groupBoxSound.Controls.Add(this.labelMusicVolume);
-            this.groupBoxSound.Location = new System.Drawing.Point(270, 20);
+            this.groupBoxSound.Location = new System.Drawing.Point(270, 8);
             this.groupBoxSound.Name = "groupBoxSound";
             this.groupBoxSound.Size = new System.Drawing.Size(142, 80);
             this.groupBoxSound.TabIndex = 27;
@@ -1316,7 +1319,7 @@
             this.groupBoxCheats.Controls.Add(this.checkBoxReadOnly);
             this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
             this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
-            this.groupBoxCheats.Location = new System.Drawing.Point(270, 120);
+            this.groupBoxCheats.Location = new System.Drawing.Point(270, 108);
             this.groupBoxCheats.Name = "groupBoxCheats";
             this.groupBoxCheats.Size = new System.Drawing.Size(132, 85);
             this.groupBoxCheats.TabIndex = 37;
@@ -1358,11 +1361,11 @@
             // 
             this.tabControl.Controls.Add(this.tabGeneral);
             this.tabControl.Controls.Add(this.tabVideo);
-            this.tabControl.Location = new System.Drawing.Point(10, 105);
+            this.tabControl.Location = new System.Drawing.Point(10, 135);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(795, 365);
-            this.tabControl.TabIndex = 10;
+            this.tabControl.Size = new System.Drawing.Size(795, 335);
+            this.tabControl.TabIndex = 13;
             // 
             // linkLabelUpdateAvailable
             // 
@@ -1410,7 +1413,7 @@
             // 
             // buttonReportBug
             // 
-            this.buttonReportBug.Location = new System.Drawing.Point(9, 488);
+            this.buttonReportBug.Location = new System.Drawing.Point(13, 488);
             this.buttonReportBug.Name = "buttonReportBug";
             this.buttonReportBug.Size = new System.Drawing.Size(78, 23);
             this.buttonReportBug.TabIndex = 43;
@@ -1420,7 +1423,7 @@
             // 
             // buttonDonate
             // 
-            this.buttonDonate.Location = new System.Drawing.Point(93, 488);
+            this.buttonDonate.Location = new System.Drawing.Point(97, 488);
             this.buttonDonate.Name = "buttonDonate";
             this.buttonDonate.Size = new System.Drawing.Size(59, 23);
             this.buttonDonate.TabIndex = 44;
@@ -1428,11 +1431,42 @@
             this.buttonDonate.UseVisualStyleBackColor = true;
             this.buttonDonate.Click += new System.EventHandler(this.ButtonDonate_Click);
             // 
+            // buttonOpenSavedGamesPath
+            // 
+            this.buttonOpenSavedGamesPath.Location = new System.Drawing.Point(725, 95);
+            this.buttonOpenSavedGamesPath.Name = "buttonOpenSavedGamesPath";
+            this.buttonOpenSavedGamesPath.Size = new System.Drawing.Size(75, 23);
+            this.buttonOpenSavedGamesPath.TabIndex = 12;
+            this.buttonOpenSavedGamesPath.Text = "Open";
+            this.buttonOpenSavedGamesPath.UseVisualStyleBackColor = true;
+            this.buttonOpenSavedGamesPath.Click += new System.EventHandler(this.ButtonOpenSavedGamesPath_Click);
+            // 
+            // textBoxSavedGamesPath
+            // 
+            this.textBoxSavedGamesPath.Location = new System.Drawing.Point(140, 97);
+            this.textBoxSavedGamesPath.Name = "textBoxSavedGamesPath";
+            this.textBoxSavedGamesPath.ReadOnly = true;
+            this.textBoxSavedGamesPath.Size = new System.Drawing.Size(565, 20);
+            this.textBoxSavedGamesPath.TabIndex = 11;
+            this.textBoxSavedGamesPath.TabStop = false;
+            // 
+            // labelSavedGamesPath
+            // 
+            this.labelSavedGamesPath.AutoSize = true;
+            this.labelSavedGamesPath.Location = new System.Drawing.Point(10, 100);
+            this.labelSavedGamesPath.Name = "labelSavedGamesPath";
+            this.labelSavedGamesPath.Size = new System.Drawing.Size(96, 13);
+            this.labelSavedGamesPath.TabIndex = 10;
+            this.labelSavedGamesPath.Text = "Saved games path";
+            // 
             // Metro2033ConfigEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 516);
+            this.Controls.Add(this.buttonOpenSavedGamesPath);
+            this.Controls.Add(this.textBoxSavedGamesPath);
+            this.Controls.Add(this.labelSavedGamesPath);
             this.Controls.Add(this.buttonDonate);
             this.Controls.Add(this.buttonReportBug);
             this.Controls.Add(this.linkLabelUpdateAvailable);
@@ -1600,6 +1634,9 @@
         private System.Windows.Forms.Button buttonReportBug;
         private System.Windows.Forms.Button buttonDonate;
         private System.Windows.Forms.CheckBox checkBoxInvertYAxis;
+        private System.Windows.Forms.Button buttonOpenSavedGamesPath;
+        private System.Windows.Forms.TextBox textBoxSavedGamesPath;
+        private System.Windows.Forms.Label labelSavedGamesPath;
     }
 }
 

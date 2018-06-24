@@ -211,6 +211,7 @@ namespace Metro2033ConfigEditor
             textBoxSteamInstallPath.Text   = Helper.instance.SteamInstallPath ?? "Steam not found";
             textBoxConfigFilePath.Text     = Helper.instance.ConfigFilePath ?? "Config not found";
             textBoxGameExecutablePath.Text = Helper.instance.GameExecutablePath ?? "Game not found";
+            textBoxSavedGamesPath.Text     = Helper.instance.SavedGamesPath;
 
             // Set button states
             buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
@@ -364,6 +365,14 @@ namespace Metro2033ConfigEditor
                     refreshUI();
                 }
             }
+        }
+
+        private void ButtonOpenSavedGamesPath_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(Helper.instance.SavedGamesPath))
+                StartProcess(Helper.instance.SavedGamesPath);
+            else
+                StartProcess(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
         }
 
         private void ComboBoxResolution_SelectedIndexChanged(object sender, EventArgs e)
