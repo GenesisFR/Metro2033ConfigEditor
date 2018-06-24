@@ -390,6 +390,7 @@ namespace Metro2033ConfigEditor
             try
             {
                 string[] fileLines = File.ReadAllLines(ConfigFilePath);
+                Dictionary.Clear();
 
                 // Parse the content of the config and store every line in a dictionary
                 foreach (string fileLine in fileLines)
