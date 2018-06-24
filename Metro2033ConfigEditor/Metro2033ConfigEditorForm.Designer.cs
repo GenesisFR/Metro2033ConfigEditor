@@ -763,7 +763,7 @@
             this.comboBoxAntialiasing.Size = new System.Drawing.Size(121, 21);
             this.comboBoxAntialiasing.TabIndex = 56;
             // 
-            // spinnerFov
+            // spinnerFOV
             // 
             this.spinnerFOV.Location = new System.Drawing.Point(114, 194);
             this.spinnerFOV.Maximum = new decimal(new int[] {
@@ -776,7 +776,7 @@
             0,
             0,
             0});
-            this.spinnerFOV.Name = "spinnerFov";
+            this.spinnerFOV.Name = "spinnerFOV";
             this.spinnerFOV.Size = new System.Drawing.Size(120, 20);
             this.spinnerFOV.TabIndex = 62;
             this.spinnerFOV.Value = new decimal(new int[] {
@@ -1489,7 +1489,7 @@
             this.MaximizeBox = false;
             this.Name = "Metro2033ConfigEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Metro 2033 Config Editor v1.29";
+            this.Text = "Metro 2033 Config Editor v1.30";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Metro2033ConfigEditorForm_Closing);
             this.Shown += new System.EventHandler(this.Metro2033ConfigEditorForm_Shown);
             this.tabVideo.ResumeLayout(false);
