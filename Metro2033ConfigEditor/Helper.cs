@@ -345,14 +345,14 @@ namespace Metro2033ConfigEditor
         }
 
         // File-related methods
-        public bool CopyNoIntroFix(bool disableIntro)
+        public bool CopyNoIntroFix(bool isDisabled)
         {
             try
             {
                 string noIntroFilePath = Path.Combine(GameInstallPath, "content.upk9");
 
                 // Copy the intro fix to the game directory
-                if (disableIntro)
+                if (isDisabled)
                     File.WriteAllBytes(noIntroFilePath, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
                 else
                     File.Delete(noIntroFilePath);
@@ -361,7 +361,7 @@ namespace Metro2033ConfigEditor
             }
             catch (Exception ex)
             {
-                Logger.WriteInformation<Helper>(ex.Message, disableIntro);
+                Logger.WriteInformation<Helper>(ex.Message, isDisabled);
             }
 
             return false;

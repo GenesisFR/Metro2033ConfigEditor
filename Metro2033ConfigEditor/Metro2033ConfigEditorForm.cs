@@ -463,7 +463,10 @@ namespace Metro2033ConfigEditor
                         "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 if (!Helper.instance.CopyNoIntroFix(checkBoxSkipIntro.Checked))
-                    MessageBox.Show("Unable to enable/disable the no intro fix. Make sure the game executable path has been specified.",
+                    MessageBox.Show(string.Format("{0}{1}{2}",
+                        "Unable to ",
+                        checkBoxSkipIntro.Checked ? "enable" : "disable",
+                        "the no intro fix. Make sure the game executable path has been specified."),
                         "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
