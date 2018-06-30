@@ -297,8 +297,8 @@ namespace Metro2033ConfigEditor
             // Spinners
             dictionary["mouse_sens"]        = spinnerSensitivity.Value.Equals(1) ? "1." : spinnerSensitivity.Value.ToString();
             dictionary["mouse_aim_sens"]    = spinnerAimSensitivity.Value.ToString();
-            dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString();
-            dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString();
+            dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString("F2");
+            dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString("F2");
             dictionary["r_gamma"]           = spinnerGamma.Value.Equals(1) ? "1." : spinnerGamma.Value.ToString();
             dictionary["sick_fov"]          = $"{spinnerFOV.Value.ToString()}.";
 
