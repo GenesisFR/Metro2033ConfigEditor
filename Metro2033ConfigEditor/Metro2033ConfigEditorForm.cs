@@ -45,21 +45,20 @@ namespace Metro2033ConfigEditor
         private void AddTooltips()
         {
             toolTip.SetToolTip(checkBoxSkipIntro, "Skips intro logos and intro cutscene.");
-            toolTip.SetToolTip(checkBoxScreenshotMode, "Completely hides your weapon. You can combine it with the Ranger Hardcore" +
+            toolTip.SetToolTip(checkBoxScreenshotMode, "Completely hides your weapon. You can combine it with the Ranger hardcore" +
                 " difficulty to completely hide your HUD.");
             toolTip.SetToolTip(checkBoxShowStats, "Displays debug information such as framerate, draw count, etc.");
             toolTip.SetToolTip(checkBoxUnlimitedAmmo, "Gives unlimited ammo for all types of ammo, including military-grade ammo." +
                 " Military-grade ammo will deplete when buying items.");
             toolTip.SetToolTip(checkBoxGodMode, "Makes you invulnerable but you will need to wear a gas mask when required.");
             toolTip.SetToolTip(spinnerFOV, "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
-            toolTip.SetToolTip(checkBoxFullscreen, "Uncheck to play the game in windowed mode. To play borderless fullscreen, change" +
-                " your resolution to your native resolution.\nPlease note that the game was never meant to be played windowed so the" +
-                " taskbar will still be visible.");
-            toolTip.SetToolTip(checkBoxGlobalIllumination, "Turns on global illumination. If you're running a weak CPU, this might" +
-                " actually be a performance hit, but in most cases it actually acts as a gain.\nIt changes the lighting to a different" +
-                " system that works better with DX10 and 11. So if you're running DX9, I'd recommend against this change.");
-            toolTip.SetToolTip(checkBoxVsync, "By default, Metro 2033 apparently runs in Stereoscopic 3D which can impact performance." +
-                "\nFor some reason, enabling Vsync will disable stereoscopy, thus boosting your framerate.");
+            toolTip.SetToolTip(checkBoxFullscreen, "Uncheck to play the game in windowed mode. To play borderless fullscreen, use an" +
+                " application such as Borderless Gaming.");
+            toolTip.SetToolTip(checkBoxGlobalIllumination, "Enables global illumination. It can be a performance hit or gain depending" +
+                " on your CPU.\nIt changes the lighting to a different system that works better with DX10/DX11 so it's not recommended" +
+                " if you're using DX9.\nIt may also cause issues with some light sources (such as laser sights).");
+            toolTip.SetToolTip(checkBoxVsync, "By default, Metro 2033 apparently runs in Stereoscopic 3D mode which can have an impact" +
+                " on performance.\nFor some reason, enabling Vsync disables stereoscopy, thus boosting your framerate.");
         }
 
         private void ComboBoxQuality_SelectedLow()
