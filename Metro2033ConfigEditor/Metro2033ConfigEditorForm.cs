@@ -143,7 +143,8 @@ namespace Metro2033ConfigEditor
             WriteSettings(Helper.instance.DictionaryUponClosure);
 
             // Check if non-dictionary settings have changed
-            if (checkBoxSkipIntro.Checked != _skipIntroInitialState || checkBoxReadOnly.Checked != Helper.instance.IsConfigReadOnly)
+            if (checkBoxSkipIntro.Checked != _skipIntroInitialState || checkBoxReadOnly.Checked != Helper.instance.IsConfigReadOnly
+                || checkBoxControllerEnabled.Checked != Helper.instance.IsControllerEnabled)
                 return true;
 
             // Check if settings in dictionaries have changed
@@ -168,6 +169,7 @@ namespace Metro2033ConfigEditor
             checkBoxGodMode.Checked            = Helper.instance.Dictionary["g_god"]             == "1";
             checkBoxReadOnly.Checked           = Helper.instance.IsConfigReadOnly;
             checkBoxInvertYAxis.Checked        = Helper.instance.Dictionary["invert_y_axis"]     == "on";
+            checkBoxControllerEnabled.Checked  = Helper.instance.IsControllerEnabled;
             checkBoxAdvancedPhysX.Checked      = Helper.instance.Dictionary["ph_advanced_physX"] == "1";
             checkBoxDepthOfField.Checked       = Helper.instance.Dictionary["r_dx11_dof"]        == "1";
             checkBoxTessellation.Checked       = Helper.instance.Dictionary["r_dx11_tess"]       == "1";
@@ -189,12 +191,12 @@ namespace Metro2033ConfigEditor
             // Spinners
             try
             {
-                spinnerSensitivity.Value         = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
-                spinnerAimSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
-                spinnerMasterVolume.Value        = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
-                spinnerMusicVolume.Value         = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
-                spinnerGamma.Value               = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
-                spinnerFOV.Value                 = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
+                spinnerSensitivity.Value       = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
+                spinnerAimSensitivity.Value    = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
+                spinnerMasterVolume.Value      = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
+                spinnerMusicVolume.Value       = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
+                spinnerGamma.Value             = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
+                spinnerFOV.Value               = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
             }
             catch (Exception ex)
             {
@@ -374,6 +376,11 @@ namespace Metro2033ConfigEditor
                 StartProcess(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
         }
 
+        private void CheckBoxControllerEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            labelControllerWarning.Visible = checkBoxControllerEnabled.Checked;
+        }
+
         private void ComboBoxResolution_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Change the content of the width/height textboxes according to selected resolution
@@ -460,8 +467,9 @@ namespace Metro2033ConfigEditor
                 fileSystemWatcherNoIntro.EnableRaisingEvents = false;
 
                 WriteSettings(Helper.instance.Dictionary);
-                _skipIntroInitialState = checkBoxSkipIntro.Checked;
-                Helper.instance.IsConfigReadOnly = checkBoxReadOnly.Checked;
+                _skipIntroInitialState              = checkBoxSkipIntro.Checked;
+                Helper.instance.IsConfigReadOnly    = checkBoxReadOnly.Checked;
+                Helper.instance.IsControllerEnabled = checkBoxControllerEnabled.Checked;
 
                 if (Helper.instance.WriteConfigFile())
                     MessageBox.Show("The config file has been saved successfully!",

@@ -99,6 +99,9 @@
             this.textBoxHeight = new System.Windows.Forms.TextBox();
             this.labelHeight = new System.Windows.Forms.Label();
             this.tabGeneral = new System.Windows.Forms.TabPage();
+            this.labelControllerWarning = new System.Windows.Forms.Label();
+            this.groupBoxController = new System.Windows.Forms.GroupBox();
+            this.checkBoxControllerEnabled = new System.Windows.Forms.CheckBox();
             this.labelCheatsWarning = new System.Windows.Forms.Label();
             this.labelCheatsNote = new System.Windows.Forms.Label();
             this.groupBoxGameOptions = new System.Windows.Forms.GroupBox();
@@ -149,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerFOV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).BeginInit();
             this.tabGeneral.SuspendLayout();
+            this.groupBoxController.SuspendLayout();
             this.groupBoxGameOptions.SuspendLayout();
             this.groupBoxMouse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerSensitivity)).BeginInit();
@@ -923,6 +927,8 @@
             // tabGeneral
             // 
             this.tabGeneral.BackColor = System.Drawing.Color.White;
+            this.tabGeneral.Controls.Add(this.labelControllerWarning);
+            this.tabGeneral.Controls.Add(this.groupBoxController);
             this.tabGeneral.Controls.Add(this.labelCheatsWarning);
             this.tabGeneral.Controls.Add(this.labelCheatsNote);
             this.tabGeneral.Controls.Add(this.groupBoxGameOptions);
@@ -935,6 +941,39 @@
             this.tabGeneral.Size = new System.Drawing.Size(787, 309);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
+            // 
+            // labelControllerWarning
+            // 
+            this.labelControllerWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControllerWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelControllerWarning.Location = new System.Drawing.Point(595, 62);
+            this.labelControllerWarning.Name = "labelControllerWarning";
+            this.labelControllerWarning.Size = new System.Drawing.Size(166, 83);
+            this.labelControllerWarning.TabIndex = 45;
+            this.labelControllerWarning.Text = "Warning: the following files in the game directory will be overwritten!\r\n\r\nx360ce" +
+    ".ini / xinput1_1.dll / xinput1_2.dll / xinput1_3.dll / xinput9_1_0.dll";
+            this.labelControllerWarning.Visible = false;
+            // 
+            // groupBoxController
+            // 
+            this.groupBoxController.Controls.Add(this.checkBoxControllerEnabled);
+            this.groupBoxController.Location = new System.Drawing.Point(598, 8);
+            this.groupBoxController.Name = "groupBoxController";
+            this.groupBoxController.Size = new System.Drawing.Size(148, 45);
+            this.groupBoxController.TabIndex = 44;
+            this.groupBoxController.TabStop = false;
+            this.groupBoxController.Text = "Controller";
+            // 
+            // checkBoxControllerEnabled
+            // 
+            this.checkBoxControllerEnabled.AutoSize = true;
+            this.checkBoxControllerEnabled.Location = new System.Drawing.Point(6, 20);
+            this.checkBoxControllerEnabled.Name = "checkBoxControllerEnabled";
+            this.checkBoxControllerEnabled.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxControllerEnabled.TabIndex = 43;
+            this.checkBoxControllerEnabled.Text = "Enabled";
+            this.checkBoxControllerEnabled.UseVisualStyleBackColor = true;
+            this.checkBoxControllerEnabled.CheckedChanged += new System.EventHandler(this.CheckBoxControllerEnabled_CheckedChanged);
             // 
             // labelCheatsWarning
             // 
@@ -1502,6 +1541,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).EndInit();
             this.tabGeneral.ResumeLayout(false);
             this.tabGeneral.PerformLayout();
+            this.groupBoxController.ResumeLayout(false);
+            this.groupBoxController.PerformLayout();
             this.groupBoxGameOptions.ResumeLayout(false);
             this.groupBoxGameOptions.PerformLayout();
             this.groupBoxMouse.ResumeLayout(false);
@@ -1637,6 +1678,9 @@
         private System.Windows.Forms.Button buttonOpenSavedGamesPath;
         private System.Windows.Forms.TextBox textBoxSavedGamesPath;
         private System.Windows.Forms.Label labelSavedGamesPath;
+        private System.Windows.Forms.GroupBox groupBoxController;
+        private System.Windows.Forms.CheckBox checkBoxControllerEnabled;
+        private System.Windows.Forms.Label labelControllerWarning;
     }
 }
 

@@ -69,5 +69,15 @@ namespace Metro2033ConfigEditor.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] nox360 {
+            get {
+                object obj = ResourceManager.GetObject("nox360", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

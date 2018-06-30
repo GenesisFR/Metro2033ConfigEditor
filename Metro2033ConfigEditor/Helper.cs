@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -57,6 +58,53 @@ namespace Metro2033ConfigEditor
             {
                 if (ConfigFilePath != null)
                     new FileInfo(ConfigFilePath).IsReadOnly = value;
+            }
+        }
+
+        public bool IsControllerEnabled
+        {
+            get
+            {
+                string x360iniFilePath   = Path.Combine(GameInstallPath, "x360ce.ini");
+                string xInput11FilePath  = Path.Combine(GameInstallPath, "xinput1_1.dll");
+                string xInput12FilePath  = Path.Combine(GameInstallPath, "xinput1_2.dll");
+                string xInput13FilePath  = Path.Combine(GameInstallPath, "xinput1_3.dll");
+                string xInput910FilePath = Path.Combine(GameInstallPath, "xinput9_1_0.dll");
+
+                return File.Exists(x360iniFilePath) && File.Exists(xInput11FilePath) && File.Exists(xInput12FilePath) &&
+                    File.Exists(xInput13FilePath) && File.Exists(xInput910FilePath);
+            }
+
+            set
+            {
+                string nox360FilePath    = Path.Combine(GameInstallPath, "nox360.zip");
+                string x360iniFilePath   = Path.Combine(GameInstallPath, "x360ce.ini");
+                string xInput11FilePath  = Path.Combine(GameInstallPath, "xinput1_1.dll");
+                string xInput12FilePath  = Path.Combine(GameInstallPath, "xinput1_2.dll");
+                string xInput13FilePath  = Path.Combine(GameInstallPath, "xinput1_3.dll");
+                string xInput910FilePath = Path.Combine(GameInstallPath, "xinput9_1_0.dll");
+
+                // Delete all files
+                File.Delete(x360iniFilePath);
+                File.Delete(xInput11FilePath);
+                File.Delete(xInput12FilePath);
+                File.Delete(xInput13FilePath);
+                File.Delete(xInput910FilePath);
+
+                try
+                {
+                    if (value == true)
+                    {
+                        // Copy nox360.zip to game directory and extract it
+                        File.WriteAllBytes(nox360FilePath, Metro2033ConfigEditor.Properties.Resources.nox360);
+                        ZipFile.ExtractToDirectory(nox360FilePath, GameInstallPath);
+                        File.Delete(nox360FilePath);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteInformation<Helper>(ex.Message);
+                }
             }
         }
 
