@@ -60,8 +60,8 @@ namespace Metro2033ConfigEditor
                 string xInput13FilePath  = Path.Combine(GameInstallPath, "xinput1_3.dll");
                 string xInput910FilePath = Path.Combine(GameInstallPath, "xinput9_1_0.dll");
 
-                return File.Exists(x360iniFilePath) && File.Exists(xInput11FilePath) && File.Exists(xInput12FilePath) &&
-                    File.Exists(xInput13FilePath) && File.Exists(xInput910FilePath);
+                return !File.Exists(x360iniFilePath) && !File.Exists(xInput11FilePath) && !File.Exists(xInput12FilePath) &&
+                    !File.Exists(xInput13FilePath) && !File.Exists(xInput910FilePath);
             }
 
             set
@@ -82,7 +82,7 @@ namespace Metro2033ConfigEditor
 
                 try
                 {
-                    if (value == true)
+                    if (value == false)
                     {
                         // Copy nox360.zip to game directory and extract it
                         File.WriteAllBytes(nox360FilePath, Metro2033ConfigEditor.Properties.Resources.nox360);

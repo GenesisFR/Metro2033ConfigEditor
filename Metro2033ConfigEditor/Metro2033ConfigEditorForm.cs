@@ -401,7 +401,7 @@ namespace Metro2033ConfigEditor
 
         private void CheckBoxControllerEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            labelControllerWarning.Visible = checkBoxControllerEnabled.Checked;
+            labelControllerWarning.Visible = !checkBoxControllerEnabled.Checked;
         }
 
         private void ComboBoxResolution_SelectedIndexChanged(object sender, EventArgs e)
