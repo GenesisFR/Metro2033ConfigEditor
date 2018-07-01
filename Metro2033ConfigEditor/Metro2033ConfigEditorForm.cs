@@ -7,6 +7,15 @@ using System.Windows.Forms;
 
 namespace Metro2033ConfigEditor
 {
+    /*
+        DONE: aim_assist 0.-1., default is 1.
+        DONE: inv_y_controller 0/1 = off/on, default is 0
+        DONE: joy_sens_aiming_x 0.01-0.967, default is 0.4
+        DONE: joy_sens_x 0.1-2.90333, default is 1.
+        WIP: g_input_hand 0/1 = Left stick / Right stick, default is 0
+        WIP: gamepad_preset 0-3 = Preset 1 / Preset 2 / Preset 3 / Preset 4, default is 0
+        WIP: vibration 0-3 = off/weak/medium/strong, default is 3
+    */
     public partial class Metro2033ConfigEditorForm : Form
     {
         private bool _skipIntroInitialState = false;
@@ -154,53 +163,60 @@ namespace Metro2033ConfigEditor
         private void ReadSettings()
         {
             Helper.instance.AddKeysIfMissing();
-            _skipIntroInitialState             = Helper.instance.IsNoIntroSkipped;
+            _skipIntroInitialState = Helper.instance.IsNoIntroSkipped;
 
             // Checkboxes
-            checkBoxSubtitles.Checked          = Helper.instance.Dictionary["_show_subtitles"]   == "1";
-            checkBoxFastWeaponChange.Checked   = Helper.instance.Dictionary["fast_wpn_change"]   == "1";
-            checkBoxLaserCrosshair.Checked     = Helper.instance.Dictionary["g_laser"]           == "1";
-            checkBoxHints.Checked              = Helper.instance.Dictionary["g_quick_hints"]     == "1";
-            checkBoxCrosshair.Checked          = Helper.instance.Dictionary["g_show_crosshair"]  == "on";
-            checkBoxScreenshotMode.Checked     = Helper.instance.Dictionary["r_hud_weapon"]      == "off";
-            checkBoxShowStats.Checked          = Helper.instance.Dictionary["stats"]             == "on";
-            checkBoxSkipIntro.Checked          = Helper.instance.IsNoIntroSkipped;
-            checkBoxUnlimitedAmmo.Checked      = Helper.instance.Dictionary["g_unlimitedammo"]   == "1";
-            checkBoxGodMode.Checked            = Helper.instance.Dictionary["g_god"]             == "1";
-            checkBoxReadOnly.Checked           = Helper.instance.IsConfigReadOnly;
-            checkBoxInvertYAxis.Checked        = Helper.instance.Dictionary["invert_y_axis"]     == "on";
-            checkBoxControllerEnabled.Checked  = Helper.instance.IsControllerEnabled;
-            checkBoxAdvancedPhysX.Checked      = Helper.instance.Dictionary["ph_advanced_physX"] == "1";
-            checkBoxDepthOfField.Checked       = Helper.instance.Dictionary["r_dx11_dof"]        == "1";
-            checkBoxTessellation.Checked       = Helper.instance.Dictionary["r_dx11_tess"]       == "1";
-            checkBoxFullscreen.Checked         = Helper.instance.Dictionary["r_fullscreen"]      == "on";
-            checkBoxGlobalIllumination.Checked = Helper.instance.Dictionary["r_gi"]              == "1";
-            checkBoxVsync.Checked              = Helper.instance.Dictionary["r_vsync"]           == "on";
+            checkBoxSubtitles.Checked             = Helper.instance.Dictionary["_show_subtitles"]   == "1";
+            checkBoxFastWeaponChange.Checked      = Helper.instance.Dictionary["fast_wpn_change"]   == "1";
+            checkBoxLaserCrosshair.Checked        = Helper.instance.Dictionary["g_laser"]           == "1";
+            checkBoxHints.Checked                 = Helper.instance.Dictionary["g_quick_hints"]     == "1";
+            checkBoxCrosshair.Checked             = Helper.instance.Dictionary["g_show_crosshair"]  == "on";
+            checkBoxScreenshotMode.Checked        = Helper.instance.Dictionary["r_hud_weapon"]      == "off";
+            checkBoxShowStats.Checked             = Helper.instance.Dictionary["stats"]             == "on";
+            checkBoxSkipIntro.Checked             = Helper.instance.IsNoIntroSkipped;
+            checkBoxUnlimitedAmmo.Checked         = Helper.instance.Dictionary["g_unlimitedammo"]   == "1";
+            checkBoxGodMode.Checked               = Helper.instance.Dictionary["g_god"]             == "1";
+            checkBoxReadOnly.Checked              = Helper.instance.IsConfigReadOnly;
+            checkBoxMouseInvertYAxis.Checked      = Helper.instance.Dictionary["invert_y_axis"]     == "on";
+            checkBoxControllerEnabled.Checked     = Helper.instance.IsControllerEnabled;
+            checkBoxControllerInvertYAxis.Checked = Helper.instance.Dictionary["inv_y_controller"]  == "1";
+            checkBoxAdvancedPhysX.Checked         = Helper.instance.Dictionary["ph_advanced_physX"] == "1";
+            checkBoxDepthOfField.Checked          = Helper.instance.Dictionary["r_dx11_dof"]        == "1";
+            checkBoxTessellation.Checked          = Helper.instance.Dictionary["r_dx11_tess"]       == "1";
+            checkBoxFullscreen.Checked            = Helper.instance.Dictionary["r_fullscreen"]      == "on";
+            checkBoxGlobalIllumination.Checked    = Helper.instance.Dictionary["r_gi"]              == "1";
+            checkBoxVsync.Checked                 = Helper.instance.Dictionary["r_vsync"]           == "on";
 
             // Comboboxes
-            comboBoxDifficulty.Text            = Helper.instance.ConvertNumberToDifficulty(Helper.instance.Dictionary["g_game_difficulty"]);
-            comboBoxVoiceLanguage.Text         = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_sound"]);
-            comboBoxTextLanguage.Text          = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_text"]);
-            comboBoxTextureFiltering.Text      = Helper.instance.ConvertNumberToTextureFiltering(Helper.instance.Dictionary["r_af_level"]);
-            comboBoxDirectX.Text               = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
-            comboBoxAntialiasing.Text          = Helper.instance.ConvertNumberToAntialiasing(Helper.instance.Dictionary["r_msaa_level"]);
-            comboBoxQuality.Text               = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
-            string resolution                  = $"{Helper.instance.Dictionary["r_res_hor"]} x {Helper.instance.Dictionary["r_res_vert"]}";
-            comboBoxResolution.Text            = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
+            comboBoxDifficulty.Text          = Helper.instance.ConvertNumberToDifficulty(Helper.instance.Dictionary["g_game_difficulty"]);
+            comboBoxVoiceLanguage.Text       = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_sound"]);
+            comboBoxTextLanguage.Text        = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_text"]);
+            comboBoxControllerPreset.Text    = Helper.instance.ConvertNumberToPreset(Helper.instance.Dictionary["gamepad_preset"]);
+            comboBoxControllerVibration.Text = Helper.instance.ConvertNumberToVibration(Helper.instance.Dictionary["vibration"]);
+            comboBoxControllerMovement.Text  = Helper.instance.ConvertNumberToMovement(Helper.instance.Dictionary["g_input_hand"]);
+            comboBoxTextureFiltering.Text    = Helper.instance.ConvertNumberToTextureFiltering(Helper.instance.Dictionary["r_af_level"]);
+            comboBoxDirectX.Text             = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
+            comboBoxAntialiasing.Text        = Helper.instance.ConvertNumberToAntialiasing(Helper.instance.Dictionary["r_msaa_level"]);
+            comboBoxQuality.Text             = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
+            string resolution                = $"{Helper.instance.Dictionary["r_res_hor"]} x {Helper.instance.Dictionary["r_res_vert"]}";
+            comboBoxResolution.Text          = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
 
             // Spinners
             try
             {
-                spinnerSensitivity.Value       = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
-                spinnerAimSensitivity.Value    = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
-                spinnerMasterVolume.Value      = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
-                spinnerMusicVolume.Value       = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
-                spinnerGamma.Value             = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
-                spinnerFOV.Value               = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
+                spinnerMasterVolume.Value             = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
+                spinnerMusicVolume.Value              = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
+                spinnerMouseSensitivity.Value         = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
+                spinnerMouseAimSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
+                spinnerControllerSensitivity.Value    = Decimal.Parse(Helper.instance.Dictionary["joy_sens_x"]);
+                spinnerControllerAimSensitivity.Value = Decimal.Parse(Helper.instance.Dictionary["joy_sens_aiming_x"]);
+                spinnerControllerAimAssist.Value      = Decimal.Parse(Helper.instance.Dictionary["aim_assist"]);
+                spinnerGamma.Value                    = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
+                spinnerFOV.Value                      = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Exception: {ex.Message}\n\nSetting default values for volume, sensitivity, gamma and FOV.",
+                MessageBox.Show($"Exception: {ex.Message}\n\nSetting default values for volume, sensitivity, aim assist, gamma and FOV.",
                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Logger.WriteInformation<Helper>(ex.Message);
             }
@@ -278,7 +294,8 @@ namespace Metro2033ConfigEditor
             dictionary["stats"]             = checkBoxShowStats.Checked ? "on" : "off";
             dictionary["g_unlimitedammo"]   = checkBoxUnlimitedAmmo.Checked ? "1" : "0";
             dictionary["g_god"]             = checkBoxGodMode.Checked ? "1" : "0";
-            dictionary["invert_y_axis"]     = checkBoxInvertYAxis.Checked ? "on" : "off";
+            dictionary["invert_y_axis"]     = checkBoxMouseInvertYAxis.Checked ? "on" : "off";
+            dictionary["inv_y_controller"]  = checkBoxControllerInvertYAxis.Checked ? "1" : "0";
             dictionary["ph_advanced_physX"] = checkBoxAdvancedPhysX.Checked ? "1" : "0";
             dictionary["r_dx11_dof"]        = checkBoxDepthOfField.Checked ? "1" : "0";
             dictionary["r_dx11_tess"]       = checkBoxTessellation.Checked ? "1" : "0";
@@ -290,22 +307,28 @@ namespace Metro2033ConfigEditor
             dictionary["g_game_difficulty"] = Helper.instance.ConvertDifficultyToNumber(comboBoxDifficulty.Text);
             dictionary["lang_sound"]        = Helper.instance.ConvertLanguageToCode(comboBoxVoiceLanguage.Text);
             dictionary["lang_text"]         = Helper.instance.ConvertLanguageToCode(comboBoxTextLanguage.Text);
+            dictionary["gamepad_preset"]    = Helper.instance.ConvertPresetToNumber(comboBoxControllerPreset.Text);
+            dictionary["vibration"]         = Helper.instance.ConvertVibrationToNumber(comboBoxControllerVibration.Text);
+            dictionary["g_input_hand"]      = Helper.instance.ConvertMovementToNumber(comboBoxControllerMovement.Text);
             dictionary["r_af_level"]        = Helper.instance.ConvertTextureFilteringToNumber(comboBoxTextureFiltering.Text);
             dictionary["r_api"]             = Helper.instance.ConvertDirectXToNumber(comboBoxDirectX.Text);
             dictionary["r_msaa_level"]      = Helper.instance.ConvertAntialiasingToNumber(comboBoxAntialiasing.Text);
             dictionary["r_quality_level"]   = Helper.instance.ConvertQualityLevelToNumber(comboBoxQuality.Text);
 
             // Spinners
-            dictionary["mouse_sens"]        = spinnerSensitivity.Value.Equals(1) ? "1." : spinnerSensitivity.Value.ToString();
-            dictionary["mouse_aim_sens"]    = spinnerAimSensitivity.Value.ToString();
-            dictionary["s_master_volume"]   = spinnerMasterVolume.Value.ToString("F2");
-            dictionary["s_music_volume"]    = spinnerMusicVolume.Value.ToString("F2");
-            dictionary["r_gamma"]           = spinnerGamma.Value.Equals(1) ? "1." : spinnerGamma.Value.ToString();
-            dictionary["sick_fov"]          = $"{spinnerFOV.Value.ToString()}.";
+            dictionary["s_master_volume"]   = Helper.instance.FormatDecimalNumber(spinnerMasterVolume.Value, 2);
+            dictionary["s_music_volume"]    = Helper.instance.FormatDecimalNumber(spinnerMusicVolume.Value, 2);
+            dictionary["mouse_sens"]        = Helper.instance.FormatDecimalNumber(spinnerMouseSensitivity.Value);
+            dictionary["mouse_aim_sens"]    = Helper.instance.FormatDecimalNumber(spinnerMouseAimSensitivity.Value);
+            dictionary["joy_sens_x"]        = Helper.instance.FormatDecimalNumber(spinnerControllerSensitivity.Value);
+            dictionary["joy_sens_aiming_x"] = Helper.instance.FormatDecimalNumber(spinnerControllerAimSensitivity.Value);
+            dictionary["aim_assist"]        = Helper.instance.FormatDecimalNumber(spinnerControllerAimAssist.Value);
+            dictionary["r_gamma"]           = Helper.instance.FormatDecimalNumber(spinnerGamma.Value);
+            dictionary["sick_fov"]          = Helper.instance.FormatDecimalNumber(spinnerFOV.Value);
 
             // Textboxes
-            dictionary["r_res_hor"]         = textBoxWidth.Text;
-            dictionary["r_res_vert"]        = textBoxHeight.Text;
+            dictionary["r_res_hor"]  = textBoxWidth.Text;
+            dictionary["r_res_vert"] = textBoxHeight.Text;
         }
 
         // Event handlers

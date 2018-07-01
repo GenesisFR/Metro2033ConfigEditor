@@ -101,7 +101,20 @@
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.labelControllerWarning = new System.Windows.Forms.Label();
             this.groupBoxController = new System.Windows.Forms.GroupBox();
+            this.labelControllerAimAssist = new System.Windows.Forms.Label();
+            this.spinnerControllerAimAssist = new System.Windows.Forms.NumericUpDown();
+            this.labelControllerMovement = new System.Windows.Forms.Label();
             this.checkBoxControllerEnabled = new System.Windows.Forms.CheckBox();
+            this.comboBoxControllerMovement = new System.Windows.Forms.ComboBox();
+            this.labelControllerPreset = new System.Windows.Forms.Label();
+            this.labelControllerSensitivity = new System.Windows.Forms.Label();
+            this.comboBoxControllerPreset = new System.Windows.Forms.ComboBox();
+            this.labelControllerVibration = new System.Windows.Forms.Label();
+            this.comboBoxControllerVibration = new System.Windows.Forms.ComboBox();
+            this.labelControllerAimSensitivity = new System.Windows.Forms.Label();
+            this.spinnerControllerSensitivity = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxControllerInvertYAxis = new System.Windows.Forms.CheckBox();
+            this.spinnerControllerAimSensitivity = new System.Windows.Forms.NumericUpDown();
             this.labelCheatsWarning = new System.Windows.Forms.Label();
             this.labelCheatsNote = new System.Windows.Forms.Label();
             this.groupBoxGameOptions = new System.Windows.Forms.GroupBox();
@@ -121,11 +134,11 @@
             this.labelTextLanguage = new System.Windows.Forms.Label();
             this.checkBoxLaserCrosshair = new System.Windows.Forms.CheckBox();
             this.groupBoxMouse = new System.Windows.Forms.GroupBox();
-            this.checkBoxInvertYAxis = new System.Windows.Forms.CheckBox();
-            this.labelAimSensitivity = new System.Windows.Forms.Label();
-            this.spinnerSensitivity = new System.Windows.Forms.NumericUpDown();
-            this.labelSensitivity = new System.Windows.Forms.Label();
-            this.spinnerAimSensitivity = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxMouseInvertYAxis = new System.Windows.Forms.CheckBox();
+            this.labelMouseAimSensitivity = new System.Windows.Forms.Label();
+            this.spinnerMouseSensitivity = new System.Windows.Forms.NumericUpDown();
+            this.labelMouseSensitivity = new System.Windows.Forms.Label();
+            this.spinnerMouseAimSensitivity = new System.Windows.Forms.NumericUpDown();
             this.groupBoxSound = new System.Windows.Forms.GroupBox();
             this.labelMasterVolume = new System.Windows.Forms.Label();
             this.spinnerMusicVolume = new System.Windows.Forms.NumericUpDown();
@@ -153,10 +166,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinnerGamma)).BeginInit();
             this.tabGeneral.SuspendLayout();
             this.groupBoxController.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerControllerAimAssist)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerControllerSensitivity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerControllerAimSensitivity)).BeginInit();
             this.groupBoxGameOptions.SuspendLayout();
             this.groupBoxMouse.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerSensitivity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerAimSensitivity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerMouseSensitivity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerMouseAimSensitivity)).BeginInit();
             this.groupBoxSound.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMusicVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMasterVolume)).BeginInit();
@@ -327,7 +343,7 @@
             // labelResolutionNote
             // 
             this.labelResolutionNote.AutoSize = true;
-            this.labelResolutionNote.Location = new System.Drawing.Point(255, 47);
+            this.labelResolutionNote.Location = new System.Drawing.Point(245, 47);
             this.labelResolutionNote.Name = "labelResolutionNote";
             this.labelResolutionNote.Size = new System.Drawing.Size(268, 13);
             this.labelResolutionNote.TabIndex = 70;
@@ -373,9 +389,9 @@
             this.groupBoxDescription.Controls.Add(this.labelGeometricDetailValue);
             this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusion);
             this.groupBoxDescription.Controls.Add(this.labelDetailTexturing);
-            this.groupBoxDescription.Location = new System.Drawing.Point(373, 73);
+            this.groupBoxDescription.Location = new System.Drawing.Point(353, 73);
             this.groupBoxDescription.Name = "groupBoxDescription";
-            this.groupBoxDescription.Size = new System.Drawing.Size(390, 217);
+            this.groupBoxDescription.Size = new System.Drawing.Size(338, 217);
             this.groupBoxDescription.TabIndex = 74;
             this.groupBoxDescription.TabStop = false;
             this.groupBoxDescription.Text = "Quality settings";
@@ -696,7 +712,7 @@
             // 
             this.groupBoxDirectX11.Controls.Add(this.checkBoxDepthOfField);
             this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
-            this.groupBoxDirectX11.Location = new System.Drawing.Point(255, 73);
+            this.groupBoxDirectX11.Location = new System.Drawing.Point(245, 73);
             this.groupBoxDirectX11.Name = "groupBoxDirectX11";
             this.groupBoxDirectX11.Size = new System.Drawing.Size(99, 65);
             this.groupBoxDirectX11.TabIndex = 71;
@@ -891,7 +907,7 @@
             // labelWidth
             // 
             this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(255, 25);
+            this.labelWidth.Location = new System.Drawing.Point(245, 25);
             this.labelWidth.Name = "labelWidth";
             this.labelWidth.Size = new System.Drawing.Size(35, 13);
             this.labelWidth.TabIndex = 66;
@@ -899,7 +915,7 @@
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(300, 22);
+            this.textBoxWidth.Location = new System.Drawing.Point(290, 22);
             this.textBoxWidth.Name = "textBoxWidth";
             this.textBoxWidth.ShortcutsEnabled = false;
             this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
@@ -908,7 +924,7 @@
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(468, 22);
+            this.textBoxHeight.Location = new System.Drawing.Point(453, 22);
             this.textBoxHeight.Name = "textBoxHeight";
             this.textBoxHeight.ShortcutsEnabled = false;
             this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
@@ -918,7 +934,7 @@
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(420, 25);
+            this.labelHeight.Location = new System.Drawing.Point(405, 25);
             this.labelHeight.Name = "labelHeight";
             this.labelHeight.Size = new System.Drawing.Size(38, 13);
             this.labelHeight.TabIndex = 68;
@@ -944,30 +960,80 @@
             // 
             // labelControllerWarning
             // 
+            this.labelControllerWarning.AutoSize = true;
             this.labelControllerWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControllerWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelControllerWarning.Location = new System.Drawing.Point(595, 62);
+            this.labelControllerWarning.Location = new System.Drawing.Point(240, 275);
             this.labelControllerWarning.Name = "labelControllerWarning";
-            this.labelControllerWarning.Size = new System.Drawing.Size(166, 83);
+            this.labelControllerWarning.Size = new System.Drawing.Size(347, 26);
             this.labelControllerWarning.TabIndex = 45;
-            this.labelControllerWarning.Text = "Warning: the following files in the game directory will be overwritten!\r\n\r\nx360ce" +
-    ".ini / xinput1_1.dll / xinput1_2.dll / xinput1_3.dll / xinput9_1_0.dll";
+            this.labelControllerWarning.Text = "Warning: the following files in the game directory will be overwritten!\r\nx360ce.i" +
+    "ni / xinput1_1.dll / xinput1_2.dll / xinput1_3.dll / xinput9_1_0.dll";
             this.labelControllerWarning.Visible = false;
             // 
             // groupBoxController
             // 
+            this.groupBoxController.Controls.Add(this.labelControllerAimAssist);
+            this.groupBoxController.Controls.Add(this.spinnerControllerAimAssist);
+            this.groupBoxController.Controls.Add(this.labelControllerMovement);
             this.groupBoxController.Controls.Add(this.checkBoxControllerEnabled);
-            this.groupBoxController.Location = new System.Drawing.Point(598, 8);
+            this.groupBoxController.Controls.Add(this.comboBoxControllerMovement);
+            this.groupBoxController.Controls.Add(this.labelControllerPreset);
+            this.groupBoxController.Controls.Add(this.labelControllerSensitivity);
+            this.groupBoxController.Controls.Add(this.comboBoxControllerPreset);
+            this.groupBoxController.Controls.Add(this.labelControllerVibration);
+            this.groupBoxController.Controls.Add(this.comboBoxControllerVibration);
+            this.groupBoxController.Controls.Add(this.labelControllerAimSensitivity);
+            this.groupBoxController.Controls.Add(this.spinnerControllerSensitivity);
+            this.groupBoxController.Controls.Add(this.checkBoxControllerInvertYAxis);
+            this.groupBoxController.Controls.Add(this.spinnerControllerAimSensitivity);
+            this.groupBoxController.Location = new System.Drawing.Point(548, 8);
             this.groupBoxController.Name = "groupBoxController";
-            this.groupBoxController.Size = new System.Drawing.Size(148, 45);
+            this.groupBoxController.Size = new System.Drawing.Size(190, 251);
             this.groupBoxController.TabIndex = 44;
             this.groupBoxController.TabStop = false;
             this.groupBoxController.Text = "Controller";
             // 
+            // labelControllerAimAssist
+            // 
+            this.labelControllerAimAssist.AutoSize = true;
+            this.labelControllerAimAssist.Location = new System.Drawing.Point(5, 198);
+            this.labelControllerAimAssist.Name = "labelControllerAimAssist";
+            this.labelControllerAimAssist.Size = new System.Drawing.Size(53, 13);
+            this.labelControllerAimAssist.TabIndex = 75;
+            this.labelControllerAimAssist.Text = "Aim assist";
+            // 
+            // spinnerControllerAimAssist
+            // 
+            this.spinnerControllerAimAssist.DecimalPlaces = 5;
+            this.spinnerControllerAimAssist.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.spinnerControllerAimAssist.Location = new System.Drawing.Point(107, 194);
+            this.spinnerControllerAimAssist.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinnerControllerAimAssist.Name = "spinnerControllerAimAssist";
+            this.spinnerControllerAimAssist.Size = new System.Drawing.Size(75, 20);
+            this.spinnerControllerAimAssist.TabIndex = 76;
+            // 
+            // labelControllerMovement
+            // 
+            this.labelControllerMovement.AutoSize = true;
+            this.labelControllerMovement.Location = new System.Drawing.Point(5, 108);
+            this.labelControllerMovement.Name = "labelControllerMovement";
+            this.labelControllerMovement.Size = new System.Drawing.Size(57, 13);
+            this.labelControllerMovement.TabIndex = 68;
+            this.labelControllerMovement.Text = "Movement";
+            // 
             // checkBoxControllerEnabled
             // 
             this.checkBoxControllerEnabled.AutoSize = true;
-            this.checkBoxControllerEnabled.Location = new System.Drawing.Point(6, 20);
+            this.checkBoxControllerEnabled.Location = new System.Drawing.Point(8, 20);
             this.checkBoxControllerEnabled.Name = "checkBoxControllerEnabled";
             this.checkBoxControllerEnabled.Size = new System.Drawing.Size(65, 17);
             this.checkBoxControllerEnabled.TabIndex = 43;
@@ -975,12 +1041,154 @@
             this.checkBoxControllerEnabled.UseVisualStyleBackColor = true;
             this.checkBoxControllerEnabled.CheckedChanged += new System.EventHandler(this.CheckBoxControllerEnabled_CheckedChanged);
             // 
+            // comboBoxControllerMovement
+            // 
+            this.comboBoxControllerMovement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxControllerMovement.FormattingEnabled = true;
+            this.comboBoxControllerMovement.Items.AddRange(new object[] {
+            "Left stick",
+            "Right stick"});
+            this.comboBoxControllerMovement.Location = new System.Drawing.Point(107, 104);
+            this.comboBoxControllerMovement.Name = "comboBoxControllerMovement";
+            this.comboBoxControllerMovement.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxControllerMovement.TabIndex = 69;
+            // 
+            // labelControllerPreset
+            // 
+            this.labelControllerPreset.AutoSize = true;
+            this.labelControllerPreset.Location = new System.Drawing.Point(5, 50);
+            this.labelControllerPreset.Name = "labelControllerPreset";
+            this.labelControllerPreset.Size = new System.Drawing.Size(37, 13);
+            this.labelControllerPreset.TabIndex = 64;
+            this.labelControllerPreset.Text = "Preset";
+            // 
+            // labelControllerSensitivity
+            // 
+            this.labelControllerSensitivity.AutoSize = true;
+            this.labelControllerSensitivity.Location = new System.Drawing.Point(5, 168);
+            this.labelControllerSensitivity.Name = "labelControllerSensitivity";
+            this.labelControllerSensitivity.Size = new System.Drawing.Size(54, 13);
+            this.labelControllerSensitivity.TabIndex = 72;
+            this.labelControllerSensitivity.Text = "Sensitivity";
+            // 
+            // comboBoxControllerPreset
+            // 
+            this.comboBoxControllerPreset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxControllerPreset.FormattingEnabled = true;
+            this.comboBoxControllerPreset.Items.AddRange(new object[] {
+            "Preset 1",
+            "Preset 2",
+            "Preset 3",
+            "Preset 4"});
+            this.comboBoxControllerPreset.Location = new System.Drawing.Point(107, 46);
+            this.comboBoxControllerPreset.Name = "comboBoxControllerPreset";
+            this.comboBoxControllerPreset.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxControllerPreset.TabIndex = 65;
+            // 
+            // labelControllerVibration
+            // 
+            this.labelControllerVibration.AutoSize = true;
+            this.labelControllerVibration.Location = new System.Drawing.Point(5, 79);
+            this.labelControllerVibration.Name = "labelControllerVibration";
+            this.labelControllerVibration.Size = new System.Drawing.Size(48, 13);
+            this.labelControllerVibration.TabIndex = 66;
+            this.labelControllerVibration.Text = "Vibration";
+            // 
+            // comboBoxControllerVibration
+            // 
+            this.comboBoxControllerVibration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxControllerVibration.FormattingEnabled = true;
+            this.comboBoxControllerVibration.Items.AddRange(new object[] {
+            "Off",
+            "Weak",
+            "Medium",
+            "Strong"});
+            this.comboBoxControllerVibration.Location = new System.Drawing.Point(107, 75);
+            this.comboBoxControllerVibration.Name = "comboBoxControllerVibration";
+            this.comboBoxControllerVibration.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxControllerVibration.TabIndex = 67;
+            // 
+            // labelControllerAimSensitivity
+            // 
+            this.labelControllerAimSensitivity.AutoSize = true;
+            this.labelControllerAimSensitivity.Location = new System.Drawing.Point(5, 138);
+            this.labelControllerAimSensitivity.Name = "labelControllerAimSensitivity";
+            this.labelControllerAimSensitivity.Size = new System.Drawing.Size(72, 13);
+            this.labelControllerAimSensitivity.TabIndex = 70;
+            this.labelControllerAimSensitivity.Text = "Aim sensitivity";
+            // 
+            // spinnerControllerSensitivity
+            // 
+            this.spinnerControllerSensitivity.DecimalPlaces = 5;
+            this.spinnerControllerSensitivity.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.spinnerControllerSensitivity.Location = new System.Drawing.Point(107, 164);
+            this.spinnerControllerSensitivity.Maximum = new decimal(new int[] {
+            290333,
+            0,
+            0,
+            327680});
+            this.spinnerControllerSensitivity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.spinnerControllerSensitivity.Name = "spinnerControllerSensitivity";
+            this.spinnerControllerSensitivity.Size = new System.Drawing.Size(75, 20);
+            this.spinnerControllerSensitivity.TabIndex = 73;
+            this.spinnerControllerSensitivity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            // 
+            // checkBoxControllerInvertYAxis
+            // 
+            this.checkBoxControllerInvertYAxis.AutoSize = true;
+            this.checkBoxControllerInvertYAxis.Location = new System.Drawing.Point(8, 228);
+            this.checkBoxControllerInvertYAxis.Name = "checkBoxControllerInvertYAxis";
+            this.checkBoxControllerInvertYAxis.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxControllerInvertYAxis.TabIndex = 74;
+            this.checkBoxControllerInvertYAxis.Text = "Invert Y axis";
+            this.checkBoxControllerInvertYAxis.UseVisualStyleBackColor = true;
+            // 
+            // spinnerControllerAimSensitivity
+            // 
+            this.spinnerControllerAimSensitivity.DecimalPlaces = 3;
+            this.spinnerControllerAimSensitivity.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.spinnerControllerAimSensitivity.Location = new System.Drawing.Point(107, 134);
+            this.spinnerControllerAimSensitivity.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinnerControllerAimSensitivity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.spinnerControllerAimSensitivity.Name = "spinnerControllerAimSensitivity";
+            this.spinnerControllerAimSensitivity.Size = new System.Drawing.Size(75, 20);
+            this.spinnerControllerAimSensitivity.TabIndex = 71;
+            this.spinnerControllerAimSensitivity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            // 
             // labelCheatsWarning
             // 
             this.labelCheatsWarning.AutoSize = true;
             this.labelCheatsWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelCheatsWarning.Location = new System.Drawing.Point(270, 218);
+            this.labelCheatsWarning.Location = new System.Drawing.Point(240, 218);
             this.labelCheatsWarning.Name = "labelCheatsWarning";
             this.labelCheatsWarning.Size = new System.Drawing.Size(289, 13);
             this.labelCheatsWarning.TabIndex = 42;
@@ -989,10 +1197,9 @@
             // 
             // labelCheatsNote
             // 
-            this.labelCheatsNote.AutoSize = true;
-            this.labelCheatsNote.Location = new System.Drawing.Point(270, 198);
+            this.labelCheatsNote.Location = new System.Drawing.Point(240, 183);
             this.labelCheatsNote.Name = "labelCheatsNote";
-            this.labelCheatsNote.Size = new System.Drawing.Size(476, 13);
+            this.labelCheatsNote.Size = new System.Drawing.Size(308, 28);
             this.labelCheatsNote.TabIndex = 41;
             this.labelCheatsNote.Text = "Note: cheats are automatically disabled after you quit the game (unless you set t" +
     "he file as read-only).";
@@ -1016,7 +1223,7 @@
             this.groupBoxGameOptions.Controls.Add(this.checkBoxLaserCrosshair);
             this.groupBoxGameOptions.Location = new System.Drawing.Point(10, 8);
             this.groupBoxGameOptions.Name = "groupBoxGameOptions";
-            this.groupBoxGameOptions.Size = new System.Drawing.Size(240, 290);
+            this.groupBoxGameOptions.Size = new System.Drawing.Size(220, 290);
             this.groupBoxGameOptions.TabIndex = 11;
             this.groupBoxGameOptions.TabStop = false;
             this.groupBoxGameOptions.Text = "Game options";
@@ -1083,7 +1290,7 @@
             "Ranger hardcore"});
             this.comboBoxDifficulty.Location = new System.Drawing.Point(110, 259);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
-            this.comboBoxDifficulty.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDifficulty.Size = new System.Drawing.Size(104, 21);
             this.comboBoxDifficulty.TabIndex = 26;
             // 
             // checkBoxSkipIntro
@@ -1129,7 +1336,7 @@
             "Italian"});
             this.comboBoxVoiceLanguage.Location = new System.Drawing.Point(110, 201);
             this.comboBoxVoiceLanguage.Name = "comboBoxVoiceLanguage";
-            this.comboBoxVoiceLanguage.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxVoiceLanguage.Size = new System.Drawing.Size(104, 21);
             this.comboBoxVoiceLanguage.TabIndex = 22;
             // 
             // labelDifficulty
@@ -1157,7 +1364,7 @@
             "Czech"});
             this.comboBoxTextLanguage.Location = new System.Drawing.Point(110, 230);
             this.comboBoxTextLanguage.Name = "comboBoxTextLanguage";
-            this.comboBoxTextLanguage.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTextLanguage.Size = new System.Drawing.Size(104, 21);
             this.comboBoxTextLanguage.TabIndex = 24;
             // 
             // labelVoiceLanguage
@@ -1190,97 +1397,97 @@
             // 
             // groupBoxMouse
             // 
-            this.groupBoxMouse.Controls.Add(this.checkBoxInvertYAxis);
-            this.groupBoxMouse.Controls.Add(this.labelAimSensitivity);
-            this.groupBoxMouse.Controls.Add(this.spinnerSensitivity);
-            this.groupBoxMouse.Controls.Add(this.labelSensitivity);
-            this.groupBoxMouse.Controls.Add(this.spinnerAimSensitivity);
-            this.groupBoxMouse.Location = new System.Drawing.Point(430, 8);
+            this.groupBoxMouse.Controls.Add(this.checkBoxMouseInvertYAxis);
+            this.groupBoxMouse.Controls.Add(this.labelMouseAimSensitivity);
+            this.groupBoxMouse.Controls.Add(this.spinnerMouseSensitivity);
+            this.groupBoxMouse.Controls.Add(this.labelMouseSensitivity);
+            this.groupBoxMouse.Controls.Add(this.spinnerMouseAimSensitivity);
+            this.groupBoxMouse.Location = new System.Drawing.Point(391, 8);
             this.groupBoxMouse.Name = "groupBoxMouse";
             this.groupBoxMouse.Size = new System.Drawing.Size(148, 106);
             this.groupBoxMouse.TabIndex = 32;
             this.groupBoxMouse.TabStop = false;
             this.groupBoxMouse.Text = "Mouse";
             // 
-            // checkBoxInvertYAxis
+            // checkBoxMouseInvertYAxis
             // 
-            this.checkBoxInvertYAxis.AutoSize = true;
-            this.checkBoxInvertYAxis.Location = new System.Drawing.Point(8, 80);
-            this.checkBoxInvertYAxis.Name = "checkBoxInvertYAxis";
-            this.checkBoxInvertYAxis.Size = new System.Drawing.Size(84, 17);
-            this.checkBoxInvertYAxis.TabIndex = 43;
-            this.checkBoxInvertYAxis.Text = "Invert Y axis";
-            this.checkBoxInvertYAxis.UseVisualStyleBackColor = true;
+            this.checkBoxMouseInvertYAxis.AutoSize = true;
+            this.checkBoxMouseInvertYAxis.Location = new System.Drawing.Point(8, 80);
+            this.checkBoxMouseInvertYAxis.Name = "checkBoxMouseInvertYAxis";
+            this.checkBoxMouseInvertYAxis.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxMouseInvertYAxis.TabIndex = 43;
+            this.checkBoxMouseInvertYAxis.Text = "Invert Y axis";
+            this.checkBoxMouseInvertYAxis.UseVisualStyleBackColor = true;
             // 
-            // labelAimSensitivity
+            // labelMouseAimSensitivity
             // 
-            this.labelAimSensitivity.AutoSize = true;
-            this.labelAimSensitivity.Location = new System.Drawing.Point(5, 20);
-            this.labelAimSensitivity.Name = "labelAimSensitivity";
-            this.labelAimSensitivity.Size = new System.Drawing.Size(72, 13);
-            this.labelAimSensitivity.TabIndex = 33;
-            this.labelAimSensitivity.Text = "Aim sensitivity";
+            this.labelMouseAimSensitivity.AutoSize = true;
+            this.labelMouseAimSensitivity.Location = new System.Drawing.Point(5, 50);
+            this.labelMouseAimSensitivity.Name = "labelMouseAimSensitivity";
+            this.labelMouseAimSensitivity.Size = new System.Drawing.Size(72, 13);
+            this.labelMouseAimSensitivity.TabIndex = 33;
+            this.labelMouseAimSensitivity.Text = "Aim sensitivity";
             // 
-            // spinnerSensitivity
+            // spinnerMouseSensitivity
             // 
-            this.spinnerSensitivity.DecimalPlaces = 3;
-            this.spinnerSensitivity.Increment = new decimal(new int[] {
+            this.spinnerMouseSensitivity.DecimalPlaces = 3;
+            this.spinnerMouseSensitivity.Increment = new decimal(new int[] {
             1,
             0,
             0,
             196608});
-            this.spinnerSensitivity.Location = new System.Drawing.Point(82, 47);
-            this.spinnerSensitivity.Maximum = new decimal(new int[] {
+            this.spinnerMouseSensitivity.Location = new System.Drawing.Point(82, 17);
+            this.spinnerMouseSensitivity.Maximum = new decimal(new int[] {
             1905,
             0,
             0,
             196608});
-            this.spinnerSensitivity.Minimum = new decimal(new int[] {
+            this.spinnerMouseSensitivity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.spinnerSensitivity.Name = "spinnerSensitivity";
-            this.spinnerSensitivity.Size = new System.Drawing.Size(60, 20);
-            this.spinnerSensitivity.TabIndex = 36;
-            this.spinnerSensitivity.Value = new decimal(new int[] {
+            this.spinnerMouseSensitivity.Name = "spinnerMouseSensitivity";
+            this.spinnerMouseSensitivity.Size = new System.Drawing.Size(60, 20);
+            this.spinnerMouseSensitivity.TabIndex = 36;
+            this.spinnerMouseSensitivity.Value = new decimal(new int[] {
             1,
             0,
             0,
             65536});
             // 
-            // labelSensitivity
+            // labelMouseSensitivity
             // 
-            this.labelSensitivity.AutoSize = true;
-            this.labelSensitivity.Location = new System.Drawing.Point(5, 50);
-            this.labelSensitivity.Name = "labelSensitivity";
-            this.labelSensitivity.Size = new System.Drawing.Size(54, 13);
-            this.labelSensitivity.TabIndex = 35;
-            this.labelSensitivity.Text = "Sensitivity";
+            this.labelMouseSensitivity.AutoSize = true;
+            this.labelMouseSensitivity.Location = new System.Drawing.Point(5, 20);
+            this.labelMouseSensitivity.Name = "labelMouseSensitivity";
+            this.labelMouseSensitivity.Size = new System.Drawing.Size(54, 13);
+            this.labelMouseSensitivity.TabIndex = 35;
+            this.labelMouseSensitivity.Text = "Sensitivity";
             // 
-            // spinnerAimSensitivity
+            // spinnerMouseAimSensitivity
             // 
-            this.spinnerAimSensitivity.DecimalPlaces = 4;
-            this.spinnerAimSensitivity.Increment = new decimal(new int[] {
+            this.spinnerMouseAimSensitivity.DecimalPlaces = 4;
+            this.spinnerMouseAimSensitivity.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            262144});
-            this.spinnerAimSensitivity.Location = new System.Drawing.Point(82, 17);
-            this.spinnerAimSensitivity.Maximum = new decimal(new int[] {
+            131072});
+            this.spinnerMouseAimSensitivity.Location = new System.Drawing.Point(82, 47);
+            this.spinnerMouseAimSensitivity.Maximum = new decimal(new int[] {
             9525,
             0,
             0,
             262144});
-            this.spinnerAimSensitivity.Minimum = new decimal(new int[] {
+            this.spinnerMouseAimSensitivity.Minimum = new decimal(new int[] {
             5,
             0,
             0,
             131072});
-            this.spinnerAimSensitivity.Name = "spinnerAimSensitivity";
-            this.spinnerAimSensitivity.Size = new System.Drawing.Size(60, 20);
-            this.spinnerAimSensitivity.TabIndex = 34;
-            this.spinnerAimSensitivity.Value = new decimal(new int[] {
+            this.spinnerMouseAimSensitivity.Name = "spinnerMouseAimSensitivity";
+            this.spinnerMouseAimSensitivity.Size = new System.Drawing.Size(60, 20);
+            this.spinnerMouseAimSensitivity.TabIndex = 34;
+            this.spinnerMouseAimSensitivity.Value = new decimal(new int[] {
             5,
             0,
             0,
@@ -1292,7 +1499,7 @@
             this.groupBoxSound.Controls.Add(this.spinnerMusicVolume);
             this.groupBoxSound.Controls.Add(this.spinnerMasterVolume);
             this.groupBoxSound.Controls.Add(this.labelMusicVolume);
-            this.groupBoxSound.Location = new System.Drawing.Point(270, 8);
+            this.groupBoxSound.Location = new System.Drawing.Point(240, 8);
             this.groupBoxSound.Name = "groupBoxSound";
             this.groupBoxSound.Size = new System.Drawing.Size(142, 80);
             this.groupBoxSound.TabIndex = 27;
@@ -1358,9 +1565,9 @@
             this.groupBoxCheats.Controls.Add(this.checkBoxReadOnly);
             this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
             this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
-            this.groupBoxCheats.Location = new System.Drawing.Point(270, 108);
+            this.groupBoxCheats.Location = new System.Drawing.Point(240, 93);
             this.groupBoxCheats.Name = "groupBoxCheats";
-            this.groupBoxCheats.Size = new System.Drawing.Size(132, 85);
+            this.groupBoxCheats.Size = new System.Drawing.Size(142, 85);
             this.groupBoxCheats.TabIndex = 37;
             this.groupBoxCheats.TabStop = false;
             this.groupBoxCheats.Text = "Cheats";
@@ -1543,12 +1750,15 @@
             this.tabGeneral.PerformLayout();
             this.groupBoxController.ResumeLayout(false);
             this.groupBoxController.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerControllerAimAssist)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerControllerSensitivity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerControllerAimSensitivity)).EndInit();
             this.groupBoxGameOptions.ResumeLayout(false);
             this.groupBoxGameOptions.PerformLayout();
             this.groupBoxMouse.ResumeLayout(false);
             this.groupBoxMouse.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerSensitivity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinnerAimSensitivity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerMouseSensitivity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerMouseAimSensitivity)).EndInit();
             this.groupBoxSound.ResumeLayout(false);
             this.groupBoxSound.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerMusicVolume)).EndInit();
@@ -1658,10 +1868,10 @@
         private System.Windows.Forms.CheckBox checkBoxShowStats;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.GroupBox groupBoxMouse;
-        private System.Windows.Forms.Label labelAimSensitivity;
-        private System.Windows.Forms.NumericUpDown spinnerSensitivity;
-        private System.Windows.Forms.Label labelSensitivity;
-        private System.Windows.Forms.NumericUpDown spinnerAimSensitivity;
+        private System.Windows.Forms.Label labelMouseAimSensitivity;
+        private System.Windows.Forms.NumericUpDown spinnerMouseSensitivity;
+        private System.Windows.Forms.Label labelMouseSensitivity;
+        private System.Windows.Forms.NumericUpDown spinnerMouseAimSensitivity;
         private System.Windows.Forms.GroupBox groupBoxGameOptions;
         private System.Windows.Forms.Label labelCheatsNote;
         private System.Windows.Forms.Label labelResolutionNote;
@@ -1674,13 +1884,26 @@
         private System.IO.FileSystemWatcher fileSystemWatcherNoIntro;
         private System.Windows.Forms.Button buttonReportBug;
         private System.Windows.Forms.Button buttonDonate;
-        private System.Windows.Forms.CheckBox checkBoxInvertYAxis;
+        private System.Windows.Forms.CheckBox checkBoxMouseInvertYAxis;
         private System.Windows.Forms.Button buttonOpenSavedGamesPath;
         private System.Windows.Forms.TextBox textBoxSavedGamesPath;
         private System.Windows.Forms.Label labelSavedGamesPath;
         private System.Windows.Forms.GroupBox groupBoxController;
         private System.Windows.Forms.CheckBox checkBoxControllerEnabled;
         private System.Windows.Forms.Label labelControllerWarning;
+        private System.Windows.Forms.Label labelControllerMovement;
+        private System.Windows.Forms.ComboBox comboBoxControllerMovement;
+        private System.Windows.Forms.Label labelControllerPreset;
+        private System.Windows.Forms.ComboBox comboBoxControllerPreset;
+        private System.Windows.Forms.ComboBox comboBoxControllerVibration;
+        private System.Windows.Forms.NumericUpDown spinnerControllerSensitivity;
+        private System.Windows.Forms.NumericUpDown spinnerControllerAimSensitivity;
+        private System.Windows.Forms.CheckBox checkBoxControllerInvertYAxis;
+        private System.Windows.Forms.Label labelControllerAimSensitivity;
+        private System.Windows.Forms.Label labelControllerVibration;
+        private System.Windows.Forms.Label labelControllerSensitivity;
+        private System.Windows.Forms.Label labelControllerAimAssist;
+        private System.Windows.Forms.NumericUpDown spinnerControllerAimAssist;
     }
 }
 

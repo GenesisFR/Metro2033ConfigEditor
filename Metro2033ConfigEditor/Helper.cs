@@ -33,17 +33,6 @@ namespace Metro2033ConfigEditor
         public Dictionary<string, string> Dictionary { get; }
         public Dictionary<string, string> DictionaryUponClosure { get; private set; }
 
-        public bool IsNoIntroSkipped
-        {
-            get
-            {
-                if (GameInstallPath != null)
-                    return File.Exists(Path.Combine(GameInstallPath, "content.upk9"));
-                else
-                    return false;
-            }
-        }
-
         public bool IsConfigReadOnly
         {
             get
@@ -108,6 +97,17 @@ namespace Metro2033ConfigEditor
             }
         }
 
+        public bool IsNoIntroSkipped
+        {
+            get
+            {
+                if (GameInstallPath != null)
+                    return File.Exists(Path.Combine(GameInstallPath, "content.upk9"));
+                else
+                    return false;
+            }
+        }
+
         // General methods
         private void AddKeyIfMissing(string key, string value)
         {
@@ -118,14 +118,20 @@ namespace Metro2033ConfigEditor
         public void AddKeysIfMissing()
         {
             AddKeyIfMissing("_show_subtitles",   "0");
+            AddKeyIfMissing("aim_assist",        "1.");
             AddKeyIfMissing("fast_wpn_change",   "0");
             AddKeyIfMissing("g_game_difficulty", "1");
             AddKeyIfMissing("g_god",             "0");
+            AddKeyIfMissing("g_input_hand",      "0");
             AddKeyIfMissing("g_laser",           "1");
             AddKeyIfMissing("g_quick_hints",     "1");
             AddKeyIfMissing("g_show_crosshair",  "on");
             AddKeyIfMissing("g_unlimitedammo",   "0");
+            AddKeyIfMissing("gamepad_preset",    "0");
+            AddKeyIfMissing("inv_y_controller",  "0");
             AddKeyIfMissing("invert_y_axis",     "off");
+            AddKeyIfMissing("joy_sens_aiming_x", "0.4");
+            AddKeyIfMissing("joy_sens_x",        "1.");
             AddKeyIfMissing("lang_sound",        "us");
             AddKeyIfMissing("lang_text",         "us");
             AddKeyIfMissing("mouse_aim_sens",    "0.208");
@@ -148,6 +154,7 @@ namespace Metro2033ConfigEditor
             AddKeyIfMissing("s_music_volume",    "0.50");
             AddKeyIfMissing("sick_fov",          "45.");
             AddKeyIfMissing("stats",             "off");
+            AddKeyIfMissing("vibration",         "3");
         }
 
         public bool AreDictionariesEqual()
@@ -617,6 +624,94 @@ namespace Metro2033ConfigEditor
             }
         }
 
+        public string ConvertNumberToPreset(string number)
+        {
+            switch (number)
+            {
+                default:
+                case "0":
+                    return "Preset 1";
+                case "1":
+                    return "Preset 2";
+                case "2":
+                    return "Preset 3";
+                case "3":
+                    return "Preset 4";
+            }
+        }
+
+        public string ConvertPresetToNumber(string preset)
+        {
+            switch (preset)
+            {
+                default:
+                case "Preset 1":
+                    return "0";
+                case "Preset 2":
+                    return "1";
+                case "Preset 3":
+                    return "2";
+                case "Preset 4":
+                    return "3";
+            }
+        }
+
+        public string ConvertNumberToVibration(string number)
+        {
+            switch (number)
+            {
+                default:
+                case "0":
+                    return "Off";
+                case "1":
+                    return "Weak";
+                case "2":
+                    return "Medium";
+                case "3":
+                    return "Strong";
+            }
+        }
+
+        public string ConvertVibrationToNumber(string vibration)
+        {
+            switch (vibration)
+            {
+                default:
+                case "Off":
+                    return "0";
+                case "Weak":
+                    return "1";
+                case "Medium":
+                    return "2";
+                case "Strong":
+                    return "3";
+            }
+        }
+
+        public string ConvertNumberToMovement(string number)
+        {
+            switch (number)
+            {
+                default:
+                case "0":
+                    return "Left stick";
+                case "1":
+                    return "Right stick";
+            }
+        }
+
+        public string ConvertMovementToNumber(string movement)
+        {
+            switch (movement)
+            {
+                default:
+                case "Left stick":
+                    return "0";
+                case "Right stick":
+                    return "1";
+            }
+        }
+
         public string ConvertNumberToDifficulty(string number)
         {
             switch (number)
@@ -759,6 +854,17 @@ namespace Metro2033ConfigEditor
                 case "AF 16X":
                     return "1";
             }
+        }
+
+        public string FormatDecimalNumber(decimal number, int decimals = 0)
+        {
+            // Formats round figures like 1.0 as 1. (+ number of decimals)
+            // 0 decimals: 1.0 -> 1.
+            // 3 decimals: 1.0 -> 1.000
+            if (number % (decimal)1.0 == (decimal)0.0)
+                return $"{number.ToString($"F{decimals}")}.";
+            else
+                return number.ToString();
         }
     }
 }
