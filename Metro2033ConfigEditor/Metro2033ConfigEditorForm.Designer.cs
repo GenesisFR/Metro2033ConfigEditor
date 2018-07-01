@@ -187,7 +187,7 @@
             this.buttonReload.Location = new System.Drawing.Point(444, 483);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(55, 23);
-            this.buttonReload.TabIndex = 46;
+            this.buttonReload.TabIndex = 60;
             this.buttonReload.Text = "Reload";
             this.buttonReload.UseVisualStyleBackColor = true;
             this.buttonReload.Click += new System.EventHandler(this.ButtonReload_Click);
@@ -225,7 +225,7 @@
             this.buttonSave.Location = new System.Drawing.Point(505, 483);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(40, 23);
-            this.buttonSave.TabIndex = 47;
+            this.buttonSave.TabIndex = 61;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
@@ -235,7 +235,7 @@
             this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 483);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
-            this.buttonStartGameSteam.TabIndex = 49;
+            this.buttonStartGameSteam.TabIndex = 63;
             this.buttonStartGameSteam.Text = "Start game (Steam)";
             this.buttonStartGameSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameSteam.Click += new System.EventHandler(this.ButtonStartGameSteam_Click);
@@ -273,7 +273,7 @@
             this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 483);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
-            this.buttonStartGameNoSteam.TabIndex = 48;
+            this.buttonStartGameNoSteam.TabIndex = 62;
             this.buttonStartGameNoSteam.Text = "Start game (non-Steam)";
             this.buttonStartGameNoSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameNoSteam.Click += new System.EventHandler(this.ButtonStartGameNoSteam_Click);
@@ -990,7 +990,7 @@
             this.groupBoxController.Location = new System.Drawing.Point(548, 8);
             this.groupBoxController.Name = "groupBoxController";
             this.groupBoxController.Size = new System.Drawing.Size(190, 251);
-            this.groupBoxController.TabIndex = 44;
+            this.groupBoxController.TabIndex = 42;
             this.groupBoxController.TabStop = false;
             this.groupBoxController.Text = "Controller";
             // 
@@ -1000,7 +1000,7 @@
             this.labelControllerAimAssist.Location = new System.Drawing.Point(5, 198);
             this.labelControllerAimAssist.Name = "labelControllerAimAssist";
             this.labelControllerAimAssist.Size = new System.Drawing.Size(53, 13);
-            this.labelControllerAimAssist.TabIndex = 75;
+            this.labelControllerAimAssist.TabIndex = 54;
             this.labelControllerAimAssist.Text = "Aim assist";
             // 
             // spinnerControllerAimAssist
@@ -1019,7 +1019,7 @@
             0});
             this.spinnerControllerAimAssist.Name = "spinnerControllerAimAssist";
             this.spinnerControllerAimAssist.Size = new System.Drawing.Size(75, 20);
-            this.spinnerControllerAimAssist.TabIndex = 76;
+            this.spinnerControllerAimAssist.TabIndex = 55;
             // 
             // labelControllerMovement
             // 
@@ -1051,7 +1051,7 @@
             this.comboBoxControllerMovement.Location = new System.Drawing.Point(107, 104);
             this.comboBoxControllerMovement.Name = "comboBoxControllerMovement";
             this.comboBoxControllerMovement.Size = new System.Drawing.Size(75, 21);
-            this.comboBoxControllerMovement.TabIndex = 69;
+            this.comboBoxControllerMovement.TabIndex = 49;
             // 
             // labelControllerPreset
             // 
@@ -1059,7 +1059,7 @@
             this.labelControllerPreset.Location = new System.Drawing.Point(5, 50);
             this.labelControllerPreset.Name = "labelControllerPreset";
             this.labelControllerPreset.Size = new System.Drawing.Size(37, 13);
-            this.labelControllerPreset.TabIndex = 64;
+            this.labelControllerPreset.TabIndex = 44;
             this.labelControllerPreset.Text = "Preset";
             // 
             // labelControllerSensitivity
@@ -1068,7 +1068,7 @@
             this.labelControllerSensitivity.Location = new System.Drawing.Point(5, 168);
             this.labelControllerSensitivity.Name = "labelControllerSensitivity";
             this.labelControllerSensitivity.Size = new System.Drawing.Size(54, 13);
-            this.labelControllerSensitivity.TabIndex = 72;
+            this.labelControllerSensitivity.TabIndex = 52;
             this.labelControllerSensitivity.Text = "Sensitivity";
             // 
             // comboBoxControllerPreset
@@ -1083,7 +1083,7 @@
             this.comboBoxControllerPreset.Location = new System.Drawing.Point(107, 46);
             this.comboBoxControllerPreset.Name = "comboBoxControllerPreset";
             this.comboBoxControllerPreset.Size = new System.Drawing.Size(75, 21);
-            this.comboBoxControllerPreset.TabIndex = 65;
+            this.comboBoxControllerPreset.TabIndex = 45;
             // 
             // labelControllerVibration
             // 
@@ -1106,7 +1106,7 @@
             this.comboBoxControllerVibration.Location = new System.Drawing.Point(107, 75);
             this.comboBoxControllerVibration.Name = "comboBoxControllerVibration";
             this.comboBoxControllerVibration.Size = new System.Drawing.Size(75, 21);
-            this.comboBoxControllerVibration.TabIndex = 67;
+            this.comboBoxControllerVibration.TabIndex = 47;
             // 
             // labelControllerAimSensitivity
             // 
@@ -1114,7 +1114,7 @@
             this.labelControllerAimSensitivity.Location = new System.Drawing.Point(5, 138);
             this.labelControllerAimSensitivity.Name = "labelControllerAimSensitivity";
             this.labelControllerAimSensitivity.Size = new System.Drawing.Size(72, 13);
-            this.labelControllerAimSensitivity.TabIndex = 70;
+            this.labelControllerAimSensitivity.TabIndex = 51;
             this.labelControllerAimSensitivity.Text = "Aim sensitivity";
             // 
             // spinnerControllerSensitivity
@@ -1138,7 +1138,7 @@
             65536});
             this.spinnerControllerSensitivity.Name = "spinnerControllerSensitivity";
             this.spinnerControllerSensitivity.Size = new System.Drawing.Size(75, 20);
-            this.spinnerControllerSensitivity.TabIndex = 73;
+            this.spinnerControllerSensitivity.TabIndex = 53;
             this.spinnerControllerSensitivity.Value = new decimal(new int[] {
             1,
             0,
@@ -1151,7 +1151,7 @@
             this.checkBoxControllerInvertYAxis.Location = new System.Drawing.Point(8, 228);
             this.checkBoxControllerInvertYAxis.Name = "checkBoxControllerInvertYAxis";
             this.checkBoxControllerInvertYAxis.Size = new System.Drawing.Size(84, 17);
-            this.checkBoxControllerInvertYAxis.TabIndex = 74;
+            this.checkBoxControllerInvertYAxis.TabIndex = 56;
             this.checkBoxControllerInvertYAxis.Text = "Invert Y axis";
             this.checkBoxControllerInvertYAxis.UseVisualStyleBackColor = true;
             // 
@@ -1176,7 +1176,7 @@
             65536});
             this.spinnerControllerAimSensitivity.Name = "spinnerControllerAimSensitivity";
             this.spinnerControllerAimSensitivity.Size = new System.Drawing.Size(75, 20);
-            this.spinnerControllerAimSensitivity.TabIndex = 71;
+            this.spinnerControllerAimSensitivity.TabIndex = 51;
             this.spinnerControllerAimSensitivity.Value = new decimal(new int[] {
             1,
             0,
@@ -1405,7 +1405,7 @@
             this.groupBoxMouse.Location = new System.Drawing.Point(391, 8);
             this.groupBoxMouse.Name = "groupBoxMouse";
             this.groupBoxMouse.Size = new System.Drawing.Size(148, 106);
-            this.groupBoxMouse.TabIndex = 32;
+            this.groupBoxMouse.TabIndex = 36;
             this.groupBoxMouse.TabStop = false;
             this.groupBoxMouse.Text = "Mouse";
             // 
@@ -1415,7 +1415,7 @@
             this.checkBoxMouseInvertYAxis.Location = new System.Drawing.Point(8, 80);
             this.checkBoxMouseInvertYAxis.Name = "checkBoxMouseInvertYAxis";
             this.checkBoxMouseInvertYAxis.Size = new System.Drawing.Size(84, 17);
-            this.checkBoxMouseInvertYAxis.TabIndex = 43;
+            this.checkBoxMouseInvertYAxis.TabIndex = 41;
             this.checkBoxMouseInvertYAxis.Text = "Invert Y axis";
             this.checkBoxMouseInvertYAxis.UseVisualStyleBackColor = true;
             // 
@@ -1425,7 +1425,7 @@
             this.labelMouseAimSensitivity.Location = new System.Drawing.Point(5, 50);
             this.labelMouseAimSensitivity.Name = "labelMouseAimSensitivity";
             this.labelMouseAimSensitivity.Size = new System.Drawing.Size(72, 13);
-            this.labelMouseAimSensitivity.TabIndex = 33;
+            this.labelMouseAimSensitivity.TabIndex = 39;
             this.labelMouseAimSensitivity.Text = "Aim sensitivity";
             // 
             // spinnerMouseSensitivity
@@ -1449,7 +1449,7 @@
             65536});
             this.spinnerMouseSensitivity.Name = "spinnerMouseSensitivity";
             this.spinnerMouseSensitivity.Size = new System.Drawing.Size(60, 20);
-            this.spinnerMouseSensitivity.TabIndex = 36;
+            this.spinnerMouseSensitivity.TabIndex = 38;
             this.spinnerMouseSensitivity.Value = new decimal(new int[] {
             1,
             0,
@@ -1462,7 +1462,7 @@
             this.labelMouseSensitivity.Location = new System.Drawing.Point(5, 20);
             this.labelMouseSensitivity.Name = "labelMouseSensitivity";
             this.labelMouseSensitivity.Size = new System.Drawing.Size(54, 13);
-            this.labelMouseSensitivity.TabIndex = 35;
+            this.labelMouseSensitivity.TabIndex = 37;
             this.labelMouseSensitivity.Text = "Sensitivity";
             // 
             // spinnerMouseAimSensitivity
@@ -1486,7 +1486,7 @@
             131072});
             this.spinnerMouseAimSensitivity.Name = "spinnerMouseAimSensitivity";
             this.spinnerMouseAimSensitivity.Size = new System.Drawing.Size(60, 20);
-            this.spinnerMouseAimSensitivity.TabIndex = 34;
+            this.spinnerMouseAimSensitivity.TabIndex = 40;
             this.spinnerMouseAimSensitivity.Value = new decimal(new int[] {
             5,
             0,
@@ -1568,7 +1568,7 @@
             this.groupBoxCheats.Location = new System.Drawing.Point(240, 93);
             this.groupBoxCheats.Name = "groupBoxCheats";
             this.groupBoxCheats.Size = new System.Drawing.Size(142, 85);
-            this.groupBoxCheats.TabIndex = 37;
+            this.groupBoxCheats.TabIndex = 32;
             this.groupBoxCheats.TabStop = false;
             this.groupBoxCheats.Text = "Cheats";
             // 
@@ -1578,7 +1578,7 @@
             this.checkBoxReadOnly.Location = new System.Drawing.Point(10, 60);
             this.checkBoxReadOnly.Name = "checkBoxReadOnly";
             this.checkBoxReadOnly.Size = new System.Drawing.Size(118, 17);
-            this.checkBoxReadOnly.TabIndex = 40;
+            this.checkBoxReadOnly.TabIndex = 35;
             this.checkBoxReadOnly.Text = "Set file as read-only";
             this.checkBoxReadOnly.UseVisualStyleBackColor = true;
             this.checkBoxReadOnly.CheckedChanged += new System.EventHandler(this.CheckBoxReadOnly_CheckedChanged);
@@ -1589,7 +1589,7 @@
             this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(10, 20);
             this.checkBoxUnlimitedAmmo.Name = "checkBoxUnlimitedAmmo";
             this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(100, 17);
-            this.checkBoxUnlimitedAmmo.TabIndex = 38;
+            this.checkBoxUnlimitedAmmo.TabIndex = 33;
             this.checkBoxUnlimitedAmmo.Text = "Unlimited ammo";
             this.checkBoxUnlimitedAmmo.UseVisualStyleBackColor = true;
             // 
@@ -1599,7 +1599,7 @@
             this.checkBoxGodMode.Location = new System.Drawing.Point(10, 40);
             this.checkBoxGodMode.Name = "checkBoxGodMode";
             this.checkBoxGodMode.Size = new System.Drawing.Size(75, 17);
-            this.checkBoxGodMode.TabIndex = 39;
+            this.checkBoxGodMode.TabIndex = 34;
             this.checkBoxGodMode.Text = "God mode";
             this.checkBoxGodMode.UseVisualStyleBackColor = true;
             // 
@@ -1621,7 +1621,7 @@
             this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 488);
             this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
             this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(135, 17);
-            this.linkLabelUpdateAvailable.TabIndex = 45;
+            this.linkLabelUpdateAvailable.TabIndex = 59;
             this.linkLabelUpdateAvailable.TabStop = true;
             this.linkLabelUpdateAvailable.Text = "A new update is available!";
             this.linkLabelUpdateAvailable.UseCompatibleTextRendering = true;
@@ -1662,7 +1662,7 @@
             this.buttonReportBug.Location = new System.Drawing.Point(13, 483);
             this.buttonReportBug.Name = "buttonReportBug";
             this.buttonReportBug.Size = new System.Drawing.Size(78, 23);
-            this.buttonReportBug.TabIndex = 43;
+            this.buttonReportBug.TabIndex = 57;
             this.buttonReportBug.Text = "Report a bug";
             this.buttonReportBug.UseVisualStyleBackColor = true;
             this.buttonReportBug.Click += new System.EventHandler(this.ButtonReportBug_Click);
@@ -1672,7 +1672,7 @@
             this.buttonDonate.Location = new System.Drawing.Point(97, 483);
             this.buttonDonate.Name = "buttonDonate";
             this.buttonDonate.Size = new System.Drawing.Size(59, 23);
-            this.buttonDonate.TabIndex = 44;
+            this.buttonDonate.TabIndex = 58;
             this.buttonDonate.Text = "Donate";
             this.buttonDonate.UseVisualStyleBackColor = true;
             this.buttonDonate.Click += new System.EventHandler(this.ButtonDonate_Click);
