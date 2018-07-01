@@ -37,10 +37,7 @@ namespace Metro2033ConfigEditor
         {
             get
             {
-                if (ConfigFilePath != null)
-                    return new FileInfo(ConfigFilePath).IsReadOnly;
-                else
-                    return false;
+                return ConfigFilePath != null && new FileInfo(ConfigFilePath).IsReadOnly;
             }
 
             set
@@ -54,34 +51,41 @@ namespace Metro2033ConfigEditor
         {
             get
             {
-                string x360iniFilePath   = Path.Combine(GameInstallPath, "x360ce.ini");
-                string xInput11FilePath  = Path.Combine(GameInstallPath, "xinput1_1.dll");
-                string xInput12FilePath  = Path.Combine(GameInstallPath, "xinput1_2.dll");
-                string xInput13FilePath  = Path.Combine(GameInstallPath, "xinput1_3.dll");
-                string xInput910FilePath = Path.Combine(GameInstallPath, "xinput9_1_0.dll");
+                try
+                {
+                    string x360iniFilePath = Path.Combine(GameInstallPath, "x360ce.ini");
+                    string xInput11FilePath = Path.Combine(GameInstallPath, "xinput1_1.dll");
+                    string xInput12FilePath = Path.Combine(GameInstallPath, "xinput1_2.dll");
+                    string xInput13FilePath = Path.Combine(GameInstallPath, "xinput1_3.dll");
+                    string xInput910FilePath = Path.Combine(GameInstallPath, "xinput9_1_0.dll");
 
-                return !File.Exists(x360iniFilePath) && !File.Exists(xInput11FilePath) && !File.Exists(xInput12FilePath) &&
-                    !File.Exists(xInput13FilePath) && !File.Exists(xInput910FilePath);
+                    return !File.Exists(x360iniFilePath) && !File.Exists(xInput11FilePath) && !File.Exists(xInput12FilePath) &&
+                        !File.Exists(xInput13FilePath) && !File.Exists(xInput910FilePath);
+                }
+                catch
+                {
+                    return true;
+                }
             }
 
             set
             {
-                string nox360FilePath    = Path.Combine(GameInstallPath, "nox360.zip");
-                string x360iniFilePath   = Path.Combine(GameInstallPath, "x360ce.ini");
-                string xInput11FilePath  = Path.Combine(GameInstallPath, "xinput1_1.dll");
-                string xInput12FilePath  = Path.Combine(GameInstallPath, "xinput1_2.dll");
-                string xInput13FilePath  = Path.Combine(GameInstallPath, "xinput1_3.dll");
-                string xInput910FilePath = Path.Combine(GameInstallPath, "xinput9_1_0.dll");
-
-                // Delete all files
-                File.Delete(x360iniFilePath);
-                File.Delete(xInput11FilePath);
-                File.Delete(xInput12FilePath);
-                File.Delete(xInput13FilePath);
-                File.Delete(xInput910FilePath);
-
                 try
                 {
+                    string nox360FilePath    = Path.Combine(GameInstallPath, "nox360.zip");
+                    string x360iniFilePath   = Path.Combine(GameInstallPath, "x360ce.ini");
+                    string xInput11FilePath  = Path.Combine(GameInstallPath, "xinput1_1.dll");
+                    string xInput12FilePath  = Path.Combine(GameInstallPath, "xinput1_2.dll");
+                    string xInput13FilePath  = Path.Combine(GameInstallPath, "xinput1_3.dll");
+                    string xInput910FilePath = Path.Combine(GameInstallPath, "xinput9_1_0.dll");
+
+                    // Delete all files
+                    File.Delete(x360iniFilePath);
+                    File.Delete(xInput11FilePath);
+                    File.Delete(xInput12FilePath);
+                    File.Delete(xInput13FilePath);
+                    File.Delete(xInput910FilePath);
+                
                     if (value == false)
                     {
                         // Copy nox360.zip to game directory and extract it
@@ -101,10 +105,25 @@ namespace Metro2033ConfigEditor
         {
             get
             {
-                if (GameInstallPath != null)
-                    return File.Exists(Path.Combine(GameInstallPath, "content.upk9"));
-                else
-                    return false;
+                return GameInstallPath != null && File.Exists(Path.Combine(GameInstallPath, "content.upk9"));
+            }
+
+            set
+            {
+                try
+                {
+                    string noIntroFilePath = Path.Combine(GameInstallPath, "content.upk9");
+
+                    // Copy the no intro fix to the game directory
+                    if (value == true)
+                        File.WriteAllBytes(noIntroFilePath, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
+                    else
+                        File.Delete(noIntroFilePath);
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteInformation<Helper>(ex.Message, value);
+                }
             }
         }
 
@@ -407,28 +426,6 @@ namespace Metro2033ConfigEditor
         }
 
         // File-related methods
-        public bool CopyNoIntroFix(bool isDisabled)
-        {
-            try
-            {
-                string noIntroFilePath = Path.Combine(GameInstallPath, "content.upk9");
-
-                // Copy the intro fix to the game directory
-                if (isDisabled)
-                    File.WriteAllBytes(noIntroFilePath, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
-                else
-                    File.Delete(noIntroFilePath);
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteInformation<Helper>(ex.Message, isDisabled);
-            }
-
-            return false;
-        }
-
         public bool IsFileReady(string path)
         {
             // If the file can be opened, it means it's no longer locked by another process

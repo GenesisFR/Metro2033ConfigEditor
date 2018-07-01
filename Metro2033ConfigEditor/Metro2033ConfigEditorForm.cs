@@ -7,19 +7,8 @@ using System.Windows.Forms;
 
 namespace Metro2033ConfigEditor
 {
-    /*
-        DONE: aim_assist 0.-1., default is 1.
-        DONE: inv_y_controller 0/1 = off/on, default is 0
-        DONE: joy_sens_aiming_x 0.01-0.967, default is 0.4
-        DONE: joy_sens_x 0.1-2.90333, default is 1.
-        WIP: g_input_hand 0/1 = Left stick / Right stick, default is 0
-        WIP: gamepad_preset 0-3 = Preset 1 / Preset 2 / Preset 3 / Preset 4, default is 0
-        WIP: vibration 0-3 = off/weak/medium/strong, default is 3
-    */
     public partial class Metro2033ConfigEditorForm : Form
     {
-        private bool _skipIntroInitialState = false;
-
         public Metro2033ConfigEditorForm()
         {
             InitializeComponent();
@@ -152,8 +141,9 @@ namespace Metro2033ConfigEditor
             WriteSettings(Helper.instance.DictionaryUponClosure);
 
             // Check if non-dictionary settings have changed
-            if (checkBoxSkipIntro.Checked != _skipIntroInitialState || checkBoxReadOnly.Checked != Helper.instance.IsConfigReadOnly
-                || checkBoxControllerEnabled.Checked != Helper.instance.IsControllerEnabled)
+            if (checkBoxSkipIntro.Checked != Helper.instance.IsNoIntroSkipped ||
+                checkBoxReadOnly.Checked != Helper.instance.IsConfigReadOnly ||
+                checkBoxControllerEnabled.Checked != Helper.instance.IsControllerEnabled)
                 return true;
 
             // Check if settings in dictionaries have changed
@@ -163,7 +153,6 @@ namespace Metro2033ConfigEditor
         private void ReadSettings()
         {
             Helper.instance.AddKeysIfMissing();
-            _skipIntroInitialState = Helper.instance.IsNoIntroSkipped;
 
             // Checkboxes
             checkBoxSubtitles.Checked             = Helper.instance.Dictionary["_show_subtitles"]   == "1";
@@ -490,9 +479,9 @@ namespace Metro2033ConfigEditor
                 fileSystemWatcherNoIntro.EnableRaisingEvents = false;
 
                 WriteSettings(Helper.instance.Dictionary);
-                _skipIntroInitialState              = checkBoxSkipIntro.Checked;
                 Helper.instance.IsConfigReadOnly    = checkBoxReadOnly.Checked;
                 Helper.instance.IsControllerEnabled = checkBoxControllerEnabled.Checked;
+                Helper.instance.IsNoIntroSkipped    = checkBoxSkipIntro.Checked;
 
                 if (Helper.instance.WriteConfigFile())
                     MessageBox.Show("The config file has been saved successfully!",
@@ -501,11 +490,11 @@ namespace Metro2033ConfigEditor
                     MessageBox.Show("Unable to save the config file. Try running the program as admin?",
                         "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                if (!Helper.instance.CopyNoIntroFix(checkBoxSkipIntro.Checked))
+                if (Helper.instance.IsNoIntroSkipped != checkBoxSkipIntro.Checked)
                     MessageBox.Show(string.Format("{0}{1}{2}",
-                        "Unable to ",
-                        checkBoxSkipIntro.Checked ? "enable" : "disable",
-                        "the no intro fix. Make sure the game executable path has been specified."),
+                        "The no intro fix can't be ",
+                        checkBoxSkipIntro.Checked ? "enabled" : "disabled",
+                        ". Make sure the game executable path has been specified."),
                         "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
@@ -576,7 +565,7 @@ namespace Metro2033ConfigEditor
 
         private void FileSystemWatcherNoIntro_Changed(object sender, FileSystemEventArgs e)
         {
-            buttonReload.PerformClick();
+            checkBoxSkipIntro.Checked = Helper.instance.IsNoIntroSkipped;
         }
     }
 }
