@@ -398,6 +398,12 @@ namespace Metro2033ConfigEditor
 
         private string GetConfigPath()
         {
+            // Look for the config in the Steam cloud directories then in LocalAppData
+            return GetRemoteConfigPath() ?? GetLocalConfigPath();
+        }
+
+        private string GetRemoteConfigPath()
+        {
             try
             {
                 string steamÞath = SteamInstallPath ?? GetSteamInstallPath();
@@ -411,6 +417,24 @@ namespace Metro2033ConfigEditor
                     if (File.Exists(configPath))
                         return configPath.ToLower();
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteInformation<Helper>(ex.Message);
+            }
+
+            return null;
+        }
+
+        private string GetLocalConfigPath()
+        {
+            try
+            {
+                string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    @"4A Games\Metro 2033\user.cfg");
+
+                if (File.Exists(configPath))
+                    return configPath.ToLower();
             }
             catch (Exception ex)
             {
