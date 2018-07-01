@@ -1735,7 +1735,7 @@
             this.MaximizeBox = false;
             this.Name = "Metro2033ConfigEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Metro 2033 Config Editor v1.31";
+            this.Text = "Metro 2033 Config Editor v1.32";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Metro2033ConfigEditorForm_Closing);
             this.Shown += new System.EventHandler(this.Metro2033ConfigEditorForm_Shown);
             this.tabVideo.ResumeLayout(false);
