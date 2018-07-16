@@ -159,6 +159,7 @@
             this.buttonOpenSavedGamesPath = new System.Windows.Forms.Button();
             this.textBoxSavedGamesPath = new System.Windows.Forms.TextBox();
             this.labelSavedGamesPath = new System.Windows.Forms.Label();
+            this.buttonStartBenchmark = new System.Windows.Forms.Button();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -184,7 +185,7 @@
             // 
             // buttonReload
             // 
-            this.buttonReload.Location = new System.Drawing.Point(444, 483);
+            this.buttonReload.Location = new System.Drawing.Point(345, 483);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(55, 23);
             this.buttonReload.TabIndex = 60;
@@ -222,7 +223,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(505, 483);
+            this.buttonSave.Location = new System.Drawing.Point(406, 483);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(40, 23);
             this.buttonSave.TabIndex = 61;
@@ -689,8 +690,8 @@
             "1360 x 768",
             "1366 x 768",
             "1400 x 1050",
-            "1440 x 1080",
             "1440 x 900",
+            "1440 x 1080",
             "1600 x 900",
             "1600 x 1024",
             "1600 x 1200",
@@ -1618,7 +1619,7 @@
             this.linkLabelUpdateAvailable.AllowDrop = true;
             this.linkLabelUpdateAvailable.AutoSize = true;
             this.linkLabelUpdateAvailable.LinkArea = new System.Windows.Forms.LinkArea(6, 6);
-            this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(300, 488);
+            this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(204, 488);
             this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
             this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(135, 17);
             this.linkLabelUpdateAvailable.TabIndex = 59;
@@ -1705,11 +1706,22 @@
             this.labelSavedGamesPath.TabIndex = 10;
             this.labelSavedGamesPath.Text = "Saved games path";
             // 
+            // buttonStartBenchmark
+            // 
+            this.buttonStartBenchmark.Location = new System.Drawing.Point(452, 483);
+            this.buttonStartBenchmark.Name = "buttonStartBenchmark";
+            this.buttonStartBenchmark.Size = new System.Drawing.Size(93, 23);
+            this.buttonStartBenchmark.TabIndex = 64;
+            this.buttonStartBenchmark.Text = "Start benchmark";
+            this.buttonStartBenchmark.UseVisualStyleBackColor = true;
+            this.buttonStartBenchmark.Click += new System.EventHandler(this.ButtonStartBenchmark_Click);
+            // 
             // Metro2033ConfigEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 516);
+            this.Controls.Add(this.buttonStartBenchmark);
             this.Controls.Add(this.buttonOpenSavedGamesPath);
             this.Controls.Add(this.textBoxSavedGamesPath);
             this.Controls.Add(this.labelSavedGamesPath);
@@ -1904,6 +1916,7 @@
         private System.Windows.Forms.Label labelControllerSensitivity;
         private System.Windows.Forms.Label labelControllerAimAssist;
         private System.Windows.Forms.NumericUpDown spinnerControllerAimAssist;
+        private System.Windows.Forms.Button buttonStartBenchmark;
     }
 }
 

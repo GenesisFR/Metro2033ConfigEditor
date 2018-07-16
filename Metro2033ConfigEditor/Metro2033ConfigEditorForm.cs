@@ -20,7 +20,7 @@ namespace Metro2033ConfigEditor
 
         private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
         {
-            refreshUI();
+            RefreshUI();
         }
 
         private void Metro2033ConfigEditorForm_Closing(object sender, FormClosingEventArgs e)
@@ -211,7 +211,7 @@ namespace Metro2033ConfigEditor
             }
         }
 
-        private void refreshUI()
+        private void RefreshUI()
         {
             // Set textboxes
             textBoxSteamInstallPath.Text   = Helper.instance.SteamInstallPath ?? "Steam not found";
@@ -335,7 +335,7 @@ namespace Metro2033ConfigEditor
                     // Find config/game paths and reload config automatically
                     Helper.instance.SteamInstallPath = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
                     Helper.instance.UpdateConfigAndGamePaths();
-                    refreshUI();
+                    RefreshUI();
                 }
             }
         }
@@ -357,7 +357,7 @@ namespace Metro2033ConfigEditor
                 {
                     // Reload config automatically
                     Helper.instance.ConfigFilePath = openFileDialog.FileName.ToLower();
-                    refreshUI();
+                    RefreshUI();
                 }
             }
         }
@@ -375,7 +375,7 @@ namespace Metro2033ConfigEditor
                     // Update UI
                     Helper.instance.GameInstallPath    = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
                     Helper.instance.GameExecutablePath = openFileDialog.FileName.ToLower();
-                    refreshUI();
+                    RefreshUI();
                 }
             }
         }
@@ -507,6 +507,14 @@ namespace Metro2033ConfigEditor
                 fileSystemWatcherConfig.EnableRaisingEvents = true;
                 fileSystemWatcherNoIntro.EnableRaisingEvents = Helper.instance.IsNoIntroSkipped;
             }
+        }
+
+        private void ButtonStartBenchmark_Click(object sender, EventArgs e)
+        {
+            string benchmarkExePath = Path.Combine(Helper.instance.GameInstallPath, "metro2033benchmark.exe");
+            ProcessStartInfo startInfo = new ProcessStartInfo(benchmarkExePath);
+            startInfo.WorkingDirectory = Helper.instance.GameInstallPath;
+            StartProcess(startInfo);
         }
 
         private void ButtonStartGameNoSteam_Click(object sender, EventArgs e)
