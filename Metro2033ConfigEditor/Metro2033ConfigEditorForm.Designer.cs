@@ -236,7 +236,7 @@
             this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 483);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
-            this.buttonStartGameSteam.TabIndex = 63;
+            this.buttonStartGameSteam.TabIndex = 64;
             this.buttonStartGameSteam.Text = "Start game (Steam)";
             this.buttonStartGameSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameSteam.Click += new System.EventHandler(this.ButtonStartGameSteam_Click);
@@ -274,7 +274,7 @@
             this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 483);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
-            this.buttonStartGameNoSteam.TabIndex = 62;
+            this.buttonStartGameNoSteam.TabIndex = 63;
             this.buttonStartGameNoSteam.Text = "Start game (non-Steam)";
             this.buttonStartGameNoSteam.UseVisualStyleBackColor = true;
             this.buttonStartGameNoSteam.Click += new System.EventHandler(this.ButtonStartGameNoSteam_Click);
@@ -1713,7 +1713,7 @@
             this.buttonStartBenchmark.Location = new System.Drawing.Point(452, 483);
             this.buttonStartBenchmark.Name = "buttonStartBenchmark";
             this.buttonStartBenchmark.Size = new System.Drawing.Size(93, 23);
-            this.buttonStartBenchmark.TabIndex = 64;
+            this.buttonStartBenchmark.TabIndex = 62;
             this.buttonStartBenchmark.Text = "Start benchmark";
             this.buttonStartBenchmark.UseVisualStyleBackColor = true;
             this.buttonStartBenchmark.Click += new System.EventHandler(this.ButtonStartBenchmark_Click);
