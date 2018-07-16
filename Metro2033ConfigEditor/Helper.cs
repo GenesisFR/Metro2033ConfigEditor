@@ -53,10 +53,10 @@ namespace Metro2033ConfigEditor
             {
                 try
                 {
-                    string x360iniFilePath = Path.Combine(GameInstallPath, "x360ce.ini");
-                    string xInput11FilePath = Path.Combine(GameInstallPath, "xinput1_1.dll");
-                    string xInput12FilePath = Path.Combine(GameInstallPath, "xinput1_2.dll");
-                    string xInput13FilePath = Path.Combine(GameInstallPath, "xinput1_3.dll");
+                    string x360iniFilePath   = Path.Combine(GameInstallPath, "x360ce.ini");
+                    string xInput11FilePath  = Path.Combine(GameInstallPath, "xinput1_1.dll");
+                    string xInput12FilePath  = Path.Combine(GameInstallPath, "xinput1_2.dll");
+                    string xInput13FilePath  = Path.Combine(GameInstallPath, "xinput1_3.dll");
                     string xInput910FilePath = Path.Combine(GameInstallPath, "xinput9_1_0.dll");
 
                     return !File.Exists(x360iniFilePath) && !File.Exists(xInput11FilePath) && !File.Exists(xInput12FilePath) &&
@@ -72,6 +72,10 @@ namespace Metro2033ConfigEditor
             {
                 try
                 {
+                    // Don't do anything if the value hasn't changed
+                    if (value == IsControllerEnabled)
+                        return;
+
                     string nox360FilePath    = Path.Combine(GameInstallPath, "nox360.zip");
                     string x360iniFilePath   = Path.Combine(GameInstallPath, "x360ce.ini");
                     string xInput11FilePath  = Path.Combine(GameInstallPath, "xinput1_1.dll");
@@ -86,7 +90,7 @@ namespace Metro2033ConfigEditor
                     File.Delete(xInput13FilePath);
                     File.Delete(xInput910FilePath);
                 
-                    if (value == false)
+                    if (!value)
                     {
                         // Copy nox360.zip to game directory and extract it
                         File.WriteAllBytes(nox360FilePath, Metro2033ConfigEditor.Properties.Resources.nox360);
@@ -115,7 +119,7 @@ namespace Metro2033ConfigEditor
                     string noIntroFilePath = Path.Combine(GameInstallPath, "content.upk9");
 
                     // Copy the no intro fix to the game directory
-                    if (value == true)
+                    if (value)
                         File.WriteAllBytes(noIntroFilePath, Metro2033ConfigEditor.Properties.Resources.noIntroFix);
                     else
                         File.Delete(noIntroFilePath);
@@ -481,7 +485,7 @@ namespace Metro2033ConfigEditor
                     // Split the line to get the key and its value
                     string[] splitLines = fileLine.Split(' ');
 
-                    // If we have 1 SPACE character, use the 1st part as a key and the 2nd part as a value
+                    // If there is a single space character, use the first part as a key and the second part as a value
                     if (splitLines.Length == 2)
                         Dictionary[splitLines[0]] = splitLines[1];
                     // Otherwise, use the whole line as a key
