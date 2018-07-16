@@ -31,4 +31,5 @@ You can use the Start game (Steam) button to run the game using the Steam browse
 - [Binman88](http://www.tested.com/forums/games/10051-metro-2033-pc-config-file-edits/): provided some useful config file edits
 - [cdorst](http://twitch.tv/cdorst): helped for the update notification system
 - [Jamedjo](https://github.com/Jamedjo): author of the Steam library function
+- [JottiLF](https://community.pcgamingwiki.com/files/file/416-nox360/): tweaked x360ce to disable XBox 360 controllers
 - [Paul_NZ](https://community.pcgamingwiki.com/files/file/533-metro-2033-no-intro-fix/): created the no intro fix
