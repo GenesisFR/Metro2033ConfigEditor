@@ -390,7 +390,14 @@ namespace Metro2033ConfigEditor
 
         private void CheckBoxControllerEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            labelControllerWarning.Visible = !checkBoxControllerEnabled.Checked;
+            labelControllerWarning.Visible          = !checkBoxControllerEnabled.Checked;
+            comboBoxControllerPreset.Enabled        = checkBoxControllerEnabled.Checked;
+            comboBoxControllerVibration.Enabled     = checkBoxControllerEnabled.Checked;
+            comboBoxControllerMovement.Enabled      = checkBoxControllerEnabled.Checked;
+            spinnerControllerAimSensitivity.Enabled = checkBoxControllerEnabled.Checked;
+            spinnerControllerSensitivity.Enabled    = checkBoxControllerEnabled.Checked;
+            spinnerControllerAimAssist.Enabled      = checkBoxControllerEnabled.Checked;
+            checkBoxControllerInvertYAxis.Enabled   = checkBoxControllerEnabled.Checked;
         }
 
         private void ComboBoxResolution_SelectedIndexChanged(object sender, EventArgs e)

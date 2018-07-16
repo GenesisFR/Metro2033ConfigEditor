@@ -346,9 +346,9 @@
             this.labelResolutionNote.AutoSize = true;
             this.labelResolutionNote.Location = new System.Drawing.Point(245, 47);
             this.labelResolutionNote.Name = "labelResolutionNote";
-            this.labelResolutionNote.Size = new System.Drawing.Size(268, 13);
+            this.labelResolutionNote.Size = new System.Drawing.Size(286, 13);
             this.labelResolutionNote.TabIndex = 70;
-            this.labelResolutionNote.Text = "Note: game doesn\'t support resolutions below 800x600.";
+            this.labelResolutionNote.Text = "Note: the game doesn\'t support resolutions below 800x600.";
             // 
             // checkBoxGlobalIllumination
             // 
@@ -1034,6 +1034,8 @@
             // checkBoxControllerEnabled
             // 
             this.checkBoxControllerEnabled.AutoSize = true;
+            this.checkBoxControllerEnabled.Checked = true;
+            this.checkBoxControllerEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxControllerEnabled.Location = new System.Drawing.Point(8, 20);
             this.checkBoxControllerEnabled.Name = "checkBoxControllerEnabled";
             this.checkBoxControllerEnabled.Size = new System.Drawing.Size(65, 17);
