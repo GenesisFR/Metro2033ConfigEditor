@@ -222,6 +222,7 @@ namespace Metro2033ConfigEditor
             // Set button states
             buttonReload.Enabled           = Helper.instance.ConfigFilePath != null;
             buttonSave.Enabled             = Helper.instance.ConfigFilePath != null;
+            buttonStartBenchmark.Enabled   = Helper.instance.GameInstallPath != null;
             buttonStartGameNoSteam.Enabled = Helper.instance.GameInstallPath != null;
             buttonStartGameSteam.Enabled   = Helper.instance.SteamInstallPath != null;
 
