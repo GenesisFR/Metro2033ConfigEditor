@@ -504,6 +504,13 @@ namespace Metro2033ConfigEditor
                         checkBoxSkipIntro.Checked ? "enabled" : "disabled",
                         ". Make sure the game executable path has been specified."),
                         "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                if (Helper.instance.IsControllerEnabled != checkBoxControllerEnabled.Checked)
+                    MessageBox.Show(string.Format("{0}{1}{2}",
+                        "Controllers can't be ",
+                        checkBoxControllerEnabled.Checked ? "enabled" : "disabled",
+                        ". Make sure the game executable path has been specified."),
+                        "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
