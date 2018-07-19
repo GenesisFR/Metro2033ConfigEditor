@@ -391,7 +391,8 @@ namespace Metro2033ConfigEditor
 
         private void CheckBoxControllerEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            labelControllerWarning.Visible          = !checkBoxControllerEnabled.Checked;
+            labelControllerWarning.Visible          = Helper.instance.IsControllerEnabled != checkBoxControllerEnabled.Checked
+                && !checkBoxControllerEnabled.Checked;
             comboBoxControllerPreset.Enabled        = checkBoxControllerEnabled.Checked;
             comboBoxControllerVibration.Enabled     = checkBoxControllerEnabled.Checked;
             comboBoxControllerMovement.Enabled      = checkBoxControllerEnabled.Checked;
@@ -490,6 +491,7 @@ namespace Metro2033ConfigEditor
                 Helper.instance.IsConfigReadOnly    = checkBoxReadOnly.Checked;
                 Helper.instance.IsControllerEnabled = checkBoxControllerEnabled.Checked;
                 Helper.instance.IsNoIntroSkipped    = checkBoxSkipIntro.Checked;
+                labelControllerWarning.Visible      = Helper.instance.IsControllerEnabled != checkBoxControllerEnabled.Checked;
 
                 if (Helper.instance.WriteConfigFile())
                     MessageBox.Show("The config file has been saved successfully!",
