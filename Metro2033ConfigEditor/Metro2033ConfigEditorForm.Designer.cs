@@ -1620,14 +1620,13 @@
             // 
             this.linkLabelUpdateAvailable.AllowDrop = true;
             this.linkLabelUpdateAvailable.AutoSize = true;
-            this.linkLabelUpdateAvailable.LinkArea = new System.Windows.Forms.LinkArea(6, 6);
+            this.linkLabelUpdateAvailable.LinkArea = new System.Windows.Forms.LinkArea(0, 26);
             this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(204, 488);
             this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
-            this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(135, 17);
+            this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(131, 13);
             this.linkLabelUpdateAvailable.TabIndex = 59;
             this.linkLabelUpdateAvailable.TabStop = true;
             this.linkLabelUpdateAvailable.Text = "A new update is available!";
-            this.linkLabelUpdateAvailable.UseCompatibleTextRendering = true;
             this.linkLabelUpdateAvailable.Visible = false;
             this.linkLabelUpdateAvailable.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelUpdateAvailable_LinkClicked);
             // 
