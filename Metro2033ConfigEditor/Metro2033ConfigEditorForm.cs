@@ -334,7 +334,7 @@ namespace Metro2033ConfigEditor
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Find config/game paths and reload config automatically
-                    Helper.instance.SteamInstallPath = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
+                    Helper.instance.SteamInstallPath = new FileInfo(openFileDialog.FileName).DirectoryName;
                     Helper.instance.UpdateConfigAndGamePaths();
                     RefreshUI();
                 }
@@ -357,7 +357,7 @@ namespace Metro2033ConfigEditor
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Reload config automatically
-                    Helper.instance.ConfigFilePath = openFileDialog.FileName.ToLower();
+                    Helper.instance.ConfigFilePath = openFileDialog.FileName;
                     RefreshUI();
                 }
             }
@@ -374,8 +374,8 @@ namespace Metro2033ConfigEditor
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Update UI
-                    Helper.instance.GameInstallPath    = new FileInfo(openFileDialog.FileName).DirectoryName.ToLower();
-                    Helper.instance.GameExecutablePath = openFileDialog.FileName.ToLower();
+                    Helper.instance.GameInstallPath    = new FileInfo(openFileDialog.FileName).DirectoryName;
+                    Helper.instance.GameExecutablePath = openFileDialog.FileName;
                     RefreshUI();
                 }
             }

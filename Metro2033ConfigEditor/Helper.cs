@@ -219,7 +219,7 @@ namespace Metro2033ConfigEditor
                     object value = key.GetValue("InstallPath") ?? key.GetValue("SteamPath");
 
                     if (value != null)
-                        return value.ToString().Replace("/", @"\").ToLower();
+                        return value.ToString().Replace("/", @"\");
                 }
             }
             catch (Exception ex)
@@ -334,7 +334,7 @@ namespace Metro2033ConfigEditor
                     object value = key.GetValue("InstallLocation");
 
                     if (value != null)
-                        return value.ToString().Replace("/", @"\").ToLower();
+                        return value.ToString().Replace("/", @"\");
                 }
             }
             catch (Exception ex)
@@ -352,7 +352,7 @@ namespace Metro2033ConfigEditor
                 string currentDir = Directory.GetCurrentDirectory();
 
                 if (File.Exists(Path.Combine(currentDir, "metro2033.exe")))
-                    return currentDir.ToLower();
+                    return currentDir;
             }
             catch (Exception ex)
             {
@@ -371,7 +371,7 @@ namespace Metro2033ConfigEditor
                     string gameSteamDir = Path.Combine(steamLibDir, @"steamapps\common\Metro 2033");
 
                     if (File.Exists(Path.Combine(gameSteamDir, "metro2033.exe")))
-                        return gameSteamDir.ToLower();
+                        return gameSteamDir;
                 }
             }
             catch (Exception ex)
@@ -419,7 +419,7 @@ namespace Metro2033ConfigEditor
                     string configPath = Path.Combine(steamUserDataDir, @"43110\remote\user.cfg");
 
                     if (File.Exists(configPath))
-                        return configPath.ToLower();
+                        return configPath;
                 }
             }
             catch (Exception ex)
@@ -438,7 +438,7 @@ namespace Metro2033ConfigEditor
                     @"4A Games\Metro 2033\user.cfg");
 
                 if (File.Exists(configPath))
-                    return configPath.ToLower();
+                    return configPath;
             }
             catch (Exception ex)
             {
@@ -450,7 +450,7 @@ namespace Metro2033ConfigEditor
 
         private string GetSavedGamesPath()
         {
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"4A Games\Metro 2033").ToLower();
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"4A Games\Metro 2033");
         }
 
         // File-related methods
