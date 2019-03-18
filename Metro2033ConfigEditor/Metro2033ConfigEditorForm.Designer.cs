@@ -1196,9 +1196,9 @@
             this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
             this.labelCheatsWarning.Location = new System.Drawing.Point(240, 218);
             this.labelCheatsWarning.Name = "labelCheatsWarning";
-            this.labelCheatsWarning.Size = new System.Drawing.Size(289, 13);
+            this.labelCheatsWarning.Size = new System.Drawing.Size(291, 26);
             this.labelCheatsWarning.TabIndex = 42;
-            this.labelCheatsWarning.Text = "Warning: changes made to ingame settings won\'t be saved!";
+            this.labelCheatsWarning.Text = "Warning: moral points and changes made to ingame settings\r\nwon\'t be saved!";
             this.labelCheatsWarning.Visible = false;
             // 
             // labelCheatsNote
