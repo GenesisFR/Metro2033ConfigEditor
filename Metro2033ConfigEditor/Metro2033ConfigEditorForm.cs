@@ -207,6 +207,17 @@ namespace Metro2033ConfigEditor
             {
                 MessageBox.Show($"Exception: {ex.Message}\n\nSetting default values for volume, sensitivity, aim assist, gamma and FOV.",
                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                spinnerMasterVolume.Value             = 0.50m;
+                spinnerMusicVolume.Value              = 0.50m;
+                spinnerMouseSensitivity.Value         = 0.4m;
+                spinnerMouseAimSensitivity.Value      = 0.208m;
+                spinnerControllerSensitivity.Value    = 1m;
+                spinnerControllerAimSensitivity.Value = 0.4m;
+                spinnerControllerAimAssist.Value      = 1m;
+                spinnerGamma.Value                    = 1m;
+                spinnerFOV.Value                      = 45m;
+
                 Logger.WriteInformation<Helper>(ex.Message);
             }
         }
