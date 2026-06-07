@@ -185,6 +185,7 @@
             // 
             // buttonReload
             // 
+            this.buttonReload.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonReload.Location = new System.Drawing.Point(345, 483);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(55, 23);
@@ -214,6 +215,7 @@
             // 
             // buttonBrowseConfigFilePath
             // 
+            this.buttonBrowseConfigFilePath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonBrowseConfigFilePath.Location = new System.Drawing.Point(725, 40);
             this.buttonBrowseConfigFilePath.Name = "buttonBrowseConfigFilePath";
             this.buttonBrowseConfigFilePath.Size = new System.Drawing.Size(75, 23);
@@ -224,6 +226,7 @@
             // 
             // buttonSave
             // 
+            this.buttonSave.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonSave.Location = new System.Drawing.Point(406, 483);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(40, 23);
@@ -234,6 +237,7 @@
             // 
             // buttonStartGameSteam
             // 
+            this.buttonStartGameSteam.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 483);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
@@ -244,6 +248,7 @@
             // 
             // buttonBrowseGameExecutablePath
             // 
+            this.buttonBrowseGameExecutablePath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(725, 70);
             this.buttonBrowseGameExecutablePath.Name = "buttonBrowseGameExecutablePath";
             this.buttonBrowseGameExecutablePath.Size = new System.Drawing.Size(75, 23);
@@ -273,6 +278,7 @@
             // 
             // buttonStartGameNoSteam
             // 
+            this.buttonStartGameNoSteam.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 483);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
@@ -283,6 +289,7 @@
             // 
             // buttonBrowseSteamInstallPath
             // 
+            this.buttonBrowseSteamInstallPath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonBrowseSteamInstallPath.Location = new System.Drawing.Point(725, 10);
             this.buttonBrowseSteamInstallPath.Name = "buttonBrowseSteamInstallPath";
             this.buttonBrowseSteamInstallPath.Size = new System.Drawing.Size(75, 23);
@@ -312,6 +319,7 @@
             // 
             // tabVideo
             // 
+            this.tabVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.tabVideo.Controls.Add(this.labelResolutionNote);
             this.tabVideo.Controls.Add(this.checkBoxGlobalIllumination);
             this.tabVideo.Controls.Add(this.groupBoxDescription);
@@ -342,7 +350,6 @@
             this.tabVideo.Size = new System.Drawing.Size(787, 309);
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
-            this.tabVideo.UseVisualStyleBackColor = true;
             // 
             // labelResolutionNote
             // 
@@ -393,6 +400,7 @@
             this.groupBoxDescription.Controls.Add(this.labelGeometricDetailValue);
             this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusion);
             this.groupBoxDescription.Controls.Add(this.labelDetailTexturing);
+            this.groupBoxDescription.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxDescription.Location = new System.Drawing.Point(353, 73);
             this.groupBoxDescription.Name = "groupBoxDescription";
             this.groupBoxDescription.Size = new System.Drawing.Size(338, 217);
@@ -714,8 +722,10 @@
             // 
             // groupBoxDirectX11
             // 
+            this.groupBoxDirectX11.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxDirectX11.Controls.Add(this.checkBoxDepthOfField);
             this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
+            this.groupBoxDirectX11.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxDirectX11.Location = new System.Drawing.Point(245, 73);
             this.groupBoxDirectX11.Name = "groupBoxDirectX11";
             this.groupBoxDirectX11.Size = new System.Drawing.Size(99, 65);
@@ -726,22 +736,24 @@
             // checkBoxDepthOfField
             // 
             this.checkBoxDepthOfField.AutoSize = true;
+            this.checkBoxDepthOfField.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDepthOfField.Location = new System.Drawing.Point(5, 20);
             this.checkBoxDepthOfField.Name = "checkBoxDepthOfField";
             this.checkBoxDepthOfField.Size = new System.Drawing.Size(89, 17);
             this.checkBoxDepthOfField.TabIndex = 72;
             this.checkBoxDepthOfField.Text = "Depth of field";
-            this.checkBoxDepthOfField.UseVisualStyleBackColor = true;
+            this.checkBoxDepthOfField.UseVisualStyleBackColor = false;
             // 
             // checkBoxTessellation
             // 
             this.checkBoxTessellation.AutoSize = true;
+            this.checkBoxTessellation.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxTessellation.Location = new System.Drawing.Point(5, 40);
             this.checkBoxTessellation.Name = "checkBoxTessellation";
             this.checkBoxTessellation.Size = new System.Drawing.Size(82, 17);
             this.checkBoxTessellation.TabIndex = 73;
             this.checkBoxTessellation.Text = "Tessellation";
-            this.checkBoxTessellation.UseVisualStyleBackColor = true;
+            this.checkBoxTessellation.UseVisualStyleBackColor = false;
             // 
             // labelResolution
             // 
@@ -946,7 +958,7 @@
             // 
             // tabGeneral
             // 
-            this.tabGeneral.BackColor = System.Drawing.Color.White;
+            this.tabGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.tabGeneral.Controls.Add(this.labelControllerWarning);
             this.tabGeneral.Controls.Add(this.groupBoxController);
             this.tabGeneral.Controls.Add(this.labelCheatsWarning);
@@ -991,6 +1003,7 @@
             this.groupBoxController.Controls.Add(this.spinnerControllerSensitivity);
             this.groupBoxController.Controls.Add(this.checkBoxControllerInvertYAxis);
             this.groupBoxController.Controls.Add(this.spinnerControllerAimSensitivity);
+            this.groupBoxController.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxController.Location = new System.Drawing.Point(548, 8);
             this.groupBoxController.Name = "groupBoxController";
             this.groupBoxController.Size = new System.Drawing.Size(190, 251);
@@ -1154,12 +1167,14 @@
             // checkBoxControllerInvertYAxis
             // 
             this.checkBoxControllerInvertYAxis.AutoSize = true;
+            this.checkBoxControllerInvertYAxis.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxControllerInvertYAxis.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.checkBoxControllerInvertYAxis.Location = new System.Drawing.Point(8, 228);
             this.checkBoxControllerInvertYAxis.Name = "checkBoxControllerInvertYAxis";
             this.checkBoxControllerInvertYAxis.Size = new System.Drawing.Size(84, 17);
             this.checkBoxControllerInvertYAxis.TabIndex = 56;
             this.checkBoxControllerInvertYAxis.Text = "Invert Y axis";
-            this.checkBoxControllerInvertYAxis.UseVisualStyleBackColor = true;
+            this.checkBoxControllerInvertYAxis.UseVisualStyleBackColor = false;
             // 
             // spinnerControllerAimSensitivity
             // 
@@ -1227,6 +1242,7 @@
             this.groupBoxGameOptions.Controls.Add(this.labelVoiceLanguage);
             this.groupBoxGameOptions.Controls.Add(this.labelTextLanguage);
             this.groupBoxGameOptions.Controls.Add(this.checkBoxLaserCrosshair);
+            this.groupBoxGameOptions.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxGameOptions.Location = new System.Drawing.Point(10, 8);
             this.groupBoxGameOptions.Name = "groupBoxGameOptions";
             this.groupBoxGameOptions.Size = new System.Drawing.Size(220, 290);
@@ -1408,6 +1424,7 @@
             this.groupBoxMouse.Controls.Add(this.spinnerMouseSensitivity);
             this.groupBoxMouse.Controls.Add(this.labelMouseSensitivity);
             this.groupBoxMouse.Controls.Add(this.spinnerMouseAimSensitivity);
+            this.groupBoxMouse.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxMouse.Location = new System.Drawing.Point(391, 8);
             this.groupBoxMouse.Name = "groupBoxMouse";
             this.groupBoxMouse.Size = new System.Drawing.Size(148, 106);
@@ -1505,6 +1522,7 @@
             this.groupBoxSound.Controls.Add(this.spinnerMusicVolume);
             this.groupBoxSound.Controls.Add(this.spinnerMasterVolume);
             this.groupBoxSound.Controls.Add(this.labelMusicVolume);
+            this.groupBoxSound.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxSound.Location = new System.Drawing.Point(240, 8);
             this.groupBoxSound.Name = "groupBoxSound";
             this.groupBoxSound.Size = new System.Drawing.Size(142, 80);
@@ -1571,6 +1589,7 @@
             this.groupBoxCheats.Controls.Add(this.checkBoxReadOnly);
             this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
             this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
+            this.groupBoxCheats.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxCheats.Location = new System.Drawing.Point(240, 93);
             this.groupBoxCheats.Name = "groupBoxCheats";
             this.groupBoxCheats.Size = new System.Drawing.Size(142, 85);
@@ -1664,6 +1683,7 @@
             // 
             // buttonReportBug
             // 
+            this.buttonReportBug.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonReportBug.Location = new System.Drawing.Point(13, 483);
             this.buttonReportBug.Name = "buttonReportBug";
             this.buttonReportBug.Size = new System.Drawing.Size(78, 23);
@@ -1674,6 +1694,7 @@
             // 
             // buttonDonate
             // 
+            this.buttonDonate.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonDonate.Location = new System.Drawing.Point(97, 483);
             this.buttonDonate.Name = "buttonDonate";
             this.buttonDonate.Size = new System.Drawing.Size(59, 23);
@@ -1684,6 +1705,7 @@
             // 
             // buttonOpenSavedGamesPath
             // 
+            this.buttonOpenSavedGamesPath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonOpenSavedGamesPath.Location = new System.Drawing.Point(725, 100);
             this.buttonOpenSavedGamesPath.Name = "buttonOpenSavedGamesPath";
             this.buttonOpenSavedGamesPath.Size = new System.Drawing.Size(75, 23);
@@ -1713,6 +1735,7 @@
             // 
             // buttonStartBenchmark
             // 
+            this.buttonStartBenchmark.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonStartBenchmark.Location = new System.Drawing.Point(452, 483);
             this.buttonStartBenchmark.Name = "buttonStartBenchmark";
             this.buttonStartBenchmark.Size = new System.Drawing.Size(93, 23);
@@ -1725,6 +1748,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(814, 516);
             this.Controls.Add(this.buttonStartBenchmark);
             this.Controls.Add(this.buttonOpenSavedGamesPath);
@@ -1747,6 +1771,7 @@
             this.Controls.Add(this.textBoxConfigFilePath);
             this.Controls.Add(this.labelConfigFilePath);
             this.Controls.Add(this.buttonReload);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
