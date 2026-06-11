@@ -109,14 +109,14 @@ namespace Metro2033ConfigEditor
         {
             get
             {
-                return GameInstallPath != null && File.Exists(Path.Combine(GameInstallPath, "content.upk9"));
+                return GameInstallPath != null && File.Exists(Path.Combine(GameInstallPath, "content.upk_nointrofix"));
             }
 
             set
             {
                 try
                 {
-                    string noIntroFilePath = Path.Combine(GameInstallPath, "content.upk9");
+                    string noIntroFilePath = Path.Combine(GameInstallPath, "content.upk_nointrofix");
 
                     // Copy the no intro fix to the game directory
                     if (value)
@@ -447,6 +447,7 @@ namespace Metro2033ConfigEditor
 
         private string GetSavedGamesPath()
         {
+            string gfdgd = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"4A Games\Metro 2033");
         }
 

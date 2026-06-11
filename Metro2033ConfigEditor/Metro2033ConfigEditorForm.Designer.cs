@@ -205,7 +205,6 @@
             // 
             // textBoxConfigFilePath
             // 
-            this.textBoxConfigFilePath.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.textBoxConfigFilePath.Location = new System.Drawing.Point(140, 42);
             this.textBoxConfigFilePath.Name = "textBoxConfigFilePath";
             this.textBoxConfigFilePath.ReadOnly = true;
@@ -259,7 +258,6 @@
             // 
             // textBoxGameExecutablePath
             // 
-            this.textBoxGameExecutablePath.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.textBoxGameExecutablePath.Location = new System.Drawing.Point(140, 72);
             this.textBoxGameExecutablePath.Name = "textBoxGameExecutablePath";
             this.textBoxGameExecutablePath.ReadOnly = true;
@@ -300,7 +298,6 @@
             // 
             // textBoxSteamInstallPath
             // 
-            this.textBoxSteamInstallPath.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.textBoxSteamInstallPath.Location = new System.Drawing.Point(140, 12);
             this.textBoxSteamInstallPath.Name = "textBoxSteamInstallPath";
             this.textBoxSteamInstallPath.ReadOnly = true;
@@ -1674,7 +1671,7 @@
             // fileSystemWatcherNoIntro
             // 
             this.fileSystemWatcherNoIntro.EnableRaisingEvents = true;
-            this.fileSystemWatcherNoIntro.Filter = "content.upk9";
+            this.fileSystemWatcherNoIntro.Filter = "content.upk_nointrofix";
             this.fileSystemWatcherNoIntro.NotifyFilter = System.IO.NotifyFilters.FileName;
             this.fileSystemWatcherNoIntro.SynchronizingObject = this;
             this.fileSystemWatcherNoIntro.Created += new System.IO.FileSystemEventHandler(this.FileSystemWatcherNoIntro_Changed);
@@ -1716,7 +1713,6 @@
             // 
             // textBoxSavedGamesPath
             // 
-            this.textBoxSavedGamesPath.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.textBoxSavedGamesPath.Location = new System.Drawing.Point(140, 102);
             this.textBoxSavedGamesPath.Name = "textBoxSavedGamesPath";
             this.textBoxSavedGamesPath.ReadOnly = true;
