@@ -149,7 +149,6 @@
             this.checkBoxUnlimitedAmmo = new System.Windows.Forms.CheckBox();
             this.checkBoxGodMode = new System.Windows.Forms.CheckBox();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.linkLabelUpdateAvailable = new System.Windows.Forms.LinkLabel();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.fileSystemWatcherConfig = new System.IO.FileSystemWatcher();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -160,6 +159,7 @@
             this.textBoxSavedGamesPath = new System.Windows.Forms.TextBox();
             this.labelSavedGamesPath = new System.Windows.Forms.Label();
             this.buttonStartBenchmark = new System.Windows.Forms.Button();
+            this.buttonCheckForUpdates = new System.Windows.Forms.Button();
             this.tabVideo.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -1635,20 +1635,6 @@
             this.tabControl.Size = new System.Drawing.Size(795, 335);
             this.tabControl.TabIndex = 13;
             // 
-            // linkLabelUpdateAvailable
-            // 
-            this.linkLabelUpdateAvailable.AllowDrop = true;
-            this.linkLabelUpdateAvailable.AutoSize = true;
-            this.linkLabelUpdateAvailable.LinkArea = new System.Windows.Forms.LinkArea(0, 26);
-            this.linkLabelUpdateAvailable.Location = new System.Drawing.Point(204, 488);
-            this.linkLabelUpdateAvailable.Name = "linkLabelUpdateAvailable";
-            this.linkLabelUpdateAvailable.Size = new System.Drawing.Size(131, 13);
-            this.linkLabelUpdateAvailable.TabIndex = 59;
-            this.linkLabelUpdateAvailable.TabStop = true;
-            this.linkLabelUpdateAvailable.Text = "A new update is available!";
-            this.linkLabelUpdateAvailable.Visible = false;
-            this.linkLabelUpdateAvailable.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelUpdateAvailable_LinkClicked);
-            // 
             // backgroundWorker
             // 
             this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
@@ -1740,19 +1726,30 @@
             this.buttonStartBenchmark.UseVisualStyleBackColor = true;
             this.buttonStartBenchmark.Click += new System.EventHandler(this.ButtonStartBenchmark_Click);
             // 
+            // buttonCheckForUpdates
+            // 
+            this.buttonCheckForUpdates.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCheckForUpdates.Location = new System.Drawing.Point(162, 483);
+            this.buttonCheckForUpdates.Name = "buttonCheckForUpdates";
+            this.buttonCheckForUpdates.Size = new System.Drawing.Size(102, 23);
+            this.buttonCheckForUpdates.TabIndex = 59;
+            this.buttonCheckForUpdates.Text = "Check for updates";
+            this.buttonCheckForUpdates.UseVisualStyleBackColor = true;
+            this.buttonCheckForUpdates.Click += new System.EventHandler(this.ButtonCheckForUpdates_Click);
+            // 
             // Metro2033ConfigEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(814, 516);
+            this.Controls.Add(this.buttonCheckForUpdates);
             this.Controls.Add(this.buttonStartBenchmark);
             this.Controls.Add(this.buttonOpenSavedGamesPath);
             this.Controls.Add(this.textBoxSavedGamesPath);
             this.Controls.Add(this.labelSavedGamesPath);
             this.Controls.Add(this.buttonDonate);
             this.Controls.Add(this.buttonReportBug);
-            this.Controls.Add(this.linkLabelUpdateAvailable);
             this.Controls.Add(this.buttonBrowseSteamInstallPath);
             this.Controls.Add(this.textBoxSteamInstallPath);
             this.Controls.Add(this.labelSteamInstallPath);
@@ -1915,7 +1912,6 @@
         private System.Windows.Forms.Label labelResolutionNote;
         private System.Windows.Forms.CheckBox checkBoxReadOnly;
         private System.Windows.Forms.Label labelCheatsWarning;
-        private System.Windows.Forms.LinkLabel linkLabelUpdateAvailable;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.IO.FileSystemWatcher fileSystemWatcherConfig;
         private System.Windows.Forms.ToolTip toolTip;
@@ -1943,6 +1939,7 @@
         private System.Windows.Forms.Label labelControllerAimAssist;
         private System.Windows.Forms.NumericUpDown spinnerControllerAimAssist;
         private System.Windows.Forms.Button buttonStartBenchmark;
+        private System.Windows.Forms.Button buttonCheckForUpdates;
     }
 }
 

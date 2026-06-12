@@ -239,11 +239,11 @@ namespace Metro2033ConfigEditor
                 string progFilesSteamExeX86 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
                     @"Steam\Steam.exe");
 
-                // Steam is a 32-bit program so it should install in Program Files (x86) by default
-                if (File.Exists(progFilesSteamExeX86))
-                    return progFilesSteamExeX86;
-                else if (File.Exists(progFilesSteamExe))
+                // Steam is now a 64-bit program so it should install in Program Files by default
+                if (File.Exists(progFilesSteamExe))
                     return progFilesSteamExe;
+                else if (File.Exists(progFilesSteamExeX86))
+                    return progFilesSteamExeX86;
             }
             catch (Exception ex)
             {
@@ -311,9 +311,8 @@ namespace Metro2033ConfigEditor
 
         private string GetGameInstallPath()
         {
-            GetSteamLibraryDirs();
-            // Look for the game from the registry, then from the current directory and finally from the Steam library directories
-            return GetGamePathRegistry() ?? GetGamePathCurrentDir() ?? GetGamePathSteamLibDirs();
+            // Look for the game in the current directory, then from the registry and finally from the Steam library directories
+            return GetGamePathCurrentDir() ?? GetGamePathRegistry() ?? GetGamePathSteamLibDirs();
         }
 
         private string GetGamePathRegistry()
@@ -447,7 +446,6 @@ namespace Metro2033ConfigEditor
 
         private string GetSavedGamesPath()
         {
-            string gfdgd = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"4A Games\Metro 2033");
         }
 
@@ -579,10 +577,10 @@ namespace Metro2033ConfigEditor
             }
         }
 
-        public bool IsUpdateAvailable()
+        public int IsUpdateAvailable()
         {
             if (!IsInternetAvailable())
-                return false;
+                return -1;
 
             // Get local version
             Version localVersion = Assembly.GetEntryAssembly().GetName().Version;
@@ -591,7 +589,8 @@ namespace Metro2033ConfigEditor
             Version remoteVersion = DownloadRepoVersionAsync().Result;
 
             // Compare versions
-            return localVersion.CompareTo(remoteVersion) < 0;
+            int versionCompare = localVersion.CompareTo(remoteVersion);
+            return versionCompare < 0 ? 1 : 0;
         }
 
         // Conversion methods

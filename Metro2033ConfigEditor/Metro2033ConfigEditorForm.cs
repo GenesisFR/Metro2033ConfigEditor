@@ -13,9 +13,6 @@ namespace Metro2033ConfigEditor
         {
             InitializeComponent();
             AddTooltips();
-
-            // Check for update
-            backgroundWorker.RunWorkerAsync();
         }
 
         private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
@@ -28,7 +25,7 @@ namespace Metro2033ConfigEditor
             if (HaveSettingsChanged())
             {
                 DialogResult result = MessageBox.Show("You have unsaved changes, do you want to keep them?", "Save",
-                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
                 if (result == DialogResult.Yes)
                     buttonSave.PerformClick();
@@ -255,7 +252,7 @@ namespace Metro2033ConfigEditor
                     Helper.instance.SteamInstallPath != null ? "\n\nDo you want to run the game now?" : "");
 
                 if (MessageBox.Show(text, "Config not found", Helper.instance.SteamInstallPath != null ? MessageBoxButtons.YesNo :
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning) == DialogResult.Yes)
                     buttonStartGameSteam.PerformClick();
             }
 
@@ -478,10 +475,10 @@ namespace Metro2033ConfigEditor
             StartProcess("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X8KPQY9YGX4XQ");
         }
 
-        private void LinkLabelUpdateAvailable_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ButtonCheckForUpdates_Click(object sender, EventArgs e)
         {
-            linkLabelUpdateAvailable.LinkVisited = true;
-            StartProcess("https://github.com/GenesisFR/Metro2033ConfigEditor/releases/latest");
+            // Check for update
+            backgroundWorker.RunWorkerAsync();
         }
 
         private void ButtonReload_Click(object sender, EventArgs e)
@@ -559,19 +556,30 @@ namespace Metro2033ConfigEditor
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            // Start timing
+            // Check for update
             Stopwatch stopwatch = Stopwatch.StartNew();
-
             e.Result = Helper.instance.IsUpdateAvailable();
+            stopwatch.Stop();
 
             // Report time
-            stopwatch.Stop();
             Console.WriteLine($"Update check done in {stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            linkLabelUpdateAvailable.Visible = (bool)e.Result;
+            int updateStatus = Convert.ToInt32(e.Result);
+
+            if (updateStatus == 1)
+            {
+                if (MessageBox.Show("A new version is available! Would you like to download it?", "Update available",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    StartProcess("https://github.com/GenesisFR/Metro2033ConfigEditor/releases/latest");
+            }
+            else
+            {
+                MessageBox.Show(updateStatus == 0 ? "You are already using the latest version." : "No internet connection.", "No update available",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void FileSystemWatcherConfig_Changed(object sender, FileSystemEventArgs e)
@@ -586,7 +594,7 @@ namespace Metro2033ConfigEditor
                     Console.WriteLine("File locked by another process");
 
                 if (MessageBox.Show("The config file has been modified by another program. Do you want to reload it?", "Reload",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     buttonReload.PerformClick();
             }
             catch (Exception ex)
