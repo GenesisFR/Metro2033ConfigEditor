@@ -186,9 +186,10 @@
             // buttonReload
             // 
             this.buttonReload.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonReload.Location = new System.Drawing.Point(345, 483);
+            this.buttonReload.Location = new System.Drawing.Point(460, 594);
+            this.buttonReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonReload.Name = "buttonReload";
-            this.buttonReload.Size = new System.Drawing.Size(55, 23);
+            this.buttonReload.Size = new System.Drawing.Size(73, 28);
             this.buttonReload.TabIndex = 60;
             this.buttonReload.Text = "Reload";
             this.buttonReload.UseVisualStyleBackColor = true;
@@ -197,27 +198,30 @@
             // labelConfigFilePath
             // 
             this.labelConfigFilePath.AutoSize = true;
-            this.labelConfigFilePath.Location = new System.Drawing.Point(10, 45);
+            this.labelConfigFilePath.Location = new System.Drawing.Point(13, 55);
+            this.labelConfigFilePath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelConfigFilePath.Name = "labelConfigFilePath";
-            this.labelConfigFilePath.Size = new System.Drawing.Size(77, 13);
+            this.labelConfigFilePath.Size = new System.Drawing.Size(102, 17);
             this.labelConfigFilePath.TabIndex = 4;
             this.labelConfigFilePath.Text = "Config file path";
             // 
             // textBoxConfigFilePath
             // 
-            this.textBoxConfigFilePath.Location = new System.Drawing.Point(140, 42);
+            this.textBoxConfigFilePath.Location = new System.Drawing.Point(187, 52);
+            this.textBoxConfigFilePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxConfigFilePath.Name = "textBoxConfigFilePath";
             this.textBoxConfigFilePath.ReadOnly = true;
-            this.textBoxConfigFilePath.Size = new System.Drawing.Size(565, 20);
+            this.textBoxConfigFilePath.Size = new System.Drawing.Size(752, 23);
             this.textBoxConfigFilePath.TabIndex = 5;
             this.textBoxConfigFilePath.TabStop = false;
             // 
             // buttonBrowseConfigFilePath
             // 
             this.buttonBrowseConfigFilePath.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonBrowseConfigFilePath.Location = new System.Drawing.Point(725, 40);
+            this.buttonBrowseConfigFilePath.Location = new System.Drawing.Point(967, 49);
+            this.buttonBrowseConfigFilePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBrowseConfigFilePath.Name = "buttonBrowseConfigFilePath";
-            this.buttonBrowseConfigFilePath.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowseConfigFilePath.Size = new System.Drawing.Size(100, 28);
             this.buttonBrowseConfigFilePath.TabIndex = 6;
             this.buttonBrowseConfigFilePath.Text = "Browse";
             this.buttonBrowseConfigFilePath.UseVisualStyleBackColor = true;
@@ -226,9 +230,10 @@
             // buttonSave
             // 
             this.buttonSave.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonSave.Location = new System.Drawing.Point(406, 483);
+            this.buttonSave.Location = new System.Drawing.Point(541, 594);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(40, 23);
+            this.buttonSave.Size = new System.Drawing.Size(53, 28);
             this.buttonSave.TabIndex = 61;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -237,9 +242,10 @@
             // buttonStartGameSteam
             // 
             this.buttonStartGameSteam.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonStartGameSteam.Location = new System.Drawing.Point(687, 483);
+            this.buttonStartGameSteam.Location = new System.Drawing.Point(916, 594);
+            this.buttonStartGameSteam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
-            this.buttonStartGameSteam.Size = new System.Drawing.Size(113, 23);
+            this.buttonStartGameSteam.Size = new System.Drawing.Size(151, 28);
             this.buttonStartGameSteam.TabIndex = 64;
             this.buttonStartGameSteam.Text = "Start game (Steam)";
             this.buttonStartGameSteam.UseVisualStyleBackColor = true;
@@ -248,9 +254,10 @@
             // buttonBrowseGameExecutablePath
             // 
             this.buttonBrowseGameExecutablePath.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(725, 70);
+            this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(967, 86);
+            this.buttonBrowseGameExecutablePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBrowseGameExecutablePath.Name = "buttonBrowseGameExecutablePath";
-            this.buttonBrowseGameExecutablePath.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowseGameExecutablePath.Size = new System.Drawing.Size(100, 28);
             this.buttonBrowseGameExecutablePath.TabIndex = 9;
             this.buttonBrowseGameExecutablePath.Text = "Browse";
             this.buttonBrowseGameExecutablePath.UseVisualStyleBackColor = true;
@@ -258,28 +265,31 @@
             // 
             // textBoxGameExecutablePath
             // 
-            this.textBoxGameExecutablePath.Location = new System.Drawing.Point(140, 72);
+            this.textBoxGameExecutablePath.Location = new System.Drawing.Point(187, 89);
+            this.textBoxGameExecutablePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxGameExecutablePath.Name = "textBoxGameExecutablePath";
             this.textBoxGameExecutablePath.ReadOnly = true;
-            this.textBoxGameExecutablePath.Size = new System.Drawing.Size(565, 20);
+            this.textBoxGameExecutablePath.Size = new System.Drawing.Size(752, 23);
             this.textBoxGameExecutablePath.TabIndex = 8;
             this.textBoxGameExecutablePath.TabStop = false;
             // 
             // labelGameExecutablePath
             // 
             this.labelGameExecutablePath.AutoSize = true;
-            this.labelGameExecutablePath.Location = new System.Drawing.Point(10, 75);
+            this.labelGameExecutablePath.Location = new System.Drawing.Point(13, 92);
+            this.labelGameExecutablePath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGameExecutablePath.Name = "labelGameExecutablePath";
-            this.labelGameExecutablePath.Size = new System.Drawing.Size(114, 13);
+            this.labelGameExecutablePath.Size = new System.Drawing.Size(150, 17);
             this.labelGameExecutablePath.TabIndex = 7;
             this.labelGameExecutablePath.Text = "Game executable path";
             // 
             // buttonStartGameNoSteam
             // 
             this.buttonStartGameNoSteam.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonStartGameNoSteam.Location = new System.Drawing.Point(551, 483);
+            this.buttonStartGameNoSteam.Location = new System.Drawing.Point(735, 594);
+            this.buttonStartGameNoSteam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
-            this.buttonStartGameNoSteam.Size = new System.Drawing.Size(130, 23);
+            this.buttonStartGameNoSteam.Size = new System.Drawing.Size(173, 28);
             this.buttonStartGameNoSteam.TabIndex = 63;
             this.buttonStartGameNoSteam.Text = "Start game (non-Steam)";
             this.buttonStartGameNoSteam.UseVisualStyleBackColor = true;
@@ -288,9 +298,10 @@
             // buttonBrowseSteamInstallPath
             // 
             this.buttonBrowseSteamInstallPath.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonBrowseSteamInstallPath.Location = new System.Drawing.Point(725, 10);
+            this.buttonBrowseSteamInstallPath.Location = new System.Drawing.Point(967, 12);
+            this.buttonBrowseSteamInstallPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBrowseSteamInstallPath.Name = "buttonBrowseSteamInstallPath";
-            this.buttonBrowseSteamInstallPath.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowseSteamInstallPath.Size = new System.Drawing.Size(100, 28);
             this.buttonBrowseSteamInstallPath.TabIndex = 3;
             this.buttonBrowseSteamInstallPath.Text = "Browse";
             this.buttonBrowseSteamInstallPath.UseVisualStyleBackColor = true;
@@ -298,19 +309,21 @@
             // 
             // textBoxSteamInstallPath
             // 
-            this.textBoxSteamInstallPath.Location = new System.Drawing.Point(140, 12);
+            this.textBoxSteamInstallPath.Location = new System.Drawing.Point(187, 15);
+            this.textBoxSteamInstallPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxSteamInstallPath.Name = "textBoxSteamInstallPath";
             this.textBoxSteamInstallPath.ReadOnly = true;
-            this.textBoxSteamInstallPath.Size = new System.Drawing.Size(565, 20);
+            this.textBoxSteamInstallPath.Size = new System.Drawing.Size(752, 23);
             this.textBoxSteamInstallPath.TabIndex = 2;
             this.textBoxSteamInstallPath.TabStop = false;
             // 
             // labelSteamInstallPath
             // 
             this.labelSteamInstallPath.AutoSize = true;
-            this.labelSteamInstallPath.Location = new System.Drawing.Point(10, 15);
+            this.labelSteamInstallPath.Location = new System.Drawing.Point(13, 18);
+            this.labelSteamInstallPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSteamInstallPath.Name = "labelSteamInstallPath";
-            this.labelSteamInstallPath.Size = new System.Drawing.Size(90, 13);
+            this.labelSteamInstallPath.Size = new System.Drawing.Size(120, 17);
             this.labelSteamInstallPath.TabIndex = 1;
             this.labelSteamInstallPath.Text = "Steam install path";
             // 
@@ -342,27 +355,30 @@
             this.tabVideo.Controls.Add(this.textBoxHeight);
             this.tabVideo.Controls.Add(this.labelHeight);
             this.tabVideo.Location = new System.Drawing.Point(4, 22);
+            this.tabVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabVideo.Name = "tabVideo";
-            this.tabVideo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVideo.Size = new System.Drawing.Size(787, 309);
+            this.tabVideo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabVideo.Size = new System.Drawing.Size(1052, 386);
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
             // 
             // labelResolutionNote
             // 
             this.labelResolutionNote.AutoSize = true;
-            this.labelResolutionNote.Location = new System.Drawing.Point(245, 47);
+            this.labelResolutionNote.Location = new System.Drawing.Point(327, 58);
+            this.labelResolutionNote.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResolutionNote.Name = "labelResolutionNote";
-            this.labelResolutionNote.Size = new System.Drawing.Size(286, 13);
+            this.labelResolutionNote.Size = new System.Drawing.Size(382, 17);
             this.labelResolutionNote.TabIndex = 70;
             this.labelResolutionNote.Text = "Note: the game doesn\'t support resolutions below 800x600.";
             // 
             // checkBoxGlobalIllumination
             // 
             this.checkBoxGlobalIllumination.AutoSize = true;
-            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(15, 249);
+            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(20, 306);
+            this.checkBoxGlobalIllumination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxGlobalIllumination.Name = "checkBoxGlobalIllumination";
-            this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(110, 17);
+            this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(142, 21);
             this.checkBoxGlobalIllumination.TabIndex = 64;
             this.checkBoxGlobalIllumination.Text = "Global illumination";
             this.checkBoxGlobalIllumination.UseVisualStyleBackColor = true;
@@ -398,9 +414,11 @@
             this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusion);
             this.groupBoxDescription.Controls.Add(this.labelDetailTexturing);
             this.groupBoxDescription.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxDescription.Location = new System.Drawing.Point(353, 73);
+            this.groupBoxDescription.Location = new System.Drawing.Point(471, 90);
+            this.groupBoxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxDescription.Name = "groupBoxDescription";
-            this.groupBoxDescription.Size = new System.Drawing.Size(338, 217);
+            this.groupBoxDescription.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDescription.Size = new System.Drawing.Size(451, 267);
             this.groupBoxDescription.TabIndex = 74;
             this.groupBoxDescription.TabStop = false;
             this.groupBoxDescription.Text = "Quality settings";
@@ -408,261 +426,290 @@
             // labelVolumetricTexturingValue
             // 
             this.labelVolumetricTexturingValue.AutoSize = true;
-            this.labelVolumetricTexturingValue.Location = new System.Drawing.Point(180, 189);
+            this.labelVolumetricTexturingValue.Location = new System.Drawing.Point(240, 233);
+            this.labelVolumetricTexturingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelVolumetricTexturingValue.Name = "labelVolumetricTexturingValue";
-            this.labelVolumetricTexturingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelVolumetricTexturingValue.Size = new System.Drawing.Size(63, 17);
             this.labelVolumetricTexturingValue.TabIndex = 102;
             this.labelVolumetricTexturingValue.Text = "Disabled";
             // 
             // labelAnalyticalAntiAliasingValue
             // 
             this.labelAnalyticalAntiAliasingValue.AutoSize = true;
-            this.labelAnalyticalAntiAliasingValue.Location = new System.Drawing.Point(180, 176);
+            this.labelAnalyticalAntiAliasingValue.Location = new System.Drawing.Point(240, 217);
+            this.labelAnalyticalAntiAliasingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAnalyticalAntiAliasingValue.Name = "labelAnalyticalAntiAliasingValue";
-            this.labelAnalyticalAntiAliasingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelAnalyticalAntiAliasingValue.Size = new System.Drawing.Size(63, 17);
             this.labelAnalyticalAntiAliasingValue.TabIndex = 100;
             this.labelAnalyticalAntiAliasingValue.Text = "Disabled";
             // 
             // labelShadowFilteringValue
             // 
             this.labelShadowFilteringValue.AutoSize = true;
-            this.labelShadowFilteringValue.Location = new System.Drawing.Point(180, 163);
+            this.labelShadowFilteringValue.Location = new System.Drawing.Point(240, 201);
+            this.labelShadowFilteringValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelShadowFilteringValue.Name = "labelShadowFilteringValue";
-            this.labelShadowFilteringValue.Size = new System.Drawing.Size(27, 13);
+            this.labelShadowFilteringValue.Size = new System.Drawing.Size(35, 17);
             this.labelShadowFilteringValue.TabIndex = 98;
             this.labelShadowFilteringValue.Text = "Fast";
             // 
             // labelMotionBlur
             // 
             this.labelMotionBlur.AutoSize = true;
-            this.labelMotionBlur.Location = new System.Drawing.Point(10, 20);
+            this.labelMotionBlur.Location = new System.Drawing.Point(13, 25);
+            this.labelMotionBlur.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMotionBlur.Name = "labelMotionBlur";
-            this.labelMotionBlur.Size = new System.Drawing.Size(59, 13);
+            this.labelMotionBlur.Size = new System.Drawing.Size(78, 17);
             this.labelMotionBlur.TabIndex = 75;
             this.labelMotionBlur.Text = "Motion blur";
             // 
             // labelSkinShading
             // 
             this.labelSkinShading.AutoSize = true;
-            this.labelSkinShading.Location = new System.Drawing.Point(10, 33);
+            this.labelSkinShading.Location = new System.Drawing.Point(13, 41);
+            this.labelSkinShading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSkinShading.Name = "labelSkinShading";
-            this.labelSkinShading.Size = new System.Drawing.Size(68, 13);
+            this.labelSkinShading.Size = new System.Drawing.Size(89, 17);
             this.labelSkinShading.TabIndex = 77;
             this.labelSkinShading.Text = "Skin shading";
             // 
             // labelParallaxMappingValue
             // 
             this.labelParallaxMappingValue.AutoSize = true;
-            this.labelParallaxMappingValue.Location = new System.Drawing.Point(180, 150);
+            this.labelParallaxMappingValue.Location = new System.Drawing.Point(240, 185);
+            this.labelParallaxMappingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelParallaxMappingValue.Name = "labelParallaxMappingValue";
-            this.labelParallaxMappingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelParallaxMappingValue.Size = new System.Drawing.Size(63, 17);
             this.labelParallaxMappingValue.TabIndex = 96;
             this.labelParallaxMappingValue.Text = "Disabled";
             // 
             // labelBumpMapping
             // 
             this.labelBumpMapping.AutoSize = true;
-            this.labelBumpMapping.Location = new System.Drawing.Point(10, 46);
+            this.labelBumpMapping.Location = new System.Drawing.Point(13, 57);
+            this.labelBumpMapping.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBumpMapping.Name = "labelBumpMapping";
-            this.labelBumpMapping.Size = new System.Drawing.Size(77, 13);
+            this.labelBumpMapping.Size = new System.Drawing.Size(102, 17);
             this.labelBumpMapping.TabIndex = 79;
             this.labelBumpMapping.Text = "Bump mapping";
             // 
             // labelSoftParticles
             // 
             this.labelSoftParticles.AutoSize = true;
-            this.labelSoftParticles.Location = new System.Drawing.Point(10, 59);
+            this.labelSoftParticles.Location = new System.Drawing.Point(13, 73);
+            this.labelSoftParticles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSoftParticles.Name = "labelSoftParticles";
-            this.labelSoftParticles.Size = new System.Drawing.Size(68, 13);
+            this.labelSoftParticles.Size = new System.Drawing.Size(90, 17);
             this.labelSoftParticles.TabIndex = 81;
             this.labelSoftParticles.Text = "Soft particles";
             // 
             // labelImagePostProcessingValue
             // 
             this.labelImagePostProcessingValue.AutoSize = true;
-            this.labelImagePostProcessingValue.Location = new System.Drawing.Point(180, 137);
+            this.labelImagePostProcessingValue.Location = new System.Drawing.Point(240, 169);
+            this.labelImagePostProcessingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelImagePostProcessingValue.Name = "labelImagePostProcessingValue";
-            this.labelImagePostProcessingValue.Size = new System.Drawing.Size(40, 13);
+            this.labelImagePostProcessingValue.Size = new System.Drawing.Size(53, 17);
             this.labelImagePostProcessingValue.TabIndex = 94;
             this.labelImagePostProcessingValue.Text = "Normal";
             // 
             // labelAmbientOcclusionValue
             // 
             this.labelAmbientOcclusionValue.AutoSize = true;
-            this.labelAmbientOcclusionValue.Location = new System.Drawing.Point(180, 124);
+            this.labelAmbientOcclusionValue.Location = new System.Drawing.Point(240, 153);
+            this.labelAmbientOcclusionValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAmbientOcclusionValue.Name = "labelAmbientOcclusionValue";
-            this.labelAmbientOcclusionValue.Size = new System.Drawing.Size(65, 13);
+            this.labelAmbientOcclusionValue.Size = new System.Drawing.Size(86, 17);
             this.labelAmbientOcclusionValue.TabIndex = 92;
             this.labelAmbientOcclusionValue.Text = "Approximate";
             // 
             // labelShadowResolution
             // 
             this.labelShadowResolution.AutoSize = true;
-            this.labelShadowResolution.Location = new System.Drawing.Point(10, 72);
+            this.labelShadowResolution.Location = new System.Drawing.Point(13, 89);
+            this.labelShadowResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelShadowResolution.Name = "labelShadowResolution";
-            this.labelShadowResolution.Size = new System.Drawing.Size(94, 13);
+            this.labelShadowResolution.Size = new System.Drawing.Size(124, 17);
             this.labelShadowResolution.TabIndex = 83;
             this.labelShadowResolution.Text = "Shadow resolution";
             // 
             // labelMotionBlurValue
             // 
             this.labelMotionBlurValue.AutoSize = true;
-            this.labelMotionBlurValue.Location = new System.Drawing.Point(180, 20);
+            this.labelMotionBlurValue.Location = new System.Drawing.Point(240, 25);
+            this.labelMotionBlurValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMotionBlurValue.Name = "labelMotionBlurValue";
-            this.labelMotionBlurValue.Size = new System.Drawing.Size(48, 13);
+            this.labelMotionBlurValue.Size = new System.Drawing.Size(63, 17);
             this.labelMotionBlurValue.TabIndex = 76;
             this.labelMotionBlurValue.Text = "Disabled";
             // 
             // labelSoftParticlesValue
             // 
             this.labelSoftParticlesValue.AutoSize = true;
-            this.labelSoftParticlesValue.Location = new System.Drawing.Point(180, 59);
+            this.labelSoftParticlesValue.Location = new System.Drawing.Point(240, 73);
+            this.labelSoftParticlesValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSoftParticlesValue.Name = "labelSoftParticlesValue";
-            this.labelSoftParticlesValue.Size = new System.Drawing.Size(48, 13);
+            this.labelSoftParticlesValue.Size = new System.Drawing.Size(63, 17);
             this.labelSoftParticlesValue.TabIndex = 82;
             this.labelSoftParticlesValue.Text = "Disabled";
             // 
             // labelShadowResolutionValue
             // 
             this.labelShadowResolutionValue.AutoSize = true;
-            this.labelShadowResolutionValue.Location = new System.Drawing.Point(180, 72);
+            this.labelShadowResolutionValue.Location = new System.Drawing.Point(240, 89);
+            this.labelShadowResolutionValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelShadowResolutionValue.Name = "labelShadowResolutionValue";
-            this.labelShadowResolutionValue.Size = new System.Drawing.Size(53, 13);
+            this.labelShadowResolutionValue.Size = new System.Drawing.Size(68, 17);
             this.labelShadowResolutionValue.TabIndex = 84;
             this.labelShadowResolutionValue.Text = "2.35 Mpix";
             // 
             // labelDetailTexturingValue
             // 
             this.labelDetailTexturingValue.AutoSize = true;
-            this.labelDetailTexturingValue.Location = new System.Drawing.Point(180, 111);
+            this.labelDetailTexturingValue.Location = new System.Drawing.Point(240, 137);
+            this.labelDetailTexturingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDetailTexturingValue.Name = "labelDetailTexturingValue";
-            this.labelDetailTexturingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelDetailTexturingValue.Size = new System.Drawing.Size(63, 17);
             this.labelDetailTexturingValue.TabIndex = 90;
             this.labelDetailTexturingValue.Text = "Disabled";
             // 
             // labelVolumetricTexturing
             // 
             this.labelVolumetricTexturing.AutoSize = true;
-            this.labelVolumetricTexturing.Location = new System.Drawing.Point(10, 189);
+            this.labelVolumetricTexturing.Location = new System.Drawing.Point(13, 233);
+            this.labelVolumetricTexturing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelVolumetricTexturing.Name = "labelVolumetricTexturing";
-            this.labelVolumetricTexturing.Size = new System.Drawing.Size(99, 13);
+            this.labelVolumetricTexturing.Size = new System.Drawing.Size(132, 17);
             this.labelVolumetricTexturing.TabIndex = 101;
             this.labelVolumetricTexturing.Text = "Volumetric texturing";
             // 
             // labelBumpMappingValue
             // 
             this.labelBumpMappingValue.AutoSize = true;
-            this.labelBumpMappingValue.Location = new System.Drawing.Point(180, 46);
+            this.labelBumpMappingValue.Location = new System.Drawing.Point(240, 57);
+            this.labelBumpMappingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBumpMappingValue.Name = "labelBumpMappingValue";
-            this.labelBumpMappingValue.Size = new System.Drawing.Size(40, 13);
+            this.labelBumpMappingValue.Size = new System.Drawing.Size(53, 17);
             this.labelBumpMappingValue.TabIndex = 80;
             this.labelBumpMappingValue.Text = "Coarse";
             // 
             // labelSkinShadingValue
             // 
             this.labelSkinShadingValue.AutoSize = true;
-            this.labelSkinShadingValue.Location = new System.Drawing.Point(180, 33);
+            this.labelSkinShadingValue.Location = new System.Drawing.Point(240, 41);
+            this.labelSkinShadingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSkinShadingValue.Name = "labelSkinShadingValue";
-            this.labelSkinShadingValue.Size = new System.Drawing.Size(48, 13);
+            this.labelSkinShadingValue.Size = new System.Drawing.Size(63, 17);
             this.labelSkinShadingValue.TabIndex = 78;
             this.labelSkinShadingValue.Text = "Disabled";
             // 
             // labelAnalyticalAntiAliasing
             // 
             this.labelAnalyticalAntiAliasing.AutoSize = true;
-            this.labelAnalyticalAntiAliasing.Location = new System.Drawing.Point(10, 176);
+            this.labelAnalyticalAntiAliasing.Location = new System.Drawing.Point(13, 217);
+            this.labelAnalyticalAntiAliasing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAnalyticalAntiAliasing.Name = "labelAnalyticalAntiAliasing";
-            this.labelAnalyticalAntiAliasing.Size = new System.Drawing.Size(110, 13);
+            this.labelAnalyticalAntiAliasing.Size = new System.Drawing.Size(148, 17);
             this.labelAnalyticalAntiAliasing.TabIndex = 99;
             this.labelAnalyticalAntiAliasing.Text = "Analytical anti-aliasing";
             // 
             // labelLightMaterialInteraction
             // 
             this.labelLightMaterialInteraction.AutoSize = true;
-            this.labelLightMaterialInteraction.Location = new System.Drawing.Point(10, 85);
+            this.labelLightMaterialInteraction.Location = new System.Drawing.Point(13, 105);
+            this.labelLightMaterialInteraction.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLightMaterialInteraction.Name = "labelLightMaterialInteraction";
-            this.labelLightMaterialInteraction.Size = new System.Drawing.Size(121, 13);
+            this.labelLightMaterialInteraction.Size = new System.Drawing.Size(164, 17);
             this.labelLightMaterialInteraction.TabIndex = 85;
             this.labelLightMaterialInteraction.Text = "Light-material interaction";
             // 
             // labelShadowFiltering
             // 
             this.labelShadowFiltering.AutoSize = true;
-            this.labelShadowFiltering.Location = new System.Drawing.Point(10, 163);
+            this.labelShadowFiltering.Location = new System.Drawing.Point(13, 201);
+            this.labelShadowFiltering.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelShadowFiltering.Name = "labelShadowFiltering";
-            this.labelShadowFiltering.Size = new System.Drawing.Size(82, 13);
+            this.labelShadowFiltering.Size = new System.Drawing.Size(108, 17);
             this.labelShadowFiltering.TabIndex = 97;
             this.labelShadowFiltering.Text = "Shadow filtering";
             // 
             // labelLightMaterialInteractionValue
             // 
             this.labelLightMaterialInteractionValue.AutoSize = true;
-            this.labelLightMaterialInteractionValue.Location = new System.Drawing.Point(180, 85);
+            this.labelLightMaterialInteractionValue.Location = new System.Drawing.Point(240, 105);
+            this.labelLightMaterialInteractionValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLightMaterialInteractionValue.Name = "labelLightMaterialInteractionValue";
-            this.labelLightMaterialInteractionValue.Size = new System.Drawing.Size(40, 13);
+            this.labelLightMaterialInteractionValue.Size = new System.Drawing.Size(53, 17);
             this.labelLightMaterialInteractionValue.TabIndex = 86;
             this.labelLightMaterialInteractionValue.Text = "Normal";
             // 
             // labelParallaxMapping
             // 
             this.labelParallaxMapping.AutoSize = true;
-            this.labelParallaxMapping.Location = new System.Drawing.Point(10, 150);
+            this.labelParallaxMapping.Location = new System.Drawing.Point(13, 185);
+            this.labelParallaxMapping.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelParallaxMapping.Name = "labelParallaxMapping";
-            this.labelParallaxMapping.Size = new System.Drawing.Size(87, 13);
+            this.labelParallaxMapping.Size = new System.Drawing.Size(116, 17);
             this.labelParallaxMapping.TabIndex = 95;
             this.labelParallaxMapping.Text = "Parallax mapping";
             // 
             // labelGeometricDetail
             // 
             this.labelGeometricDetail.AutoSize = true;
-            this.labelGeometricDetail.Location = new System.Drawing.Point(10, 98);
+            this.labelGeometricDetail.Location = new System.Drawing.Point(13, 121);
+            this.labelGeometricDetail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGeometricDetail.Name = "labelGeometricDetail";
-            this.labelGeometricDetail.Size = new System.Drawing.Size(83, 13);
+            this.labelGeometricDetail.Size = new System.Drawing.Size(111, 17);
             this.labelGeometricDetail.TabIndex = 87;
             this.labelGeometricDetail.Text = "Geometric detail";
             // 
             // labelImagePostProcessing
             // 
             this.labelImagePostProcessing.AutoSize = true;
-            this.labelImagePostProcessing.Location = new System.Drawing.Point(10, 137);
+            this.labelImagePostProcessing.Location = new System.Drawing.Point(13, 169);
+            this.labelImagePostProcessing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelImagePostProcessing.Name = "labelImagePostProcessing";
-            this.labelImagePostProcessing.Size = new System.Drawing.Size(113, 13);
+            this.labelImagePostProcessing.Size = new System.Drawing.Size(151, 17);
             this.labelImagePostProcessing.TabIndex = 93;
             this.labelImagePostProcessing.Text = "Image post-processing";
             // 
             // labelGeometricDetailValue
             // 
             this.labelGeometricDetailValue.AutoSize = true;
-            this.labelGeometricDetailValue.Location = new System.Drawing.Point(180, 98);
+            this.labelGeometricDetailValue.Location = new System.Drawing.Point(240, 121);
+            this.labelGeometricDetailValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGeometricDetailValue.Name = "labelGeometricDetailValue";
-            this.labelGeometricDetailValue.Size = new System.Drawing.Size(27, 13);
+            this.labelGeometricDetailValue.Size = new System.Drawing.Size(33, 17);
             this.labelGeometricDetailValue.TabIndex = 88;
             this.labelGeometricDetailValue.Text = "Low";
             // 
             // labelAmbientOcclusion
             // 
             this.labelAmbientOcclusion.AutoSize = true;
-            this.labelAmbientOcclusion.Location = new System.Drawing.Point(10, 124);
+            this.labelAmbientOcclusion.Location = new System.Drawing.Point(13, 153);
+            this.labelAmbientOcclusion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAmbientOcclusion.Name = "labelAmbientOcclusion";
-            this.labelAmbientOcclusion.Size = new System.Drawing.Size(93, 13);
+            this.labelAmbientOcclusion.Size = new System.Drawing.Size(122, 17);
             this.labelAmbientOcclusion.TabIndex = 91;
             this.labelAmbientOcclusion.Text = "Ambient occlusion";
             // 
             // labelDetailTexturing
             // 
             this.labelDetailTexturing.AutoSize = true;
-            this.labelDetailTexturing.Location = new System.Drawing.Point(10, 111);
+            this.labelDetailTexturing.Location = new System.Drawing.Point(13, 137);
+            this.labelDetailTexturing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDetailTexturing.Name = "labelDetailTexturing";
-            this.labelDetailTexturing.Size = new System.Drawing.Size(77, 13);
+            this.labelDetailTexturing.Size = new System.Drawing.Size(102, 17);
             this.labelDetailTexturing.TabIndex = 89;
             this.labelDetailTexturing.Text = "Detail texturing";
             // 
             // labelTextureFiltering
             // 
             this.labelTextureFiltering.AutoSize = true;
-            this.labelTextureFiltering.Location = new System.Drawing.Point(12, 141);
+            this.labelTextureFiltering.Location = new System.Drawing.Point(16, 174);
+            this.labelTextureFiltering.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTextureFiltering.Name = "labelTextureFiltering";
-            this.labelTextureFiltering.Size = new System.Drawing.Size(79, 13);
+            this.labelTextureFiltering.Size = new System.Drawing.Size(106, 17);
             this.labelTextureFiltering.TabIndex = 57;
             this.labelTextureFiltering.Text = "Texture filtering";
             // 
@@ -673,9 +720,10 @@
             this.comboBoxTextureFiltering.Items.AddRange(new object[] {
             "AF 4X",
             "AF 16X"});
-            this.comboBoxTextureFiltering.Location = new System.Drawing.Point(114, 137);
+            this.comboBoxTextureFiltering.Location = new System.Drawing.Point(152, 169);
+            this.comboBoxTextureFiltering.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxTextureFiltering.Name = "comboBoxTextureFiltering";
-            this.comboBoxTextureFiltering.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTextureFiltering.Size = new System.Drawing.Size(160, 24);
             this.comboBoxTextureFiltering.TabIndex = 58;
             // 
             // comboBoxResolution
@@ -711,9 +759,10 @@
             "2560 x 1600",
             "3840 x 2160",
             "Custom resolution"});
-            this.comboBoxResolution.Location = new System.Drawing.Point(114, 21);
+            this.comboBoxResolution.Location = new System.Drawing.Point(152, 26);
+            this.comboBoxResolution.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxResolution.Name = "comboBoxResolution";
-            this.comboBoxResolution.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxResolution.Size = new System.Drawing.Size(160, 24);
             this.comboBoxResolution.TabIndex = 50;
             this.comboBoxResolution.SelectedIndexChanged += new System.EventHandler(this.ComboBoxResolution_SelectedIndexChanged);
             // 
@@ -723,9 +772,11 @@
             this.groupBoxDirectX11.Controls.Add(this.checkBoxDepthOfField);
             this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
             this.groupBoxDirectX11.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxDirectX11.Location = new System.Drawing.Point(245, 73);
+            this.groupBoxDirectX11.Location = new System.Drawing.Point(327, 90);
+            this.groupBoxDirectX11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxDirectX11.Name = "groupBoxDirectX11";
-            this.groupBoxDirectX11.Size = new System.Drawing.Size(99, 65);
+            this.groupBoxDirectX11.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDirectX11.Size = new System.Drawing.Size(132, 80);
             this.groupBoxDirectX11.TabIndex = 71;
             this.groupBoxDirectX11.TabStop = false;
             this.groupBoxDirectX11.Text = "DirectX 11";
@@ -734,9 +785,10 @@
             // 
             this.checkBoxDepthOfField.AutoSize = true;
             this.checkBoxDepthOfField.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDepthOfField.Location = new System.Drawing.Point(5, 20);
+            this.checkBoxDepthOfField.Location = new System.Drawing.Point(7, 25);
+            this.checkBoxDepthOfField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxDepthOfField.Name = "checkBoxDepthOfField";
-            this.checkBoxDepthOfField.Size = new System.Drawing.Size(89, 17);
+            this.checkBoxDepthOfField.Size = new System.Drawing.Size(111, 21);
             this.checkBoxDepthOfField.TabIndex = 72;
             this.checkBoxDepthOfField.Text = "Depth of field";
             this.checkBoxDepthOfField.UseVisualStyleBackColor = false;
@@ -745,9 +797,10 @@
             // 
             this.checkBoxTessellation.AutoSize = true;
             this.checkBoxTessellation.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxTessellation.Location = new System.Drawing.Point(5, 40);
+            this.checkBoxTessellation.Location = new System.Drawing.Point(7, 49);
+            this.checkBoxTessellation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxTessellation.Name = "checkBoxTessellation";
-            this.checkBoxTessellation.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxTessellation.Size = new System.Drawing.Size(103, 21);
             this.checkBoxTessellation.TabIndex = 73;
             this.checkBoxTessellation.Text = "Tessellation";
             this.checkBoxTessellation.UseVisualStyleBackColor = false;
@@ -755,18 +808,20 @@
             // labelResolution
             // 
             this.labelResolution.AutoSize = true;
-            this.labelResolution.Location = new System.Drawing.Point(12, 25);
+            this.labelResolution.Location = new System.Drawing.Point(16, 31);
+            this.labelResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResolution.Name = "labelResolution";
-            this.labelResolution.Size = new System.Drawing.Size(57, 13);
+            this.labelResolution.Size = new System.Drawing.Size(75, 17);
             this.labelResolution.TabIndex = 49;
             this.labelResolution.Text = "Resolution";
             // 
             // labelDirectX
             // 
             this.labelDirectX.AutoSize = true;
-            this.labelDirectX.Location = new System.Drawing.Point(12, 83);
+            this.labelDirectX.Location = new System.Drawing.Point(16, 102);
+            this.labelDirectX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDirectX.Name = "labelDirectX";
-            this.labelDirectX.Size = new System.Drawing.Size(42, 13);
+            this.labelDirectX.Size = new System.Drawing.Size(54, 17);
             this.labelDirectX.TabIndex = 53;
             this.labelDirectX.Text = "DirectX";
             // 
@@ -778,9 +833,10 @@
             "DirectX 9",
             "DirectX 10",
             "DirectX 11"});
-            this.comboBoxDirectX.Location = new System.Drawing.Point(114, 79);
+            this.comboBoxDirectX.Location = new System.Drawing.Point(152, 97);
+            this.comboBoxDirectX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDirectX.Name = "comboBoxDirectX";
-            this.comboBoxDirectX.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDirectX.Size = new System.Drawing.Size(160, 24);
             this.comboBoxDirectX.TabIndex = 54;
             this.comboBoxDirectX.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDirectX_SelectedIndexChanged);
             // 
@@ -791,14 +847,16 @@
             this.comboBoxAntialiasing.Items.AddRange(new object[] {
             "AAA",
             "MSAA 4X"});
-            this.comboBoxAntialiasing.Location = new System.Drawing.Point(114, 108);
+            this.comboBoxAntialiasing.Location = new System.Drawing.Point(152, 133);
+            this.comboBoxAntialiasing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxAntialiasing.Name = "comboBoxAntialiasing";
-            this.comboBoxAntialiasing.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxAntialiasing.Size = new System.Drawing.Size(160, 24);
             this.comboBoxAntialiasing.TabIndex = 56;
             // 
             // spinnerFOV
             // 
-            this.spinnerFOV.Location = new System.Drawing.Point(114, 194);
+            this.spinnerFOV.Location = new System.Drawing.Point(152, 239);
+            this.spinnerFOV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerFOV.Maximum = new decimal(new int[] {
             90,
             0,
@@ -810,7 +868,7 @@
             0,
             0});
             this.spinnerFOV.Name = "spinnerFOV";
-            this.spinnerFOV.Size = new System.Drawing.Size(120, 20);
+            this.spinnerFOV.Size = new System.Drawing.Size(160, 23);
             this.spinnerFOV.TabIndex = 62;
             this.spinnerFOV.Value = new decimal(new int[] {
             45,
@@ -827,9 +885,10 @@
             "Medium",
             "High",
             "Very high"});
-            this.comboBoxQuality.Location = new System.Drawing.Point(114, 50);
+            this.comboBoxQuality.Location = new System.Drawing.Point(152, 62);
+            this.comboBoxQuality.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxQuality.Name = "comboBoxQuality";
-            this.comboBoxQuality.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxQuality.Size = new System.Drawing.Size(160, 24);
             this.comboBoxQuality.TabIndex = 52;
             this.comboBoxQuality.SelectedIndexChanged += new System.EventHandler(this.ComboBoxQuality_SelectedIndexChanged);
             // 
@@ -841,7 +900,8 @@
             0,
             0,
             131072});
-            this.spinnerGamma.Location = new System.Drawing.Point(114, 166);
+            this.spinnerGamma.Location = new System.Drawing.Point(152, 204);
+            this.spinnerGamma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerGamma.Maximum = new decimal(new int[] {
             145,
             0,
@@ -853,7 +913,7 @@
             0,
             65536});
             this.spinnerGamma.Name = "spinnerGamma";
-            this.spinnerGamma.Size = new System.Drawing.Size(120, 20);
+            this.spinnerGamma.Size = new System.Drawing.Size(160, 23);
             this.spinnerGamma.TabIndex = 60;
             this.spinnerGamma.Value = new decimal(new int[] {
             5,
@@ -864,9 +924,10 @@
             // checkBoxFullscreen
             // 
             this.checkBoxFullscreen.AutoSize = true;
-            this.checkBoxFullscreen.Location = new System.Drawing.Point(15, 229);
+            this.checkBoxFullscreen.Location = new System.Drawing.Point(20, 282);
+            this.checkBoxFullscreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxFullscreen.Name = "checkBoxFullscreen";
-            this.checkBoxFullscreen.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxFullscreen.Size = new System.Drawing.Size(92, 21);
             this.checkBoxFullscreen.TabIndex = 63;
             this.checkBoxFullscreen.Text = "Fullscreen";
             this.checkBoxFullscreen.UseVisualStyleBackColor = true;
@@ -874,18 +935,20 @@
             // labelGamma
             // 
             this.labelGamma.AutoSize = true;
-            this.labelGamma.Location = new System.Drawing.Point(12, 170);
+            this.labelGamma.Location = new System.Drawing.Point(16, 209);
+            this.labelGamma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGamma.Name = "labelGamma";
-            this.labelGamma.Size = new System.Drawing.Size(43, 13);
+            this.labelGamma.Size = new System.Drawing.Size(57, 17);
             this.labelGamma.TabIndex = 59;
             this.labelGamma.Text = "Gamma";
             // 
             // checkBoxVsync
             // 
             this.checkBoxVsync.AutoSize = true;
-            this.checkBoxVsync.Location = new System.Drawing.Point(15, 269);
+            this.checkBoxVsync.Location = new System.Drawing.Point(20, 331);
+            this.checkBoxVsync.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxVsync.Name = "checkBoxVsync";
-            this.checkBoxVsync.Size = new System.Drawing.Size(55, 17);
+            this.checkBoxVsync.Size = new System.Drawing.Size(65, 21);
             this.checkBoxVsync.TabIndex = 65;
             this.checkBoxVsync.Text = "Vsync";
             this.checkBoxVsync.UseVisualStyleBackColor = true;
@@ -893,63 +956,70 @@
             // labelAntialiasing
             // 
             this.labelAntialiasing.AutoSize = true;
-            this.labelAntialiasing.Location = new System.Drawing.Point(12, 112);
+            this.labelAntialiasing.Location = new System.Drawing.Point(16, 138);
+            this.labelAntialiasing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAntialiasing.Name = "labelAntialiasing";
-            this.labelAntialiasing.Size = new System.Drawing.Size(60, 13);
+            this.labelAntialiasing.Size = new System.Drawing.Size(80, 17);
             this.labelAntialiasing.TabIndex = 55;
             this.labelAntialiasing.Text = "Antialiasing";
             // 
             // labelQuality
             // 
             this.labelQuality.AutoSize = true;
-            this.labelQuality.Location = new System.Drawing.Point(12, 54);
+            this.labelQuality.Location = new System.Drawing.Point(16, 66);
+            this.labelQuality.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelQuality.Name = "labelQuality";
-            this.labelQuality.Size = new System.Drawing.Size(39, 13);
+            this.labelQuality.Size = new System.Drawing.Size(52, 17);
             this.labelQuality.TabIndex = 51;
             this.labelQuality.Text = "Quality";
             // 
             // labelFov
             // 
             this.labelFov.AutoSize = true;
-            this.labelFov.Location = new System.Drawing.Point(12, 198);
+            this.labelFov.Location = new System.Drawing.Point(16, 244);
+            this.labelFov.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFov.Name = "labelFov";
-            this.labelFov.Size = new System.Drawing.Size(28, 13);
+            this.labelFov.Size = new System.Drawing.Size(36, 17);
             this.labelFov.TabIndex = 61;
             this.labelFov.Text = "FOV";
             // 
             // labelWidth
             // 
             this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(245, 25);
+            this.labelWidth.Location = new System.Drawing.Point(327, 31);
+            this.labelWidth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWidth.Name = "labelWidth";
-            this.labelWidth.Size = new System.Drawing.Size(35, 13);
+            this.labelWidth.Size = new System.Drawing.Size(44, 17);
             this.labelWidth.TabIndex = 66;
             this.labelWidth.Text = "Width";
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(290, 22);
+            this.textBoxWidth.Location = new System.Drawing.Point(387, 27);
+            this.textBoxWidth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxWidth.Name = "textBoxWidth";
             this.textBoxWidth.ShortcutsEnabled = false;
-            this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWidth.Size = new System.Drawing.Size(132, 23);
             this.textBoxWidth.TabIndex = 67;
             this.textBoxWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxResolution_KeyPress);
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(453, 22);
+            this.textBoxHeight.Location = new System.Drawing.Point(604, 27);
+            this.textBoxHeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxHeight.Name = "textBoxHeight";
             this.textBoxHeight.ShortcutsEnabled = false;
-            this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
+            this.textBoxHeight.Size = new System.Drawing.Size(132, 23);
             this.textBoxHeight.TabIndex = 69;
             this.textBoxHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxResolution_KeyPress);
             // 
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(405, 25);
+            this.labelHeight.Location = new System.Drawing.Point(540, 31);
+            this.labelHeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHeight.Name = "labelHeight";
-            this.labelHeight.Size = new System.Drawing.Size(38, 13);
+            this.labelHeight.Size = new System.Drawing.Size(49, 17);
             this.labelHeight.TabIndex = 68;
             this.labelHeight.Text = "Height";
             // 
@@ -964,21 +1034,23 @@
             this.tabGeneral.Controls.Add(this.groupBoxMouse);
             this.tabGeneral.Controls.Add(this.groupBoxSound);
             this.tabGeneral.Controls.Add(this.groupBoxCheats);
-            this.tabGeneral.Location = new System.Drawing.Point(4, 22);
+            this.tabGeneral.Location = new System.Drawing.Point(4, 25);
+            this.tabGeneral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeneral.Size = new System.Drawing.Size(787, 309);
+            this.tabGeneral.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabGeneral.Size = new System.Drawing.Size(1052, 383);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             // 
             // labelControllerWarning
             // 
             this.labelControllerWarning.AutoSize = true;
-            this.labelControllerWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControllerWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControllerWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelControllerWarning.Location = new System.Drawing.Point(240, 275);
+            this.labelControllerWarning.Location = new System.Drawing.Point(320, 338);
+            this.labelControllerWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerWarning.Name = "labelControllerWarning";
-            this.labelControllerWarning.Size = new System.Drawing.Size(347, 26);
+            this.labelControllerWarning.Size = new System.Drawing.Size(451, 34);
             this.labelControllerWarning.TabIndex = 45;
             this.labelControllerWarning.Text = "Warning: the following files in the game directory will be overwritten!\r\nx360ce.i" +
     "ni / xinput1_1.dll / xinput1_2.dll / xinput1_3.dll / xinput9_1_0.dll";
@@ -1001,9 +1073,11 @@
             this.groupBoxController.Controls.Add(this.checkBoxControllerInvertYAxis);
             this.groupBoxController.Controls.Add(this.spinnerControllerAimSensitivity);
             this.groupBoxController.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxController.Location = new System.Drawing.Point(548, 8);
+            this.groupBoxController.Location = new System.Drawing.Point(731, 10);
+            this.groupBoxController.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxController.Name = "groupBoxController";
-            this.groupBoxController.Size = new System.Drawing.Size(190, 251);
+            this.groupBoxController.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxController.Size = new System.Drawing.Size(253, 309);
             this.groupBoxController.TabIndex = 42;
             this.groupBoxController.TabStop = false;
             this.groupBoxController.Text = "Controller";
@@ -1011,9 +1085,10 @@
             // labelControllerAimAssist
             // 
             this.labelControllerAimAssist.AutoSize = true;
-            this.labelControllerAimAssist.Location = new System.Drawing.Point(5, 198);
+            this.labelControllerAimAssist.Location = new System.Drawing.Point(7, 244);
+            this.labelControllerAimAssist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerAimAssist.Name = "labelControllerAimAssist";
-            this.labelControllerAimAssist.Size = new System.Drawing.Size(53, 13);
+            this.labelControllerAimAssist.Size = new System.Drawing.Size(71, 17);
             this.labelControllerAimAssist.TabIndex = 54;
             this.labelControllerAimAssist.Text = "Aim assist";
             // 
@@ -1025,22 +1100,24 @@
             0,
             0,
             131072});
-            this.spinnerControllerAimAssist.Location = new System.Drawing.Point(107, 194);
+            this.spinnerControllerAimAssist.Location = new System.Drawing.Point(143, 239);
+            this.spinnerControllerAimAssist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerControllerAimAssist.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.spinnerControllerAimAssist.Name = "spinnerControllerAimAssist";
-            this.spinnerControllerAimAssist.Size = new System.Drawing.Size(75, 20);
+            this.spinnerControllerAimAssist.Size = new System.Drawing.Size(100, 23);
             this.spinnerControllerAimAssist.TabIndex = 55;
             // 
             // labelControllerMovement
             // 
             this.labelControllerMovement.AutoSize = true;
-            this.labelControllerMovement.Location = new System.Drawing.Point(5, 108);
+            this.labelControllerMovement.Location = new System.Drawing.Point(7, 133);
+            this.labelControllerMovement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerMovement.Name = "labelControllerMovement";
-            this.labelControllerMovement.Size = new System.Drawing.Size(57, 13);
+            this.labelControllerMovement.Size = new System.Drawing.Size(73, 17);
             this.labelControllerMovement.TabIndex = 68;
             this.labelControllerMovement.Text = "Movement";
             // 
@@ -1049,9 +1126,10 @@
             this.checkBoxControllerEnabled.AutoSize = true;
             this.checkBoxControllerEnabled.Checked = true;
             this.checkBoxControllerEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxControllerEnabled.Location = new System.Drawing.Point(8, 20);
+            this.checkBoxControllerEnabled.Location = new System.Drawing.Point(11, 25);
+            this.checkBoxControllerEnabled.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxControllerEnabled.Name = "checkBoxControllerEnabled";
-            this.checkBoxControllerEnabled.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxControllerEnabled.Size = new System.Drawing.Size(79, 21);
             this.checkBoxControllerEnabled.TabIndex = 43;
             this.checkBoxControllerEnabled.Text = "Enabled";
             this.checkBoxControllerEnabled.UseVisualStyleBackColor = true;
@@ -1064,26 +1142,29 @@
             this.comboBoxControllerMovement.Items.AddRange(new object[] {
             "Left stick",
             "Right stick"});
-            this.comboBoxControllerMovement.Location = new System.Drawing.Point(107, 104);
+            this.comboBoxControllerMovement.Location = new System.Drawing.Point(143, 128);
+            this.comboBoxControllerMovement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxControllerMovement.Name = "comboBoxControllerMovement";
-            this.comboBoxControllerMovement.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxControllerMovement.Size = new System.Drawing.Size(99, 24);
             this.comboBoxControllerMovement.TabIndex = 49;
             // 
             // labelControllerPreset
             // 
             this.labelControllerPreset.AutoSize = true;
-            this.labelControllerPreset.Location = new System.Drawing.Point(5, 50);
+            this.labelControllerPreset.Location = new System.Drawing.Point(7, 62);
+            this.labelControllerPreset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerPreset.Name = "labelControllerPreset";
-            this.labelControllerPreset.Size = new System.Drawing.Size(37, 13);
+            this.labelControllerPreset.Size = new System.Drawing.Size(49, 17);
             this.labelControllerPreset.TabIndex = 44;
             this.labelControllerPreset.Text = "Preset";
             // 
             // labelControllerSensitivity
             // 
             this.labelControllerSensitivity.AutoSize = true;
-            this.labelControllerSensitivity.Location = new System.Drawing.Point(5, 168);
+            this.labelControllerSensitivity.Location = new System.Drawing.Point(7, 207);
+            this.labelControllerSensitivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerSensitivity.Name = "labelControllerSensitivity";
-            this.labelControllerSensitivity.Size = new System.Drawing.Size(54, 13);
+            this.labelControllerSensitivity.Size = new System.Drawing.Size(71, 17);
             this.labelControllerSensitivity.TabIndex = 52;
             this.labelControllerSensitivity.Text = "Sensitivity";
             // 
@@ -1096,17 +1177,19 @@
             "Preset 2",
             "Preset 3",
             "Preset 4"});
-            this.comboBoxControllerPreset.Location = new System.Drawing.Point(107, 46);
+            this.comboBoxControllerPreset.Location = new System.Drawing.Point(143, 57);
+            this.comboBoxControllerPreset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxControllerPreset.Name = "comboBoxControllerPreset";
-            this.comboBoxControllerPreset.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxControllerPreset.Size = new System.Drawing.Size(99, 24);
             this.comboBoxControllerPreset.TabIndex = 45;
             // 
             // labelControllerVibration
             // 
             this.labelControllerVibration.AutoSize = true;
-            this.labelControllerVibration.Location = new System.Drawing.Point(5, 79);
+            this.labelControllerVibration.Location = new System.Drawing.Point(7, 97);
+            this.labelControllerVibration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerVibration.Name = "labelControllerVibration";
-            this.labelControllerVibration.Size = new System.Drawing.Size(48, 13);
+            this.labelControllerVibration.Size = new System.Drawing.Size(64, 17);
             this.labelControllerVibration.TabIndex = 66;
             this.labelControllerVibration.Text = "Vibration";
             // 
@@ -1119,17 +1202,19 @@
             "Weak",
             "Medium",
             "Strong"});
-            this.comboBoxControllerVibration.Location = new System.Drawing.Point(107, 75);
+            this.comboBoxControllerVibration.Location = new System.Drawing.Point(143, 92);
+            this.comboBoxControllerVibration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxControllerVibration.Name = "comboBoxControllerVibration";
-            this.comboBoxControllerVibration.Size = new System.Drawing.Size(75, 21);
+            this.comboBoxControllerVibration.Size = new System.Drawing.Size(99, 24);
             this.comboBoxControllerVibration.TabIndex = 47;
             // 
             // labelControllerAimSensitivity
             // 
             this.labelControllerAimSensitivity.AutoSize = true;
-            this.labelControllerAimSensitivity.Location = new System.Drawing.Point(5, 138);
+            this.labelControllerAimSensitivity.Location = new System.Drawing.Point(7, 170);
+            this.labelControllerAimSensitivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerAimSensitivity.Name = "labelControllerAimSensitivity";
-            this.labelControllerAimSensitivity.Size = new System.Drawing.Size(72, 13);
+            this.labelControllerAimSensitivity.Size = new System.Drawing.Size(96, 17);
             this.labelControllerAimSensitivity.TabIndex = 51;
             this.labelControllerAimSensitivity.Text = "Aim sensitivity";
             // 
@@ -1141,7 +1226,8 @@
             0,
             0,
             131072});
-            this.spinnerControllerSensitivity.Location = new System.Drawing.Point(107, 164);
+            this.spinnerControllerSensitivity.Location = new System.Drawing.Point(143, 202);
+            this.spinnerControllerSensitivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerControllerSensitivity.Maximum = new decimal(new int[] {
             290333,
             0,
@@ -1153,7 +1239,7 @@
             0,
             65536});
             this.spinnerControllerSensitivity.Name = "spinnerControllerSensitivity";
-            this.spinnerControllerSensitivity.Size = new System.Drawing.Size(75, 20);
+            this.spinnerControllerSensitivity.Size = new System.Drawing.Size(100, 23);
             this.spinnerControllerSensitivity.TabIndex = 53;
             this.spinnerControllerSensitivity.Value = new decimal(new int[] {
             1,
@@ -1166,9 +1252,10 @@
             this.checkBoxControllerInvertYAxis.AutoSize = true;
             this.checkBoxControllerInvertYAxis.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxControllerInvertYAxis.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBoxControllerInvertYAxis.Location = new System.Drawing.Point(8, 228);
+            this.checkBoxControllerInvertYAxis.Location = new System.Drawing.Point(11, 281);
+            this.checkBoxControllerInvertYAxis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxControllerInvertYAxis.Name = "checkBoxControllerInvertYAxis";
-            this.checkBoxControllerInvertYAxis.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxControllerInvertYAxis.Size = new System.Drawing.Size(103, 21);
             this.checkBoxControllerInvertYAxis.TabIndex = 56;
             this.checkBoxControllerInvertYAxis.Text = "Invert Y axis";
             this.checkBoxControllerInvertYAxis.UseVisualStyleBackColor = false;
@@ -1181,7 +1268,8 @@
             0,
             0,
             131072});
-            this.spinnerControllerAimSensitivity.Location = new System.Drawing.Point(107, 134);
+            this.spinnerControllerAimSensitivity.Location = new System.Drawing.Point(143, 165);
+            this.spinnerControllerAimSensitivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerControllerAimSensitivity.Maximum = new decimal(new int[] {
             1,
             0,
@@ -1193,7 +1281,7 @@
             0,
             65536});
             this.spinnerControllerAimSensitivity.Name = "spinnerControllerAimSensitivity";
-            this.spinnerControllerAimSensitivity.Size = new System.Drawing.Size(75, 20);
+            this.spinnerControllerAimSensitivity.Size = new System.Drawing.Size(100, 23);
             this.spinnerControllerAimSensitivity.TabIndex = 51;
             this.spinnerControllerAimSensitivity.Value = new decimal(new int[] {
             1,
@@ -1204,20 +1292,22 @@
             // labelCheatsWarning
             // 
             this.labelCheatsWarning.AutoSize = true;
-            this.labelCheatsWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCheatsWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelCheatsWarning.Location = new System.Drawing.Point(240, 218);
+            this.labelCheatsWarning.Location = new System.Drawing.Point(320, 268);
+            this.labelCheatsWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCheatsWarning.Name = "labelCheatsWarning";
-            this.labelCheatsWarning.Size = new System.Drawing.Size(291, 26);
+            this.labelCheatsWarning.Size = new System.Drawing.Size(390, 34);
             this.labelCheatsWarning.TabIndex = 42;
             this.labelCheatsWarning.Text = "Warning: moral points and changes made to ingame settings\r\nwon\'t be saved!";
             this.labelCheatsWarning.Visible = false;
             // 
             // labelCheatsNote
             // 
-            this.labelCheatsNote.Location = new System.Drawing.Point(240, 183);
+            this.labelCheatsNote.Location = new System.Drawing.Point(320, 225);
+            this.labelCheatsNote.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCheatsNote.Name = "labelCheatsNote";
-            this.labelCheatsNote.Size = new System.Drawing.Size(308, 28);
+            this.labelCheatsNote.Size = new System.Drawing.Size(411, 34);
             this.labelCheatsNote.TabIndex = 41;
             this.labelCheatsNote.Text = "Note: cheats are automatically disabled after you quit the game (unless you set t" +
     "he file as read-only).";
@@ -1240,9 +1330,11 @@
             this.groupBoxGameOptions.Controls.Add(this.labelTextLanguage);
             this.groupBoxGameOptions.Controls.Add(this.checkBoxLaserCrosshair);
             this.groupBoxGameOptions.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxGameOptions.Location = new System.Drawing.Point(10, 8);
+            this.groupBoxGameOptions.Location = new System.Drawing.Point(13, 10);
+            this.groupBoxGameOptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxGameOptions.Name = "groupBoxGameOptions";
-            this.groupBoxGameOptions.Size = new System.Drawing.Size(220, 290);
+            this.groupBoxGameOptions.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxGameOptions.Size = new System.Drawing.Size(293, 357);
             this.groupBoxGameOptions.TabIndex = 11;
             this.groupBoxGameOptions.TabStop = false;
             this.groupBoxGameOptions.Text = "Game options";
@@ -1250,9 +1342,10 @@
             // checkBoxCrosshair
             // 
             this.checkBoxCrosshair.AutoSize = true;
-            this.checkBoxCrosshair.Location = new System.Drawing.Point(8, 20);
+            this.checkBoxCrosshair.Location = new System.Drawing.Point(11, 25);
+            this.checkBoxCrosshair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxCrosshair.Name = "checkBoxCrosshair";
-            this.checkBoxCrosshair.Size = new System.Drawing.Size(69, 17);
+            this.checkBoxCrosshair.Size = new System.Drawing.Size(87, 21);
             this.checkBoxCrosshair.TabIndex = 12;
             this.checkBoxCrosshair.Text = "Crosshair";
             this.checkBoxCrosshair.UseVisualStyleBackColor = true;
@@ -1260,9 +1353,10 @@
             // checkBoxShowStats
             // 
             this.checkBoxShowStats.AutoSize = true;
-            this.checkBoxShowStats.Location = new System.Drawing.Point(8, 180);
+            this.checkBoxShowStats.Location = new System.Drawing.Point(11, 222);
+            this.checkBoxShowStats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxShowStats.Name = "checkBoxShowStats";
-            this.checkBoxShowStats.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxShowStats.Size = new System.Drawing.Size(95, 21);
             this.checkBoxShowStats.TabIndex = 20;
             this.checkBoxShowStats.Text = "Show stats";
             this.checkBoxShowStats.UseVisualStyleBackColor = true;
@@ -1270,9 +1364,10 @@
             // checkBoxScreenshotMode
             // 
             this.checkBoxScreenshotMode.AutoSize = true;
-            this.checkBoxScreenshotMode.Location = new System.Drawing.Point(8, 160);
+            this.checkBoxScreenshotMode.Location = new System.Drawing.Point(11, 197);
+            this.checkBoxScreenshotMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxScreenshotMode.Name = "checkBoxScreenshotMode";
-            this.checkBoxScreenshotMode.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxScreenshotMode.Size = new System.Drawing.Size(138, 21);
             this.checkBoxScreenshotMode.TabIndex = 19;
             this.checkBoxScreenshotMode.Text = "Screenshot mode";
             this.checkBoxScreenshotMode.UseVisualStyleBackColor = true;
@@ -1280,9 +1375,10 @@
             // checkBoxHints
             // 
             this.checkBoxHints.AutoSize = true;
-            this.checkBoxHints.Location = new System.Drawing.Point(8, 80);
+            this.checkBoxHints.Location = new System.Drawing.Point(11, 98);
+            this.checkBoxHints.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxHints.Name = "checkBoxHints";
-            this.checkBoxHints.Size = new System.Drawing.Size(50, 17);
+            this.checkBoxHints.Size = new System.Drawing.Size(59, 21);
             this.checkBoxHints.TabIndex = 15;
             this.checkBoxHints.Text = "Hints";
             this.checkBoxHints.UseVisualStyleBackColor = true;
@@ -1290,9 +1386,10 @@
             // checkBoxSubtitles
             // 
             this.checkBoxSubtitles.AutoSize = true;
-            this.checkBoxSubtitles.Location = new System.Drawing.Point(8, 60);
+            this.checkBoxSubtitles.Location = new System.Drawing.Point(11, 74);
+            this.checkBoxSubtitles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxSubtitles.Name = "checkBoxSubtitles";
-            this.checkBoxSubtitles.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxSubtitles.Size = new System.Drawing.Size(81, 21);
             this.checkBoxSubtitles.TabIndex = 14;
             this.checkBoxSubtitles.Text = "Subtitles";
             this.checkBoxSubtitles.UseVisualStyleBackColor = true;
@@ -1307,17 +1404,19 @@
             "Hardcore",
             "Ranger easy",
             "Ranger hardcore"});
-            this.comboBoxDifficulty.Location = new System.Drawing.Point(110, 259);
+            this.comboBoxDifficulty.Location = new System.Drawing.Point(147, 319);
+            this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
-            this.comboBoxDifficulty.Size = new System.Drawing.Size(104, 21);
+            this.comboBoxDifficulty.Size = new System.Drawing.Size(137, 24);
             this.comboBoxDifficulty.TabIndex = 26;
             // 
             // checkBoxSkipIntro
             // 
             this.checkBoxSkipIntro.AutoSize = true;
-            this.checkBoxSkipIntro.Location = new System.Drawing.Point(8, 140);
+            this.checkBoxSkipIntro.Location = new System.Drawing.Point(11, 172);
+            this.checkBoxSkipIntro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxSkipIntro.Name = "checkBoxSkipIntro";
-            this.checkBoxSkipIntro.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxSkipIntro.Size = new System.Drawing.Size(86, 21);
             this.checkBoxSkipIntro.TabIndex = 18;
             this.checkBoxSkipIntro.Text = "Skip intro";
             this.checkBoxSkipIntro.UseVisualStyleBackColor = true;
@@ -1325,9 +1424,10 @@
             // checkBoxFastWeaponChange
             // 
             this.checkBoxFastWeaponChange.AutoSize = true;
-            this.checkBoxFastWeaponChange.Location = new System.Drawing.Point(8, 40);
+            this.checkBoxFastWeaponChange.Location = new System.Drawing.Point(11, 49);
+            this.checkBoxFastWeaponChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxFastWeaponChange.Name = "checkBoxFastWeaponChange";
-            this.checkBoxFastWeaponChange.Size = new System.Drawing.Size(120, 17);
+            this.checkBoxFastWeaponChange.Size = new System.Drawing.Size(149, 21);
             this.checkBoxFastWeaponChange.TabIndex = 13;
             this.checkBoxFastWeaponChange.Text = "Fast weapon switch";
             this.checkBoxFastWeaponChange.UseVisualStyleBackColor = true;
@@ -1335,9 +1435,10 @@
             // checkBoxAdvancedPhysX
             // 
             this.checkBoxAdvancedPhysX.AutoSize = true;
-            this.checkBoxAdvancedPhysX.Location = new System.Drawing.Point(8, 100);
+            this.checkBoxAdvancedPhysX.Location = new System.Drawing.Point(11, 123);
+            this.checkBoxAdvancedPhysX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxAdvancedPhysX.Name = "checkBoxAdvancedPhysX";
-            this.checkBoxAdvancedPhysX.Size = new System.Drawing.Size(108, 17);
+            this.checkBoxAdvancedPhysX.Size = new System.Drawing.Size(134, 21);
             this.checkBoxAdvancedPhysX.TabIndex = 16;
             this.checkBoxAdvancedPhysX.Text = "Advanced PhysX";
             this.checkBoxAdvancedPhysX.UseVisualStyleBackColor = true;
@@ -1353,17 +1454,19 @@
             "Spanish",
             "French",
             "Italian"});
-            this.comboBoxVoiceLanguage.Location = new System.Drawing.Point(110, 201);
+            this.comboBoxVoiceLanguage.Location = new System.Drawing.Point(147, 247);
+            this.comboBoxVoiceLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxVoiceLanguage.Name = "comboBoxVoiceLanguage";
-            this.comboBoxVoiceLanguage.Size = new System.Drawing.Size(104, 21);
+            this.comboBoxVoiceLanguage.Size = new System.Drawing.Size(137, 24);
             this.comboBoxVoiceLanguage.TabIndex = 22;
             // 
             // labelDifficulty
             // 
             this.labelDifficulty.AutoSize = true;
-            this.labelDifficulty.Location = new System.Drawing.Point(5, 263);
+            this.labelDifficulty.Location = new System.Drawing.Point(7, 324);
+            this.labelDifficulty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDifficulty.Name = "labelDifficulty";
-            this.labelDifficulty.Size = new System.Drawing.Size(47, 13);
+            this.labelDifficulty.Size = new System.Drawing.Size(61, 17);
             this.labelDifficulty.TabIndex = 25;
             this.labelDifficulty.Text = "Difficulty";
             // 
@@ -1381,35 +1484,39 @@
             "Dutch",
             "Polish",
             "Czech"});
-            this.comboBoxTextLanguage.Location = new System.Drawing.Point(110, 230);
+            this.comboBoxTextLanguage.Location = new System.Drawing.Point(147, 283);
+            this.comboBoxTextLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxTextLanguage.Name = "comboBoxTextLanguage";
-            this.comboBoxTextLanguage.Size = new System.Drawing.Size(104, 21);
+            this.comboBoxTextLanguage.Size = new System.Drawing.Size(137, 24);
             this.comboBoxTextLanguage.TabIndex = 24;
             // 
             // labelVoiceLanguage
             // 
             this.labelVoiceLanguage.AutoSize = true;
-            this.labelVoiceLanguage.Location = new System.Drawing.Point(5, 205);
+            this.labelVoiceLanguage.Location = new System.Drawing.Point(7, 252);
+            this.labelVoiceLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelVoiceLanguage.Name = "labelVoiceLanguage";
-            this.labelVoiceLanguage.Size = new System.Drawing.Size(81, 13);
+            this.labelVoiceLanguage.Size = new System.Drawing.Size(106, 17);
             this.labelVoiceLanguage.TabIndex = 21;
             this.labelVoiceLanguage.Text = "Voice language";
             // 
             // labelTextLanguage
             // 
             this.labelTextLanguage.AutoSize = true;
-            this.labelTextLanguage.Location = new System.Drawing.Point(5, 234);
+            this.labelTextLanguage.Location = new System.Drawing.Point(7, 288);
+            this.labelTextLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTextLanguage.Name = "labelTextLanguage";
-            this.labelTextLanguage.Size = new System.Drawing.Size(75, 13);
+            this.labelTextLanguage.Size = new System.Drawing.Size(98, 17);
             this.labelTextLanguage.TabIndex = 23;
             this.labelTextLanguage.Text = "Text language";
             // 
             // checkBoxLaserCrosshair
             // 
             this.checkBoxLaserCrosshair.AutoSize = true;
-            this.checkBoxLaserCrosshair.Location = new System.Drawing.Point(8, 120);
+            this.checkBoxLaserCrosshair.Location = new System.Drawing.Point(11, 148);
+            this.checkBoxLaserCrosshair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxLaserCrosshair.Name = "checkBoxLaserCrosshair";
-            this.checkBoxLaserCrosshair.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxLaserCrosshair.Size = new System.Drawing.Size(125, 21);
             this.checkBoxLaserCrosshair.TabIndex = 17;
             this.checkBoxLaserCrosshair.Text = "Laser crosshair";
             this.checkBoxLaserCrosshair.UseVisualStyleBackColor = true;
@@ -1422,9 +1529,11 @@
             this.groupBoxMouse.Controls.Add(this.labelMouseSensitivity);
             this.groupBoxMouse.Controls.Add(this.spinnerMouseAimSensitivity);
             this.groupBoxMouse.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxMouse.Location = new System.Drawing.Point(391, 8);
+            this.groupBoxMouse.Location = new System.Drawing.Point(521, 10);
+            this.groupBoxMouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxMouse.Name = "groupBoxMouse";
-            this.groupBoxMouse.Size = new System.Drawing.Size(148, 106);
+            this.groupBoxMouse.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxMouse.Size = new System.Drawing.Size(197, 130);
             this.groupBoxMouse.TabIndex = 36;
             this.groupBoxMouse.TabStop = false;
             this.groupBoxMouse.Text = "Mouse";
@@ -1432,9 +1541,10 @@
             // checkBoxMouseInvertYAxis
             // 
             this.checkBoxMouseInvertYAxis.AutoSize = true;
-            this.checkBoxMouseInvertYAxis.Location = new System.Drawing.Point(8, 80);
+            this.checkBoxMouseInvertYAxis.Location = new System.Drawing.Point(11, 98);
+            this.checkBoxMouseInvertYAxis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxMouseInvertYAxis.Name = "checkBoxMouseInvertYAxis";
-            this.checkBoxMouseInvertYAxis.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxMouseInvertYAxis.Size = new System.Drawing.Size(103, 21);
             this.checkBoxMouseInvertYAxis.TabIndex = 41;
             this.checkBoxMouseInvertYAxis.Text = "Invert Y axis";
             this.checkBoxMouseInvertYAxis.UseVisualStyleBackColor = true;
@@ -1442,9 +1552,10 @@
             // labelMouseAimSensitivity
             // 
             this.labelMouseAimSensitivity.AutoSize = true;
-            this.labelMouseAimSensitivity.Location = new System.Drawing.Point(5, 50);
+            this.labelMouseAimSensitivity.Location = new System.Drawing.Point(7, 62);
+            this.labelMouseAimSensitivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMouseAimSensitivity.Name = "labelMouseAimSensitivity";
-            this.labelMouseAimSensitivity.Size = new System.Drawing.Size(72, 13);
+            this.labelMouseAimSensitivity.Size = new System.Drawing.Size(96, 17);
             this.labelMouseAimSensitivity.TabIndex = 39;
             this.labelMouseAimSensitivity.Text = "Aim sensitivity";
             // 
@@ -1456,7 +1567,8 @@
             0,
             0,
             196608});
-            this.spinnerMouseSensitivity.Location = new System.Drawing.Point(82, 17);
+            this.spinnerMouseSensitivity.Location = new System.Drawing.Point(109, 21);
+            this.spinnerMouseSensitivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerMouseSensitivity.Maximum = new decimal(new int[] {
             1905,
             0,
@@ -1468,7 +1580,7 @@
             0,
             65536});
             this.spinnerMouseSensitivity.Name = "spinnerMouseSensitivity";
-            this.spinnerMouseSensitivity.Size = new System.Drawing.Size(60, 20);
+            this.spinnerMouseSensitivity.Size = new System.Drawing.Size(80, 23);
             this.spinnerMouseSensitivity.TabIndex = 38;
             this.spinnerMouseSensitivity.Value = new decimal(new int[] {
             1,
@@ -1479,9 +1591,10 @@
             // labelMouseSensitivity
             // 
             this.labelMouseSensitivity.AutoSize = true;
-            this.labelMouseSensitivity.Location = new System.Drawing.Point(5, 20);
+            this.labelMouseSensitivity.Location = new System.Drawing.Point(7, 25);
+            this.labelMouseSensitivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMouseSensitivity.Name = "labelMouseSensitivity";
-            this.labelMouseSensitivity.Size = new System.Drawing.Size(54, 13);
+            this.labelMouseSensitivity.Size = new System.Drawing.Size(71, 17);
             this.labelMouseSensitivity.TabIndex = 37;
             this.labelMouseSensitivity.Text = "Sensitivity";
             // 
@@ -1493,7 +1606,8 @@
             0,
             0,
             131072});
-            this.spinnerMouseAimSensitivity.Location = new System.Drawing.Point(82, 47);
+            this.spinnerMouseAimSensitivity.Location = new System.Drawing.Point(109, 58);
+            this.spinnerMouseAimSensitivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerMouseAimSensitivity.Maximum = new decimal(new int[] {
             9525,
             0,
@@ -1505,7 +1619,7 @@
             0,
             131072});
             this.spinnerMouseAimSensitivity.Name = "spinnerMouseAimSensitivity";
-            this.spinnerMouseAimSensitivity.Size = new System.Drawing.Size(60, 20);
+            this.spinnerMouseAimSensitivity.Size = new System.Drawing.Size(80, 23);
             this.spinnerMouseAimSensitivity.TabIndex = 40;
             this.spinnerMouseAimSensitivity.Value = new decimal(new int[] {
             5,
@@ -1520,9 +1634,11 @@
             this.groupBoxSound.Controls.Add(this.spinnerMasterVolume);
             this.groupBoxSound.Controls.Add(this.labelMusicVolume);
             this.groupBoxSound.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxSound.Location = new System.Drawing.Point(240, 8);
+            this.groupBoxSound.Location = new System.Drawing.Point(320, 10);
+            this.groupBoxSound.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxSound.Name = "groupBoxSound";
-            this.groupBoxSound.Size = new System.Drawing.Size(142, 80);
+            this.groupBoxSound.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxSound.Size = new System.Drawing.Size(189, 98);
             this.groupBoxSound.TabIndex = 27;
             this.groupBoxSound.TabStop = false;
             this.groupBoxSound.Text = "Sound";
@@ -1530,9 +1646,10 @@
             // labelMasterVolume
             // 
             this.labelMasterVolume.AutoSize = true;
-            this.labelMasterVolume.Location = new System.Drawing.Point(5, 20);
+            this.labelMasterVolume.Location = new System.Drawing.Point(7, 25);
+            this.labelMasterVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMasterVolume.Name = "labelMasterVolume";
-            this.labelMasterVolume.Size = new System.Drawing.Size(76, 13);
+            this.labelMasterVolume.Size = new System.Drawing.Size(100, 17);
             this.labelMasterVolume.TabIndex = 28;
             this.labelMasterVolume.Text = "Master volume";
             // 
@@ -1544,14 +1661,15 @@
             0,
             0,
             131072});
-            this.spinnerMusicVolume.Location = new System.Drawing.Point(86, 47);
+            this.spinnerMusicVolume.Location = new System.Drawing.Point(115, 58);
+            this.spinnerMusicVolume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerMusicVolume.Maximum = new decimal(new int[] {
             95,
             0,
             0,
             131072});
             this.spinnerMusicVolume.Name = "spinnerMusicVolume";
-            this.spinnerMusicVolume.Size = new System.Drawing.Size(50, 20);
+            this.spinnerMusicVolume.Size = new System.Drawing.Size(67, 23);
             this.spinnerMusicVolume.TabIndex = 31;
             // 
             // spinnerMasterVolume
@@ -1562,22 +1680,24 @@
             0,
             0,
             131072});
-            this.spinnerMasterVolume.Location = new System.Drawing.Point(86, 17);
+            this.spinnerMasterVolume.Location = new System.Drawing.Point(115, 21);
+            this.spinnerMasterVolume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spinnerMasterVolume.Maximum = new decimal(new int[] {
             95,
             0,
             0,
             131072});
             this.spinnerMasterVolume.Name = "spinnerMasterVolume";
-            this.spinnerMasterVolume.Size = new System.Drawing.Size(50, 20);
+            this.spinnerMasterVolume.Size = new System.Drawing.Size(67, 23);
             this.spinnerMasterVolume.TabIndex = 29;
             // 
             // labelMusicVolume
             // 
             this.labelMusicVolume.AutoSize = true;
-            this.labelMusicVolume.Location = new System.Drawing.Point(5, 50);
+            this.labelMusicVolume.Location = new System.Drawing.Point(7, 62);
+            this.labelMusicVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMusicVolume.Name = "labelMusicVolume";
-            this.labelMusicVolume.Size = new System.Drawing.Size(72, 13);
+            this.labelMusicVolume.Size = new System.Drawing.Size(93, 17);
             this.labelMusicVolume.TabIndex = 30;
             this.labelMusicVolume.Text = "Music volume";
             // 
@@ -1587,9 +1707,11 @@
             this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
             this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
             this.groupBoxCheats.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxCheats.Location = new System.Drawing.Point(240, 93);
+            this.groupBoxCheats.Location = new System.Drawing.Point(320, 114);
+            this.groupBoxCheats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxCheats.Name = "groupBoxCheats";
-            this.groupBoxCheats.Size = new System.Drawing.Size(142, 85);
+            this.groupBoxCheats.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCheats.Size = new System.Drawing.Size(189, 105);
             this.groupBoxCheats.TabIndex = 32;
             this.groupBoxCheats.TabStop = false;
             this.groupBoxCheats.Text = "Cheats";
@@ -1597,9 +1719,10 @@
             // checkBoxReadOnly
             // 
             this.checkBoxReadOnly.AutoSize = true;
-            this.checkBoxReadOnly.Location = new System.Drawing.Point(10, 60);
+            this.checkBoxReadOnly.Location = new System.Drawing.Point(13, 74);
+            this.checkBoxReadOnly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxReadOnly.Name = "checkBoxReadOnly";
-            this.checkBoxReadOnly.Size = new System.Drawing.Size(118, 17);
+            this.checkBoxReadOnly.Size = new System.Drawing.Size(153, 21);
             this.checkBoxReadOnly.TabIndex = 35;
             this.checkBoxReadOnly.Text = "Set file as read-only";
             this.checkBoxReadOnly.UseVisualStyleBackColor = true;
@@ -1608,9 +1731,10 @@
             // checkBoxUnlimitedAmmo
             // 
             this.checkBoxUnlimitedAmmo.AutoSize = true;
-            this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(10, 20);
+            this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(13, 25);
+            this.checkBoxUnlimitedAmmo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxUnlimitedAmmo.Name = "checkBoxUnlimitedAmmo";
-            this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(100, 17);
+            this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(127, 21);
             this.checkBoxUnlimitedAmmo.TabIndex = 33;
             this.checkBoxUnlimitedAmmo.Text = "Unlimited ammo";
             this.checkBoxUnlimitedAmmo.UseVisualStyleBackColor = true;
@@ -1618,9 +1742,10 @@
             // checkBoxGodMode
             // 
             this.checkBoxGodMode.AutoSize = true;
-            this.checkBoxGodMode.Location = new System.Drawing.Point(10, 40);
+            this.checkBoxGodMode.Location = new System.Drawing.Point(13, 49);
+            this.checkBoxGodMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxGodMode.Name = "checkBoxGodMode";
-            this.checkBoxGodMode.Size = new System.Drawing.Size(75, 17);
+            this.checkBoxGodMode.Size = new System.Drawing.Size(93, 21);
             this.checkBoxGodMode.TabIndex = 34;
             this.checkBoxGodMode.Text = "God mode";
             this.checkBoxGodMode.UseVisualStyleBackColor = true;
@@ -1629,10 +1754,11 @@
             // 
             this.tabControl.Controls.Add(this.tabGeneral);
             this.tabControl.Controls.Add(this.tabVideo);
-            this.tabControl.Location = new System.Drawing.Point(10, 135);
+            this.tabControl.Location = new System.Drawing.Point(13, 166);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(795, 335);
+            this.tabControl.Size = new System.Drawing.Size(1060, 412);
             this.tabControl.TabIndex = 13;
             // 
             // backgroundWorker
@@ -1667,9 +1793,10 @@
             // buttonReportBug
             // 
             this.buttonReportBug.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonReportBug.Location = new System.Drawing.Point(13, 483);
+            this.buttonReportBug.Location = new System.Drawing.Point(17, 594);
+            this.buttonReportBug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonReportBug.Name = "buttonReportBug";
-            this.buttonReportBug.Size = new System.Drawing.Size(78, 23);
+            this.buttonReportBug.Size = new System.Drawing.Size(104, 28);
             this.buttonReportBug.TabIndex = 57;
             this.buttonReportBug.Text = "Report a bug";
             this.buttonReportBug.UseVisualStyleBackColor = true;
@@ -1678,9 +1805,10 @@
             // buttonDonate
             // 
             this.buttonDonate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonDonate.Location = new System.Drawing.Point(97, 483);
+            this.buttonDonate.Location = new System.Drawing.Point(129, 594);
+            this.buttonDonate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDonate.Name = "buttonDonate";
-            this.buttonDonate.Size = new System.Drawing.Size(59, 23);
+            this.buttonDonate.Size = new System.Drawing.Size(79, 28);
             this.buttonDonate.TabIndex = 58;
             this.buttonDonate.Text = "Donate";
             this.buttonDonate.UseVisualStyleBackColor = true;
@@ -1689,9 +1817,10 @@
             // buttonOpenSavedGamesPath
             // 
             this.buttonOpenSavedGamesPath.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonOpenSavedGamesPath.Location = new System.Drawing.Point(725, 100);
+            this.buttonOpenSavedGamesPath.Location = new System.Drawing.Point(967, 123);
+            this.buttonOpenSavedGamesPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonOpenSavedGamesPath.Name = "buttonOpenSavedGamesPath";
-            this.buttonOpenSavedGamesPath.Size = new System.Drawing.Size(75, 23);
+            this.buttonOpenSavedGamesPath.Size = new System.Drawing.Size(100, 28);
             this.buttonOpenSavedGamesPath.TabIndex = 12;
             this.buttonOpenSavedGamesPath.Text = "Open";
             this.buttonOpenSavedGamesPath.UseVisualStyleBackColor = true;
@@ -1699,28 +1828,31 @@
             // 
             // textBoxSavedGamesPath
             // 
-            this.textBoxSavedGamesPath.Location = new System.Drawing.Point(140, 102);
+            this.textBoxSavedGamesPath.Location = new System.Drawing.Point(187, 126);
+            this.textBoxSavedGamesPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxSavedGamesPath.Name = "textBoxSavedGamesPath";
             this.textBoxSavedGamesPath.ReadOnly = true;
-            this.textBoxSavedGamesPath.Size = new System.Drawing.Size(565, 20);
+            this.textBoxSavedGamesPath.Size = new System.Drawing.Size(752, 23);
             this.textBoxSavedGamesPath.TabIndex = 11;
             this.textBoxSavedGamesPath.TabStop = false;
             // 
             // labelSavedGamesPath
             // 
             this.labelSavedGamesPath.AutoSize = true;
-            this.labelSavedGamesPath.Location = new System.Drawing.Point(10, 105);
+            this.labelSavedGamesPath.Location = new System.Drawing.Point(13, 129);
+            this.labelSavedGamesPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSavedGamesPath.Name = "labelSavedGamesPath";
-            this.labelSavedGamesPath.Size = new System.Drawing.Size(96, 13);
+            this.labelSavedGamesPath.Size = new System.Drawing.Size(126, 17);
             this.labelSavedGamesPath.TabIndex = 10;
             this.labelSavedGamesPath.Text = "Saved games path";
             // 
             // buttonStartBenchmark
             // 
             this.buttonStartBenchmark.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonStartBenchmark.Location = new System.Drawing.Point(452, 483);
+            this.buttonStartBenchmark.Location = new System.Drawing.Point(603, 594);
+            this.buttonStartBenchmark.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonStartBenchmark.Name = "buttonStartBenchmark";
-            this.buttonStartBenchmark.Size = new System.Drawing.Size(93, 23);
+            this.buttonStartBenchmark.Size = new System.Drawing.Size(124, 28);
             this.buttonStartBenchmark.TabIndex = 62;
             this.buttonStartBenchmark.Text = "Start benchmark";
             this.buttonStartBenchmark.UseVisualStyleBackColor = true;
@@ -1729,9 +1861,10 @@
             // buttonCheckForUpdates
             // 
             this.buttonCheckForUpdates.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonCheckForUpdates.Location = new System.Drawing.Point(162, 483);
+            this.buttonCheckForUpdates.Location = new System.Drawing.Point(216, 594);
+            this.buttonCheckForUpdates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCheckForUpdates.Name = "buttonCheckForUpdates";
-            this.buttonCheckForUpdates.Size = new System.Drawing.Size(102, 23);
+            this.buttonCheckForUpdates.Size = new System.Drawing.Size(136, 28);
             this.buttonCheckForUpdates.TabIndex = 59;
             this.buttonCheckForUpdates.Text = "Check for updates";
             this.buttonCheckForUpdates.UseVisualStyleBackColor = true;
@@ -1739,10 +1872,10 @@
             // 
             // Metro2033ConfigEditorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(814, 516);
+            this.ClientSize = new System.Drawing.Size(1085, 635);
             this.Controls.Add(this.buttonCheckForUpdates);
             this.Controls.Add(this.buttonStartBenchmark);
             this.Controls.Add(this.buttonOpenSavedGamesPath);
@@ -1764,9 +1897,11 @@
             this.Controls.Add(this.textBoxConfigFilePath);
             this.Controls.Add(this.labelConfigFilePath);
             this.Controls.Add(this.buttonReload);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Metro2033ConfigEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
