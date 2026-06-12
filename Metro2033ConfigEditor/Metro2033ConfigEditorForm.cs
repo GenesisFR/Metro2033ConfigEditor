@@ -399,8 +399,11 @@ namespace Metro2033ConfigEditor
 
         private void CheckBoxControllerEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            labelControllerWarning.Visible          = Helper.instance.IsControllerEnabled != checkBoxControllerEnabled.Checked
-                && !checkBoxControllerEnabled.Checked;
+            labelControllerWarning.Text = "Warning: the following files in the game directory will be ";
+            labelControllerWarning.Text += Helper.instance.IsControllerEnabled ? "overwritten" : "deleted";
+            labelControllerWarning.Text += "!\r\nx360ce.ini / xinput1_1.dll / xinput1_2.dll / xinput1_3.dll / xinput9_1_0.dll";
+
+            labelControllerWarning.Visible          = Helper.instance.IsControllerEnabled != checkBoxControllerEnabled.Checked;
             comboBoxControllerPreset.Enabled        = checkBoxControllerEnabled.Checked;
             comboBoxControllerVibration.Enabled     = checkBoxControllerEnabled.Checked;
             comboBoxControllerMovement.Enabled      = checkBoxControllerEnabled.Checked;

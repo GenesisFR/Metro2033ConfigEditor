@@ -119,8 +119,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="resources\content.upk9" />
-    <None Include="resources\nox360.zip" />
+    <None Include="Resources\content.upk9" />
+    <None Include="Resources\nox360.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
