@@ -44,6 +44,7 @@
             this.textBoxSteamInstallPath = new System.Windows.Forms.TextBox();
             this.labelSteamInstallPath = new System.Windows.Forms.Label();
             this.tabVideo = new System.Windows.Forms.TabPage();
+            this.checkBoxMotionBlur = new System.Windows.Forms.CheckBox();
             this.labelResolutionNote = new System.Windows.Forms.Label();
             this.checkBoxGlobalIllumination = new System.Windows.Forms.CheckBox();
             this.groupBoxDescription = new System.Windows.Forms.GroupBox();
@@ -187,7 +188,7 @@
             // 
             this.buttonReload.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonReload.Location = new System.Drawing.Point(460, 594);
-            this.buttonReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonReload.Margin = new System.Windows.Forms.Padding(4);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(73, 28);
             this.buttonReload.TabIndex = 60;
@@ -208,7 +209,7 @@
             // textBoxConfigFilePath
             // 
             this.textBoxConfigFilePath.Location = new System.Drawing.Point(187, 52);
-            this.textBoxConfigFilePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxConfigFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxConfigFilePath.Name = "textBoxConfigFilePath";
             this.textBoxConfigFilePath.ReadOnly = true;
             this.textBoxConfigFilePath.Size = new System.Drawing.Size(752, 23);
@@ -219,7 +220,7 @@
             // 
             this.buttonBrowseConfigFilePath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonBrowseConfigFilePath.Location = new System.Drawing.Point(967, 49);
-            this.buttonBrowseConfigFilePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBrowseConfigFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBrowseConfigFilePath.Name = "buttonBrowseConfigFilePath";
             this.buttonBrowseConfigFilePath.Size = new System.Drawing.Size(100, 28);
             this.buttonBrowseConfigFilePath.TabIndex = 6;
@@ -231,7 +232,7 @@
             // 
             this.buttonSave.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonSave.Location = new System.Drawing.Point(541, 594);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(53, 28);
             this.buttonSave.TabIndex = 61;
@@ -243,7 +244,7 @@
             // 
             this.buttonStartGameSteam.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonStartGameSteam.Location = new System.Drawing.Point(916, 594);
-            this.buttonStartGameSteam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonStartGameSteam.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStartGameSteam.Name = "buttonStartGameSteam";
             this.buttonStartGameSteam.Size = new System.Drawing.Size(151, 28);
             this.buttonStartGameSteam.TabIndex = 64;
@@ -255,7 +256,7 @@
             // 
             this.buttonBrowseGameExecutablePath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonBrowseGameExecutablePath.Location = new System.Drawing.Point(967, 86);
-            this.buttonBrowseGameExecutablePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBrowseGameExecutablePath.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBrowseGameExecutablePath.Name = "buttonBrowseGameExecutablePath";
             this.buttonBrowseGameExecutablePath.Size = new System.Drawing.Size(100, 28);
             this.buttonBrowseGameExecutablePath.TabIndex = 9;
@@ -266,7 +267,7 @@
             // textBoxGameExecutablePath
             // 
             this.textBoxGameExecutablePath.Location = new System.Drawing.Point(187, 89);
-            this.textBoxGameExecutablePath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxGameExecutablePath.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxGameExecutablePath.Name = "textBoxGameExecutablePath";
             this.textBoxGameExecutablePath.ReadOnly = true;
             this.textBoxGameExecutablePath.Size = new System.Drawing.Size(752, 23);
@@ -287,7 +288,7 @@
             // 
             this.buttonStartGameNoSteam.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonStartGameNoSteam.Location = new System.Drawing.Point(735, 594);
-            this.buttonStartGameNoSteam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonStartGameNoSteam.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStartGameNoSteam.Name = "buttonStartGameNoSteam";
             this.buttonStartGameNoSteam.Size = new System.Drawing.Size(173, 28);
             this.buttonStartGameNoSteam.TabIndex = 63;
@@ -299,7 +300,7 @@
             // 
             this.buttonBrowseSteamInstallPath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonBrowseSteamInstallPath.Location = new System.Drawing.Point(967, 12);
-            this.buttonBrowseSteamInstallPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBrowseSteamInstallPath.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBrowseSteamInstallPath.Name = "buttonBrowseSteamInstallPath";
             this.buttonBrowseSteamInstallPath.Size = new System.Drawing.Size(100, 28);
             this.buttonBrowseSteamInstallPath.TabIndex = 3;
@@ -310,7 +311,7 @@
             // textBoxSteamInstallPath
             // 
             this.textBoxSteamInstallPath.Location = new System.Drawing.Point(187, 15);
-            this.textBoxSteamInstallPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxSteamInstallPath.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSteamInstallPath.Name = "textBoxSteamInstallPath";
             this.textBoxSteamInstallPath.ReadOnly = true;
             this.textBoxSteamInstallPath.Size = new System.Drawing.Size(752, 23);
@@ -330,6 +331,7 @@
             // tabVideo
             // 
             this.tabVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.tabVideo.Controls.Add(this.checkBoxMotionBlur);
             this.tabVideo.Controls.Add(this.labelResolutionNote);
             this.tabVideo.Controls.Add(this.checkBoxGlobalIllumination);
             this.tabVideo.Controls.Add(this.groupBoxDescription);
@@ -354,13 +356,25 @@
             this.tabVideo.Controls.Add(this.textBoxWidth);
             this.tabVideo.Controls.Add(this.textBoxHeight);
             this.tabVideo.Controls.Add(this.labelHeight);
-            this.tabVideo.Location = new System.Drawing.Point(4, 22);
-            this.tabVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabVideo.Location = new System.Drawing.Point(4, 25);
+            this.tabVideo.Margin = new System.Windows.Forms.Padding(4);
             this.tabVideo.Name = "tabVideo";
-            this.tabVideo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabVideo.Size = new System.Drawing.Size(1052, 386);
+            this.tabVideo.Padding = new System.Windows.Forms.Padding(4);
+            this.tabVideo.Size = new System.Drawing.Size(1052, 383);
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
+            // 
+            // checkBoxMotionBlur
+            // 
+            this.checkBoxMotionBlur.AutoSize = true;
+            this.checkBoxMotionBlur.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxMotionBlur.Location = new System.Drawing.Point(20, 277);
+            this.checkBoxMotionBlur.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxMotionBlur.Name = "checkBoxMotionBlur";
+            this.checkBoxMotionBlur.Size = new System.Drawing.Size(97, 21);
+            this.checkBoxMotionBlur.TabIndex = 63;
+            this.checkBoxMotionBlur.Text = "Motion blur";
+            this.checkBoxMotionBlur.UseVisualStyleBackColor = false;
             // 
             // labelResolutionNote
             // 
@@ -375,11 +389,11 @@
             // checkBoxGlobalIllumination
             // 
             this.checkBoxGlobalIllumination.AutoSize = true;
-            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(20, 306);
-            this.checkBoxGlobalIllumination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(20, 327);
+            this.checkBoxGlobalIllumination.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxGlobalIllumination.Name = "checkBoxGlobalIllumination";
             this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(142, 21);
-            this.checkBoxGlobalIllumination.TabIndex = 64;
+            this.checkBoxGlobalIllumination.TabIndex = 65;
             this.checkBoxGlobalIllumination.Text = "Global illumination";
             this.checkBoxGlobalIllumination.UseVisualStyleBackColor = true;
             // 
@@ -415,9 +429,9 @@
             this.groupBoxDescription.Controls.Add(this.labelDetailTexturing);
             this.groupBoxDescription.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxDescription.Location = new System.Drawing.Point(471, 90);
-            this.groupBoxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDescription.Name = "groupBoxDescription";
-            this.groupBoxDescription.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDescription.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxDescription.Size = new System.Drawing.Size(451, 267);
             this.groupBoxDescription.TabIndex = 74;
             this.groupBoxDescription.TabStop = false;
@@ -721,7 +735,7 @@
             "AF 4X",
             "AF 16X"});
             this.comboBoxTextureFiltering.Location = new System.Drawing.Point(152, 169);
-            this.comboBoxTextureFiltering.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxTextureFiltering.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTextureFiltering.Name = "comboBoxTextureFiltering";
             this.comboBoxTextureFiltering.Size = new System.Drawing.Size(160, 24);
             this.comboBoxTextureFiltering.TabIndex = 58;
@@ -760,7 +774,7 @@
             "3840 x 2160",
             "Custom resolution"});
             this.comboBoxResolution.Location = new System.Drawing.Point(152, 26);
-            this.comboBoxResolution.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxResolution.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxResolution.Name = "comboBoxResolution";
             this.comboBoxResolution.Size = new System.Drawing.Size(160, 24);
             this.comboBoxResolution.TabIndex = 50;
@@ -773,9 +787,9 @@
             this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
             this.groupBoxDirectX11.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxDirectX11.Location = new System.Drawing.Point(327, 90);
-            this.groupBoxDirectX11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDirectX11.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDirectX11.Name = "groupBoxDirectX11";
-            this.groupBoxDirectX11.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDirectX11.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxDirectX11.Size = new System.Drawing.Size(132, 80);
             this.groupBoxDirectX11.TabIndex = 71;
             this.groupBoxDirectX11.TabStop = false;
@@ -786,7 +800,7 @@
             this.checkBoxDepthOfField.AutoSize = true;
             this.checkBoxDepthOfField.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDepthOfField.Location = new System.Drawing.Point(7, 25);
-            this.checkBoxDepthOfField.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxDepthOfField.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxDepthOfField.Name = "checkBoxDepthOfField";
             this.checkBoxDepthOfField.Size = new System.Drawing.Size(111, 21);
             this.checkBoxDepthOfField.TabIndex = 72;
@@ -798,7 +812,7 @@
             this.checkBoxTessellation.AutoSize = true;
             this.checkBoxTessellation.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxTessellation.Location = new System.Drawing.Point(7, 49);
-            this.checkBoxTessellation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxTessellation.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxTessellation.Name = "checkBoxTessellation";
             this.checkBoxTessellation.Size = new System.Drawing.Size(103, 21);
             this.checkBoxTessellation.TabIndex = 73;
@@ -834,7 +848,7 @@
             "DirectX 10",
             "DirectX 11"});
             this.comboBoxDirectX.Location = new System.Drawing.Point(152, 97);
-            this.comboBoxDirectX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDirectX.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDirectX.Name = "comboBoxDirectX";
             this.comboBoxDirectX.Size = new System.Drawing.Size(160, 24);
             this.comboBoxDirectX.TabIndex = 54;
@@ -848,7 +862,7 @@
             "AAA",
             "MSAA 4X"});
             this.comboBoxAntialiasing.Location = new System.Drawing.Point(152, 133);
-            this.comboBoxAntialiasing.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxAntialiasing.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxAntialiasing.Name = "comboBoxAntialiasing";
             this.comboBoxAntialiasing.Size = new System.Drawing.Size(160, 24);
             this.comboBoxAntialiasing.TabIndex = 56;
@@ -856,7 +870,7 @@
             // spinnerFOV
             // 
             this.spinnerFOV.Location = new System.Drawing.Point(152, 239);
-            this.spinnerFOV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerFOV.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerFOV.Maximum = new decimal(new int[] {
             90,
             0,
@@ -886,7 +900,7 @@
             "High",
             "Very high"});
             this.comboBoxQuality.Location = new System.Drawing.Point(152, 62);
-            this.comboBoxQuality.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxQuality.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxQuality.Name = "comboBoxQuality";
             this.comboBoxQuality.Size = new System.Drawing.Size(160, 24);
             this.comboBoxQuality.TabIndex = 52;
@@ -901,7 +915,7 @@
             0,
             131072});
             this.spinnerGamma.Location = new System.Drawing.Point(152, 204);
-            this.spinnerGamma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerGamma.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerGamma.Maximum = new decimal(new int[] {
             145,
             0,
@@ -924,11 +938,11 @@
             // checkBoxFullscreen
             // 
             this.checkBoxFullscreen.AutoSize = true;
-            this.checkBoxFullscreen.Location = new System.Drawing.Point(20, 282);
-            this.checkBoxFullscreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxFullscreen.Location = new System.Drawing.Point(20, 302);
+            this.checkBoxFullscreen.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxFullscreen.Name = "checkBoxFullscreen";
             this.checkBoxFullscreen.Size = new System.Drawing.Size(92, 21);
-            this.checkBoxFullscreen.TabIndex = 63;
+            this.checkBoxFullscreen.TabIndex = 64;
             this.checkBoxFullscreen.Text = "Fullscreen";
             this.checkBoxFullscreen.UseVisualStyleBackColor = true;
             // 
@@ -945,11 +959,11 @@
             // checkBoxVsync
             // 
             this.checkBoxVsync.AutoSize = true;
-            this.checkBoxVsync.Location = new System.Drawing.Point(20, 331);
-            this.checkBoxVsync.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxVsync.Location = new System.Drawing.Point(20, 352);
+            this.checkBoxVsync.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxVsync.Name = "checkBoxVsync";
             this.checkBoxVsync.Size = new System.Drawing.Size(65, 21);
-            this.checkBoxVsync.TabIndex = 65;
+            this.checkBoxVsync.TabIndex = 66;
             this.checkBoxVsync.Text = "Vsync";
             this.checkBoxVsync.UseVisualStyleBackColor = true;
             // 
@@ -996,7 +1010,7 @@
             // textBoxWidth
             // 
             this.textBoxWidth.Location = new System.Drawing.Point(387, 27);
-            this.textBoxWidth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxWidth.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxWidth.Name = "textBoxWidth";
             this.textBoxWidth.ShortcutsEnabled = false;
             this.textBoxWidth.Size = new System.Drawing.Size(132, 23);
@@ -1006,7 +1020,7 @@
             // textBoxHeight
             // 
             this.textBoxHeight.Location = new System.Drawing.Point(604, 27);
-            this.textBoxHeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxHeight.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxHeight.Name = "textBoxHeight";
             this.textBoxHeight.ShortcutsEnabled = false;
             this.textBoxHeight.Size = new System.Drawing.Size(132, 23);
@@ -1035,9 +1049,9 @@
             this.tabGeneral.Controls.Add(this.groupBoxSound);
             this.tabGeneral.Controls.Add(this.groupBoxCheats);
             this.tabGeneral.Location = new System.Drawing.Point(4, 25);
-            this.tabGeneral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabGeneral.Padding = new System.Windows.Forms.Padding(4);
             this.tabGeneral.Size = new System.Drawing.Size(1052, 383);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
@@ -1074,9 +1088,9 @@
             this.groupBoxController.Controls.Add(this.spinnerControllerAimSensitivity);
             this.groupBoxController.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxController.Location = new System.Drawing.Point(731, 10);
-            this.groupBoxController.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxController.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxController.Name = "groupBoxController";
-            this.groupBoxController.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxController.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxController.Size = new System.Drawing.Size(253, 309);
             this.groupBoxController.TabIndex = 42;
             this.groupBoxController.TabStop = false;
@@ -1101,7 +1115,7 @@
             0,
             131072});
             this.spinnerControllerAimAssist.Location = new System.Drawing.Point(143, 239);
-            this.spinnerControllerAimAssist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerControllerAimAssist.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerControllerAimAssist.Maximum = new decimal(new int[] {
             1,
             0,
@@ -1127,7 +1141,7 @@
             this.checkBoxControllerEnabled.Checked = true;
             this.checkBoxControllerEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxControllerEnabled.Location = new System.Drawing.Point(11, 25);
-            this.checkBoxControllerEnabled.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxControllerEnabled.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxControllerEnabled.Name = "checkBoxControllerEnabled";
             this.checkBoxControllerEnabled.Size = new System.Drawing.Size(79, 21);
             this.checkBoxControllerEnabled.TabIndex = 43;
@@ -1143,7 +1157,7 @@
             "Left stick",
             "Right stick"});
             this.comboBoxControllerMovement.Location = new System.Drawing.Point(143, 128);
-            this.comboBoxControllerMovement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxControllerMovement.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxControllerMovement.Name = "comboBoxControllerMovement";
             this.comboBoxControllerMovement.Size = new System.Drawing.Size(99, 24);
             this.comboBoxControllerMovement.TabIndex = 49;
@@ -1178,7 +1192,7 @@
             "Preset 3",
             "Preset 4"});
             this.comboBoxControllerPreset.Location = new System.Drawing.Point(143, 57);
-            this.comboBoxControllerPreset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxControllerPreset.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxControllerPreset.Name = "comboBoxControllerPreset";
             this.comboBoxControllerPreset.Size = new System.Drawing.Size(99, 24);
             this.comboBoxControllerPreset.TabIndex = 45;
@@ -1203,7 +1217,7 @@
             "Medium",
             "Strong"});
             this.comboBoxControllerVibration.Location = new System.Drawing.Point(143, 92);
-            this.comboBoxControllerVibration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxControllerVibration.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxControllerVibration.Name = "comboBoxControllerVibration";
             this.comboBoxControllerVibration.Size = new System.Drawing.Size(99, 24);
             this.comboBoxControllerVibration.TabIndex = 47;
@@ -1227,7 +1241,7 @@
             0,
             131072});
             this.spinnerControllerSensitivity.Location = new System.Drawing.Point(143, 202);
-            this.spinnerControllerSensitivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerControllerSensitivity.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerControllerSensitivity.Maximum = new decimal(new int[] {
             290333,
             0,
@@ -1253,7 +1267,7 @@
             this.checkBoxControllerInvertYAxis.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxControllerInvertYAxis.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.checkBoxControllerInvertYAxis.Location = new System.Drawing.Point(11, 281);
-            this.checkBoxControllerInvertYAxis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxControllerInvertYAxis.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxControllerInvertYAxis.Name = "checkBoxControllerInvertYAxis";
             this.checkBoxControllerInvertYAxis.Size = new System.Drawing.Size(103, 21);
             this.checkBoxControllerInvertYAxis.TabIndex = 56;
@@ -1269,7 +1283,7 @@
             0,
             131072});
             this.spinnerControllerAimSensitivity.Location = new System.Drawing.Point(143, 165);
-            this.spinnerControllerAimSensitivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerControllerAimSensitivity.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerControllerAimSensitivity.Maximum = new decimal(new int[] {
             1,
             0,
@@ -1331,9 +1345,9 @@
             this.groupBoxGameOptions.Controls.Add(this.checkBoxLaserCrosshair);
             this.groupBoxGameOptions.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxGameOptions.Location = new System.Drawing.Point(13, 10);
-            this.groupBoxGameOptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxGameOptions.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxGameOptions.Name = "groupBoxGameOptions";
-            this.groupBoxGameOptions.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxGameOptions.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxGameOptions.Size = new System.Drawing.Size(293, 357);
             this.groupBoxGameOptions.TabIndex = 11;
             this.groupBoxGameOptions.TabStop = false;
@@ -1343,7 +1357,7 @@
             // 
             this.checkBoxCrosshair.AutoSize = true;
             this.checkBoxCrosshair.Location = new System.Drawing.Point(11, 25);
-            this.checkBoxCrosshair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxCrosshair.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxCrosshair.Name = "checkBoxCrosshair";
             this.checkBoxCrosshair.Size = new System.Drawing.Size(87, 21);
             this.checkBoxCrosshair.TabIndex = 12;
@@ -1354,7 +1368,7 @@
             // 
             this.checkBoxShowStats.AutoSize = true;
             this.checkBoxShowStats.Location = new System.Drawing.Point(11, 222);
-            this.checkBoxShowStats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxShowStats.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxShowStats.Name = "checkBoxShowStats";
             this.checkBoxShowStats.Size = new System.Drawing.Size(95, 21);
             this.checkBoxShowStats.TabIndex = 20;
@@ -1365,7 +1379,7 @@
             // 
             this.checkBoxScreenshotMode.AutoSize = true;
             this.checkBoxScreenshotMode.Location = new System.Drawing.Point(11, 197);
-            this.checkBoxScreenshotMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxScreenshotMode.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxScreenshotMode.Name = "checkBoxScreenshotMode";
             this.checkBoxScreenshotMode.Size = new System.Drawing.Size(138, 21);
             this.checkBoxScreenshotMode.TabIndex = 19;
@@ -1376,7 +1390,7 @@
             // 
             this.checkBoxHints.AutoSize = true;
             this.checkBoxHints.Location = new System.Drawing.Point(11, 98);
-            this.checkBoxHints.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxHints.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxHints.Name = "checkBoxHints";
             this.checkBoxHints.Size = new System.Drawing.Size(59, 21);
             this.checkBoxHints.TabIndex = 15;
@@ -1387,7 +1401,7 @@
             // 
             this.checkBoxSubtitles.AutoSize = true;
             this.checkBoxSubtitles.Location = new System.Drawing.Point(11, 74);
-            this.checkBoxSubtitles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxSubtitles.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxSubtitles.Name = "checkBoxSubtitles";
             this.checkBoxSubtitles.Size = new System.Drawing.Size(81, 21);
             this.checkBoxSubtitles.TabIndex = 14;
@@ -1405,7 +1419,7 @@
             "Ranger easy",
             "Ranger hardcore"});
             this.comboBoxDifficulty.Location = new System.Drawing.Point(147, 319);
-            this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDifficulty.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
             this.comboBoxDifficulty.Size = new System.Drawing.Size(137, 24);
             this.comboBoxDifficulty.TabIndex = 26;
@@ -1414,7 +1428,7 @@
             // 
             this.checkBoxSkipIntro.AutoSize = true;
             this.checkBoxSkipIntro.Location = new System.Drawing.Point(11, 172);
-            this.checkBoxSkipIntro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxSkipIntro.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxSkipIntro.Name = "checkBoxSkipIntro";
             this.checkBoxSkipIntro.Size = new System.Drawing.Size(86, 21);
             this.checkBoxSkipIntro.TabIndex = 18;
@@ -1425,7 +1439,7 @@
             // 
             this.checkBoxFastWeaponChange.AutoSize = true;
             this.checkBoxFastWeaponChange.Location = new System.Drawing.Point(11, 49);
-            this.checkBoxFastWeaponChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxFastWeaponChange.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxFastWeaponChange.Name = "checkBoxFastWeaponChange";
             this.checkBoxFastWeaponChange.Size = new System.Drawing.Size(149, 21);
             this.checkBoxFastWeaponChange.TabIndex = 13;
@@ -1436,7 +1450,7 @@
             // 
             this.checkBoxAdvancedPhysX.AutoSize = true;
             this.checkBoxAdvancedPhysX.Location = new System.Drawing.Point(11, 123);
-            this.checkBoxAdvancedPhysX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxAdvancedPhysX.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxAdvancedPhysX.Name = "checkBoxAdvancedPhysX";
             this.checkBoxAdvancedPhysX.Size = new System.Drawing.Size(134, 21);
             this.checkBoxAdvancedPhysX.TabIndex = 16;
@@ -1455,7 +1469,7 @@
             "French",
             "Italian"});
             this.comboBoxVoiceLanguage.Location = new System.Drawing.Point(147, 247);
-            this.comboBoxVoiceLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxVoiceLanguage.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxVoiceLanguage.Name = "comboBoxVoiceLanguage";
             this.comboBoxVoiceLanguage.Size = new System.Drawing.Size(137, 24);
             this.comboBoxVoiceLanguage.TabIndex = 22;
@@ -1485,7 +1499,7 @@
             "Polish",
             "Czech"});
             this.comboBoxTextLanguage.Location = new System.Drawing.Point(147, 283);
-            this.comboBoxTextLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxTextLanguage.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTextLanguage.Name = "comboBoxTextLanguage";
             this.comboBoxTextLanguage.Size = new System.Drawing.Size(137, 24);
             this.comboBoxTextLanguage.TabIndex = 24;
@@ -1514,7 +1528,7 @@
             // 
             this.checkBoxLaserCrosshair.AutoSize = true;
             this.checkBoxLaserCrosshair.Location = new System.Drawing.Point(11, 148);
-            this.checkBoxLaserCrosshair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxLaserCrosshair.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxLaserCrosshair.Name = "checkBoxLaserCrosshair";
             this.checkBoxLaserCrosshair.Size = new System.Drawing.Size(125, 21);
             this.checkBoxLaserCrosshair.TabIndex = 17;
@@ -1530,9 +1544,9 @@
             this.groupBoxMouse.Controls.Add(this.spinnerMouseAimSensitivity);
             this.groupBoxMouse.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxMouse.Location = new System.Drawing.Point(521, 10);
-            this.groupBoxMouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxMouse.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxMouse.Name = "groupBoxMouse";
-            this.groupBoxMouse.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxMouse.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxMouse.Size = new System.Drawing.Size(197, 130);
             this.groupBoxMouse.TabIndex = 36;
             this.groupBoxMouse.TabStop = false;
@@ -1542,7 +1556,7 @@
             // 
             this.checkBoxMouseInvertYAxis.AutoSize = true;
             this.checkBoxMouseInvertYAxis.Location = new System.Drawing.Point(11, 98);
-            this.checkBoxMouseInvertYAxis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxMouseInvertYAxis.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxMouseInvertYAxis.Name = "checkBoxMouseInvertYAxis";
             this.checkBoxMouseInvertYAxis.Size = new System.Drawing.Size(103, 21);
             this.checkBoxMouseInvertYAxis.TabIndex = 41;
@@ -1568,7 +1582,7 @@
             0,
             196608});
             this.spinnerMouseSensitivity.Location = new System.Drawing.Point(109, 21);
-            this.spinnerMouseSensitivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerMouseSensitivity.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerMouseSensitivity.Maximum = new decimal(new int[] {
             1905,
             0,
@@ -1607,7 +1621,7 @@
             0,
             131072});
             this.spinnerMouseAimSensitivity.Location = new System.Drawing.Point(109, 58);
-            this.spinnerMouseAimSensitivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerMouseAimSensitivity.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerMouseAimSensitivity.Maximum = new decimal(new int[] {
             9525,
             0,
@@ -1635,9 +1649,9 @@
             this.groupBoxSound.Controls.Add(this.labelMusicVolume);
             this.groupBoxSound.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxSound.Location = new System.Drawing.Point(320, 10);
-            this.groupBoxSound.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxSound.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxSound.Name = "groupBoxSound";
-            this.groupBoxSound.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxSound.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxSound.Size = new System.Drawing.Size(189, 98);
             this.groupBoxSound.TabIndex = 27;
             this.groupBoxSound.TabStop = false;
@@ -1662,7 +1676,7 @@
             0,
             131072});
             this.spinnerMusicVolume.Location = new System.Drawing.Point(115, 58);
-            this.spinnerMusicVolume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerMusicVolume.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerMusicVolume.Maximum = new decimal(new int[] {
             95,
             0,
@@ -1681,7 +1695,7 @@
             0,
             131072});
             this.spinnerMasterVolume.Location = new System.Drawing.Point(115, 21);
-            this.spinnerMasterVolume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spinnerMasterVolume.Margin = new System.Windows.Forms.Padding(4);
             this.spinnerMasterVolume.Maximum = new decimal(new int[] {
             95,
             0,
@@ -1708,9 +1722,9 @@
             this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
             this.groupBoxCheats.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxCheats.Location = new System.Drawing.Point(320, 114);
-            this.groupBoxCheats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCheats.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCheats.Name = "groupBoxCheats";
-            this.groupBoxCheats.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCheats.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxCheats.Size = new System.Drawing.Size(189, 105);
             this.groupBoxCheats.TabIndex = 32;
             this.groupBoxCheats.TabStop = false;
@@ -1720,7 +1734,7 @@
             // 
             this.checkBoxReadOnly.AutoSize = true;
             this.checkBoxReadOnly.Location = new System.Drawing.Point(13, 74);
-            this.checkBoxReadOnly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxReadOnly.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxReadOnly.Name = "checkBoxReadOnly";
             this.checkBoxReadOnly.Size = new System.Drawing.Size(153, 21);
             this.checkBoxReadOnly.TabIndex = 35;
@@ -1732,7 +1746,7 @@
             // 
             this.checkBoxUnlimitedAmmo.AutoSize = true;
             this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(13, 25);
-            this.checkBoxUnlimitedAmmo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxUnlimitedAmmo.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxUnlimitedAmmo.Name = "checkBoxUnlimitedAmmo";
             this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(127, 21);
             this.checkBoxUnlimitedAmmo.TabIndex = 33;
@@ -1743,7 +1757,7 @@
             // 
             this.checkBoxGodMode.AutoSize = true;
             this.checkBoxGodMode.Location = new System.Drawing.Point(13, 49);
-            this.checkBoxGodMode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxGodMode.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxGodMode.Name = "checkBoxGodMode";
             this.checkBoxGodMode.Size = new System.Drawing.Size(93, 21);
             this.checkBoxGodMode.TabIndex = 34;
@@ -1755,7 +1769,7 @@
             this.tabControl.Controls.Add(this.tabGeneral);
             this.tabControl.Controls.Add(this.tabVideo);
             this.tabControl.Location = new System.Drawing.Point(13, 166);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1060, 412);
@@ -1794,7 +1808,7 @@
             // 
             this.buttonReportBug.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonReportBug.Location = new System.Drawing.Point(17, 594);
-            this.buttonReportBug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonReportBug.Margin = new System.Windows.Forms.Padding(4);
             this.buttonReportBug.Name = "buttonReportBug";
             this.buttonReportBug.Size = new System.Drawing.Size(104, 28);
             this.buttonReportBug.TabIndex = 57;
@@ -1806,7 +1820,7 @@
             // 
             this.buttonDonate.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonDonate.Location = new System.Drawing.Point(129, 594);
-            this.buttonDonate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDonate.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDonate.Name = "buttonDonate";
             this.buttonDonate.Size = new System.Drawing.Size(79, 28);
             this.buttonDonate.TabIndex = 58;
@@ -1818,7 +1832,7 @@
             // 
             this.buttonOpenSavedGamesPath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonOpenSavedGamesPath.Location = new System.Drawing.Point(967, 123);
-            this.buttonOpenSavedGamesPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonOpenSavedGamesPath.Margin = new System.Windows.Forms.Padding(4);
             this.buttonOpenSavedGamesPath.Name = "buttonOpenSavedGamesPath";
             this.buttonOpenSavedGamesPath.Size = new System.Drawing.Size(100, 28);
             this.buttonOpenSavedGamesPath.TabIndex = 12;
@@ -1829,7 +1843,7 @@
             // textBoxSavedGamesPath
             // 
             this.textBoxSavedGamesPath.Location = new System.Drawing.Point(187, 126);
-            this.textBoxSavedGamesPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxSavedGamesPath.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSavedGamesPath.Name = "textBoxSavedGamesPath";
             this.textBoxSavedGamesPath.ReadOnly = true;
             this.textBoxSavedGamesPath.Size = new System.Drawing.Size(752, 23);
@@ -1850,7 +1864,7 @@
             // 
             this.buttonStartBenchmark.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonStartBenchmark.Location = new System.Drawing.Point(603, 594);
-            this.buttonStartBenchmark.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonStartBenchmark.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStartBenchmark.Name = "buttonStartBenchmark";
             this.buttonStartBenchmark.Size = new System.Drawing.Size(124, 28);
             this.buttonStartBenchmark.TabIndex = 62;
@@ -1862,7 +1876,7 @@
             // 
             this.buttonCheckForUpdates.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonCheckForUpdates.Location = new System.Drawing.Point(216, 594);
-            this.buttonCheckForUpdates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCheckForUpdates.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCheckForUpdates.Name = "buttonCheckForUpdates";
             this.buttonCheckForUpdates.Size = new System.Drawing.Size(136, 28);
             this.buttonCheckForUpdates.TabIndex = 59;
@@ -1901,7 +1915,7 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Metro2033ConfigEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -2075,6 +2089,7 @@
         private System.Windows.Forms.NumericUpDown spinnerControllerAimAssist;
         private System.Windows.Forms.Button buttonStartBenchmark;
         private System.Windows.Forms.Button buttonCheckForUpdates;
+        private System.Windows.Forms.CheckBox checkBoxMotionBlur;
     }
 }
 

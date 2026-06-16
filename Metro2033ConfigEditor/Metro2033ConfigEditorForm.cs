@@ -47,6 +47,9 @@ namespace Metro2033ConfigEditor
                 " Military-grade ammo will deplete when buying items.");
             toolTip.SetToolTip(checkBoxGodMode, "Makes you invulnerable but you will need to wear a gas mask when required.");
             toolTip.SetToolTip(spinnerFOV, "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
+            toolTip.SetToolTip(checkBoxMotionBlur, "High or Very High graphics presets automatically enable motion blur. This allows you" +
+                " to disable it (only works in DX9).\n" +
+                "For DX10/11, you need to hex-edit the executable (see https://www.pcgamingwiki.com/wiki/Metro_2033#Disable_motion_blur).");
             toolTip.SetToolTip(checkBoxFullscreen, "Uncheck to play the game in windowed mode. To play borderless fullscreen, use an" +
                 " application such as Borderless Gaming.");
             toolTip.SetToolTip(checkBoxGlobalIllumination, "Enables global illumination. It can be a performance hit or gain depending" +
@@ -152,26 +155,27 @@ namespace Metro2033ConfigEditor
             Helper.instance.AddKeysIfMissing();
 
             // Checkboxes
-            checkBoxSubtitles.Checked             = Helper.instance.Dictionary["_show_subtitles"]   == "1";
-            checkBoxFastWeaponChange.Checked      = Helper.instance.Dictionary["fast_wpn_change"]   == "1";
-            checkBoxLaserCrosshair.Checked        = Helper.instance.Dictionary["g_laser"]           == "1";
-            checkBoxHints.Checked                 = Helper.instance.Dictionary["g_quick_hints"]     == "1";
-            checkBoxCrosshair.Checked             = Helper.instance.Dictionary["g_show_crosshair"]  == "on";
-            checkBoxScreenshotMode.Checked        = Helper.instance.Dictionary["r_hud_weapon"]      == "off";
-            checkBoxShowStats.Checked             = Helper.instance.Dictionary["stats"]             == "on";
+            checkBoxSubtitles.Checked             = Helper.instance.Dictionary["_show_subtitles"]      == "1";
+            checkBoxFastWeaponChange.Checked      = Helper.instance.Dictionary["fast_wpn_change"]      == "1";
+            checkBoxLaserCrosshair.Checked        = Helper.instance.Dictionary["g_laser"]              == "1";
+            checkBoxHints.Checked                 = Helper.instance.Dictionary["g_quick_hints"]        == "1";
+            checkBoxCrosshair.Checked             = Helper.instance.Dictionary["g_show_crosshair"]     == "on";
+            checkBoxScreenshotMode.Checked        = Helper.instance.Dictionary["r_hud_weapon"]         == "off";
+            checkBoxShowStats.Checked             = Helper.instance.Dictionary["stats"]                == "on";
             checkBoxSkipIntro.Checked             = Helper.instance.IsNoIntroSkipped;
-            checkBoxUnlimitedAmmo.Checked         = Helper.instance.Dictionary["g_unlimitedammo"]   == "1";
-            checkBoxGodMode.Checked               = Helper.instance.Dictionary["g_god"]             == "1";
+            checkBoxUnlimitedAmmo.Checked         = Helper.instance.Dictionary["g_unlimitedammo"]      == "1";
+            checkBoxGodMode.Checked               = Helper.instance.Dictionary["g_god"]                == "1";
             checkBoxReadOnly.Checked              = Helper.instance.IsConfigReadOnly;
-            checkBoxMouseInvertYAxis.Checked      = Helper.instance.Dictionary["invert_y_axis"]     == "on";
+            checkBoxMouseInvertYAxis.Checked      = Helper.instance.Dictionary["invert_y_axis"]        == "on";
             checkBoxControllerEnabled.Checked     = Helper.instance.IsControllerEnabled;
-            checkBoxControllerInvertYAxis.Checked = Helper.instance.Dictionary["inv_y_controller"]  == "1";
-            checkBoxAdvancedPhysX.Checked         = Helper.instance.Dictionary["ph_advanced_physX"] == "1";
-            checkBoxDepthOfField.Checked          = Helper.instance.Dictionary["r_dx11_dof"]        == "1";
-            checkBoxTessellation.Checked          = Helper.instance.Dictionary["r_dx11_tess"]       == "1";
-            checkBoxFullscreen.Checked            = Helper.instance.Dictionary["r_fullscreen"]      == "on";
-            checkBoxGlobalIllumination.Checked    = Helper.instance.Dictionary["r_gi"]              == "1";
-            checkBoxVsync.Checked                 = Helper.instance.Dictionary["r_vsync"]           == "on";
+            checkBoxControllerInvertYAxis.Checked = Helper.instance.Dictionary["inv_y_controller"]     == "1";
+            checkBoxAdvancedPhysX.Checked         = Helper.instance.Dictionary["ph_advanced_physX"]    == "1";
+            checkBoxDepthOfField.Checked          = Helper.instance.Dictionary["r_dx11_dof"]           == "1";
+            checkBoxTessellation.Checked          = Helper.instance.Dictionary["r_dx11_tess"]          == "1";
+            checkBoxFullscreen.Checked            = Helper.instance.Dictionary["r_fullscreen"]         == "on";
+            checkBoxGlobalIllumination.Checked    = Helper.instance.Dictionary["r_gi"]                 == "1";
+            checkBoxVsync.Checked                 = Helper.instance.Dictionary["r_vsync"]              == "on";
+            checkBoxMotionBlur.Checked            = Helper.instance.Dictionary["sick_mblur"].Trim('.') == "1";
 
             // Comboboxes
             comboBoxDifficulty.Text          = Helper.instance.ConvertNumberToDifficulty(Helper.instance.Dictionary["g_game_difficulty"]);
@@ -300,6 +304,7 @@ namespace Metro2033ConfigEditor
             dictionary["r_fullscreen"]      = checkBoxFullscreen.Checked ? "on" : "off";
             dictionary["r_gi"]              = checkBoxGlobalIllumination.Checked ? "1" : "0";
             dictionary["r_vsync"]           = checkBoxVsync.Checked ? "on" : "off";
+            dictionary["sick_mblur"]        = checkBoxMotionBlur.Checked ? "1." : "0.";
 
             // Comboboxes
             dictionary["g_game_difficulty"] = Helper.instance.ConvertDifficultyToNumber(comboBoxDifficulty.Text);
@@ -452,6 +457,9 @@ namespace Metro2033ConfigEditor
 
             // Disable DX11 features in DX9/10
             groupBoxDirectX11.Enabled = comboBoxDirectX.Text == "DirectX 11";
+
+            // Disable motion blur in DX10/11
+            checkBoxMotionBlur.Enabled = comboBoxDirectX.Text == "DirectX 9";
         }
 
         private void CheckBoxReadOnly_CheckedChanged(object sender, EventArgs e)

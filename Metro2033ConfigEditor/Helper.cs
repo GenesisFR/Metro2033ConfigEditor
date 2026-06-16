@@ -176,6 +176,7 @@ namespace Metro2033ConfigEditor
             AddKeyIfMissing("s_master_volume",   "0.50");
             AddKeyIfMissing("s_music_volume",    "0.50");
             AddKeyIfMissing("sick_fov",          "45.");
+            AddKeyIfMissing("sick_mblur",        "0.");
             AddKeyIfMissing("stats",             "off");
             AddKeyIfMissing("vibration",         "3");
         }
