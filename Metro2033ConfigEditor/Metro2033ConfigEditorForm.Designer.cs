@@ -44,6 +44,7 @@
             this.textBoxSteamInstallPath = new System.Windows.Forms.TextBox();
             this.labelSteamInstallPath = new System.Windows.Forms.Label();
             this.tabVideo = new System.Windows.Forms.TabPage();
+            this.groupBoxDirectX9 = new System.Windows.Forms.GroupBox();
             this.checkBoxMotionBlur = new System.Windows.Forms.CheckBox();
             this.labelResolutionNote = new System.Windows.Forms.Label();
             this.checkBoxGlobalIllumination = new System.Windows.Forms.CheckBox();
@@ -162,6 +163,7 @@
             this.buttonStartBenchmark = new System.Windows.Forms.Button();
             this.buttonCheckForUpdates = new System.Windows.Forms.Button();
             this.tabVideo.SuspendLayout();
+            this.groupBoxDirectX9.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinnerFOV)).BeginInit();
@@ -331,7 +333,7 @@
             // tabVideo
             // 
             this.tabVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.tabVideo.Controls.Add(this.checkBoxMotionBlur);
+            this.tabVideo.Controls.Add(this.groupBoxDirectX9);
             this.tabVideo.Controls.Add(this.labelResolutionNote);
             this.tabVideo.Controls.Add(this.checkBoxGlobalIllumination);
             this.tabVideo.Controls.Add(this.groupBoxDescription);
@@ -364,17 +366,32 @@
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
             // 
+            // groupBoxDirectX9
+            // 
+            this.groupBoxDirectX9.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxDirectX9.Controls.Add(this.checkBoxMotionBlur);
+            this.groupBoxDirectX9.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBoxDirectX9.Location = new System.Drawing.Point(327, 90);
+            this.groupBoxDirectX9.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxDirectX9.Name = "groupBoxDirectX9";
+            this.groupBoxDirectX9.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxDirectX9.Size = new System.Drawing.Size(132, 52);
+            this.groupBoxDirectX9.TabIndex = 74;
+            this.groupBoxDirectX9.TabStop = false;
+            this.groupBoxDirectX9.Text = "DirectX 9";
+            // 
             // checkBoxMotionBlur
             // 
             this.checkBoxMotionBlur.AutoSize = true;
             this.checkBoxMotionBlur.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxMotionBlur.Location = new System.Drawing.Point(20, 277);
+            this.checkBoxMotionBlur.Location = new System.Drawing.Point(7, 21);
             this.checkBoxMotionBlur.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxMotionBlur.Name = "checkBoxMotionBlur";
             this.checkBoxMotionBlur.Size = new System.Drawing.Size(97, 21);
             this.checkBoxMotionBlur.TabIndex = 63;
             this.checkBoxMotionBlur.Text = "Motion blur";
             this.checkBoxMotionBlur.UseVisualStyleBackColor = false;
+            this.checkBoxMotionBlur.CheckedChanged += new System.EventHandler(this.CheckBoxMotionBlur_CheckedChanged);
             // 
             // labelResolutionNote
             // 
@@ -389,7 +406,7 @@
             // checkBoxGlobalIllumination
             // 
             this.checkBoxGlobalIllumination.AutoSize = true;
-            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(20, 327);
+            this.checkBoxGlobalIllumination.Location = new System.Drawing.Point(20, 312);
             this.checkBoxGlobalIllumination.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxGlobalIllumination.Name = "checkBoxGlobalIllumination";
             this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(142, 21);
@@ -786,7 +803,7 @@
             this.groupBoxDirectX11.Controls.Add(this.checkBoxDepthOfField);
             this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
             this.groupBoxDirectX11.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxDirectX11.Location = new System.Drawing.Point(327, 90);
+            this.groupBoxDirectX11.Location = new System.Drawing.Point(327, 150);
             this.groupBoxDirectX11.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDirectX11.Name = "groupBoxDirectX11";
             this.groupBoxDirectX11.Padding = new System.Windows.Forms.Padding(4);
@@ -938,7 +955,7 @@
             // checkBoxFullscreen
             // 
             this.checkBoxFullscreen.AutoSize = true;
-            this.checkBoxFullscreen.Location = new System.Drawing.Point(20, 302);
+            this.checkBoxFullscreen.Location = new System.Drawing.Point(20, 287);
             this.checkBoxFullscreen.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxFullscreen.Name = "checkBoxFullscreen";
             this.checkBoxFullscreen.Size = new System.Drawing.Size(92, 21);
@@ -959,7 +976,7 @@
             // checkBoxVsync
             // 
             this.checkBoxVsync.AutoSize = true;
-            this.checkBoxVsync.Location = new System.Drawing.Point(20, 352);
+            this.checkBoxVsync.Location = new System.Drawing.Point(20, 337);
             this.checkBoxVsync.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxVsync.Name = "checkBoxVsync";
             this.checkBoxVsync.Size = new System.Drawing.Size(65, 21);
@@ -1924,6 +1941,8 @@
             this.Shown += new System.EventHandler(this.Metro2033ConfigEditorForm_Shown);
             this.tabVideo.ResumeLayout(false);
             this.tabVideo.PerformLayout();
+            this.groupBoxDirectX9.ResumeLayout(false);
+            this.groupBoxDirectX9.PerformLayout();
             this.groupBoxDescription.ResumeLayout(false);
             this.groupBoxDescription.PerformLayout();
             this.groupBoxDirectX11.ResumeLayout(false);
@@ -2090,6 +2109,7 @@
         private System.Windows.Forms.Button buttonStartBenchmark;
         private System.Windows.Forms.Button buttonCheckForUpdates;
         private System.Windows.Forms.CheckBox checkBoxMotionBlur;
+        private System.Windows.Forms.GroupBox groupBoxDirectX9;
     }
 }
 
