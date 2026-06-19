@@ -390,6 +390,7 @@
             this.checkBoxMotionBlur.Size = new System.Drawing.Size(97, 21);
             this.checkBoxMotionBlur.TabIndex = 63;
             this.checkBoxMotionBlur.Text = "Motion blur";
+            this.toolTip.SetToolTip(this.checkBoxMotionBlur, resources.GetString("checkBoxMotionBlur.ToolTip"));
             this.checkBoxMotionBlur.UseVisualStyleBackColor = false;
             this.checkBoxMotionBlur.CheckedChanged += new System.EventHandler(this.CheckBoxMotionBlur_CheckedChanged);
             // 
@@ -412,6 +413,7 @@
             this.checkBoxGlobalIllumination.Size = new System.Drawing.Size(142, 21);
             this.checkBoxGlobalIllumination.TabIndex = 65;
             this.checkBoxGlobalIllumination.Text = "Global illumination";
+            this.toolTip.SetToolTip(this.checkBoxGlobalIllumination, resources.GetString("checkBoxGlobalIllumination.ToolTip"));
             this.checkBoxGlobalIllumination.UseVisualStyleBackColor = true;
             // 
             // groupBoxDescription
@@ -901,6 +903,7 @@
             this.spinnerFOV.Name = "spinnerFOV";
             this.spinnerFOV.Size = new System.Drawing.Size(160, 23);
             this.spinnerFOV.TabIndex = 62;
+            this.toolTip.SetToolTip(this.spinnerFOV, "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
             this.spinnerFOV.Value = new decimal(new int[] {
             45,
             0,
@@ -961,6 +964,8 @@
             this.checkBoxFullscreen.Size = new System.Drawing.Size(92, 21);
             this.checkBoxFullscreen.TabIndex = 64;
             this.checkBoxFullscreen.Text = "Fullscreen";
+            this.toolTip.SetToolTip(this.checkBoxFullscreen, "Uncheck to play the game in windowed mode. To play borderless fullscreen, use an " +
+        "application such as Borderless Gaming.");
             this.checkBoxFullscreen.UseVisualStyleBackColor = true;
             // 
             // labelGamma
@@ -982,6 +987,9 @@
             this.checkBoxVsync.Size = new System.Drawing.Size(65, 21);
             this.checkBoxVsync.TabIndex = 66;
             this.checkBoxVsync.Text = "Vsync";
+            this.toolTip.SetToolTip(this.checkBoxVsync, "By default, Metro 2033 apparently runs in Stereoscopic 3D mode which can have an " +
+        "impact on performance.\r\nFor some reason, enabling Vsync disables stereoscopy, th" +
+        "us boosting your framerate.");
             this.checkBoxVsync.UseVisualStyleBackColor = true;
             // 
             // labelAntialiasing
@@ -1390,6 +1398,7 @@
             this.checkBoxShowStats.Size = new System.Drawing.Size(95, 21);
             this.checkBoxShowStats.TabIndex = 20;
             this.checkBoxShowStats.Text = "Show stats";
+            this.toolTip.SetToolTip(this.checkBoxShowStats, "Displays debug information such as framerate, draw count, etc.");
             this.checkBoxShowStats.UseVisualStyleBackColor = true;
             // 
             // checkBoxScreenshotMode
@@ -1401,6 +1410,8 @@
             this.checkBoxScreenshotMode.Size = new System.Drawing.Size(138, 21);
             this.checkBoxScreenshotMode.TabIndex = 19;
             this.checkBoxScreenshotMode.Text = "Screenshot mode";
+            this.toolTip.SetToolTip(this.checkBoxScreenshotMode, "Completely hides your weapon. You can combine it with the Ranger hardcore difficu" +
+        "lty to completely hide your HUD.");
             this.checkBoxScreenshotMode.UseVisualStyleBackColor = true;
             // 
             // checkBoxHints
@@ -1450,6 +1461,7 @@
             this.checkBoxSkipIntro.Size = new System.Drawing.Size(86, 21);
             this.checkBoxSkipIntro.TabIndex = 18;
             this.checkBoxSkipIntro.Text = "Skip intro";
+            this.toolTip.SetToolTip(this.checkBoxSkipIntro, "Skips intro logos and intro cutscene.");
             this.checkBoxSkipIntro.UseVisualStyleBackColor = true;
             // 
             // checkBoxFastWeaponChange
@@ -1768,6 +1780,8 @@
             this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(127, 21);
             this.checkBoxUnlimitedAmmo.TabIndex = 33;
             this.checkBoxUnlimitedAmmo.Text = "Unlimited ammo";
+            this.toolTip.SetToolTip(this.checkBoxUnlimitedAmmo, "Gives unlimited ammo for all types of ammo, including military-grade ammo. Milita" +
+        "ry-grade ammo will deplete when buying items.");
             this.checkBoxUnlimitedAmmo.UseVisualStyleBackColor = true;
             // 
             // checkBoxGodMode
@@ -1779,6 +1793,7 @@
             this.checkBoxGodMode.Size = new System.Drawing.Size(93, 21);
             this.checkBoxGodMode.TabIndex = 34;
             this.checkBoxGodMode.Text = "God mode";
+            this.toolTip.SetToolTip(this.checkBoxGodMode, "Makes you invulnerable but you will need to wear a gas mask when required.");
             this.checkBoxGodMode.UseVisualStyleBackColor = true;
             // 
             // tabControl

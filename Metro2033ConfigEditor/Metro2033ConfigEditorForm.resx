@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>337, 0</value>
+  </metadata>
+  <data name="checkBoxMotionBlur.ToolTip" xml:space="preserve">
+    <value>High or Very High graphics presets automatically enable motion blur. This allows you to disable it (only works in DX9).
+For DX10/11, you need to hex-edit the executable (see https://www.pcgamingwiki.com/wiki/Metro_2033#Disable_motion_blur).</value>
+  </data>
+  <data name="checkBoxGlobalIllumination.ToolTip" xml:space="preserve">
+    <value>Enables global illumination. It can be a performance hit or gain depending on your CPU.
+It changes the lighting to a different system that works better with DX10/DX11 so it's not recommended if you're using DX9.
+It may also cause issues with some light sources (such as laser sights).</value>
+  </data>
   <metadata name="backgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>18, 0</value>
   </metadata>
@@ -6987,9 +6999,6 @@
         AADg4AAA4P8AAP//AAA=
 </value>
   </data>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>337, 0</value>
-  </metadata>
   <metadata name="fileSystemWatcherNoIntro.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>161, 27</value>
   </metadata>

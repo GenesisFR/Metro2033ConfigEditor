@@ -12,7 +12,6 @@ namespace Metro2033ConfigEditor
         public Metro2033ConfigEditorForm()
         {
             InitializeComponent();
-            AddTooltips();
         }
 
         private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
@@ -35,28 +34,6 @@ namespace Metro2033ConfigEditor
             }
 
             Logger.WriteToFile();
-        }
-
-        private void AddTooltips()
-        {
-            toolTip.SetToolTip(checkBoxSkipIntro, "Skips intro logos and intro cutscene.");
-            toolTip.SetToolTip(checkBoxScreenshotMode, "Completely hides your weapon. You can combine it with the Ranger hardcore" +
-                " difficulty to completely hide your HUD.");
-            toolTip.SetToolTip(checkBoxShowStats, "Displays debug information such as framerate, draw count, etc.");
-            toolTip.SetToolTip(checkBoxUnlimitedAmmo, "Gives unlimited ammo for all types of ammo, including military-grade ammo." +
-                " Military-grade ammo will deplete when buying items.");
-            toolTip.SetToolTip(checkBoxGodMode, "Makes you invulnerable but you will need to wear a gas mask when required.");
-            toolTip.SetToolTip(spinnerFOV, "Changes ingame FOV. Default FOV is 45. Below that, the main menu is cropped.");
-            toolTip.SetToolTip(checkBoxMotionBlur, "High or Very High graphics presets automatically enable motion blur. This allows you" +
-                " to disable it (only works in DX9).\n" +
-                "For DX10/11, you need to hex-edit the executable (see https://www.pcgamingwiki.com/wiki/Metro_2033#Disable_motion_blur).");
-            toolTip.SetToolTip(checkBoxFullscreen, "Uncheck to play the game in windowed mode. To play borderless fullscreen, use an" +
-                " application such as Borderless Gaming.");
-            toolTip.SetToolTip(checkBoxGlobalIllumination, "Enables global illumination. It can be a performance hit or gain depending" +
-                " on your CPU.\nIt changes the lighting to a different system that works better with DX10/DX11 so it's not recommended" +
-                " if you're using DX9.\nIt may also cause issues with some light sources (such as laser sights).");
-            toolTip.SetToolTip(checkBoxVsync, "By default, Metro 2033 apparently runs in Stereoscopic 3D mode which can have an impact" +
-                " on performance.\nFor some reason, enabling Vsync disables stereoscopy, thus boosting your framerate.");
         }
 
         private void ComboBoxQuality_SelectedLow()
@@ -455,7 +432,7 @@ namespace Metro2033ConfigEditor
             // Disable antialiasing in DX9
             comboBoxAntialiasing.Enabled = comboBoxDirectX.Text != "DirectX 9";
 
-            // Disable motion blur in DX10/11
+            // Disable DX9 features in DX10/11
             groupBoxDirectX9.Enabled = comboBoxDirectX.Text == "DirectX 9";
 
             // Disable DX11 features in DX9/10
