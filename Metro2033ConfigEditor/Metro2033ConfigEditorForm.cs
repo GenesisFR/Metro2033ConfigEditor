@@ -97,7 +97,7 @@ namespace Metro2033ConfigEditor
 
         private void ComboBoxQuality_SelectedHigh()
         {
-            labelMotionBlurValue.Text               = "Camera";
+            labelMotionBlurValue.Text               = groupBoxDirectX9.Enabled && !checkBoxMotionBlur.Checked ? "Disabled" : "Camera";
             labelSkinShadingValue.Text              = "Simple";
             labelBumpMappingValue.Text              = "Precise";
             labelSoftParticlesValue.Text            = "Enabled";
@@ -115,7 +115,7 @@ namespace Metro2033ConfigEditor
 
         private void ComboBoxQuality_SelectedVeryHigh()
         {
-            labelMotionBlurValue.Text               = "Camera + objects (DX10+)";
+            labelMotionBlurValue.Text               = groupBoxDirectX9.Enabled && !checkBoxMotionBlur.Checked ? "Disabled" : "Camera + objects (DX10+)";
             labelSkinShadingValue.Text              = "Sub-scattering";
             labelBumpMappingValue.Text              = "Precise";
             labelSoftParticlesValue.Text            = "Enabled";
@@ -455,11 +455,20 @@ namespace Metro2033ConfigEditor
             // Disable antialiasing in DX9
             comboBoxAntialiasing.Enabled = comboBoxDirectX.Text != "DirectX 9";
 
+            // Disable motion blur in DX10/11
+            groupBoxDirectX9.Enabled = comboBoxDirectX.Text == "DirectX 9";
+
             // Disable DX11 features in DX9/10
             groupBoxDirectX11.Enabled = comboBoxDirectX.Text == "DirectX 11";
 
-            // Disable motion blur in DX10/11
-            checkBoxMotionBlur.Enabled = comboBoxDirectX.Text == "DirectX 9";
+            // Update the motion blur text under Quality settings
+            ComboBoxQuality_SelectedIndexChanged(null, null);
+        }
+
+        private void CheckBoxMotionBlur_CheckedChanged(object sender, EventArgs e)
+        {
+            // Update the motion blur text under Quality settings
+            ComboBoxQuality_SelectedIndexChanged(null, null);
         }
 
         private void CheckBoxReadOnly_CheckedChanged(object sender, EventArgs e)
