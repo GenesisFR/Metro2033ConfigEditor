@@ -278,7 +278,7 @@ namespace Metro2033ConfigEditor
             return null;
         }
 
-        // Based on LibraryFolders() https://github.com/Jamedjo/RSTabExplorer/blob/master/RockSmithTabExplorer/Services/RocksmithLocator.cs#L19
+        // Based on LibraryFolders() https://github.com/andulv/RSTabExplorer/blob/master/RockSmithTabExplorer/Services/RocksmithLocator.cs#L19
         private List<string> GetSteamLibraryDirs()
         {
             List<string> steamLibDirs = new List<string>();
