@@ -119,7 +119,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\content.upk9" />
+    <None Include="Resources\content.upk_nointrofix" />
     <None Include="Resources\nox360.zip" />
   </ItemGroup>
   <ItemGroup>
