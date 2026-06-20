@@ -371,7 +371,7 @@
             this.groupBoxDirectX9.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxDirectX9.Controls.Add(this.checkBoxMotionBlur);
             this.groupBoxDirectX9.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxDirectX9.Location = new System.Drawing.Point(327, 90);
+            this.groupBoxDirectX9.Location = new System.Drawing.Point(337, 90);
             this.groupBoxDirectX9.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDirectX9.Name = "groupBoxDirectX9";
             this.groupBoxDirectX9.Padding = new System.Windows.Forms.Padding(4);
@@ -397,7 +397,7 @@
             // labelResolutionNote
             // 
             this.labelResolutionNote.AutoSize = true;
-            this.labelResolutionNote.Location = new System.Drawing.Point(327, 58);
+            this.labelResolutionNote.Location = new System.Drawing.Point(337, 58);
             this.labelResolutionNote.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResolutionNote.Name = "labelResolutionNote";
             this.labelResolutionNote.Size = new System.Drawing.Size(382, 17);
@@ -447,11 +447,11 @@
             this.groupBoxDescription.Controls.Add(this.labelAmbientOcclusion);
             this.groupBoxDescription.Controls.Add(this.labelDetailTexturing);
             this.groupBoxDescription.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxDescription.Location = new System.Drawing.Point(471, 90);
+            this.groupBoxDescription.Location = new System.Drawing.Point(491, 90);
             this.groupBoxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDescription.Name = "groupBoxDescription";
             this.groupBoxDescription.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxDescription.Size = new System.Drawing.Size(451, 267);
+            this.groupBoxDescription.Size = new System.Drawing.Size(455, 267);
             this.groupBoxDescription.TabIndex = 74;
             this.groupBoxDescription.TabStop = false;
             this.groupBoxDescription.Text = "Quality settings";
@@ -739,7 +739,7 @@
             // labelTextureFiltering
             // 
             this.labelTextureFiltering.AutoSize = true;
-            this.labelTextureFiltering.Location = new System.Drawing.Point(16, 174);
+            this.labelTextureFiltering.Location = new System.Drawing.Point(16, 172);
             this.labelTextureFiltering.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTextureFiltering.Name = "labelTextureFiltering";
             this.labelTextureFiltering.Size = new System.Drawing.Size(106, 17);
@@ -805,7 +805,7 @@
             this.groupBoxDirectX11.Controls.Add(this.checkBoxDepthOfField);
             this.groupBoxDirectX11.Controls.Add(this.checkBoxTessellation);
             this.groupBoxDirectX11.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxDirectX11.Location = new System.Drawing.Point(327, 150);
+            this.groupBoxDirectX11.Location = new System.Drawing.Point(337, 150);
             this.groupBoxDirectX11.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDirectX11.Name = "groupBoxDirectX11";
             this.groupBoxDirectX11.Padding = new System.Windows.Forms.Padding(4);
@@ -841,7 +841,7 @@
             // labelResolution
             // 
             this.labelResolution.AutoSize = true;
-            this.labelResolution.Location = new System.Drawing.Point(16, 31);
+            this.labelResolution.Location = new System.Drawing.Point(16, 29);
             this.labelResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResolution.Name = "labelResolution";
             this.labelResolution.Size = new System.Drawing.Size(75, 17);
@@ -851,7 +851,7 @@
             // labelDirectX
             // 
             this.labelDirectX.AutoSize = true;
-            this.labelDirectX.Location = new System.Drawing.Point(16, 102);
+            this.labelDirectX.Location = new System.Drawing.Point(16, 100);
             this.labelDirectX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDirectX.Name = "labelDirectX";
             this.labelDirectX.Size = new System.Drawing.Size(54, 17);
@@ -971,7 +971,7 @@
             // labelGamma
             // 
             this.labelGamma.AutoSize = true;
-            this.labelGamma.Location = new System.Drawing.Point(16, 209);
+            this.labelGamma.Location = new System.Drawing.Point(16, 207);
             this.labelGamma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGamma.Name = "labelGamma";
             this.labelGamma.Size = new System.Drawing.Size(57, 17);
@@ -995,7 +995,7 @@
             // labelAntialiasing
             // 
             this.labelAntialiasing.AutoSize = true;
-            this.labelAntialiasing.Location = new System.Drawing.Point(16, 138);
+            this.labelAntialiasing.Location = new System.Drawing.Point(16, 136);
             this.labelAntialiasing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAntialiasing.Name = "labelAntialiasing";
             this.labelAntialiasing.Size = new System.Drawing.Size(80, 17);
@@ -1005,7 +1005,7 @@
             // labelQuality
             // 
             this.labelQuality.AutoSize = true;
-            this.labelQuality.Location = new System.Drawing.Point(16, 66);
+            this.labelQuality.Location = new System.Drawing.Point(16, 64);
             this.labelQuality.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelQuality.Name = "labelQuality";
             this.labelQuality.Size = new System.Drawing.Size(52, 17);
@@ -1015,7 +1015,7 @@
             // labelFov
             // 
             this.labelFov.AutoSize = true;
-            this.labelFov.Location = new System.Drawing.Point(16, 244);
+            this.labelFov.Location = new System.Drawing.Point(16, 242);
             this.labelFov.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFov.Name = "labelFov";
             this.labelFov.Size = new System.Drawing.Size(36, 17);
@@ -1025,7 +1025,7 @@
             // labelWidth
             // 
             this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(327, 31);
+            this.labelWidth.Location = new System.Drawing.Point(337, 30);
             this.labelWidth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWidth.Name = "labelWidth";
             this.labelWidth.Size = new System.Drawing.Size(44, 17);
@@ -1034,7 +1034,7 @@
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(387, 27);
+            this.textBoxWidth.Location = new System.Drawing.Point(397, 27);
             this.textBoxWidth.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxWidth.Name = "textBoxWidth";
             this.textBoxWidth.ShortcutsEnabled = false;
@@ -1044,7 +1044,7 @@
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(604, 27);
+            this.textBoxHeight.Location = new System.Drawing.Point(614, 27);
             this.textBoxHeight.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxHeight.Name = "textBoxHeight";
             this.textBoxHeight.ShortcutsEnabled = false;
@@ -1055,7 +1055,7 @@
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(540, 31);
+            this.labelHeight.Location = new System.Drawing.Point(550, 30);
             this.labelHeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHeight.Name = "labelHeight";
             this.labelHeight.Size = new System.Drawing.Size(49, 17);
@@ -1086,7 +1086,7 @@
             this.labelControllerWarning.AutoSize = true;
             this.labelControllerWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControllerWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelControllerWarning.Location = new System.Drawing.Point(320, 338);
+            this.labelControllerWarning.Location = new System.Drawing.Point(335, 338);
             this.labelControllerWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerWarning.Name = "labelControllerWarning";
             this.labelControllerWarning.Size = new System.Drawing.Size(451, 34);
@@ -1112,7 +1112,7 @@
             this.groupBoxController.Controls.Add(this.checkBoxControllerInvertYAxis);
             this.groupBoxController.Controls.Add(this.spinnerControllerAimSensitivity);
             this.groupBoxController.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxController.Location = new System.Drawing.Point(731, 10);
+            this.groupBoxController.Location = new System.Drawing.Point(787, 10);
             this.groupBoxController.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxController.Name = "groupBoxController";
             this.groupBoxController.Padding = new System.Windows.Forms.Padding(4);
@@ -1124,7 +1124,7 @@
             // labelControllerAimAssist
             // 
             this.labelControllerAimAssist.AutoSize = true;
-            this.labelControllerAimAssist.Location = new System.Drawing.Point(7, 244);
+            this.labelControllerAimAssist.Location = new System.Drawing.Point(7, 242);
             this.labelControllerAimAssist.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerAimAssist.Name = "labelControllerAimAssist";
             this.labelControllerAimAssist.Size = new System.Drawing.Size(71, 17);
@@ -1153,7 +1153,7 @@
             // labelControllerMovement
             // 
             this.labelControllerMovement.AutoSize = true;
-            this.labelControllerMovement.Location = new System.Drawing.Point(7, 133);
+            this.labelControllerMovement.Location = new System.Drawing.Point(7, 131);
             this.labelControllerMovement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerMovement.Name = "labelControllerMovement";
             this.labelControllerMovement.Size = new System.Drawing.Size(73, 17);
@@ -1190,7 +1190,7 @@
             // labelControllerPreset
             // 
             this.labelControllerPreset.AutoSize = true;
-            this.labelControllerPreset.Location = new System.Drawing.Point(7, 62);
+            this.labelControllerPreset.Location = new System.Drawing.Point(7, 60);
             this.labelControllerPreset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerPreset.Name = "labelControllerPreset";
             this.labelControllerPreset.Size = new System.Drawing.Size(49, 17);
@@ -1200,7 +1200,7 @@
             // labelControllerSensitivity
             // 
             this.labelControllerSensitivity.AutoSize = true;
-            this.labelControllerSensitivity.Location = new System.Drawing.Point(7, 207);
+            this.labelControllerSensitivity.Location = new System.Drawing.Point(7, 205);
             this.labelControllerSensitivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerSensitivity.Name = "labelControllerSensitivity";
             this.labelControllerSensitivity.Size = new System.Drawing.Size(71, 17);
@@ -1225,7 +1225,7 @@
             // labelControllerVibration
             // 
             this.labelControllerVibration.AutoSize = true;
-            this.labelControllerVibration.Location = new System.Drawing.Point(7, 97);
+            this.labelControllerVibration.Location = new System.Drawing.Point(7, 95);
             this.labelControllerVibration.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerVibration.Name = "labelControllerVibration";
             this.labelControllerVibration.Size = new System.Drawing.Size(64, 17);
@@ -1250,7 +1250,7 @@
             // labelControllerAimSensitivity
             // 
             this.labelControllerAimSensitivity.AutoSize = true;
-            this.labelControllerAimSensitivity.Location = new System.Drawing.Point(7, 170);
+            this.labelControllerAimSensitivity.Location = new System.Drawing.Point(7, 168);
             this.labelControllerAimSensitivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelControllerAimSensitivity.Name = "labelControllerAimSensitivity";
             this.labelControllerAimSensitivity.Size = new System.Drawing.Size(96, 17);
@@ -1333,7 +1333,7 @@
             this.labelCheatsWarning.AutoSize = true;
             this.labelCheatsWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCheatsWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelCheatsWarning.Location = new System.Drawing.Point(320, 268);
+            this.labelCheatsWarning.Location = new System.Drawing.Point(335, 278);
             this.labelCheatsWarning.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCheatsWarning.Name = "labelCheatsWarning";
             this.labelCheatsWarning.Size = new System.Drawing.Size(390, 34);
@@ -1343,13 +1343,14 @@
             // 
             // labelCheatsNote
             // 
-            this.labelCheatsNote.Location = new System.Drawing.Point(320, 225);
+            this.labelCheatsNote.AutoSize = true;
+            this.labelCheatsNote.Location = new System.Drawing.Point(335, 230);
             this.labelCheatsNote.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCheatsNote.Name = "labelCheatsNote";
-            this.labelCheatsNote.Size = new System.Drawing.Size(411, 34);
+            this.labelCheatsNote.Size = new System.Drawing.Size(406, 34);
             this.labelCheatsNote.TabIndex = 41;
-            this.labelCheatsNote.Text = "Note: cheats are automatically disabled after you quit the game (unless you set t" +
-    "he file as read-only).";
+            this.labelCheatsNote.Text = "Note: cheats are automatically disabled after you quit the game\r\n(unless you set " +
+    "the file as read-only).";
             // 
             // groupBoxGameOptions
             // 
@@ -1506,7 +1507,7 @@
             // labelDifficulty
             // 
             this.labelDifficulty.AutoSize = true;
-            this.labelDifficulty.Location = new System.Drawing.Point(7, 324);
+            this.labelDifficulty.Location = new System.Drawing.Point(7, 323);
             this.labelDifficulty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDifficulty.Name = "labelDifficulty";
             this.labelDifficulty.Size = new System.Drawing.Size(61, 17);
@@ -1536,7 +1537,7 @@
             // labelVoiceLanguage
             // 
             this.labelVoiceLanguage.AutoSize = true;
-            this.labelVoiceLanguage.Location = new System.Drawing.Point(7, 252);
+            this.labelVoiceLanguage.Location = new System.Drawing.Point(7, 251);
             this.labelVoiceLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelVoiceLanguage.Name = "labelVoiceLanguage";
             this.labelVoiceLanguage.Size = new System.Drawing.Size(106, 17);
@@ -1546,7 +1547,7 @@
             // labelTextLanguage
             // 
             this.labelTextLanguage.AutoSize = true;
-            this.labelTextLanguage.Location = new System.Drawing.Point(7, 288);
+            this.labelTextLanguage.Location = new System.Drawing.Point(7, 287);
             this.labelTextLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTextLanguage.Name = "labelTextLanguage";
             this.labelTextLanguage.Size = new System.Drawing.Size(98, 17);
@@ -1572,11 +1573,11 @@
             this.groupBoxMouse.Controls.Add(this.labelMouseSensitivity);
             this.groupBoxMouse.Controls.Add(this.spinnerMouseAimSensitivity);
             this.groupBoxMouse.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxMouse.Location = new System.Drawing.Point(521, 10);
+            this.groupBoxMouse.Location = new System.Drawing.Point(557, 10);
             this.groupBoxMouse.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxMouse.Name = "groupBoxMouse";
             this.groupBoxMouse.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxMouse.Size = new System.Drawing.Size(197, 130);
+            this.groupBoxMouse.Size = new System.Drawing.Size(203, 126);
             this.groupBoxMouse.TabIndex = 36;
             this.groupBoxMouse.TabStop = false;
             this.groupBoxMouse.Text = "Mouse";
@@ -1595,7 +1596,7 @@
             // labelMouseAimSensitivity
             // 
             this.labelMouseAimSensitivity.AutoSize = true;
-            this.labelMouseAimSensitivity.Location = new System.Drawing.Point(7, 62);
+            this.labelMouseAimSensitivity.Location = new System.Drawing.Point(7, 61);
             this.labelMouseAimSensitivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMouseAimSensitivity.Name = "labelMouseAimSensitivity";
             this.labelMouseAimSensitivity.Size = new System.Drawing.Size(96, 17);
@@ -1634,7 +1635,7 @@
             // labelMouseSensitivity
             // 
             this.labelMouseSensitivity.AutoSize = true;
-            this.labelMouseSensitivity.Location = new System.Drawing.Point(7, 25);
+            this.labelMouseSensitivity.Location = new System.Drawing.Point(7, 24);
             this.labelMouseSensitivity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMouseSensitivity.Name = "labelMouseSensitivity";
             this.labelMouseSensitivity.Size = new System.Drawing.Size(71, 17);
@@ -1677,11 +1678,11 @@
             this.groupBoxSound.Controls.Add(this.spinnerMasterVolume);
             this.groupBoxSound.Controls.Add(this.labelMusicVolume);
             this.groupBoxSound.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxSound.Location = new System.Drawing.Point(320, 10);
+            this.groupBoxSound.Location = new System.Drawing.Point(335, 10);
             this.groupBoxSound.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxSound.Name = "groupBoxSound";
             this.groupBoxSound.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxSound.Size = new System.Drawing.Size(189, 98);
+            this.groupBoxSound.Size = new System.Drawing.Size(195, 94);
             this.groupBoxSound.TabIndex = 27;
             this.groupBoxSound.TabStop = false;
             this.groupBoxSound.Text = "Sound";
@@ -1689,7 +1690,7 @@
             // labelMasterVolume
             // 
             this.labelMasterVolume.AutoSize = true;
-            this.labelMasterVolume.Location = new System.Drawing.Point(7, 25);
+            this.labelMasterVolume.Location = new System.Drawing.Point(7, 24);
             this.labelMasterVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMasterVolume.Name = "labelMasterVolume";
             this.labelMasterVolume.Size = new System.Drawing.Size(100, 17);
@@ -1737,7 +1738,7 @@
             // labelMusicVolume
             // 
             this.labelMusicVolume.AutoSize = true;
-            this.labelMusicVolume.Location = new System.Drawing.Point(7, 62);
+            this.labelMusicVolume.Location = new System.Drawing.Point(7, 61);
             this.labelMusicVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMusicVolume.Name = "labelMusicVolume";
             this.labelMusicVolume.Size = new System.Drawing.Size(93, 17);
@@ -1750,11 +1751,11 @@
             this.groupBoxCheats.Controls.Add(this.checkBoxUnlimitedAmmo);
             this.groupBoxCheats.Controls.Add(this.checkBoxGodMode);
             this.groupBoxCheats.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxCheats.Location = new System.Drawing.Point(320, 114);
+            this.groupBoxCheats.Location = new System.Drawing.Point(335, 114);
             this.groupBoxCheats.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCheats.Name = "groupBoxCheats";
             this.groupBoxCheats.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxCheats.Size = new System.Drawing.Size(189, 105);
+            this.groupBoxCheats.Size = new System.Drawing.Size(195, 105);
             this.groupBoxCheats.TabIndex = 32;
             this.groupBoxCheats.TabStop = false;
             this.groupBoxCheats.Text = "Cheats";
@@ -1765,16 +1766,16 @@
             this.checkBoxReadOnly.Location = new System.Drawing.Point(13, 74);
             this.checkBoxReadOnly.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxReadOnly.Name = "checkBoxReadOnly";
-            this.checkBoxReadOnly.Size = new System.Drawing.Size(153, 21);
+            this.checkBoxReadOnly.Size = new System.Drawing.Size(177, 21);
             this.checkBoxReadOnly.TabIndex = 35;
-            this.checkBoxReadOnly.Text = "Set file as read-only";
+            this.checkBoxReadOnly.Text = "Set the file as read-only";
             this.checkBoxReadOnly.UseVisualStyleBackColor = true;
             this.checkBoxReadOnly.CheckedChanged += new System.EventHandler(this.CheckBoxReadOnly_CheckedChanged);
             // 
             // checkBoxUnlimitedAmmo
             // 
             this.checkBoxUnlimitedAmmo.AutoSize = true;
-            this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(13, 25);
+            this.checkBoxUnlimitedAmmo.Location = new System.Drawing.Point(13, 49);
             this.checkBoxUnlimitedAmmo.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxUnlimitedAmmo.Name = "checkBoxUnlimitedAmmo";
             this.checkBoxUnlimitedAmmo.Size = new System.Drawing.Size(127, 21);
@@ -1787,7 +1788,7 @@
             // checkBoxGodMode
             // 
             this.checkBoxGodMode.AutoSize = true;
-            this.checkBoxGodMode.Location = new System.Drawing.Point(13, 49);
+            this.checkBoxGodMode.Location = new System.Drawing.Point(13, 25);
             this.checkBoxGodMode.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxGodMode.Name = "checkBoxGodMode";
             this.checkBoxGodMode.Size = new System.Drawing.Size(93, 21);
