@@ -44,6 +44,8 @@
             this.textBoxSteamInstallPath = new System.Windows.Forms.TextBox();
             this.labelSteamInstallPath = new System.Windows.Forms.Label();
             this.tabVideo = new System.Windows.Forms.TabPage();
+            this.spinnerHeight = new System.Windows.Forms.NumericUpDown();
+            this.spinnerWidth = new System.Windows.Forms.NumericUpDown();
             this.groupBoxDirectX9 = new System.Windows.Forms.GroupBox();
             this.checkBoxMotionBlur = new System.Windows.Forms.CheckBox();
             this.labelResolutionNote = new System.Windows.Forms.Label();
@@ -97,8 +99,6 @@
             this.labelQuality = new System.Windows.Forms.Label();
             this.labelFov = new System.Windows.Forms.Label();
             this.labelWidth = new System.Windows.Forms.Label();
-            this.textBoxWidth = new System.Windows.Forms.TextBox();
-            this.textBoxHeight = new System.Windows.Forms.TextBox();
             this.labelHeight = new System.Windows.Forms.Label();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.labelControllerWarning = new System.Windows.Forms.Label();
@@ -163,6 +163,8 @@
             this.buttonStartBenchmark = new System.Windows.Forms.Button();
             this.buttonCheckForUpdates = new System.Windows.Forms.Button();
             this.tabVideo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerWidth)).BeginInit();
             this.groupBoxDirectX9.SuspendLayout();
             this.groupBoxDescription.SuspendLayout();
             this.groupBoxDirectX11.SuspendLayout();
@@ -333,6 +335,8 @@
             // tabVideo
             // 
             this.tabVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.tabVideo.Controls.Add(this.spinnerHeight);
+            this.tabVideo.Controls.Add(this.spinnerWidth);
             this.tabVideo.Controls.Add(this.groupBoxDirectX9);
             this.tabVideo.Controls.Add(this.labelResolutionNote);
             this.tabVideo.Controls.Add(this.checkBoxGlobalIllumination);
@@ -355,8 +359,6 @@
             this.tabVideo.Controls.Add(this.labelQuality);
             this.tabVideo.Controls.Add(this.labelFov);
             this.tabVideo.Controls.Add(this.labelWidth);
-            this.tabVideo.Controls.Add(this.textBoxWidth);
-            this.tabVideo.Controls.Add(this.textBoxHeight);
             this.tabVideo.Controls.Add(this.labelHeight);
             this.tabVideo.Location = new System.Drawing.Point(4, 25);
             this.tabVideo.Margin = new System.Windows.Forms.Padding(4);
@@ -365,6 +367,54 @@
             this.tabVideo.Size = new System.Drawing.Size(1052, 383);
             this.tabVideo.TabIndex = 1;
             this.tabVideo.Text = "Video";
+            // 
+            // spinnerHeight
+            // 
+            this.spinnerHeight.Location = new System.Drawing.Point(564, 27);
+            this.spinnerHeight.Margin = new System.Windows.Forms.Padding(4);
+            this.spinnerHeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.spinnerHeight.Minimum = new decimal(new int[] {
+            600,
+            0,
+            0,
+            0});
+            this.spinnerHeight.Name = "spinnerHeight";
+            this.spinnerHeight.Size = new System.Drawing.Size(83, 23);
+            this.spinnerHeight.TabIndex = 69;
+            this.spinnerHeight.Value = new decimal(new int[] {
+            600,
+            0,
+            0,
+            0});
+            this.spinnerHeight.ValueChanged += new System.EventHandler(this.SpinnerResolution_ValueChanged);
+            // 
+            // spinnerWidth
+            // 
+            this.spinnerWidth.Location = new System.Drawing.Point(397, 27);
+            this.spinnerWidth.Margin = new System.Windows.Forms.Padding(4);
+            this.spinnerWidth.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.spinnerWidth.Minimum = new decimal(new int[] {
+            800,
+            0,
+            0,
+            0});
+            this.spinnerWidth.Name = "spinnerWidth";
+            this.spinnerWidth.Size = new System.Drawing.Size(83, 23);
+            this.spinnerWidth.TabIndex = 67;
+            this.spinnerWidth.Value = new decimal(new int[] {
+            800,
+            0,
+            0,
+            0});
+            this.spinnerWidth.ValueChanged += new System.EventHandler(this.SpinnerResolution_ValueChanged);
             // 
             // groupBoxDirectX9
             // 
@@ -766,7 +816,6 @@
             this.comboBoxResolution.Items.AddRange(new object[] {
             "800 x 600",
             "960 x 720",
-            "1024 x 576",
             "1024 x 768",
             "1152 x 648",
             "1152 x 864",
@@ -1032,30 +1081,10 @@
             this.labelWidth.TabIndex = 66;
             this.labelWidth.Text = "Width";
             // 
-            // textBoxWidth
-            // 
-            this.textBoxWidth.Location = new System.Drawing.Point(397, 27);
-            this.textBoxWidth.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxWidth.Name = "textBoxWidth";
-            this.textBoxWidth.ShortcutsEnabled = false;
-            this.textBoxWidth.Size = new System.Drawing.Size(132, 23);
-            this.textBoxWidth.TabIndex = 67;
-            this.textBoxWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxResolution_KeyPress);
-            // 
-            // textBoxHeight
-            // 
-            this.textBoxHeight.Location = new System.Drawing.Point(614, 27);
-            this.textBoxHeight.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxHeight.Name = "textBoxHeight";
-            this.textBoxHeight.ShortcutsEnabled = false;
-            this.textBoxHeight.Size = new System.Drawing.Size(132, 23);
-            this.textBoxHeight.TabIndex = 69;
-            this.textBoxHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxResolution_KeyPress);
-            // 
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(550, 30);
+            this.labelHeight.Location = new System.Drawing.Point(500, 30);
             this.labelHeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHeight.Name = "labelHeight";
             this.labelHeight.Size = new System.Drawing.Size(49, 17);
@@ -1957,6 +1986,8 @@
             this.Shown += new System.EventHandler(this.Metro2033ConfigEditorForm_Shown);
             this.tabVideo.ResumeLayout(false);
             this.tabVideo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinnerWidth)).EndInit();
             this.groupBoxDirectX9.ResumeLayout(false);
             this.groupBoxDirectX9.PerformLayout();
             this.groupBoxDescription.ResumeLayout(false);
@@ -2058,8 +2089,6 @@
         private System.Windows.Forms.Label labelQuality;
         private System.Windows.Forms.Label labelFov;
         private System.Windows.Forms.Label labelWidth;
-        private System.Windows.Forms.TextBox textBoxWidth;
-        private System.Windows.Forms.TextBox textBoxHeight;
         private System.Windows.Forms.Label labelHeight;
         private System.Windows.Forms.TabPage tabGeneral;
         private System.Windows.Forms.GroupBox groupBoxSound;
@@ -2126,6 +2155,8 @@
         private System.Windows.Forms.Button buttonCheckForUpdates;
         private System.Windows.Forms.CheckBox checkBoxMotionBlur;
         private System.Windows.Forms.GroupBox groupBoxDirectX9;
+        private System.Windows.Forms.NumericUpDown spinnerWidth;
+        private System.Windows.Forms.NumericUpDown spinnerHeight;
     }
 }
 

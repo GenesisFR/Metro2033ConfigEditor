@@ -884,7 +884,7 @@ namespace Metro2033ConfigEditor
             // Formats round figures like 1.0 as 1. (+ number of decimals)
             // 0 decimals: 1.0 -> 1.
             // 3 decimals: 1.0 -> 1.000
-            if (number % (decimal)1.0 == (decimal)0.0)
+            if (number % 1.0m == 0.0m)
                 return $"{number.ToString($"F{decimals}")}.";
             else
                 return number.ToString();

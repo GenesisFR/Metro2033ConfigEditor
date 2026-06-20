@@ -154,6 +154,19 @@ namespace Metro2033ConfigEditor
             checkBoxVsync.Checked                 = Helper.instance.Dictionary["r_vsync"]              == "on";
             checkBoxMotionBlur.Checked            = Helper.instance.Dictionary["sick_mblur"].Trim('.') == "1";
 
+            // Spinners
+            spinnerMasterVolume.Value             = Decimal.TryParse(Helper.instance.Dictionary["s_master_volume"], out decimal result) ? result : 0.50m;
+            spinnerMusicVolume.Value              = Decimal.TryParse(Helper.instance.Dictionary["s_music_volume"],          out result) ? result : 0.50m;
+            spinnerMouseSensitivity.Value         = Decimal.TryParse(Helper.instance.Dictionary["mouse_sens"],              out result) ? result : 0.4m;
+            spinnerMouseAimSensitivity.Value      = Decimal.TryParse(Helper.instance.Dictionary["mouse_aim_sens"],          out result) ? result : 0.208m;
+            spinnerControllerSensitivity.Value    = Decimal.TryParse(Helper.instance.Dictionary["joy_sens_x"],              out result) ? result : 1m;
+            spinnerControllerAimSensitivity.Value = Decimal.TryParse(Helper.instance.Dictionary["joy_sens_aiming_x"],       out result) ? result : 0.4m;
+            spinnerControllerAimAssist.Value      = Decimal.TryParse(Helper.instance.Dictionary["aim_assist"],              out result) ? result : 1m;
+            spinnerGamma.Value                    = Decimal.TryParse(Helper.instance.Dictionary["r_gamma"],                 out result) ? result : 1024m;
+            spinnerFOV.Value                      = Decimal.TryParse(Helper.instance.Dictionary["sick_fov"],                out result) ? result : 45m;
+            spinnerWidth.Value                    = Decimal.TryParse(Helper.instance.Dictionary["r_res_hor"],               out result) ? result : 1024m;
+            spinnerHeight.Value                   = Decimal.TryParse(Helper.instance.Dictionary["r_res_vert"],              out result) ? result : 768m;
+
             // Comboboxes
             comboBoxDifficulty.Text          = Helper.instance.ConvertNumberToDifficulty(Helper.instance.Dictionary["g_game_difficulty"]);
             comboBoxVoiceLanguage.Text       = Helper.instance.ConvertCodeToLanguage(Helper.instance.Dictionary["lang_sound"]);
@@ -165,39 +178,8 @@ namespace Metro2033ConfigEditor
             comboBoxDirectX.Text             = Helper.instance.ConvertNumberToDirectX(Helper.instance.Dictionary["r_api"]);
             comboBoxAntialiasing.Text        = Helper.instance.ConvertNumberToAntialiasing(Helper.instance.Dictionary["r_msaa_level"]);
             comboBoxQuality.Text             = Helper.instance.ConvertNumberToQualityLevel(Helper.instance.Dictionary["r_quality_level"]);
-            string resolution                = $"{Helper.instance.Dictionary["r_res_hor"]} x {Helper.instance.Dictionary["r_res_vert"]}";
+            string resolution                = $"{spinnerWidth.Value} x {spinnerHeight.Value}";
             comboBoxResolution.Text          = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
-
-            // Spinners
-            try
-            {
-                spinnerMasterVolume.Value             = Decimal.Parse(Helper.instance.Dictionary["s_master_volume"]);
-                spinnerMusicVolume.Value              = Decimal.Parse(Helper.instance.Dictionary["s_music_volume"]);
-                spinnerMouseSensitivity.Value         = Decimal.Parse(Helper.instance.Dictionary["mouse_sens"]);
-                spinnerMouseAimSensitivity.Value      = Decimal.Parse(Helper.instance.Dictionary["mouse_aim_sens"]);
-                spinnerControllerSensitivity.Value    = Decimal.Parse(Helper.instance.Dictionary["joy_sens_x"]);
-                spinnerControllerAimSensitivity.Value = Decimal.Parse(Helper.instance.Dictionary["joy_sens_aiming_x"]);
-                spinnerControllerAimAssist.Value      = Decimal.Parse(Helper.instance.Dictionary["aim_assist"]);
-                spinnerGamma.Value                    = Decimal.Parse(Helper.instance.Dictionary["r_gamma"]);
-                spinnerFOV.Value                      = Decimal.Parse(Helper.instance.Dictionary["sick_fov"]);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Exception: {ex.Message}\n\nSetting default values for volume, sensitivity, aim assist, gamma and FOV.",
-                    "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                spinnerMasterVolume.Value             = 0.50m;
-                spinnerMusicVolume.Value              = 0.50m;
-                spinnerMouseSensitivity.Value         = 0.4m;
-                spinnerMouseAimSensitivity.Value      = 0.208m;
-                spinnerControllerSensitivity.Value    = 1m;
-                spinnerControllerAimSensitivity.Value = 0.4m;
-                spinnerControllerAimAssist.Value      = 1m;
-                spinnerGamma.Value                    = 1m;
-                spinnerFOV.Value                      = 45m;
-
-                Logger.WriteInformation<Helper>(ex.Message);
-            }
         }
 
         private void RefreshUI()
@@ -304,11 +286,9 @@ namespace Metro2033ConfigEditor
             dictionary["joy_sens_aiming_x"] = Helper.instance.FormatDecimalNumber(spinnerControllerAimSensitivity.Value);
             dictionary["aim_assist"]        = Helper.instance.FormatDecimalNumber(spinnerControllerAimAssist.Value);
             dictionary["r_gamma"]           = Helper.instance.FormatDecimalNumber(spinnerGamma.Value);
+            dictionary["r_res_hor"]         = spinnerWidth.Value.ToString();
+            dictionary["r_res_vert"]        = spinnerHeight.Value.ToString();
             dictionary["sick_fov"]          = Helper.instance.FormatDecimalNumber(spinnerFOV.Value);
-
-            // Textboxes
-            dictionary["r_res_hor"]  = textBoxWidth.Text;
-            dictionary["r_res_vert"] = textBoxHeight.Text;
         }
 
         // Event handlers
@@ -401,18 +381,15 @@ namespace Metro2033ConfigEditor
             if (comboBoxResolution.Text != "Custom resolution")
             {
                 string[] splitResolution = comboBoxResolution.Text.Split(new string[] { " x " }, StringSplitOptions.None);
-                textBoxWidth.Text        = splitResolution[0];
-                textBoxHeight.Text       = splitResolution[1];
+                spinnerWidth.Value = Decimal.Parse(splitResolution[0]);
+                spinnerHeight.Value = Decimal.Parse(splitResolution[1]);
             }
-            else
-            {
-                textBoxWidth.Text = Helper.instance.Dictionary["r_res_hor"];
-                textBoxHeight.Text = Helper.instance.Dictionary["r_res_vert"];
+        }
 
-                // Automatically give focus to the width textbox when necessary
-                if (comboBoxResolution.Focused)
-                    textBoxWidth.Focus();
-            }
+        private void SpinnerResolution_ValueChanged(object sender, EventArgs e)
+        {
+            string resolution = $"{spinnerWidth.Value} x {spinnerHeight.Value}";
+            comboBoxResolution.Text = comboBoxResolution.Items.Contains(resolution) ? resolution : "Custom resolution";
         }
 
         private void ComboBoxQuality_SelectedIndexChanged(object sender, EventArgs e)
@@ -451,15 +428,6 @@ namespace Metro2033ConfigEditor
         private void CheckBoxReadOnly_CheckedChanged(object sender, EventArgs e)
         {
             labelCheatsWarning.Visible = checkBoxReadOnly.Checked;
-        }
-
-        private void TextBoxResolution_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // User can type digits only
-            if (e.KeyChar == (char)Keys.Enter || !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
-            else
-                comboBoxResolution.SelectedItem = "Custom resolution";
         }
 
         private void ButtonReportBug_Click(object sender, EventArgs e)
