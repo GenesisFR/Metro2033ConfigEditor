@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Metro2033ConfigEditor
@@ -12,6 +13,9 @@ namespace Metro2033ConfigEditor
         public Metro2033ConfigEditorForm()
         {
             InitializeComponent();
+
+            Version localVersion = Assembly.GetEntryAssembly().GetName().Version;
+            this.Text = $"Metro 2033 Config Editor v{localVersion.Major}.{localVersion.Minor}";
         }
 
         private void Metro2033ConfigEditorForm_Shown(object sender, EventArgs e)
